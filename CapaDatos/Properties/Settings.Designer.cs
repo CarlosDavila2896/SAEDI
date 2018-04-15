@@ -26,7 +26,7 @@ namespace CapaDatos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=208.91.198.174;Initial Catalog=Sembrar2;User ID=adminSAEDI; Password=SAEDI.2018*;Name=EntityFramework")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;Name=EntityFramework")]
         public string SembrarConnectionString {
             get {
                 return ((string)(this["SembrarConnectionString"]));
@@ -36,7 +36,7 @@ namespace CapaDatos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=208.91.198.174;Initial Catalog=Sembrar2;User ID=adminSAEDI; Password=SAEDI.2018*;Application Name=EntityFramework")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;Application Name=EntityFramework")]
         public string Sembrar2ConnectionString {
             get {
                 return ((string)(this["Sembrar2ConnectionString"]));
@@ -46,7 +46,7 @@ namespace CapaDatos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=208.91.198.174;Initial Catalog=Sembrar2;User ID=adminSAEDI; Password=SAEDI.2018*;Application Name=EntityFramework")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;Application Name=EntityFramework")]
         public string Sembrar2ConnectionString1 {
             get {
                 return ((string)(this["Sembrar2ConnectionString1"]));

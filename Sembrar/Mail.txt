@@ -1,0 +1,1 @@
+﻿Hola <%UserName%> tu contraseña es: <%Password%>

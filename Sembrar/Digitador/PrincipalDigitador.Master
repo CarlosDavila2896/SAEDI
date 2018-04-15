@@ -1,0 +1,125 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PrincipalDigitador.Master.cs" Inherits="Sembrar.Digitador.PrincipalAdministrador" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fundación Sembrar | Digitador</title>
+    <link rel="icon" type="image/gif/png" href="../Imagenes/logo_home.jpg" />
+    <!-- Referencia de Fuentes y Hojas de CSS  -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,600,700" rel="stylesheet" />
+    <link rel="stylesheet" href="../Estilos/estilosMaster.css" />
+    <link rel="stylesheet" href="../Estilos/font-awesome.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style type="text/css">
+        .auto-style1 {
+            width: 11px;
+        }
+        .auto-style2 {
+            width: 11px;
+            height: 50px;
+        }
+        .auto-style3 {
+            height: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header id="header" class="auto-style7">
+            <nav>
+                <div class="logo">
+                    <a href="Inicio.aspx">
+                        <img src="../Imagenes/logo_home.jpg" alt="" /></a>
+                </div>
+                <ul>
+                    <li><a href="../Digitador/Inicio.aspx"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a></li>                                      
+                    <li><a>Individuos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a>Niño<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Digitador/frmIngresarNinio.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Agregar</a></li>
+                                    <li><a href="../Digitador/frmActualizarNinio.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Joven<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Digitador/frmIngresarJoven.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Agregar</a></li>
+                                    <li><a href="../Digitador/frmActualizarJoven.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Adulto<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Digitador/frmIngresarAdulto.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Agregar</a></li>
+                                    <li><a href="../Digitador/frmActualizarAdulto.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../Digitador/frmEliminarPersona.aspx"><i class="fa fa-minus" aria-hidden="true"></i>Eliminar</a></li>
+                            <li><a href="../Digitador/frmVerPersonas.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Ver</a></li>
+                            <li><a href="../Digitador/frmManejoMatriculas.aspx">Matriculación<i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </li>
+                    <li><a>Familias<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a a href="../Digitador/frmIngresarFamilia.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Crear Familia</a></li>
+                            <li><a a href="../Digitador/frmAsiginarFamilia.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Asignar Familia - Individuos</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Formularios/Fichas<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="../Digitador/frmResponderCuestionario.aspx"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Responder</a></li>
+                            <li><a href="../Digitador/frmModificarCuestionario.aspx"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modificar/Eliminar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <br />
+            <br />
+            <br />
+            <table class="main">
+                <tr>
+                    <td class="auto-style2"></td>
+                    <td class="auto-style3"></td>
+                    <td class="auto-style3" colspan="2"></td>
+                    <td class="auto-style3"></td>
+                    <td class="auto-style3"></td>
+                    <td class="auto-style3">
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LoginText="Iniciar Sesión" LogoutAction="RedirectToLoginPage" LogoutPageUrl="~/Login.aspx" LogoutText="Cerrar Sesión" Width="100px" />
+                        <br />
+                        <br />
+                        <asp:HyperLink ID="hlMiPerfil" runat="server" NavigateUrl="~/Digitador/frmMiPerfil.aspx" Width="100px">Mi Perfil</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">&nbsp;</td>
+                    <td colspan="2" style="vertical-align: top; text-align: inherit; border-width: medium; border-spacing: 5px" class="auto-style9">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                    <td colspan="2" style="vertical-align: top; text-align: inherit; border-width: medium; table-layout: auto; border-spacing: 5px">&nbsp;</td>
+                    <td class="auto-style15" style="vertical-align: top">
+                        <asp:AdRotator ID="AdRotator1" runat="server" DataSourceID="xdsAds" Width="200px" />
+                    </td>
+                    <td class="auto-style1" style="vertical-align: top">
+                        <asp:XmlDataSource ID="xdsAds" runat="server" DataFile="~/AdInfo.xml"></asp:XmlDataSource>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">&nbsp;</td>
+                    <td class="auto-style4"></td>
+                    <td class="auto-style17" colspan="2">&nbsp;</td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,123 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using CapaNegocio;
+using System.Transactions;
+
+namespace CapaDatos
+{
+    public class clsDSolucionCuestionario
+    {
+        public bool D_guardarRespuestaCuestionario(clsNSolucionCuestionario nuevaSolucion)
+        {
+            try
+            {
+                using (MERSembrarDataContext db = new MERSembrarDataContext())
+                {
+                    SOLUCIONCUESTIONARIO solucioncuestionario = new SOLUCIONCUESTIONARIO();
+                    solucioncuestionario.IDPROCESO = nuevaSolucion.IDPROCESO;
+                    solucioncuestionario.IDOBJETIVO = nuevaSolucion.IDOBJETIVO;
+                    solucioncuestionario.IDINDICADOR = nuevaSolucion.IDINDICADOR;
+                    solucioncuestionario.IDPREGUNTA = nuevaSolucion.IDPREGUNTA;
+                    solucioncuestionario.IDPERSONA = nuevaSolucion.IDPERSONA;
+                    solucioncuestionario.IDPERIODO = nuevaSolucion.IDPERIODO;
+                    solucioncuestionario.FECHASOLUCIONCUESTIONARIO = nuevaSolucion.FECHASOLUCIONCUESTIONARIO.Date;
+                    solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
+
+                    db.SOLUCIONCUESTIONARIO.InsertOnSubmit(solucioncuestionario);
+                    db.SubmitChanges();
+
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool D_modificarRespuestaCuestionario(clsNSolucionCuestionario nuevaSolucion)
+        {
+            try
+            {
+                using (MERSembrarDataContext db = new MERSembrarDataContext())
+                {
+                    SOLUCIONCUESTIONARIO solucioncuestionario = db.SOLUCIONCUESTIONARIO.Where(s => s.IDSOLUCIONCUESTIONARIO == nuevaSolucion.IDSOLUCION).First();
+                    solucioncuestionario.FECHAMODIFICACIONCUESTIONARIO = nuevaSolucion.FECHAMODIFICACIONCUESTIONARIO;
+                    solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
+                    
+                    db.SubmitChanges();
+
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public List<clsNSolucionCuestionario> D_obtenerlistaRespuestas(int idPersona, int idProceso, int idPeriodo)
+        {
+            try
+            {
+                using (MERSembrarDataContext db = new MERSembrarDataContext())
+                {
+                    DateTime FechaMax = new DateTime();
+
+                    FechaMax = (from fecha in db.SOLUCIONCUESTIONARIO
+                              where fecha.IDPERSONA == idPersona && fecha.IDPROCESO == idProceso && fecha.IDPERIODO ==idPeriodo
+                              select fecha.FECHASOLUCIONCUESTIONARIO).Max();
+
+                    List<clsNSolucionCuestionario> listaRespuestas = (from res in db.SOLUCIONCUESTIONARIO
+                                           where res.FECHASOLUCIONCUESTIONARIO == FechaMax && res.IDPERSONA == idPersona && res.IDPERIODO == idPeriodo && res.IDPROCESO == idProceso
+                                           select res).Select(s => new clsNSolucionCuestionario()
+                                           {
+                                               IDSOLUCION = s.IDSOLUCIONCUESTIONARIO,
+                                               IDPROCESO = s.IDPROCESO,
+                                               IDPERIODO = s.IDPERIODO,
+                                               IDINDICADOR = s.IDINDICADOR,
+                                               IDOBJETIVO = s.IDOBJETIVO,
+                                               IDPERSONA = s.IDPERSONA,
+                                               IDPREGUNTA = s.IDPREGUNTA,
+                                               FECHASOLUCIONCUESTIONARIO = s.FECHASOLUCIONCUESTIONARIO,
+                                               TEXTOSOLUCIONCUESTIONARIO = s.TEXTOSOLUCIONCUESTIONARIO
+                                           }).ToList();
+
+                    return listaRespuestas;
+                    
+                }
+            }
+            catch
+            {
+                return new List<clsNSolucionCuestionario>();
+            }
+        }
+
+        public bool D_eliminarRespuestaCuestionario(List<clsNSolucionCuestionario> respuestas)
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                try
+                {
+                    using (MERSembrarDataContext db = new MERSembrarDataContext())
+                    {
+                        foreach(clsNSolucionCuestionario respuesta in respuestas)
+                        {
+                            SOLUCIONCUESTIONARIO eliminarRespuesta = db.SOLUCIONCUESTIONARIO.Where(s => s.IDSOLUCIONCUESTIONARIO == respuesta.IDSOLUCION).First();
+                            db.SOLUCIONCUESTIONARIO.DeleteOnSubmit(eliminarRespuesta);
+                            db.SubmitChanges();
+                        }
+                    }
+                    trans.Complete();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+    }
+}

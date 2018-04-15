@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements xmlns="http://schemas.microsoft.com/AspNet/AdRotator-Schedul-Fil">
+  <Ad>
+    <ImageUrl>~/Imagenes/1.png</ImageUrl>
+    <NavigateUrl>http://www.fundacionsembrar.ec/</NavigateUrl>
+    <AlternateText>Fundación Sembrar</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/Imagenes/2.jpg</ImageUrl>
+    <NavigateUrl>http://www.fundacionsembrar.ec/</NavigateUrl>
+    <AlternateText>Fundación Sembrar</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/Imagenes/3.jpg</ImageUrl>
+    <NavigateUrl>http://www.fundacionsembrar.ec/</NavigateUrl>
+    <AlternateText>Fundación Sembrar</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/Imagenes/4.jpg</ImageUrl>
+    <NavigateUrl>http://www.fundacionsembrar.ec/</NavigateUrl>
+    <AlternateText>Fundación Sembrar</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/Imagenes/5.jpg</ImageUrl>
+    <NavigateUrl>http://www.fundacionsembrar.ec/</NavigateUrl>
+    <AlternateText>Fundación Sembrar</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/Imagenes/6.jpg</ImageUrl>
+    <NavigateUrl>http://www.fundacionsembrar.ec/</NavigateUrl>
+    <AlternateText>Fundación Sembrar</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/Imagenes/7.jpg</ImageUrl>
+    <NavigateUrl>http://www.fundacionsembrar.ec/</NavigateUrl>
+    <AlternateText>Fundación Sembrar</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/Imagenes/8.jpg</ImageUrl>
+    <NavigateUrl>http://www.fundacionsembrar.ec/</NavigateUrl>
+    <AlternateText>Fundación Sembrar</AlternateText>
+  </Ad>
+</Advertisements>

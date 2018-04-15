@@ -1,0 +1,152 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PrincipalTecnico.Master.cs" Inherits="Sembrar.Tecnico.PrincipalEducador" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fundación Sembrar | Administrador</title>
+    <link rel="icon" type="image/gif/png" href="../Imagenes/logo_home.jpg" />
+    <!-- Referencia de Fuentes y Hojas de CSS  -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,600,700" rel="stylesheet" />
+    <link rel="stylesheet" href="../Estilos/estilosMaster.css" />
+    <link rel="stylesheet" href="../Estilos/font-awesome.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header id="header" class="auto-style7">
+            <nav>
+                <div class="logo">
+                    <a href="Inicio.aspx">
+                        <img src="../Imagenes/logo_home.jpg" alt="" /></a>
+                </div>
+                <ul>
+                    <li><a href="../Tecnico/Inicio.aspx"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a></li>
+
+                    <li><a>Parametrizacion<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="../Tecnico/frmManejoTipoPersona.aspx">Manejo de Tipos de Persona<i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            </li>
+                            <li><a href="../Tecnico/frmManejoLineasAccion.aspx">Manejo de Líneas de Acción<i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            </li>
+                            <li><a href="../Tecnico/frmManejoProcesos.aspx">Manejo de Procesos<i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            </li>
+                            <li><a href="../Tecnico/frmManejoObjetivos.aspx">Manejo de Objetivos<i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            </li>
+                            <li><a href="../Tecnico/frmManejoIndicadores.aspx">Manejo de Indicadores<i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            </li>
+                            <li><a href="../Tecnico/frmManejoPreguntas.aspx">Manejo de Preguntas<i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            </li>
+                            <li><a href="../Tecnico/frmManejoRespuestas.aspx">Manejo de Respuestas<i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a>Individuos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a>Niño<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Tecnico/frmActualizarNinio.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Modificar</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Joven<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Tecnico/frmActualizarJoven.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Modificar</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Adulto<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Tecnico/frmActualizarAdulto.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Modificar</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../Tecnico/frmEliminarPersona.aspx"><i class="fa fa-minus" aria-hidden="true"></i>Eliminar</a></li>
+                            <li><a href="../Tecnico/frmVerPersonas.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Ver</a></li>
+                            <li><a href="../Tecnico/frmManejoMatriculas.aspx">Matriculación<i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </li>
+                    <li><a>Familias<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a>Parentesco<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Tecnico/frmActualizarParentesco.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                                    <li><a href="../Tecnico/frmEliminarParentesco.aspx"><i class="fa fa-minus" aria-hidden="true"></i>Eliminar</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a>Reuniones<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="../Tecnico/frmActualizarReunion.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Asistencia<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a>Reuniones<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Tecnico/frmActualizarAsistencia.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                               </ul>
+                            </li>
+                            <li><a>Diaria<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Tecnico/frmActualizarAsistenciaDiaria.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li><a>Manejo de Usuarios<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="../Tecnico/frmManejoUsuarios.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <br />
+            <br />
+            <br />
+            <table class="main">
+                <tr>
+                    <td class="auto-style12"></td>
+                    <td class="auto-style16"></td>
+                    <td class="auto-style17" colspan="2">&nbsp;</td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style16">
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LoginText="Iniciar Sesión" LogoutAction="RedirectToLoginPage" LogoutPageUrl="~/Login.aspx" LogoutText="Cerrar Sesión" Width="100px" />
+                        <br />
+                        <br />
+                        <asp:HyperLink ID="hlMiPerfil" runat="server" NavigateUrl="~/Tecnico/frmMiPerfil.aspx" Width="100px">Mi Perfil</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style11">&nbsp;</td>
+                    <td colspan="2" style="vertical-align: top; text-align: inherit; border-width: medium; border-spacing: 5px" class="auto-style9">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                    <td colspan="2" style="vertical-align: top; text-align: inherit; border-width: medium; table-layout: auto; border-spacing: 5px">&nbsp;</td>
+                    <td class="auto-style15" style="vertical-align: top">
+                        <asp:AdRotator ID="AdRotator1" runat="server" DataSourceID="xdsAds" Width="200px" />
+                    </td>
+                    <td class="auto-style1" style="vertical-align: top">
+                        <asp:XmlDataSource ID="xdsAds" runat="server" DataFile="~/AdInfo.xml"></asp:XmlDataSource>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style12">&nbsp;</td>
+                    <td class="auto-style4"></td>
+                    <td class="auto-style17" colspan="2">&nbsp;</td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
+

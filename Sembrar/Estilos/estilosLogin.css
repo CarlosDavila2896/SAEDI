@@ -1,0 +1,121 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+}
+
+.menu_bar {
+    display: none;
+}
+
+header {
+    position: fixed;
+    background: #ffffff;
+    font-family: 'Nunito Sans', sans-serif;
+    width: 100%;
+    font-size: 18px;
+    top: 0;
+}
+
+nav {
+    z-index: 1000;
+    width: 95%;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    nav .logo {
+        display: inline-block;
+    }
+
+        nav .logo img {
+            padding-top: 5px;
+            vertical-align: central;
+            height: 100px;
+        }
+
+header nav ul {
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+}
+
+    header nav ul a:hover {
+        color: #26b669;
+        display: list-item;
+    }
+
+    header nav ul i {
+        margin-right: 5px;
+        margin-left: 2px;
+    }
+
+    header nav ul li {
+        display: inline-block;
+        position: relative;
+        border-bottom: 1px solid rgba(255,255,255,.5);
+    }
+
+        header nav ul li a {
+            color: #494747;
+            display: block;
+            text-decoration: none;
+            padding: 1em;
+            text-align: center;
+        }
+
+        header nav ul li:hover > ul {
+            display: block;
+        }
+
+        header nav ul li ul {
+            display: none;
+            position: absolute;
+            z-index: 1000;
+            width:120px;
+            background: rgb(206, 206, 206);
+        }
+        header nav ul li ul li{
+            width:100%;
+            align-items:center;
+        }
+
+            header nav ul li ul li i {
+                margin-right: 5px;
+            }
+
+            header nav ul li ul li:hover > ul {
+                display: list-item;
+            }
+
+            header nav ul li ul li ul li {
+                position: relative;
+                width:120px;
+                background: #26b669;
+                border-bottom: 1px solid rgba(255,255,255,.5);
+            }
+
+            header nav ul li ul li ul {
+                display:none;
+                top: 0px;
+                right: -120px;
+            }
+
+.main {
+    width: 70%;
+    max-width: 950px;
+    margin: 110px auto;
+    background: #ffffff;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.75);
+}

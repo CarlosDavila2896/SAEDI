@@ -1,0 +1,160 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PrincipalOrientador.master.cs" Inherits="Sembrar.Orientador.PrincipalOrientador" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Fundación Sembrar | Orientador</title>
+    <link rel="icon" type="image/gif/png" href="../Imagenes/logo_home.jpg"/>
+    <!-- Referencia de Fuentes y Hojas de CSS  -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,600,700" rel="stylesheet" />
+    <link href="../Estilos/estilosMasterSecundarios.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../Estilos/font-awesome.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header id="header">
+            <nav>
+                <div class="logo">
+                    <a href="Inicio.aspx">
+                        <img src="../Imagenes/logo_home.jpg" alt="" /></a>
+                </div>
+                <ul>                   
+                    <li><a href="../Orientador/Inicio.aspx"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a></li>                                      
+                     <li><a>Individuos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a>Niño<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Orientador/frmIngresarNinio.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Agregar</a></li>
+                                    <li><a href="../Orientador/frmActualizarNinio.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Joven<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Orientador/frmIngresarJoven.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Agregar</a></li>
+                                    <li><a href="../Orientador/frmActualizarJoven.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Adulto<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Orientador/frmIngresarAdulto.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Agregar</a></li>
+                                    <li><a href="../Orientador/frmActualizarAdulto.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../Orientador/frmVerPersonas.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Ver</a></li> 
+                            <li><a href="../Orientador/frmManejoMatriculas.aspx">Matriculación<i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </li>
+                    <li><a>Familias<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a a href="../Orientador/frmIngresarFamilia.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Crear Familia</a></li>
+                            <li><a a href="../Orientador/frmAsiginarFamilia.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Asignar Familia - Individuos</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Reuniones<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="../Orientador/frmIngresarReunion.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Crear</a></li>
+                            <li><a href="../Orientador/frmActualizarReunion.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Asistencia<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a>Reuniones<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Orientador/frmIngresarAsistencia.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Ingresar</a></li>
+                                    <li><a href="../Orientador/frmActualizarAsistencia.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                               </ul>
+                            </li>
+                            <li><a>Diaria<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul>
+                                    <li><a href="../Orientador/frmIngresarAsistenciaDiaria.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Ingresar</a></li>
+                                    <li><a href="../Orientador/frmActualizarAsistenciaDiaria.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a>Formulario/Fichas<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="../Orientador/frmResponderCuestionario.aspx"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Responder</a></li>
+                            <li><a href="../Orientador/frmModificarCuestionario.aspx"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modificar/Eliminar</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Reportes<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                         <ul>
+                            <li><a href="../Orientador/frmReporteGenericoTodos.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Parametrizable</a></li>
+                            <li><a href="../Orientador/frmReportePreguntasCerradas.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Preguntas Cerradas</a></li>
+                            <li><a href="../Orientador/frmReporteAsistenciaAnual.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Anual</a></li>
+                            <li><a href="../Orientador/frmReporteAsistenciaAnualReunion.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Anual Reuniones</a></li>                            
+                            <li><a href="../Orientador/frmReporteAsistenciaMensual.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Mensual</a></li>
+                            <li><a href="../Orientador/frmReporteAsistenciaRango.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Por Rango</a></li>
+                            <li><a href="../Orientador/frmReporteAsistenciaPorPersona.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Reporte Asistencia Mensual</a></li>                            
+                            <li><a href="../Orientador/frmReporteAsistenciaDiaria.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Diaria</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <table class="main" style="width: 100%;">
+               <tr>
+                    <td class="auto-style8">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="auto-style1">
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LoginText="Iniciar Sesión" LogoutAction="RedirectToLoginPage" LogoutPageUrl="~/Login.aspx" LogoutText="Cerrar Sesión" />
+                    <p></p>
+                         <asp:HyperLink ID="hlMiPerfil" runat="server" NavigateUrl="~/Orientador/frmMiPerfil.aspx" Width="100px">Mi Perfil</asp:HyperLink>
+                    
+                    </td>
+                    <td class="auto-style1">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"></td>
+                    <td class="auto-style2" style="vertical-align: top">&nbsp;</td>
+                    <td class="auto-style2" style="vertical-align: top">&nbsp;</td>
+                    <td colspan="2" rowspan="2" style="vertical-align: top; text-align: inherit; table-layout: auto; border-spacing: 5px">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                    <td rowspan="2">
+                        <asp:AdRotator ID="AdRotator1" runat="server" DataSourceID="xdsAds" Width="200px" />
+                        <asp:XmlDataSource ID="xdsAds" runat="server" DataFile="~/AdInfo.xml"></asp:XmlDataSource>
+                    </td>
+                    <td rowspan="2">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style5"></td>
+                    <td class="auto-style5" style="vertical-align: top">&nbsp;</td>
+                    <td class="auto-style5" style="vertical-align: top">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style3"></td>
+                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style4"></td>
+                    <td class="auto-style6"></td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

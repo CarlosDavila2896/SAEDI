@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PrincipalLogin.master.cs" Inherits="Sembrar.PrincipalLogin" %>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fundación Sembrar | Ingresar</title>
+    <link rel="icon" type="image/gif/png" href="Imagenes/logo_home.jpg"/>
+    <!-- Referencia de Fuentes y Hojas de CSS  -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,600,700" rel="stylesheet" />
+    <link rel="stylesheet" href="Estilos/estilosLogin.css" />
+    <link rel="stylesheet" href="Estilos/font-awesome.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style11 {
+            width: 200px;
+        }
+        .auto-style13 {
+            width: 872px;
+        }
+        .auto-style14 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header id="header">
+            <nav>
+                <div class="logo">
+                    <a href="Login.aspx">
+                        <img src="Imagenes/logo_home.jpg" alt="" /></a>
+                </div>
+                <ul>
+                    <li><a href="Login.aspx"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <table class="main" style="width: 100%;">
+                <tr>
+                    <td class="auto-style11">&nbsp;</td>
+                    <td colspan="3" class="auto-style14" >
+                        <asp:Login ID="Login1" runat="server" Height="40px" LoginButtonText="Iniciar Sesión" Orientation="Horizontal" RememberMeText="Recordar mis datos" UserNameLabelText="Usuario:" Width="981px" OnLoggedIn="Login1_LoggedIn" DisplayRememberMe="False" FailureText="Usuario o contraseña incorrecta. Vuelva a intentarlo" TitleText="">
+                        </asp:Login>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="auto-style13">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2" rowspan="3">&nbsp;</td>
+                    <td rowspan="2" class="auto-style13">                 
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                    &nbsp;</td>
+                    <td rowspan="2">
+                        <asp:AdRotator ID="AdRotator1" runat="server" DataSourceID="xdsAds" Width="200px" />
+                        <asp:XmlDataSource ID="xdsAds" runat="server" DataFile="~/AdInfo.xml"></asp:XmlDataSource>
+                        &nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style13">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+
+
+        </div>
+    </form>
+</body>
+</html>

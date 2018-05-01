@@ -9,12 +9,12 @@ namespace CapaNegocio
     public class clsasignarfamilia
     {
         //------ddlFamilia----
-        private string parentezco;
+        private string parentesco;
 
-        public string Parentezco
+        public string Parentesco
         {
-            get { return parentezco; }
-            set { parentezco = value; }
+            get { return parentesco; }
+            set { parentesco = value; }
         }
 
         private int codigoParentezco;

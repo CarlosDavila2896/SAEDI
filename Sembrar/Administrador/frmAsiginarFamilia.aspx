@@ -48,7 +48,7 @@
         </tr>
         <tr>
             <td class="auto-style7">
-                <asp:Label ID="Label5" runat="server" Text="Seleccionar Parentezco Individuo"></asp:Label>
+                <asp:Label ID="Label5" runat="server" Text="Seleccionar Parentesco Individuo"></asp:Label>
             </td>
             <td class="auto-style8">
                 <asp:DropDownList ID="ddlParentezco" runat="server" DataSourceID="odsParentezco" DataTextField="NOMBREPARENTEZCO" DataValueField="IDPARENTEZCO" AutoPostBack="True">

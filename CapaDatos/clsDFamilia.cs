@@ -155,6 +155,8 @@ namespace CapaDatos
                 using (MERSembrarDataContext db = new MERSembrarDataContext())
                 {
                     FAMILIA familia = db.FAMILIA.Single(f => f.IDFAMILIA == familiaModificada.IDFAMILIA);
+                    familia.NOMBREFAMILIA = familiaModificada.NOMBREFAMILIA;
+                    familia.DIRECCIONFAMILIA = familiaModificada.DIRECCIONFAMILIA;
                     familia.OBSERVACIONFAMILIA = familiaModificada.OBSERVACIONFAMILIA;
                     familia.MIEMBROSFAMILIA = familiaModificada.MIEMBROSFAMILIA;
                     db.SubmitChanges();

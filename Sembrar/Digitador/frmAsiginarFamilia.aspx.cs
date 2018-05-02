@@ -61,7 +61,7 @@ namespace Sembrar.Digitador
                 gvFamilia.DataKeyNames = new string[] { "IDPERSONA" };
                 gvFamilia.DataBind();
 
-                ddlRepresentante.DataSource = objDPersona.consultarIndividuos(nuevaLista).Where(p => p.FECHANACIMIENTOPERSONA.Value.Year>=DateTime.Now.Year-13).Select(p => new { ID = p.IDPERSONA, NOMBRE = p.PRIMERNOMBREPERSONA + " " + p.SEGUNDONOMBREPERSONA + " " + p.PRIMERAPELLIDOPERSONA + " " + p.SEGUNDOAPELLIDOPERSONA }).OrderBy(a => a.NOMBRE).ToList();
+                ddlRepresentante.DataSource = objDPersona.consultarIndividuos(nuevaLista).Where(p => p.FECHANACIMIENTOPERSONA.Value.Year<=DateTime.Now.Year-13).Select(p => new { ID = p.IDPERSONA, NOMBRE = p.PRIMERNOMBREPERSONA + " " + p.SEGUNDONOMBREPERSONA + " " + p.PRIMERAPELLIDOPERSONA + " " + p.SEGUNDOAPELLIDOPERSONA }).OrderBy(a => a.NOMBRE).ToList();
                 ddlRepresentante.DataTextField = "NOMBRE";
                 ddlRepresentante.DataValueField = "ID";
                 ddlRepresentante.DataBind();

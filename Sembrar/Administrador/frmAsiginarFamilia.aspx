@@ -5,6 +5,34 @@
             height: 82px;
         }
     </style>
+    <script type="text/javascript">
+        function habilitarTextBox() {
+            // Get the checkbox
+            var checkBox = document.getElementById("ckhEditarNombre");
+            // Get the output text
+            var text = document.getElementById('<%=txtNombreFamlia.ClientID%>');
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true) {
+                text.disabled = false;
+            } else {
+                text.disabled = true;
+            }
+        }
+        function habilitarAreaTextBox() {
+            // Get the checkbox
+            var checkBox = document.getElementById("ckhEditarDireccion");
+            // Get the output text
+            var text = document.getElementById('<%=txtDireccion.ClientID%>');
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true) {
+                text.disabled = false;
+            } else {
+                text.disabled = true;
+            }
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%;">
@@ -26,6 +54,18 @@
             <td class="auto-style9"></td>
             <td class="auto-style10"></td>
             <td class="auto-style11"></td>
+        </tr>
+        <tr>
+            <td class="auto-style9">Nombre de la Familia:</td>
+            <td class="auto-style10">
+                <asp:TextBox ID="txtNombreFamlia" runat="server" Width="187px" Enabled="false"></asp:TextBox>
+                <input id="ckhEditarNombre" name="Editar" type="checkbox" value="Editar" onclick="habilitarTextBox()"/>Editar</td>
+            <td class="auto-style11">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style9">&nbsp;</td>
+            <td class="auto-style10">&nbsp;</td>
+            <td class="auto-style11">&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style7">
@@ -131,6 +171,20 @@
                 <asp:Label ID="lblMiembros" runat="server"></asp:Label>
             </td>
             <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style8">
+                &nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Dirección de la familia:</td>
+            <td class="auto-style8">
+                <asp:TextBox ID="txtDireccion" runat="server" Height="60px" TextMode="MultiLine" Width="254px" Enabled="False"></asp:TextBox>
+            </td>
+            <td>
+                <input id="ckhEditarDireccion" name="Editar0" type="checkbox" value="Editar" onclick="habilitarAreaTextBox()"/>Editar</td>
         </tr>
         <tr>
             <td class="auto-style7">&nbsp;</td>

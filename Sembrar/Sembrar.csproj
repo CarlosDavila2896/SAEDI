@@ -77,6 +77,7 @@
     <Content Include="Administrador\frmActualizarAsistencia.aspx" />
     <Content Include="Administrador\frmActualizarAsistenciaDiaria.aspx" />
     <Content Include="Administrador\frmActualizarParentesco.aspx" />
+    <Content Include="Administrador\frmActualizarPeriodo.aspx" />
     <Content Include="Administrador\frmActualizarReunion.aspx" />
     <Content Include="Administrador\frmAsiginarFamilia.aspx" />
     <Content Include="Administrador\bin\CapaDatos.dll" />
@@ -3185,6 +3186,13 @@
     </Compile>
     <Compile Include="Administrador\frmActualizarParentesco.aspx.designer.cs">
       <DependentUpon>frmActualizarParentesco.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\frmActualizarPeriodo.aspx.cs">
+      <DependentUpon>frmActualizarPeriodo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\frmActualizarPeriodo.aspx.designer.cs">
+      <DependentUpon>frmActualizarPeriodo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\frmActualizarReunion.aspx.cs">
       <DependentUpon>frmActualizarReunion.aspx</DependentUpon>

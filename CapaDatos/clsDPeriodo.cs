@@ -121,7 +121,101 @@ namespace CapaDatos
             }
         }
 
+        public object consultaPeriodosActualizar()
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                try
+                {
+                    var reu = from r in db.PERIODO
+                              where r.ESTADOPERIODO == true && r.IDTIPOPERIODO==1 
+                              select new
+                              {
+                                  NOMBRE = r.NOMBREPERIODO,
+                                  ID = r.IDPERIODO
+                              };
 
+                    return reu.Distinct().ToList().OrderBy(a => a.NOMBRE).ToList();
+
+                }
+                catch
+                {
+                    return new List<REUNION>();
+                }
+            }
+        }
+
+
+        public DateTime cargarFechaInicio(int id)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                var reu = (from r in db.PERIODO
+
+                           where r.IDPERIODO == id
+                           select new
+                           {
+                               FECHA = r.FECHAINICIOPERIODO
+
+                           }).FirstOrDefault().FECHA;
+                return reu;
+            }
+        }
+
+
+        public DateTime cargarFechaFin(int id)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                var reu = (from r in db.PERIODO
+
+                           where r.IDPERIODO == id
+                           select new
+                           {
+                               FECHA = r.FECHAFINPERIODO
+
+                           }).FirstOrDefault().FECHA;
+                return reu.Value;
+            }
+        }
+
+        public string cargarNombre(int id)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                var reu = (from r in db.PERIODO
+
+                           where r.IDPERIODO == id
+                           select new
+                           {
+                               NOMBRE = r.NOMBREPERIODO
+
+                           }).FirstOrDefault().NOMBRE;
+                return reu.ToString();
+            }
+        }
+
+        public bool actualizarPeriodo(int id, string nombre, DateTime fechainicio, DateTime fechafin)
+        {
+            using (MERSembrarDataContext bd = new MERSembrarDataContext())
+            {
+                try
+                {
+                    PERIODO reu = bd.PERIODO.First(r => r.IDPERIODO == id);
+                    reu.FECHAFINPERIODO = fechainicio;
+                    reu.FECHAINICIOPERIODO = fechafin;
+                    reu.NOMBREPERIODO = nombre;
+                    bd.SubmitChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+
+                }
+            }
+
+        }
 
         public bool ingresarPeriodo2(clsNPeriodo objPeriodo)
         {

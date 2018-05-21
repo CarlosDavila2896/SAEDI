@@ -108,6 +108,7 @@ namespace CapaDatos
         {
             using (MERSembrarDataContext db = new MERSembrarDataContext())
             {
+                db.ObjectTrackingEnabled = false;
                 return db.CUESTIONARIO.Where(p => p.IDPROCESO == idProceso).Select(o => o.OBJETIVO).Distinct().ToList();
             }
         }
@@ -120,6 +121,15 @@ namespace CapaDatos
                 return db.CUESTIONARIO.Where(p => p.IDPROCESO == idProceso && p.IDOBJETIVO==idObjetivo).Select(o => o.INDICADOR).Distinct().ToList();
             }
         }
+        public List<INDICADOR> D_consultaIndicadoresCuestionarioAResolver(int idProceso, List<int> idObjetivos)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                db.ObjectTrackingEnabled = false;
+                return db.CUESTIONARIO.Where(p => p.IDPROCESO == idProceso && idObjetivos.Contains(p.IDOBJETIVO)).Select(o => o.INDICADOR).Distinct().ToList();
+            }
+        }
+
 
         //Consulta de lista de preguntas
         public List<PREGUNTA> D_consultaPreguntasCuestionarioAResolver(int idProceso, int idObjetivo, int idIndicador)
@@ -127,6 +137,24 @@ namespace CapaDatos
             using (MERSembrarDataContext db = new MERSembrarDataContext())
             {
                 return db.CUESTIONARIO.Where(p => p.IDPROCESO == idProceso && p.IDOBJETIVO == idObjetivo && p.IDINDICADOR==idIndicador).Select(o => o.PREGUNTA).ToList();
+            }
+        }
+
+        public List<PREGUNTA> D_consultaPreguntasCuestionarioAResolver(int idProceso, List<int> idObjetivos, List<int> idIndicadores)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                db.ObjectTrackingEnabled = false;
+                return db.CUESTIONARIO.Where(p => p.IDPROCESO == idProceso && idObjetivos.Contains(p.IDOBJETIVO) && idIndicadores.Contains(p.IDINDICADOR)).Select(o => o.PREGUNTA).ToList();
+            }
+        }
+
+        public List<PREGUNTASCONPOSIBLESRESPUESTAS> D_consultaPreguntasRespuestasCuestionarioAResolver(List<int> idPreguntas)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                db.ObjectTrackingEnabled = false;
+                return db.PREGUNTASCONPOSIBLESRESPUESTAS.Where(p => idPreguntas.Contains(p.IDPREGUNTA)).ToList();
             }
         }
 
@@ -138,7 +166,16 @@ namespace CapaDatos
                 return db.PREGUNTASCONPOSIBLESRESPUESTAS.Where(p => p.IDPREGUNTA == idPregunta).Select(o => o.POSIBLERESPUESTA).ToList();
             }
         }
-        
+
+        public List<POSIBLERESPUESTA> D_consultaRespuestasCuestionarioAResolver(List<int> idPreguntas)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                db.ObjectTrackingEnabled = false;
+                return db.PREGUNTASCONPOSIBLESRESPUESTAS.Where(p => idPreguntas.Contains(p.IDPREGUNTA)).Select(o => o.POSIBLERESPUESTA).ToList();
+            }
+        }
+
 
         //Consulta de preguntas de un proceso para presentar el cuestionario
         public object D_consultaPreguntasCuestionarioAResolver(int idProceso)

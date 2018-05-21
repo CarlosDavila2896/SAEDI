@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CapaDatos;
 using CapaNegocio;
+using System.Transactions;
 
 namespace Sembrar.Orientador
 {
@@ -15,21 +16,20 @@ namespace Sembrar.Orientador
         clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
         clsDSolucionCuestionario objDSolucionCuestionario = new clsDSolucionCuestionario();
         int idProceso, idObjetivo, idIndicador, idPeriodo, idPersona;
+        DateTime fechaSolucion;
         Table Cuestionario;
+
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Web.Security.MembershipUser logUser = System.Web.Security.Membership.GetUser(User.Identity.Name);
-            CapaNegocio.clsOrientador usuario = new CapaNegocio.clsOrientador();
-            CapaDatos.clsDOrientador objDatosPerfil = new CapaDatos.clsDOrientador();
-            usuario = objDatosPerfil.D_consultarOrientador(logUser.UserName.ToString());
-            Session["id"] = usuario.IDOrientador1;
-
-            if (Page.IsPostBack)
+            if (!IsPostBack)
             {
-                
+                ViewState["cargarCuestionario"] = false;
 
+            }
+            if ((bool)ViewState["cargarCuestionario"])
+            {
                 generarCuestionario();
             }
         }
@@ -46,6 +46,7 @@ namespace Sembrar.Orientador
             TableCell celdatabla;
             TextBox textboxRespuesta;
             RadioButtonList listaRespuestas;
+            CheckBoxList listaRespuestasMultiples;
 
             //Atributos cuestionario
             tablaCuestionario.Width = Unit.Percentage(100);
@@ -62,7 +63,7 @@ namespace Sembrar.Orientador
                 filatabla = new TableRow();
                 celdatabla = new TableCell();
                 celdatabla.Width = Unit.Percentage(100);
-                if (obj.NOMBREOBJETIVO != "No Aplica" && obj.NOMBREOBJETIVO != "No aplica")
+                if (obj.NOMBREOBJETIVO != "No Aplica" && obj.NOMBREOBJETIVO != "No aplica" && obj.NOMBREOBJETIVO != "NO APLICA")
                 {
                     celdatabla.Text = obj.NOMBREOBJETIVO;
                 }
@@ -85,7 +86,7 @@ namespace Sembrar.Orientador
                     filatabla = new TableRow();
                     celdatabla = new TableCell();
                     celdatabla.Width = Unit.Percentage(100);
-                    if (ind.NOMBREINDICADOR != "No Aplica" && ind.NOMBREINDICADOR != "No aplica")
+                    if (ind.NOMBREINDICADOR != "No Aplica" && ind.NOMBREINDICADOR != "No aplica" && ind.NOMBREINDICADOR != "NO APLICA")
                     {
                         celdatabla.Text = ind.NOMBREINDICADOR;
                     }
@@ -148,6 +149,33 @@ namespace Sembrar.Orientador
                             celdatabla.Controls.Add(textboxRespuesta);
                             celdatabla.HorizontalAlign = HorizontalAlign.Left;
                         }
+                        //Preguta Abierta Extendida
+                        else if (pre.IDTIPOPREGUNTA == 3)
+                        {
+                            textboxRespuesta = new TextBox();
+                            textboxRespuesta.ID = "txtPregunta" + pre.IDPREGUNTA + "-" + cont;
+                            textboxRespuesta.ClientIDMode = ClientIDMode.Static;
+                            textboxRespuesta.TextMode = TextBoxMode.MultiLine;
+                            celdatabla.Controls.Add(textboxRespuesta);
+                            celdatabla.HorizontalAlign = HorizontalAlign.Left;
+                        }
+                        //Pregunta respuesta multiple
+                        else if (pre.IDTIPOPREGUNTA == 4)
+                        {
+                            List<CapaDatos.POSIBLERESPUESTA> consultaRespuestas = objDcuestionario.D_consultaRespuestasCuestionarioAResolver(pre.IDPREGUNTA);
+
+                            //Lista de radio buttons
+                            listaRespuestasMultiples = new CheckBoxList();
+                            listaRespuestasMultiples.ID = "chkPregunta" + pre.IDPREGUNTA + "-" + cont;
+                            listaRespuestasMultiples.ClientIDMode = ClientIDMode.Static;
+                            listaRespuestasMultiples.RepeatDirection = RepeatDirection.Horizontal;
+                            listaRespuestasMultiples.CellSpacing = 10;
+                            foreach (CapaDatos.POSIBLERESPUESTA resp in consultaRespuestas)
+                            {
+                                listaRespuestasMultiples.Items.Add(new ListItem(resp.TEXTOPOSIBLERESPUESTA, resp.IDPOSIBLERESPUESTA.ToString()));
+                            }
+                            celdatabla.Controls.Add(listaRespuestasMultiples);
+                        }
                         filatabla.Cells.Add(celdatabla);
                         tablaCuestionario.Rows.Add(filatabla);
                         cont++;
@@ -163,44 +191,61 @@ namespace Sembrar.Orientador
 
         private void solucionar2()
         {
-            Cuestionario = (Table)pnlCuestionario.Controls[0];
-
-            foreach (TableRow filaTabla in Cuestionario.Rows)
+            using (TransactionScope trans = new TransactionScope())
             {
-                foreach (TableCell celdaTabla in filaTabla.Cells)
+                Cuestionario = (Table)pnlCuestionario.Controls[0];
+
+                foreach (TableRow filaTabla in Cuestionario.Rows)
                 {
-                    if (celdaTabla.ID != null && celdaTabla.ID.StartsWith("idObjetivo"))
+                    foreach (TableCell celdaTabla in filaTabla.Cells)
                     {
-                        string id = celdaTabla.ID.Remove(0, 10);
-                        idObjetivo = int.Parse(id.Substring(0, id.LastIndexOf("-")));
-                    }
-                    else if (celdaTabla.ID != null && celdaTabla.ID.StartsWith("idIndicador"))
-                    {
-                        string id = celdaTabla.ID.Remove(0, 11);
-                        idIndicador = int.Parse(id.Substring(0, id.LastIndexOf("-")));
-                    }
-                    else
-                    {
-                        foreach (Control controlTabla in celdaTabla.Controls)
+                        if (celdaTabla.ID != null && celdaTabla.ID.StartsWith("idObjetivo"))
                         {
-                            if (controlTabla is TextBox && controlTabla.ID.StartsWith("txtPregunta"))
+                            string id = celdaTabla.ID.Remove(0, 10);
+                            idObjetivo = int.Parse(id.Substring(0, id.LastIndexOf("-")));
+                        }
+                        else if (celdaTabla.ID != null && celdaTabla.ID.StartsWith("idIndicador"))
+                        {
+                            string id = celdaTabla.ID.Remove(0, 11);
+                            idIndicador = int.Parse(id.Substring(0, id.LastIndexOf("-")));
+                        }
+                        else
+                        {
+                            foreach (Control controlTabla in celdaTabla.Controls)
                             {
-                                TextBox tempTextBox = (TextBox)controlTabla;
-                                string id = tempTextBox.ID.Remove(0, 11);
-                                guardarSolucion(int.Parse(id.Substring(0, id.LastIndexOf("-"))), tempTextBox.Text);
-                            }
-                            else if (controlTabla is RadioButtonList && controlTabla.ID.StartsWith("rblPregunta"))
-                            {
-                                RadioButtonList tempRadioButtonList = (RadioButtonList)controlTabla;
-                                string id = tempRadioButtonList.ID.Remove(0, 11);
-                                guardarSolucion(int.Parse(id.Substring(0, id.LastIndexOf("-"))), tempRadioButtonList.Items.FindByValue(tempRadioButtonList.SelectedValue).Text);
+                                if (controlTabla is TextBox && controlTabla.ID.StartsWith("txtPregunta"))
+                                {
+                                    TextBox tempTextBox = (TextBox)controlTabla;
+                                    string id = tempTextBox.ID.Remove(0, 11);
+                                    guardarSolucion(int.Parse(id.Substring(0, id.LastIndexOf("-"))), tempTextBox.Text);
+                                }
+                                else if (controlTabla is RadioButtonList && controlTabla.ID.StartsWith("rblPregunta"))
+                                {
+                                    RadioButtonList tempRadioButtonList = (RadioButtonList)controlTabla;
+                                    string id = tempRadioButtonList.ID.Remove(0, 11);
+                                    guardarSolucion(int.Parse(id.Substring(0, id.LastIndexOf("-"))), tempRadioButtonList.Items.FindByValue(tempRadioButtonList.SelectedValue).Text);
+                                }
+                                else if (controlTabla is CheckBoxList && controlTabla.ID.StartsWith("chkPregunta"))
+                                {
+                                    CheckBoxList tempCheckBoxList = (CheckBoxList)controlTabla;
+                                    string id = tempCheckBoxList.ID.Remove(0, 11);
+                                    foreach (ListItem opcion in tempCheckBoxList.Items)
+                                    {
+                                        if (opcion.Selected)
+                                        {
+                                            guardarSolucion(int.Parse(id.Substring(0, id.LastIndexOf("-"))), opcion.Text);
+                                        }
+                                    }
+                                }
                             }
                         }
+
                     }
 
                 }
-
+                trans.Complete();
             }
+
         }
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,18 +267,17 @@ namespace Sembrar.Orientador
 
         protected void btnGenerar_Click(object sender, EventArgs e)
         {
+            generarCuestionario();
             btnIngresar.Visible = true;
-        }
-
-        protected void odsIndividuos_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
-        {
-
+            ViewState["cargarCuestionario"] = true;
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
             try
             {
+
+
                 idProceso = int.Parse(ddlProceso.SelectedValue);
                 idPeriodo = int.Parse(ddlPeriodo.SelectedValue);
                 if (lstIndividuos.SelectedIndex < 0)

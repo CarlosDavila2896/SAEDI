@@ -119,5 +119,30 @@ namespace CapaDatos
                 }
             }
         }
+
+        public bool D_eliminarRespuestaMultiplesCuestionario(List<clsNSolucionCuestionario> respuestas)
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                try
+                {
+                    using (MERSembrarDataContext db = new MERSembrarDataContext())
+                    {
+                        foreach (clsNSolucionCuestionario respuesta in respuestas)
+                        {
+                            List<SOLUCIONCUESTIONARIO> eliminarRespuestas = db.SOLUCIONCUESTIONARIO.Where(s => s.IDSOLUCIONCUESTIONARIO == respuesta.IDSOLUCION && s.CUESTIONARIO.PREGUNTA.IDTIPOPREGUNTA==4).ToList();
+                            db.SOLUCIONCUESTIONARIO.DeleteAllOnSubmit(eliminarRespuestas);
+                            db.SubmitChanges();
+                        }
+                    }
+                    trans.Complete();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

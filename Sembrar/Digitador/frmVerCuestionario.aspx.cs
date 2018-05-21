@@ -22,7 +22,12 @@ namespace Sembrar.Digitador
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.IsPostBack)
+            if (!IsPostBack)
+            {
+                ViewState["cargarCuestionario"] = false;
+
+            }
+            if ((bool)ViewState["cargarCuestionario"])
             {
                 generarCuestionario();
             }
@@ -117,8 +122,6 @@ namespace Sembrar.Digitador
                         //Pregunta cerrada
                         if (pre.IDTIPOPREGUNTA == 1)
                         {
-                            List<CapaDatos.POSIBLERESPUESTA> consultaRespuestas = objDcuestionario.D_consultaRespuestasCuestionarioAResolver(pre.IDPREGUNTA);
-
                             //Lista de radio buttons
                             lblRespuesta = new Label();
                             lblRespuesta.ID = "rblPregunta" + pre.IDPREGUNTA + "-" + cont;
@@ -133,6 +136,22 @@ namespace Sembrar.Digitador
                             celdatabla.Controls.Add(lblRespuesta);
                             celdatabla.HorizontalAlign = HorizontalAlign.Left;
                         }
+                        //Preguta Abierta Extendida
+                        else if (pre.IDTIPOPREGUNTA == 3)
+                        {
+                            lblRespuesta = new Label();
+                            lblRespuesta.ID = "txtPregunta" + pre.IDPREGUNTA + "-" + cont;
+                            celdatabla.Controls.Add(lblRespuesta);
+                            celdatabla.HorizontalAlign = HorizontalAlign.Left;
+                        }
+                        //Pregunta respuesta multiple
+                        else if (pre.IDTIPOPREGUNTA == 4)
+                        {
+                            //Lista de radio buttons
+                            lblRespuesta = new Label();
+                            lblRespuesta.ID = "chkPregunta" + pre.IDPREGUNTA + "-" + cont;
+                            celdatabla.Controls.Add(lblRespuesta);
+                        }
                         filatabla.Cells.Add(celdatabla);
                         tablaCuestionario.Rows.Add(filatabla);
                         cont++;
@@ -145,6 +164,8 @@ namespace Sembrar.Digitador
             pnlCuestionario.Controls.Clear();
             this.pnlCuestionario.Controls.Add(tablaCuestionario);
         }
+
+
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -165,7 +186,9 @@ namespace Sembrar.Digitador
 
         protected void btnGenerar_Click(object sender, EventArgs e)
         {
+            generarCuestionario();
             cargarRespuestas();
+            ViewState["cargarCuestionario"] = true;
         }
 
         private void cargarRespuestas()
@@ -234,6 +257,27 @@ namespace Sembrar.Digitador
                                     int idPregunta = int.Parse(id.Substring(0, id.LastIndexOf("-")));
                                     tempLabel.Text = respuestas.Where(r => r.IDOBJETIVO == idObjetivo && r.IDINDICADOR == idIndicador && r.IDPREGUNTA == idPregunta).First().TEXTOSOLUCIONCUESTIONARIO;
                                 }
+                                else if (controlTabla is Label && controlTabla.ID.StartsWith("chkPregunta"))
+                                {
+                                    Label tempLabel = (Label)controlTabla;
+                                    string id = tempLabel.ID.Remove(0, 11);
+                                    int idPregunta = int.Parse(id.Substring(0, id.LastIndexOf("-")));
+                                    string textoLabel = "";
+                                    foreach (clsNSolucionCuestionario s in respuestas.Where(r => r.IDOBJETIVO == idObjetivo && r.IDINDICADOR == idIndicador && r.IDPREGUNTA == idPregunta).ToList())
+                                    {
+                                        textoLabel += s.TEXTOSOLUCIONCUESTIONARIO + "-";
+                                    }
+                                    try
+                                    {
+                                        textoLabel.TrimEnd('-');
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    tempLabel.Text = textoLabel;
+
+                                }
                             }
                         }
 
@@ -247,8 +291,10 @@ namespace Sembrar.Digitador
             }
         }
 
+
     }
-    
+
+
 
 
 

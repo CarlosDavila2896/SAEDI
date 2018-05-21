@@ -22,13 +22,12 @@ namespace Sembrar.Orientador
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Web.Security.MembershipUser logUser = System.Web.Security.Membership.GetUser(User.Identity.Name);
-            CapaNegocio.clsOrientador usuario = new CapaNegocio.clsOrientador();
-            CapaDatos.clsDOrientador objDatosPerfil = new CapaDatos.clsDOrientador();
-            usuario = objDatosPerfil.D_consultarOrientador(logUser.UserName.ToString());
-            Session["id"] = usuario.IDOrientador1;
+            if (!IsPostBack)
+            {
+                ViewState["cargarCuestionario"] = false;
 
-            if (Page.IsPostBack)
+            }
+            if ((bool)ViewState["cargarCuestionario"])
             {
                 generarCuestionario();
             }
@@ -45,7 +44,6 @@ namespace Sembrar.Orientador
             TableRow filatabla;
             TableCell celdatabla;
             Label lblRespuesta;
-
 
             //Atributos cuestionario
             tablaCuestionario.Width = Unit.Percentage(100);
@@ -124,8 +122,6 @@ namespace Sembrar.Orientador
                         //Pregunta cerrada
                         if (pre.IDTIPOPREGUNTA == 1)
                         {
-                            List<CapaDatos.POSIBLERESPUESTA> consultaRespuestas = objDcuestionario.D_consultaRespuestasCuestionarioAResolver(pre.IDPREGUNTA);
-
                             //Lista de radio buttons
                             lblRespuesta = new Label();
                             lblRespuesta.ID = "rblPregunta" + pre.IDPREGUNTA + "-" + cont;
@@ -140,6 +136,22 @@ namespace Sembrar.Orientador
                             celdatabla.Controls.Add(lblRespuesta);
                             celdatabla.HorizontalAlign = HorizontalAlign.Left;
                         }
+                        //Preguta Abierta Extendida
+                        else if (pre.IDTIPOPREGUNTA == 3)
+                        {
+                            lblRespuesta = new Label();
+                            lblRespuesta.ID = "txtPregunta" + pre.IDPREGUNTA + "-" + cont;
+                            celdatabla.Controls.Add(lblRespuesta);
+                            celdatabla.HorizontalAlign = HorizontalAlign.Left;
+                        }
+                        //Pregunta respuesta multiple
+                        else if (pre.IDTIPOPREGUNTA == 4)
+                        {
+                            //Lista de radio buttons
+                            lblRespuesta = new Label();
+                            lblRespuesta.ID = "chkPregunta" + pre.IDPREGUNTA + "-" + cont;
+                            celdatabla.Controls.Add(lblRespuesta);
+                        }
                         filatabla.Cells.Add(celdatabla);
                         tablaCuestionario.Rows.Add(filatabla);
                         cont++;
@@ -152,7 +164,9 @@ namespace Sembrar.Orientador
             pnlCuestionario.Controls.Clear();
             this.pnlCuestionario.Controls.Add(tablaCuestionario);
         }
-        
+
+
+
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -172,7 +186,9 @@ namespace Sembrar.Orientador
 
         protected void btnGenerar_Click(object sender, EventArgs e)
         {
-            cargarRespuestas();            
+            generarCuestionario();
+            cargarRespuestas();
+            ViewState["cargarCuestionario"] = true;
         }
 
         private void cargarRespuestas()
@@ -241,6 +257,27 @@ namespace Sembrar.Orientador
                                     int idPregunta = int.Parse(id.Substring(0, id.LastIndexOf("-")));
                                     tempLabel.Text = respuestas.Where(r => r.IDOBJETIVO == idObjetivo && r.IDINDICADOR == idIndicador && r.IDPREGUNTA == idPregunta).First().TEXTOSOLUCIONCUESTIONARIO;
                                 }
+                                else if (controlTabla is Label && controlTabla.ID.StartsWith("chkPregunta"))
+                                {
+                                    Label tempLabel = (Label)controlTabla;
+                                    string id = tempLabel.ID.Remove(0, 11);
+                                    int idPregunta = int.Parse(id.Substring(0, id.LastIndexOf("-")));
+                                    string textoLabel = "";
+                                    foreach (clsNSolucionCuestionario s in respuestas.Where(r => r.IDOBJETIVO == idObjetivo && r.IDINDICADOR == idIndicador && r.IDPREGUNTA == idPregunta).ToList())
+                                    {
+                                        textoLabel += s.TEXTOSOLUCIONCUESTIONARIO + "-";
+                                    }
+                                    try
+                                    {
+                                        textoLabel.TrimEnd('-');
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    tempLabel.Text = textoLabel;
+
+                                }
                             }
                         }
 
@@ -253,7 +290,10 @@ namespace Sembrar.Orientador
                 Response.Write("<script>window.alert('Compruebe la información ingresada');</script>");
             }
         }
+
+
     }
+
 
 
 }

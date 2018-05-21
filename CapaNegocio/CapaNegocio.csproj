@@ -43,6 +43,7 @@
     <Compile Include="clsasignarfamilia.cs" />
     <Compile Include="clsAsistencia.cs" />
     <Compile Include="clsCrear.cs" />
+    <Compile Include="clsNAsistenciaReunion.cs" />
     <Compile Include="clsNCuestionario.cs" />
     <Compile Include="clsNIndicador.cs" />
     <Compile Include="clsJoven.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="clsNMatricula.cs" />
     <Compile Include="clsNMembership.cs" />
     <Compile Include="clsNObjetivo.cs" />
+    <Compile Include="clsNOcupacion.cs" />
     <Compile Include="clsNPeriodo.cs" />
     <Compile Include="clsNPeriodoPrograma.cs" />
     <Compile Include="clsNProceso.cs" />

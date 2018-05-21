@@ -13,6 +13,24 @@ namespace CapaDatos
     public class clsDatosAsignarFamilia
     {
         MERSembrarDataContext bd = new MERSembrarDataContext();
+
+        public clsasignarfamilia transformar(PERIODO_PERSONA_FAMILIA newAsignar)
+        {
+
+            clsasignarfamilia asignar = new clsasignarfamilia();
+            asignar.CodigoFamilia = newAsignar.IDFAMILIA;
+            asignar.CodigoParentezco = newAsignar.PARENTEZCO.IDPARENTEZCO;
+            asignar.CodigoPersona = newAsignar.IDPERSONA;
+            asignar.NombreFamilia = newAsignar.FAMILIA.NOMBREFAMILIA;
+            asignar.Parentesco = newAsignar.PARENTEZCO.NOMBREPARENTEZCO;
+            asignar.PrimerNombre = newAsignar.PERSONA.PRIMERNOMBREPERSONA;
+            asignar.SegundoNombre = newAsignar.PERSONA.SEGUNDONOMBREPERSONA;
+            asignar.PrimerApellido = newAsignar.PERSONA.PRIMERAPELLIDOPERSONA;
+            asignar.SegundoApellido = newAsignar.PERSONA.SEGUNDOAPELLIDOPERSONA;
+            return asignar;
+        }
+
+        
         public List<PERIODO_PERSONA_FAMILIA> ConsultaFamilias()
         {
             try

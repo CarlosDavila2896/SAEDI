@@ -10,6 +10,18 @@ namespace CapaDatos
 {
     public class clsDatosAdulto
     {
+
+
+       static clsAdulto transformar(ADULTO newAdulto)
+        {
+            clsAdulto adulto = new clsAdulto();
+            adulto.IdPersona = newAdulto.IDPERSONA;
+            adulto.DondeEstudiaAdulto = newAdulto.DONDEESTUDIAADULTO;
+            adulto.EstudiaAdulto = newAdulto.ESTUDIAADULTO;
+            adulto.NivelEducacion = newAdulto.NIVELEDUCACIONADULTO;
+            return adulto;
+        }
+
         
         MERSembrarDataContext bd = new MERSembrarDataContext();
         public bool ingresaAdulto(clsPersona objPersona, clsAdulto objAdulto)

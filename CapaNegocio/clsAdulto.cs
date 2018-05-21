@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsAdulto
     {
         private int idPersona;
@@ -42,6 +43,11 @@ namespace CapaNegocio
             {
                 idPersona = value;
             }
+        }
+
+        public clsAdulto()
+        {
+
         }
     }
 }

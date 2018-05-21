@@ -5,9 +5,17 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsAsistencia
     {
         private int codigoJoven;
+
+        public int codigoAsistencia ;
+        public int idLineaDeAccion;
+        public int idPeriodo;
+        public int idPersona;
+        public int idProcesos;
+        public int tipoAsistencia;
 
         public int CodigoJoven
         {
@@ -57,6 +65,10 @@ namespace CapaNegocio
             set { habilitado = value; }
         }
 
+        public clsAsistencia()
+        {
+
+        }
         
     }
 }

@@ -12,6 +12,30 @@ namespace CapaDatos
     {
         MERSembrarDataContext bd = new MERSembrarDataContext();
 
+        static clsAsistencia transformarAsistencia(ASISTENCIA newAsistencia)
+        {
+            clsAsistencia asistencia = new clsAsistencia();
+            asistencia.codigoAsistencia = newAsistencia.IDASISTENCIA;
+            asistencia.idLineaDeAccion = newAsistencia.IDLINEADEACCION;
+            asistencia.CodigoOrientador = newAsistencia.IDORIENTADOR;
+            asistencia.idPeriodo = newAsistencia.IDPERIODO;
+            asistencia.idPersona = newAsistencia.IDPERSONA;
+            asistencia.idProcesos = newAsistencia.IDPROCESO;
+            asistencia.tipoAsistencia = newAsistencia.IDTIPOASISTENCIA;
+            return asistencia;
+        }
+
+
+        static clsNAsistenciaReunion transformarAsistenciaReunion(ASISTENCIAREUNION newAsistencia)
+        {
+            clsNAsistenciaReunion asistencia = new clsNAsistenciaReunion();
+            asistencia.idAsistencia = newAsistencia.IDASISTENCIAREUNION;
+            asistencia.idPersona = newAsistencia.IDPERSONA;
+            asistencia.idReunion = newAsistencia.IDPERSONA;
+            asistencia.idTipoAsistencia = newAsistencia.IDTIPOASISTENCIA;
+            return asistencia;
+        }
+
         public bool IngresoDatosAsistencia(int idreu, int tipo, int idper)
         {
             try

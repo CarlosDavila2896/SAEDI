@@ -9,6 +9,15 @@ namespace CapaDatos
     public class clsDatosJoven
     {
         MERSembrarDataContext bd = new MERSembrarDataContext();
+        static clsJoven transformar(JOVEN newJoven)
+        {
+            clsJoven joven = new clsJoven();
+            joven.Cedula = newJoven.IDJOVEN;
+            joven.idMenor = newJoven.IDMENOREDAD;
+            joven.idPersona = newJoven.IDPERSONA;
+            return joven;
+        }
+
         public bool ingresaJoven(CapaNegocio.clsPersona objPersona, CapaNegocio.clsMenorEdad objMenorEdad)
         {
             using (TransactionScope trans = new TransactionScope())

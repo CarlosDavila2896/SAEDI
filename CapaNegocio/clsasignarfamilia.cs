@@ -6,6 +6,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsasignarfamilia
     {
         //------ddlFamilia----
@@ -100,6 +101,11 @@ namespace CapaNegocio
             {
                 codigoParentezco = value;
             }
+        }
+
+        public clsasignarfamilia()
+        {
+
         }
     }
     

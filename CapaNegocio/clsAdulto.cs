@@ -8,6 +8,14 @@ namespace CapaNegocio
     [Serializable]
     public class clsAdulto
     {
+        private int idAdulto;
+
+        public int IdAdulto
+        {
+            get { return idAdulto; }
+            set { idAdulto = value; }
+        }
+
         private int idPersona;
         private bool estudiaAdulto;
 

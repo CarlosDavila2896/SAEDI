@@ -6,6 +6,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNCuestionario
     {
         private int idProceso;
@@ -54,6 +55,11 @@ namespace CapaNegocio
         {
             get { return estadoCuestionario; }
             set { estadoCuestionario = value; }
+        }
+
+        public clsNCuestionario()
+        {
+
         }
     }
 }

@@ -9,15 +9,52 @@ namespace CapaDatos
     public class clsDatosJoven
     {
         MERSembrarDataContext bd = new MERSembrarDataContext();
-        static clsJoven transformar(JOVEN newJoven)
+        static clsJoven transformarJoven(JOVEN newJoven)
         {
             clsJoven joven = new clsJoven();
             joven.Cedula = newJoven.IDJOVEN;
-            joven.idMenor = newJoven.IDMENOREDAD;
-            joven.idPersona = newJoven.IDPERSONA;
+            joven.IdMenor = newJoven.IDMENOREDAD;
+            joven.IdPersona = newJoven.IDPERSONA;
             return joven;
         }
 
+        static clsMenorEdad transformarMenor(MENOREDAD newMenor)
+        {
+            clsMenorEdad menor = new clsMenorEdad();
+            menor.Alimentacion = newMenor.ALIMENTACIONMENOREDAD;
+            menor.AnioIngreso = newMenor.ANIOINGRESOMENOREDAD;
+            menor.Discapacidad = newMenor.DISCAPACIDADESMENOREDAD;
+            menor.IdMenorEdad = newMenor.IDMENOREDAD;
+            menor.IdPersona = newMenor.IDPERSONA;
+            menor.NombreEncargado = newMenor.NOMBREENCARGADOMENOREDAD;
+            menor.Peso = double.Parse(newMenor.PESOMENOREDAD.ToString());
+            menor.Sacramento = newMenor.SACRAMENTOMENOREDAD;
+            menor.Sad = newMenor.CODIGOSADMENOREDAD;
+            menor.Talla = double.Parse(newMenor.TALLAMENOREDAD.ToString());
+            menor.Vacunas = newMenor.VACUNASMENOREDAD;
+            menor.IdRepresentante = int.Parse(newMenor.IDREPRESENTANTE.ToString());
+            return menor;
+        }
+
+        static clsPersona transformarPersona(PERSONA newPersona)
+        {
+            clsPersona persona = new clsPersona();
+            persona.Codigo = newPersona.IDPERSONA;
+            persona.IdAlimentacion = int.Parse(newPersona.IDALIMENTACION2.ToString());
+            persona.PrimerNombre = newPersona.PRIMERNOMBREPERSONA;
+            persona.SegundoNombre = newPersona.SEGUNDONOMBREPERSONA;
+            persona.PrimerApellido = newPersona.PRIMERAPELLIDOPERSONA;
+            persona.SegundoApellido = newPersona.SEGUNDOAPELLIDOPERSONA;
+            persona.Genero = newPersona.GENEROPERSONA;
+            persona.Nacimiento = DateTime.Parse(newPersona.FECHANACIMIENTOPERSONA.ToString());
+            persona.Cedula = newPersona.CEDULAPERSONA;
+            persona.LugarNacimiento = newPersona.LUGARNACIMIENTOPERSONA;
+            persona.ViveFamilia = newPersona.VIVECONFAMILIAPERSONA;
+            persona.Observacion = newPersona.OBSERVACIONPERSONA;
+            persona.Ingreso = DateTime.Parse(newPersona.FECHAINGRESOPROGRAMA.ToString());
+            persona.Cabeza = bool.Parse(newPersona.CABEZAFAMILIA.ToString());
+            return persona;
+        }
         public bool ingresaJoven(CapaNegocio.clsPersona objPersona, CapaNegocio.clsMenorEdad objMenorEdad)
         {
             using (TransactionScope trans = new TransactionScope())

@@ -11,9 +11,9 @@ namespace CapaDatos
         static clsNOcupacion transformar(OCUPACION newOcupacxion)
         {
             clsNOcupacion ocupacion = new clsNOcupacion();
-            ocupacion.idAlimentacion2 = newOcupacxion.IDALIMENTACION2;
+            ocupacion.IdAlimentacion2 = newOcupacxion.IDALIMENTACION2;
             ocupacion.EstadoTipoPregunta = int.Parse(newOcupacxion.ESTADOTIPOPREGUNTA.ToString());
-            ocupacion.FechaTipoPregunta = DateTime.Parse(newOcupacxion.ESTADOTIPOPREGUNTA.ToString());
+            ocupacion.FechaTipoPregunta = DateTime.Parse(newOcupacxion.FECHATIPOPREGUNTA.ToString());
             ocupacion.Nombre = newOcupacxion.NOMBRE;
             return ocupacion;
         }

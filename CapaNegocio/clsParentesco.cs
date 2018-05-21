@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsParentesco
     {
         private string nombreParentesco;

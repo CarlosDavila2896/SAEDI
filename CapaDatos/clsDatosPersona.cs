@@ -14,7 +14,25 @@ namespace CapaDatos
     public class clsDatosPersona
     {
         MERSembrarDataContext bd = new MERSembrarDataContext();
-
+        static clsPersona transformarPersona(PERSONA newPersona)
+        {
+            clsPersona persona = new clsPersona();
+            persona.Codigo = newPersona.IDPERSONA;
+            persona.IdAlimentacion = int.Parse(newPersona.IDALIMENTACION2.ToString());
+            persona.PrimerNombre = newPersona.PRIMERNOMBREPERSONA;
+            persona.SegundoNombre = newPersona.SEGUNDONOMBREPERSONA;
+            persona.PrimerApellido = newPersona.PRIMERAPELLIDOPERSONA;
+            persona.SegundoApellido = newPersona.SEGUNDOAPELLIDOPERSONA;
+            persona.Genero = newPersona.GENEROPERSONA;
+            persona.Nacimiento = DateTime.Parse(newPersona.FECHANACIMIENTOPERSONA.ToString());
+            persona.Cedula = newPersona.CEDULAPERSONA;
+            persona.LugarNacimiento = newPersona.LUGARNACIMIENTOPERSONA;
+            persona.ViveFamilia = newPersona.VIVECONFAMILIAPERSONA;
+            persona.Observacion = newPersona.OBSERVACIONPERSONA;
+            persona.Ingreso = DateTime.Parse(newPersona.FECHAINGRESOPROGRAMA.ToString());
+            persona.Cabeza = bool.Parse(newPersona.CABEZAFAMILIA.ToString());
+            return persona;
+        }
         private string cadena2;
 
         private static PERSONATableAdapter  adaptador = new PERSONATableAdapter();

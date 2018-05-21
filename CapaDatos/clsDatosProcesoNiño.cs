@@ -13,6 +13,14 @@ namespace CapaDatos
     public class clsDatosProcesoNiño
     {
         clsProcesoNiño objProceso = new clsProcesoNiño();
+        static clsProcesoNiño transformarprocesoNinio(PROCESO newProceso)
+        {
+            clsProcesoNiño proceso = new clsProcesoNiño();
+            proceso.IDProceso1 = newProceso.IDPROCESO;
+            proceso.NombreProceso = newProceso.NOMBREPROCESO;
+            proceso.Estado = newProceso.ESTADOPROCESO;
+            return proceso;
+        }
         int resul;
             public bool AgregarProceso(CapaNegocio.clsProcesoNiño objetoProcesoNiño, CapaNegocio.clsOrientador objetoOrientador)
         {

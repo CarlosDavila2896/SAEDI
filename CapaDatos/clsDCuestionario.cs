@@ -8,6 +8,18 @@ namespace CapaDatos
 {
     public class clsDCuestionario
     {
+
+        static clsNCuestionario transformar(CUESTIONARIO newCuestionario)
+        {
+            clsNCuestionario cuestionario = new clsNCuestionario();
+            cuestionario.IDPROCESO = newCuestionario.IDPROCESO;
+            cuestionario.IDOBJETIVO = newCuestionario.IDOBJETIVO;
+            cuestionario.IDINDICADOR = newCuestionario.IDINDICADOR;
+            cuestionario.IDPREGUNTA = newCuestionario.IDPREGUNTA;
+            cuestionario.ESTADOCUESTIONARIO = newCuestionario.ESTADOPREGUNTACUESTIONARIO;
+            cuestionario.OBSERVACIONCUESTIONARIO = newCuestionario.OBSERVACIONESCUESTIONARIO;
+            return cuestionario;
+        }
         //Metodo de agregar nueva pregunta de cuestionario
         public bool D_ingresarCuestionario(clsNCuestionario nuevoCuestionario)
         {

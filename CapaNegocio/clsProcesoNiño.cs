@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsProcesoNiño
     {
         private int IDProceso;
@@ -29,9 +30,9 @@ namespace CapaNegocio
             set { nombreProceso = value; }
         }
 
-        private int estado;
+        private bool estado;
 
-        public int Estado
+        public bool Estado
         {
             get { return estado; }
             set { estado = value; }

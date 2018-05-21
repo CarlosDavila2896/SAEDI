@@ -8,6 +8,14 @@ namespace CapaDatos
 {
     public class clsDObjetivo
     {
+        static clsNObjetivo transformar(OBJETIVO newObjetivo)
+        {
+            clsNObjetivo objetivo = new clsNObjetivo();
+            objetivo.IDOBJETIVO = newObjetivo.IDOBJETIVO;
+            objetivo.NOMBREOBJETIVO = newObjetivo.NOMBREOBJETIVO;
+            objetivo.ESTADOOBJETIVO = newObjetivo.ESTADOOBJETIVO;
+            return objetivo;
+        }
         //Metodo de creacion de nuevo objetivo
         public bool D_ingresarObjetivo(clsNObjetivo nuevoObjetivo)
         {

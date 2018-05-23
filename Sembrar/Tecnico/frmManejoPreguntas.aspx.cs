@@ -17,6 +17,10 @@ namespace Sembrar.Tecnico
         {
 
         }
-        
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            gvPreguntas.DataBind();
+        }
     }
 }

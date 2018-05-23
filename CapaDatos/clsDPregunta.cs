@@ -55,6 +55,19 @@ namespace CapaDatos
             }
         }
 
+        //Metodo de consulta de Preguntas
+        public List<PREGUNTA> D_consultarPreguntas(string filtro)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                if (filtro==null || filtro.Trim()=="")
+                {
+                    return db.PREGUNTA.ToList().OrderBy(a => a.NOMBREPREGUNTA).ToList();
+                }
+                return db.PREGUNTA.Where(p => p.NOMBREPREGUNTA.Contains(filtro) || p.TIPOPREGUNTA.NOMBRETIPOPREGUNTA.Contains(filtro)).ToList().OrderBy(a => a.NOMBREPREGUNTA).ToList();
+            }
+        }
+
         //Metodo de eliminacion de Preguntas
         public bool D_eliminarPregunta(PREGUNTA eliminarPregunta)
         {

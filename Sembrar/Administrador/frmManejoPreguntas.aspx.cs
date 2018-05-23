@@ -51,5 +51,10 @@ namespace Sembrar.Administrador
             ClientScriptManager cs = pg.ClientScript;
             cs.RegisterClientScriptBlock(cstype, s, s.ToString());
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            gvPreguntas.DataBind();
+        }
     }
 }

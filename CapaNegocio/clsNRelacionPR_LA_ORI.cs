@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNRelacionPR_LA_ORI
     {
         private int idLineaAccion;
@@ -46,5 +47,6 @@ namespace CapaNegocio
             get { return observacionRelacion; }
             set { observacionRelacion = value; }
         }
+        public clsNRelacionPR_LA_ORI() { }
     }
 }

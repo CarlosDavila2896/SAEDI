@@ -13,6 +13,16 @@ namespace CapaDatos
 {
     public class clsDPosibleRespuesta
     {
+        static clsNPosibleRespuesta transformar(POSIBLERESPUESTA newRespuesta)
+        {
+            clsNPosibleRespuesta respuesta = new clsNPosibleRespuesta();
+            respuesta.IDPOSIBLERESPUESTA = newRespuesta.IDPOSIBLERESPUESTA;
+            respuesta.TEXTOPOSIBLERESPUESTA = newRespuesta.TEXTOPOSIBLERESPUESTA;
+            respuesta.PUNTAJEPOSIBLERESPUESTA = int.Parse(newRespuesta.PUNTAJEPOSIBLERESPUESTA.ToString());
+            respuesta.ESTADOPOSIBLERESPUESTA = newRespuesta.ESTADOPOSIBLERESPUESTA;
+            return respuesta;
+        }
+
         //Metodo de creacion de nueva posible respuesta
         public bool D_ingresarPosibleRespuesta(clsNPosibleRespuesta nuevaPosibleRespuesta)
         {

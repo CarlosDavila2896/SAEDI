@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNTipoPersona
     {
         private int idTipoPersona;
@@ -38,6 +39,6 @@ namespace CapaNegocio
             get { return edadMaxima; }
             set { edadMaxima = value; }
         }
-
+        public clsNTipoPersona() { }
     }
 }

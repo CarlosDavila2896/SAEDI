@@ -9,6 +9,21 @@ namespace CapaDatos
 {
     public class clsDSolucionCuestionario
     {
+        static clsNSolucionCuestionario transformar(SOLUCIONCUESTIONARIO newSolucion)
+        {
+            clsNSolucionCuestionario solucion = new clsNSolucionCuestionario();
+            solucion.FECHAMODIFICACIONCUESTIONARIO = DateTime.Parse(newSolucion.FECHAMODIFICACIONCUESTIONARIO.ToString());
+            solucion.FECHASOLUCIONCUESTIONARIO = newSolucion.FECHASOLUCIONCUESTIONARIO;
+            solucion.IDINDICADOR = newSolucion.IDINDICADOR;
+            solucion.IDOBJETIVO = newSolucion.IDOBJETIVO;
+            solucion.IDPERIODO = newSolucion.IDPERIODO;
+            solucion.IDPERSONA = newSolucion.IDPERSONA;
+            solucion.IDPREGUNTA = newSolucion.IDPREGUNTA;
+            solucion.IDPROCESO = newSolucion.IDPROCESO;
+            solucion.IDSOLUCION = newSolucion.IDSOLUCIONCUESTIONARIO;
+            solucion.TEXTOSOLUCIONCUESTIONARIO = newSolucion.TEXTOSOLUCIONCUESTIONARIO;
+            return solucion;
+        }
         public bool D_guardarRespuestaCuestionario(clsNSolucionCuestionario nuevaSolucion)
         {
             try

@@ -44,5 +44,6 @@ namespace CapaNegocio
             get { return idProcesoDuplicado; }
             set { idProcesoDuplicado = value; }
         }
+        public clsProcesoNiño() { }
     }
 }

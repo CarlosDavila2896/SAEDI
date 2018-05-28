@@ -8,7 +8,14 @@ namespace CapaDatos
 {
     public class clsDProceso
     {
-
+        static clsProcesoNiño transformar(PROCESO newProceso)
+        {
+            clsProcesoNiño proceso = new clsProcesoNiño();
+            proceso.IDProceso1 = newProceso.IDPROCESO;
+            proceso.NombreProceso = newProceso.NOMBREPROCESO;
+            proceso.Estado = newProceso.ESTADOPROCESO;
+            return proceso;
+        }
         //Metodo de creacion de nuevo proceso
         public bool D_ingresarProceso(clsNProceso nuevoProceso)
         {

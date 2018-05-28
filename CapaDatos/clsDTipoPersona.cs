@@ -8,6 +8,14 @@ namespace CapaDatos
 {
     public class clsDTipoPersona
     {
+        static clsNTipoPersona transformar(TIPOPERSONA newPersona)
+        {
+            clsNTipoPersona persona = new clsNTipoPersona();
+            persona.EDADMAXIMA = int.Parse(newPersona.EDADMAXIMA.ToString());
+            persona.EDADMINIMA = int.Parse(newPersona.EDADMINIMA.ToString());
+            persona.IDTIPOPERSONA = newPersona.IDTIPOPERSONA;
+            persona.NOMBRETIPOPERSONA = newPersona.NOMBRETIPOPERSONA;
+        }
         //Metodo de creacion de nuevo tipo persona
         public bool D_ingresarTipoPersona(clsNTipoPersona nuevoTipoPersona)
         {

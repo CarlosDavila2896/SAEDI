@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNSolucionCuestionario
     {
         private long idSolucion;
@@ -86,6 +87,9 @@ namespace CapaNegocio
             get { return textoSolucionCuestionario; }
             set { textoSolucionCuestionario = value; }
         }
+
+        public clsNSolucionCuestionario() { }
+
 
         private int usuarioIngresa;
 

@@ -12,6 +12,16 @@ namespace CapaDatos
 {
     public class clsDPregunta
     {
+        static clsNPregunta transformar(PREGUNTA newPregunta)
+        {
+            clsNPregunta pregunta = new clsNPregunta();
+            pregunta.IDPREGUNTA = newPregunta.IDPREGUNTA;
+            pregunta.IDTIPOPREGUNTA = int.Parse(newPregunta.IDTIPOPREGUNTA.ToString());
+            pregunta.NOMBREPREGUNTA = newPregunta.NOMBREPREGUNTA;
+            pregunta.ESTADOPREGUNTA = newPregunta.ESTADOPREGUNTA;
+            return pregunta;
+        }
+
         //CONSULTA DE TIPOS DE PREGUNTAS
         public List<TIPOPREGUNTA> consultaTipoPreguntas()
         {

@@ -60,6 +60,7 @@
     <Compile Include="clsNProceso.cs" />
     <Compile Include="clsNRelacionPR_LA_ORI.cs" />
     <Compile Include="clsNSolucionCuestionario.cs" />
+    <Compile Include="clsNTipoAsistentes.cs" />
     <Compile Include="clsNTipoPersona.cs" />
     <Compile Include="clsOrientador.cs" />
     <Compile Include="clsParentesco.cs" />

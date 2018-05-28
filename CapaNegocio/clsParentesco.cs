@@ -36,5 +36,9 @@ namespace CapaNegocio
                 codigo = value;
             }
         }
+        public clsParentesco()
+        {
+
+        }
     }
 }

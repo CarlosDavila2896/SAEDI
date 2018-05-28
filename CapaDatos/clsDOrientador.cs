@@ -9,6 +9,17 @@ namespace CapaDatos
 {
     public class clsDOrientador
     {
+
+        static clsOrientador transformar(ORIENTADOR newOrientador)
+        {
+            clsOrientador orientador = new clsOrientador();
+            orientador.IDOrientador1 = newOrientador.IDORIENTADOR;
+            orientador.NombreOrientador = newOrientador.NOMBREORIENTADOR;
+            orientador.apellidoOrientador = newOrientador.APELLIDOORIENTADOR;
+            orientador.generoOrientador = char.Parse(newOrientador.GENEROORIENTADOR.ToString());
+            orientador.estadoOrientador = newOrientador.ESTADOORIENTADOR;
+            return orientador;
+        }
         public object D_consultarOrientadores()
         {
             using (MERSembrarDataContext db = new MERSembrarDataContext())

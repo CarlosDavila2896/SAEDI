@@ -10,7 +10,7 @@
 namespace Sembrar.Administrador {
     
     
-    public partial class ReportePreguntasCerradas1 {
+    public partial class WebForm1 {
         
         /// <summary>
         /// Control DropDownList1.
@@ -29,23 +29,5 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
-        /// <summary>
-        /// Control btnBuscar0.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar0;
-        
-        /// <summary>
-        /// Control CrystalReportViewer1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer1;
     }
 }

@@ -191,9 +191,8 @@ namespace Sembrar.Administrador
 
         private void solucionar2()
         {
-            using (TransactionScope trans = new TransactionScope())
+            using (TransactionScope trans = new TransactionScope(TransactionScopeOption.Required, TimeSpan.FromSeconds(999)))
             {
-
 
                 Cuestionario = (Table)pnlCuestionario.Controls[0];
 
@@ -322,6 +321,7 @@ namespace Sembrar.Administrador
                     return;
                 }
                 idPersona = int.Parse(lstIndividuos.SelectedValue);
+
 
 
                 respuestas = objDSolucionCuestionario.D_obtenerlistaRespuestas(idPersona, idProceso, idPeriodo);

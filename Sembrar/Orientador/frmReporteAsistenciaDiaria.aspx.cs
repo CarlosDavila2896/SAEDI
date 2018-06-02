@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CapaDatos;
 using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace Sembrar.Orientador
 {
@@ -71,14 +72,49 @@ namespace Sembrar.Orientador
             int idOrientador = (int)Session["id"];
             ReportDocument crystalrpt = new ReportDocument();
             crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaDiaria.rpt"));
+            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
             //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Orientador", idOrientador);
             crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);
             crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
             crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
-            CrystalReportViewer1.ReportSource = crystalrpt;
-            CrystalReportViewer1.DataBind();
+            crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteAsistenciaDiaria" + ddlMes.SelectedItem.Text);
+            crystalrpt.Refresh();
+            //CrystalReportViewer1.ReportSource = crystalrpt;
+            //CrystalReportViewer1.DataBind();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            int idOrientador = (int)Session["id"];
+            ReportDocument crystalrpt = new ReportDocument();
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaDiaria.rpt"));
+            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+            crystalrpt.Refresh();
+            crystalrpt.SetParameterValue("@Orientador", idOrientador);
+            crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);
+            crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
+            crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
+            //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteAsistenciaDiaria"+ ddlMes.SelectedItem.Text);
+
+            //CrystalReportViewer1.ReportSource = crystalrpt;
+            //CrystalReportViewer1.DataBind();
+
+
+
+            ExportOptions exportOption;
+            DiskFileDestinationOptions diskFileDestinationOptions = new DiskFileDestinationOptions();
+            exportOption = crystalrpt.ExportOptions;
+            {
+                exportOption.ExportDestinationType = ExportDestinationType.DiskFile;
+                exportOption.ExportFormatType = ExportFormatType.Excel;
+                exportOption.ExportDestinationOptions = diskFileDestinationOptions;
+                exportOption.ExportFormatOptions = new ExcelFormatOptions();
+            }
+
+            crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReporteAsistenciaDiaria" + ddlMes.SelectedItem.Text);
+            crystalrpt.Export();
         }
     }
 }

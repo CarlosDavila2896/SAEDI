@@ -47,21 +47,27 @@ namespace Sembrar.Administrador
                     ReportDocument crystalrpt = new ReportDocument();
                     path = Server.MapPath("");
                     crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteGenerico.rpt"));
+                    crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                     crystalrpt.Refresh();
                     crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
                     crystalrpt.SetParameterValue("@IdPersona", DropDownList2.SelectedValue);
-                    CrystalReportViewer1.ReportSource = crystalrpt;
-                    CrystalReportViewer1.DataBind();
+                    //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteCuestionario" + DropDownList2.SelectedItem.Text);
+                    crystalrpt.Refresh();
+                    //CrystalReportViewer1.ReportSource = crystalrpt;
+                    //CrystalReportViewer1.DataBind();
                 }
                 else
                 {
                     ReportDocument crystalrpt = new ReportDocument();
                     path = Server.MapPath("");
                     crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteGenericoTodos.rpt"));
+                    crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                     crystalrpt.Refresh();
                     crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
-                    CrystalReportViewer1.ReportSource = crystalrpt;
-                    CrystalReportViewer1.DataBind();
+                    //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteCuestionario");
+                    crystalrpt.Refresh();
+                    //CrystalReportViewer1.ReportSource = crystalrpt;
+                    //CrystalReportViewer1.DataBind();
 
                 }
             }
@@ -74,21 +80,27 @@ namespace Sembrar.Administrador
                 ReportDocument crystalrpt = new ReportDocument();
                 path = Server.MapPath("");
                 crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteGenerico.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
                 crystalrpt.SetParameterValue("@IdPersona", DropDownList2.SelectedValue);
-                CrystalReportViewer1.ReportSource = crystalrpt;
-                CrystalReportViewer1.DataBind();
+                crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteCuestionario" + DropDownList2.SelectedItem.Text);
+                crystalrpt.Refresh();
+                // CrystalReportViewer1.ReportSource = crystalrpt;
+                // CrystalReportViewer1.DataBind();
             }
             else
             {
                 ReportDocument crystalrpt = new ReportDocument();
                 path = Server.MapPath("");
                 crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteGenericoTodos.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
-                CrystalReportViewer1.ReportSource = crystalrpt;
-                CrystalReportViewer1.DataBind();
+                crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteCuestionario");
+                crystalrpt.Refresh();
+                //CrystalReportViewer1.ReportSource = crystalrpt;
+                //CrystalReportViewer1.DataBind();
 
             }
         }
@@ -100,6 +112,69 @@ namespace Sembrar.Administrador
             DropDownList2.DataValueField = "IdPersona";
             DropDownList2.DataBind();
             DropDownList2.Items.Add(new ListItem("Todos", "-1"));
+        }
+
+        protected void btnBuscar0_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnBuscar0_Click1(object sender, EventArgs e)
+        {
+            if (int.Parse(DropDownList2.SelectedValue) != -1)
+            {
+                ReportDocument crystalrpt = new ReportDocument();
+                path = Server.MapPath("");
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteGenerico.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
+                crystalrpt.SetParameterValue("@IdPersona", DropDownList2.SelectedValue);
+                ExportOptions exportOption;
+                DiskFileDestinationOptions diskFileDestinationOptions = new DiskFileDestinationOptions();
+                exportOption = crystalrpt.ExportOptions;
+                {
+                    exportOption.ExportDestinationType = ExportDestinationType.DiskFile;
+                    exportOption.ExportFormatType = ExportFormatType.Excel;
+                    exportOption.ExportDestinationOptions = diskFileDestinationOptions;
+                    exportOption.ExportFormatOptions = new ExcelFormatOptions();
+                }
+                crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReporteCuestionario" + DropDownList2.SelectedItem.Text);
+
+                crystalrpt.Export();
+                //CrystalReportViewer1.ReportSource = crystalrpt;
+                //CrystalReportViewer1.DataBind();
+            }
+            else
+            {
+                ReportDocument crystalrpt = new ReportDocument();
+                path = Server.MapPath("");
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteGenericoTodos.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
+                ExportOptions exportOption;
+                DiskFileDestinationOptions diskFileDestinationOptions = new DiskFileDestinationOptions();
+                exportOption = crystalrpt.ExportOptions;
+                {
+                    exportOption.ExportDestinationType = ExportDestinationType.DiskFile;
+                    exportOption.ExportFormatType = ExportFormatType.Excel;
+                    exportOption.ExportDestinationOptions = diskFileDestinationOptions;
+                    exportOption.ExportFormatOptions = new ExcelFormatOptions();
+                }
+                crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReporteCuestionario");
+
+                crystalrpt.Export();
+                //CrystalReportViewer1.ReportSource = crystalrpt;
+                //CrystalReportViewer1.DataBind();
+
+            }
         }
     }
 }

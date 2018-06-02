@@ -22,15 +22,46 @@
         <tr>
             <td>&nbsp;</td>
             <td>Año:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:DropDownList ID="ddlAnio" runat="server">
-                </asp:DropDownList>
-            </td>
+                </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>Mes:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:DropDownList ID="ddlMes" runat="server">
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <!--td>
+                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" EnableParameterPrompt="False" />
+            </td-->
+            <td>
+                <table style="width:100%;">
+                    <tr>
+                        <td class="auto-style7">&nbsp;</td>
+                        <td class="auto-style7">&nbsp;</td>
+                        <td class="auto-style7"></td>
+                    </tr>
+                    <tr>
+                        <td>Año:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                        <td>
+                <asp:DropDownList ID="ddlAnio" runat="server" Width="200px">
+                </asp:DropDownList>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Mes:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
+                </td>
+                        <td>
+                <asp:DropDownList ID="ddlMes" runat="server" Width="200px">
                     <asp:ListItem Value="1">Enero</asp:ListItem>
                     <asp:ListItem Value="2">Febrero</asp:ListItem>
                     <asp:ListItem Value="3">Marzo</asp:ListItem>
@@ -44,25 +75,34 @@
                     <asp:ListItem Value="11">Noviembre</asp:ListItem>
                     <asp:ListItem Value="12">Diciembre</asp:ListItem>
                 </asp:DropDownList>
-                &nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Proceso:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;
                 </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>Proceso:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlProceso" runat="server" Width="108px">
+                        <td> <asp:DropDownList ID="ddlProceso" runat="server" Width="200px">
             </asp:DropDownList>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buscar" />
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Exportar PDF" />
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style8"></td>
+                        <td class="auto-style8">
+                            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Exportar Excel" />
+                        </td>
+                        <td class="auto-style8"></td>
+                    </tr>
+                </table>
             </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>
-                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" EnableParameterPrompt="False" />
-            </td>
-            <td>&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>

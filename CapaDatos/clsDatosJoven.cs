@@ -62,8 +62,6 @@ namespace CapaDatos
                     //menor.IDORIENTADOR = objMenorEdad.IdOrientador;
                     menor.CODIGOSADMENOREDAD = objMenorEdad.Sad;
                     menor.ANIOINGRESOMENOREDAD = objMenorEdad.AnioIngreso;
-                    menor.PESOMENOREDAD = Convert.ToDecimal(objMenorEdad.Peso);
-                    menor.TALLAMENOREDAD = Convert.ToDecimal(objMenorEdad.Talla);
                     menor.DISCAPACIDADESMENOREDAD = objMenorEdad.Discapacidad;
                     menor.VACUNASMENOREDAD = objMenorEdad.Vacunas;
                     menor.ALIMENTACIONMENOREDAD = objMenorEdad.Alimentacion;
@@ -152,8 +150,6 @@ namespace CapaDatos
                 //objMenor.IdOrientador = Convert.ToInt32(p.menor.IDORIENTADOR);
                 objMenor.Sad = p.menor.CODIGOSADMENOREDAD;
                 objMenor.AnioIngreso = Convert.ToInt32(p.menor.ANIOINGRESOMENOREDAD);
-                objMenor.Peso = Convert.ToDouble(p.menor.PESOMENOREDAD);
-                objMenor.Talla = Convert.ToDouble(p.menor.TALLAMENOREDAD);
                 objMenor.Discapacidad = p.menor.DISCAPACIDADESMENOREDAD;
                 objMenor.Vacunas = Convert.ToBoolean(p.menor.VACUNASMENOREDAD);
                 objMenor.Alimentacion = Convert.ToInt32(p.menor.ALIMENTACIONMENOREDAD);
@@ -237,8 +233,6 @@ namespace CapaDatos
                     //menor.IDORIENTADOR = objMenorEdad.IdOrientador;
                     menor.CODIGOSADMENOREDAD = objMenorEdad.Sad;
                     menor.ANIOINGRESOMENOREDAD = objMenorEdad.AnioIngreso;
-                    menor.PESOMENOREDAD = Convert.ToDecimal(objMenorEdad.Peso);
-                    menor.TALLAMENOREDAD = Convert.ToDecimal(objMenorEdad.Talla);
                     menor.DISCAPACIDADESMENOREDAD = objMenorEdad.Discapacidad;
                     menor.VACUNASMENOREDAD = objMenorEdad.Vacunas;
                     menor.ALIMENTACIONMENOREDAD = objMenorEdad.Alimentacion;

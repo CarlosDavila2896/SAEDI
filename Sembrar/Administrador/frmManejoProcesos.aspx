@@ -72,6 +72,16 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style2">Tipo de proceso:&nbsp;</td>
+                    <td>
+                        <asp:DropDownList ID="ddlTipoProceso" runat="server" DataSourceID="odsTipoProceso" DataTextField="NOMBRETIPOPROCESO" DataValueField="IDTIPOPROCESO">
+                        </asp:DropDownList>
+                        <br />
+                        <asp:ObjectDataSource ID="odsTipoProceso" runat="server" SelectMethod="obtenerTiposProceso" TypeName="CapaDatos.clsDTipoProceso"></asp:ObjectDataSource>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
                     <td>&nbsp;</td>
                     <td>
                         <asp:Button ID="btnIngresar" runat="server" OnClick="btnIngresar_Click" Text="Ingresar" />
@@ -113,6 +123,17 @@
                                 <asp:ListItem Value="False">Inactivo</asp:ListItem>
                             </asp:DropDownList>
                         </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:CheckBoxField DataField="IDTIPOPROCESO" HeaderText="IDTIPOPROCESO" InsertVisible="False" SortExpression="IDTIPOPROCESO" Visible="False" />
+                    <asp:TemplateField HeaderText="Tipo de Proceso">
+                        <EditItemTemplate>
+                                <asp:DropDownList ID="ddlTipo" runat="server" DataSourceID="odsTipoProceso" DataTextField="NOMBRETIPOPROCESO" DataValueField="IDTIPOPROCESO" Height="19px" SelectedValue='<%# Bind("IDTIPOPROCESO") %>'>
+                                </asp:DropDownList>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:DropDownList ID="ddlTipo" runat="server" DataSourceID="odsTipoProceso" DataTextField="NOMBRETIPOPROCESO" DataValueField="IDTIPOPROCESO" Enabled="False" SelectedValue='<%# Bind("IDTIPOPROCESO") %>'>
+                                </asp:DropDownList>
+                            </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -169,7 +190,11 @@
                 <tr>
                     <td colspan="3">
                         <asp:ListBox ID="lstProcesos" runat="server" DataSourceID="odsProcesosActivos" DataTextField="NOMBREPROCESO" DataValueField="IDPROCESO" Width="70%" AutoPostBack="True" OnSelectedIndexChanged="lstProcesos_SelectedIndexChanged" Rows="10"></asp:ListBox>
-                        <asp:ObjectDataSource ID="odsProcesosActivos" runat="server" SelectMethod="D_consultarProcesosActivosOrdenados" TypeName="CapaDatos.clsDProceso"></asp:ObjectDataSource>
+                        <asp:ObjectDataSource ID="odsProcesosActivos" runat="server" SelectMethod="D_consultarProcesosActivosOrdenadosPorTipo" TypeName="CapaDatos.clsDProceso" OldValuesParameterFormatString="original_{0}">
+                            <SelectParameters>
+                                <asp:Parameter DefaultValue="2" Name="idtipo" Type="Int32" />
+                            </SelectParameters>
+                        </asp:ObjectDataSource>
                     </td>
                 </tr>
                 <tr>

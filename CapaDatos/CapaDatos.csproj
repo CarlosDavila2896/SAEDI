@@ -79,6 +79,7 @@
     <Compile Include="clsDSolucionCuestionario.cs" />
     <Compile Include="clsDTipoAsistente.cs" />
     <Compile Include="clsDTipoPersona.cs" />
+    <Compile Include="clsDTipoProceso.cs" />
     <Compile Include="clsUsuario.cs" />
     <Compile Include="DataSetPersonas.Designer.cs">
       <AutoGen>True</AutoGen>

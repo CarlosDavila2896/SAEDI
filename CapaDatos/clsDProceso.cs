@@ -93,6 +93,7 @@ namespace CapaDatos
                     PROCESO proceso = db.PROCESO.Single(u => u.IDPROCESO == editarProceso.IDPROCESO);
                     proceso.NOMBREPROCESO = editarProceso.NOMBREPROCESO;
                     proceso.ESTADOPROCESO = editarProceso.ESTADOPROCESO;
+                    proceso.IDTIPOPROCESO = editarProceso.IDTIPOPROCESO;
                     db.SubmitChanges();
                 }
 
@@ -112,6 +113,18 @@ namespace CapaDatos
                 return db.PROCESO.Where(x => x.ESTADOPROCESO).OrderBy(x => x.NOMBREPROCESO).ToList();
             }
         }
+
+        //Metodo de consulta de procesos activos en orden alfabetico
+        public List<PROCESO> D_consultarProcesosActivosOrdenadosPorTipo(int idtipo)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                return db.PROCESO.Where(x => x.ESTADOPROCESO && x.IDTIPOPROCESO==idtipo).OrderBy(x => x.NOMBREPROCESO).ToList();
+            }
+        }
+
+
+
         public object D_consultarProceso()
         {
             try

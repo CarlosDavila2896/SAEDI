@@ -123,6 +123,22 @@ namespace CapaDatos
             }
         }
 
+        public object D_consultarOrientadoresNombresCompletos()
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                var procesos = from or in db.ORIENTADOR
+                               select new
+                               {
+                                   IDORIENTADOR = or.IDORIENTADOR,
+                                   NOMBREORIENTADOR = or.NOMBREORIENTADOR + " " + or.APELLIDOORIENTADOR
+                               };
+
+
+                return procesos.Distinct().ToList().OrderBy(a => a.NOMBREORIENTADOR).ToList();
+            }
+        }
+
         public clsOrientador D_consultarOrientadores(int id)
         {
             try

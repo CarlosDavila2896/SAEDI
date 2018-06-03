@@ -923,5 +923,22 @@ namespace CapaDatos
             }
         }
 
+        public object D_consultaIndividuosPorLineaDeAccionOrientador()
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                var individuos = from p in bd.PERSONA
+                                 select new
+                                 {
+                                     ID = p.IDPERSONA,
+                                     NOMBRES = p.PRIMERNOMBREPERSONA + " " + p.SEGUNDONOMBREPERSONA + " " + p.PRIMERAPELLIDOPERSONA + " " + p.SEGUNDOAPELLIDOPERSONA
+                                 };
+
+
+                return individuos.ToList().OrderBy(i=>i.NOMBRES);
+
+            }
+        }
+
     }
 }

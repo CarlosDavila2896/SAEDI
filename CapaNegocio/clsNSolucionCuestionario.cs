@@ -86,7 +86,21 @@ namespace CapaNegocio
             get { return textoSolucionCuestionario; }
             set { textoSolucionCuestionario = value; }
         }
-        
 
+        private int usuarioIngresa;
+
+        public int USUARIOINGRESA
+        {
+            get { return usuarioIngresa; }
+            set { usuarioIngresa = value; }
+        }
+
+        private int usuarioModifica;
+
+        public int USUARIOMODIFICA
+        {
+            get { return usuarioModifica; }
+            set { usuarioModifica = value; }
+        }
     }
 }

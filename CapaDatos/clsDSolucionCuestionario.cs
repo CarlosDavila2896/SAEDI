@@ -24,6 +24,8 @@ namespace CapaDatos
                     solucioncuestionario.IDPERIODO = nuevaSolucion.IDPERIODO;
                     solucioncuestionario.FECHASOLUCIONCUESTIONARIO = nuevaSolucion.FECHASOLUCIONCUESTIONARIO.Date;
                     solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
+                    solucioncuestionario.IDUSUARIOINGRESA = nuevaSolucion.USUARIOINGRESA;
+                    solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
 
                     db.SOLUCIONCUESTIONARIO.InsertOnSubmit(solucioncuestionario);
                     db.SubmitChanges();
@@ -46,6 +48,7 @@ namespace CapaDatos
                     SOLUCIONCUESTIONARIO solucioncuestionario = db.SOLUCIONCUESTIONARIO.Where(s => s.IDSOLUCIONCUESTIONARIO == nuevaSolucion.IDSOLUCION).First();
                     solucioncuestionario.FECHAMODIFICACIONCUESTIONARIO = nuevaSolucion.FECHAMODIFICACIONCUESTIONARIO;
                     solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
+                    solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
                     
                     db.SubmitChanges();
 
@@ -82,7 +85,10 @@ namespace CapaDatos
                                                IDPERSONA = s.IDPERSONA,
                                                IDPREGUNTA = s.IDPREGUNTA,
                                                FECHASOLUCIONCUESTIONARIO = s.FECHASOLUCIONCUESTIONARIO,
-                                               TEXTOSOLUCIONCUESTIONARIO = s.TEXTOSOLUCIONCUESTIONARIO
+                                               TEXTOSOLUCIONCUESTIONARIO = s.TEXTOSOLUCIONCUESTIONARIO,
+                                               FECHAMODIFICACIONCUESTIONARIO = s.FECHAMODIFICACIONCUESTIONARIO.Value,
+                                               USUARIOINGRESA = s.IDUSUARIOINGRESA.Value,
+                                               USUARIOMODIFICA = s.IDUSUARIOMODIFICA.Value
                                            }).ToList();
 
                     return listaRespuestas;

@@ -57,36 +57,6 @@
     </tr>
     <tr>
         <td class="auto-style3">&nbsp;</td>
-        <td class="auto-style3"><asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"
-                    ControlToValidate="txtPeso" ErrorMessage="Este campo acepta datos numéricos de maximo 2 decimales" 
-                    ValidationExpression="[0-9]+(\,[0-9][0-9]?)?" ForeColor="Red"></asp:RegularExpressionValidator></td>
-        <td class="auto-style3"></td>
-    </tr>
-    <tr>
-        <td class="auto-style12" style="text-align: left">Peso:</td>
-        <td class="auto-style14" style="text-align: left">
-            Ingresar peso en kilogramos<br />
-            <asp:TextBox ID="txtPeso" runat="server" Columns="50" MaxLength="5" Width="290px"></asp:TextBox>
-        </td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style3">&nbsp;</td>
-        <td class="auto-style3"> <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"
-                    ControlToValidate="txtTalla" ErrorMessage="Este campo acepta datos numéricos de maximo 2 decimales" 
-                    ValidationExpression="[0-9]+(\,[0-9][0-9]?)?" ForeColor="Red"></asp:RegularExpressionValidator></td>
-        <td class="auto-style3"></td>
-    </tr>
-    <tr>
-        <td class="auto-style12" style="text-align: left">Talla:</td>
-        <td class="auto-style14" style="text-align: left">
-            Ingresar talla en centimetros<br />
-            <asp:TextBox ID="txtTalla" runat="server" Columns="50" MaxLength="5" Width="290px"></asp:TextBox>
-        </td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style3">&nbsp;</td>
         <td class="auto-style3"></td>
         <td class="auto-style3"></td>
     </tr>

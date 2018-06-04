@@ -40,8 +40,6 @@ namespace Sembrar.Tecnico
         {
             txtSAD.Enabled = false;
             txtAnioIngreso.Enabled = false;
-            txtPeso.Enabled = false;
-            txtTalla.Enabled = false;
             //ddlOrientador.Enabled = false;
             ddlAlimentacion2.Enabled = false;
             txtPrimerNombre.Enabled = false;
@@ -68,8 +66,6 @@ namespace Sembrar.Tecnico
         {
             txtSAD.Enabled = true;
             txtAnioIngreso.Enabled = true;
-            txtPeso.Enabled = true;
-            txtTalla.Enabled = true;
             //ddlOrientador.Enabled = true;
             ddlAlimentacion2.Enabled = true;
             txtPrimerNombre.Enabled = true;
@@ -130,14 +126,6 @@ namespace Sembrar.Tecnico
             //ddlOrientador.SelectedValue = objMenor.IdOrientador.ToString();
             txtSAD.Text = objMenor.Sad;
             txtAnioIngreso.Text = objMenor.AnioIngreso.ToString();
-            if (objMenor.Peso > 0)
-            {
-                txtPeso.Text = objMenor.Peso.ToString();
-            }
-            if (objMenor.Talla > 0)
-            {
-                txtTalla.Text = objMenor.Talla.ToString();
-            }
             txtDiscapacidad.Text = objMenor.Discapacidad;
             chbVacunas.Checked = objMenor.Vacunas;
             txtAlimentacion.Text = objMenor.Alimentacion.ToString();
@@ -221,10 +209,6 @@ namespace Sembrar.Tecnico
             //objMenor.IdOrientador = int.Parse(ddlOrientador.SelectedValue.ToString());
             objMenor.Sad = txtSAD.Text;
             objMenor.AnioIngreso = int.Parse(txtAnioIngreso.Text);
-            double.TryParse(txtPeso.Text, out peso);
-            double.TryParse(txtTalla.Text, out talla);
-            objMenor.Peso = peso;
-            objMenor.Talla = talla;
             objMenor.Discapacidad = txtDiscapacidad.Text;
             objMenor.Vacunas = chbVacunas.Checked;
             objMenor.Alimentacion = int.Parse(txtAlimentacion.Text);

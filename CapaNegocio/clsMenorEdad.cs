@@ -42,20 +42,7 @@ namespace CapaNegocio
             get { return anioIngreso; }
             set { anioIngreso = value; }
         }
-        private double peso;
-
-        public double Peso
-        {
-            get { return peso; }
-            set { peso = value; }
-        }
-        private double talla;
-
-        public double Talla
-        {
-            get { return talla; }
-            set { talla = value; }
-        }
+        
         private string discapacidad;
 
         public string Discapacidad

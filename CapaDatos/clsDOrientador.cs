@@ -16,7 +16,7 @@ namespace CapaDatos
             orientador.IDOrientador1 = newOrientador.IDORIENTADOR;
             orientador.NombreOrientador = newOrientador.NOMBREORIENTADOR;
             orientador.apellidoOrientador = newOrientador.APELLIDOORIENTADOR;
-            orientador.generoOrientador = char.Parse(newOrientador.GENEROORIENTADOR.ToString());
+            orientador.generoOrientador = newOrientador.GENEROORIENTADOR.ToString();
             orientador.estadoOrientador = newOrientador.ESTADOORIENTADOR;
             return orientador;
         }

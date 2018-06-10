@@ -15,6 +15,8 @@ namespace CapaDatos
             persona.EDADMINIMA = int.Parse(newPersona.EDADMINIMA.ToString());
             persona.IDTIPOPERSONA = newPersona.IDTIPOPERSONA;
             persona.NOMBRETIPOPERSONA = newPersona.NOMBRETIPOPERSONA;
+
+            return persona;
         }
         //Metodo de creacion de nuevo tipo persona
         public bool D_ingresarTipoPersona(clsNTipoPersona nuevoTipoPersona)

@@ -21,10 +21,8 @@ namespace CapaDatos
             menor.IdMenorEdad = newMenor.IDMENOREDAD;
             menor.IdPersona = newMenor.IDPERSONA;
             menor.NombreEncargado = newMenor.NOMBREENCARGADOMENOREDAD;
-            menor.Peso = double.Parse(newMenor.PESOMENOREDAD.ToString());
             menor.Sacramento = newMenor.SACRAMENTOMENOREDAD;
             menor.Sad = newMenor.CODIGOSADMENOREDAD;
-            menor.Talla = double.Parse(newMenor.TALLAMENOREDAD.ToString());
             menor.Vacunas = newMenor.VACUNASMENOREDAD;
             menor.IdRepresentante = int.Parse(newMenor.IDREPRESENTANTE.ToString());
             return menor;

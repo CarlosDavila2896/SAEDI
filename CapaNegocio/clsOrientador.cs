@@ -24,7 +24,7 @@ namespace CapaNegocio
         }
 
         public string apellidoOrientador { get; set; }
-        public char generoOrientador { get; set; }
+        public string generoOrientador { get; set; }
         public bool estadoOrientador { get; set; }
         public string username { get; set; }
         public string pass { get; set; }

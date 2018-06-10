@@ -30,9 +30,9 @@ namespace CapaNegocio
             set { nombreProceso = value; }
         }
 
-        private bool estado;
+        private int estado;
 
-        public bool Estado
+        public int Estado
         {
             get { return estado; }
             set { estado = value; }

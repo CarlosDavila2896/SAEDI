@@ -18,7 +18,7 @@ namespace CapaDatos
             clsProcesoNiño proceso = new clsProcesoNiño();
             proceso.IDProceso1 = newProceso.IDPROCESO;
             proceso.NombreProceso = newProceso.NOMBREPROCESO;
-            proceso.Estado = newProceso.ESTADOPROCESO;
+            proceso.Estado = int.Parse(newProceso.ESTADOPROCESO.ToString());
             return proceso;
         }
         int resul;

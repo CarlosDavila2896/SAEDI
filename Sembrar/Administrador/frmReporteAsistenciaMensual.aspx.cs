@@ -26,29 +26,6 @@ namespace Sembrar.Administrador
                     DropDownList1.Items.Add(li);
                 }
             }
-            if (!Page.IsPostBack)
-            {
-                try
-                {
-                    
-                }
-                catch
-                {
-
-                }
-            }
-            else
-            {
-                ReportDocument crystalrpt = new ReportDocument();
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaMensual.rpt"));
-                //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
-                crystalrpt.Refresh();
-                crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
-                crystalrpt.SetParameterValue("@Mes", DropDownList2.SelectedValue);
-                crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
-                CrystalReportViewer1.ReportSource = crystalrpt;
-                CrystalReportViewer1.DataBind();
-            }
         }
         private void cargarProceso()
         {

@@ -16,23 +16,52 @@
         </tr>
         <tr>
             <td class="auto-style1"></td>
-            <td class="auto-style2">Año:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                </asp:DropDownList>
-            </td>
             <td class="auto-style1"></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>Proceso:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlProceso" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProceso_SelectedIndexChanged">
-            </asp:DropDownList>
-            </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style4"></td>
             <td class="auto-style4">
-                &nbsp;</td>
+            <table style="width:100%;">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="auto-style7"><strong>Reporte Asistencia Anual Reuniones</strong></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Año:</td>
+                    <td>
+            <asp:DropDownList ID="DropDownList1" runat="server" Width="200px">
+            </asp:DropDownList>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Proceso:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                    <td> <asp:DropDownList ID="ddlProceso" runat="server" Width="200px">
+            </asp:DropDownList>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="auto-style7">
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="height: 29px" Text="Exportar PDF" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="auto-style7">
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Exportar Excel" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            </td>
             <td class="auto-style4">&nbsp;</td>
         </tr>
         <tr>
@@ -42,9 +71,9 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>
+            <!--td>
                 <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" EnableParameterPrompt="False" />
-            </td>
+            </td-->
             <td>&nbsp;</td>
         </tr>
         <tr>

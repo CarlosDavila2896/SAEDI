@@ -50,14 +50,14 @@
                     <tr>
                         <td class="auto-style5">Año:</td>
                         <td class="auto-style5">
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="200px">
+                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" Width="200px">
                 </asp:DropDownList>
                         </td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td class="auto-style5">Proceso:</td>
-                        <td class="auto-style5"> <asp:DropDownList ID="ddlProceso" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProceso_SelectedIndexChanged" Width="200px">
+                        <td class="auto-style5"> <asp:DropDownList ID="ddlProceso" runat="server" AutoPostBack="True" Width="200px">
                 </asp:DropDownList>
                         </td>
                         <td>&nbsp;</td>
@@ -72,7 +72,7 @@
                     <tr>
                         <td class="auto-style5">&nbsp;</td>
                         <td class="auto-style4">
-                            <asp:Button ID="Button2" runat="server" Text="Exportar Excel" />
+                            <asp:Button ID="Button2" runat="server" Text="Exportar Excel" OnClick="Button2_Click" />
                         </td>
                         <td>&nbsp;</td>
                     </tr>

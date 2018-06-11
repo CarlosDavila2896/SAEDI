@@ -47,14 +47,14 @@
                 <tr>
                     <td>Año:</td>
                     <td>
-            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" Width="200px">
+            <asp:DropDownList ID="DropDownList1" runat="server" Width="200px">
             </asp:DropDownList>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>Proceso:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                    <td> <asp:DropDownList ID="ddlProceso" runat="server" AutoPostBack="True" Width="200px">
+                    <td> <asp:DropDownList ID="ddlProceso" runat="server" Width="200px">
             </asp:DropDownList>
                     </td>
                     <td>&nbsp;</td>

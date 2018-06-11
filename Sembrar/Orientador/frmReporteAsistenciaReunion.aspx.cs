@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using CapaNegocio;
 using CapaDatos;
 using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+
 namespace Sembrar.Orientador
 {
     public partial class frmReporteAsistenciaReunion : System.Web.UI.Page
@@ -24,9 +26,6 @@ namespace Sembrar.Orientador
             int idOrientador = (int)Session["id"];
             if (!Page.IsPostBack)
             {
-
-                
-
                 try
                 {
                     cargarFecha();
@@ -34,28 +33,23 @@ namespace Sembrar.Orientador
                 }
                 catch { }
             }
-            else
-            {
-                ReportDocument crystalrpt = new ReportDocument();
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunion.rpt"));
-                //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
-                crystalrpt.Refresh();
-                crystalrpt.SetParameterValue("@IdReunion", ddlTema.SelectedValue);
-                CrystalReportViewer1.ReportSource = crystalrpt;
-                CrystalReportViewer1.DataBind();
-            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int idOrientador = (int)Session["id"];
-            ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunion.rpt"));
-            //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
-            crystalrpt.Refresh();
-            crystalrpt.SetParameterValue("@IdReunion", ddlTema.SelectedValue);
-            CrystalReportViewer1.ReportSource = crystalrpt;
-            CrystalReportViewer1.DataBind();
+            try
+            {
+                int idOrientador = (int)Session["id"];
+                ReportDocument crystalrpt = new ReportDocument();
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunion.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@IdReunion", ddlTema.SelectedValue);
+                crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteAsistenciaReunion" + ddlTema.SelectedItem.Text);
+                crystalrpt.Refresh();
+            }
+            catch { }
+            
         }
 
         protected void ddlFecha_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,6 +71,33 @@ namespace Sembrar.Orientador
             ddlTema.DataValueField = "IDREUNION";
             ddlTema.DataTextField = "TEMAREUNION";
             ddlTema.DataBind();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idOrientador = (int)Session["id"];
+                ReportDocument crystalrpt = new ReportDocument();
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunion.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@IdReunion", ddlTema.SelectedValue);
+                ExportOptions exportOption;
+                DiskFileDestinationOptions diskFileDestinationOptions = new DiskFileDestinationOptions();
+                exportOption = crystalrpt.ExportOptions;
+                {
+                    exportOption.ExportDestinationType = ExportDestinationType.DiskFile;
+                    exportOption.ExportFormatType = ExportFormatType.Excel;
+                    exportOption.ExportDestinationOptions = diskFileDestinationOptions;
+                    exportOption.ExportFormatOptions = new ExcelFormatOptions();
+                }
+                crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReporteAsistenciaReunion" + ddlTema.SelectedItem.Text);
+
+                crystalrpt.Export();
+            }
+            catch { }
+            
         }
     }
 }

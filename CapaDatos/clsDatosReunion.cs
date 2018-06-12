@@ -12,11 +12,29 @@ namespace CapaDatos
     {
         SqlConnection conexion = new SqlConnection();
 
+
         string motrarError;
         public string MotrarError
         {
             get { return motrarError; }
             set { motrarError = value; }
+        }
+
+        static clsReunion transformar(REUNION newReunion)
+        {
+            clsReunion reunion = new clsReunion();
+            reunion.Id = newReunion.IDREUNION;
+            reunion.IdLinea = newReunion.IDLINEADEACCION;
+            reunion.Idorientador = newReunion.IDORIENTADOR;
+            reunion.Proceso = newReunion.IDPROCESO;
+            reunion.idPeriodoPrograma = newReunion.IDPERIODO;
+            reunion.TipoAsistentes = newReunion.IDTIPOASISTENTES;
+            reunion.Tema = newReunion.TEMAREUNION;
+            reunion.Fecha = newReunion.FECHAREUNION.ToString();
+            reunion.Hora = newReunion.HORAREUNION.ToString();
+            reunion.Estado = newReunion.ESTADOREUNION;
+            reunion.Descripcion = newReunion.OBSERVACIONREUNION;
+            return reunion;
         }
 
         private bool ConectarServer()

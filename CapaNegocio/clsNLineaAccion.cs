@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNLineaAccion
     {
         private int idLineaAccion;
@@ -38,5 +39,7 @@ namespace CapaNegocio
             get { return idTipoPersona; }
             set { idTipoPersona = value; }
         }
+
+        public clsNLineaAccion() { }
     }
 }

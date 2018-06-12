@@ -12,7 +12,20 @@ namespace CapaDatos
     public class clsDatosSolucion
     {
         // INGRESAR SOLUCIÓN RADIOBUTTON
+        static clsSolucion transformar(SOLUCIONCUESTIONARIO newSolucion)
+        {
+            clsSolucion solucion = new clsSolucion();
+            solucion.IdProceso = newSolucion.IDPROCESO;
+            solucion.IdObjetivo = newSolucion.IDOBJETIVO;
+            solucion.IdIndicador = newSolucion.IDINDICADOR;
+            solucion.IdPregunta = newSolucion.IDPREGUNTA;
+            solucion.IdPersona = newSolucion.IDPERSONA;
+            solucion.IdPeriodo = newSolucion.IDPERIODO;
+            solucion.FechaSolucion = newSolucion.FECHASOLUCIONCUESTIONARIO;
+            solucion.RespuestaTexto = newSolucion.TEXTOSOLUCIONCUESTIONARIO;
 
+            return solucion; 
+        }
         public bool ingresarSolucionOpciones(clsSolucion solucion)
         {
             try

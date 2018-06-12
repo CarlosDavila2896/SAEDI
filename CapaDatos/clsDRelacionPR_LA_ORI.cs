@@ -8,6 +8,16 @@ namespace CapaDatos
 {
     public class clsDRelacionPR_LA_ORI
     {
+        static clsNRelacionPR_LA_ORI transformar(ORIENTADORACARGODEPROCESOENPERIODO newRelacion)
+        {
+            clsNRelacionPR_LA_ORI relacion = new clsNRelacionPR_LA_ORI();
+            relacion.IDLINEADEACCION = newRelacion.IDLINEADEACCION;
+            relacion.IDORIENTADOR = newRelacion.IDORIENTADOR;
+            relacion.IDPERIODO = newRelacion.IDPERIODO;
+            relacion.IDPROCESO = newRelacion.IDPROCESO;
+            relacion.OBSERVACIONRELACION = newRelacion.OBSERVACION;
+            return relacion;
+        }
         //Metodo de agregar nueva relacion entre linea de accion, proceso, orientador y periodo
         public bool D_ingresarRelacionLA_PR_OR_PER(clsNRelacionPR_LA_ORI nuevaRelacion)
         {

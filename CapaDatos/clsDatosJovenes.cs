@@ -15,9 +15,24 @@ namespace CapaDatos
         {
             clsJoven joven = new clsJoven();
             joven.Cedula = newJoven.IDJOVEN;
-            joven.idMenor = newJoven.IDMENOREDAD;
-            joven.idPersona = newJoven.IDPERSONA;
+            joven.IdMenor = newJoven.IDMENOREDAD;
+            joven.IdPersona = newJoven.IDPERSONA;
             return joven;
+        }
+        static clsMenorEdad transformarMenor(MENOREDAD newMenor)
+        {
+            clsMenorEdad menor = new clsMenorEdad();
+            menor.Alimentacion = newMenor.ALIMENTACIONMENOREDAD;
+            menor.AnioIngreso = newMenor.ANIOINGRESOMENOREDAD;
+            menor.Discapacidad = newMenor.DISCAPACIDADESMENOREDAD;
+            menor.IdMenorEdad = newMenor.IDMENOREDAD;
+            menor.IdPersona = newMenor.IDPERSONA;
+            menor.NombreEncargado = newMenor.NOMBREENCARGADOMENOREDAD;
+            menor.Sacramento = newMenor.SACRAMENTOMENOREDAD;
+            menor.Sad = newMenor.CODIGOSADMENOREDAD;
+            menor.Vacunas = newMenor.VACUNASMENOREDAD;
+            menor.IdRepresentante = int.Parse(newMenor.IDREPRESENTANTE.ToString());
+            return menor;
         }
 
     }

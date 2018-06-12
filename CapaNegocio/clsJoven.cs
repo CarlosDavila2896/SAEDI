@@ -8,8 +8,19 @@ namespace CapaNegocio
     [Serializable]
     public class clsJoven
     {
-        public int idMenor;
-        public int idPersona;
+        private int idMenor;
+        public int IdMenor
+        {
+            get { return idMenor; }
+            set { idMenor = value; }
+        }
+        private int idPersona;
+
+        public int IdPersona
+        {
+            get { return idPersona; }
+            set { idPersona = value; }
+        }
 
         private string nombreApellido;
 

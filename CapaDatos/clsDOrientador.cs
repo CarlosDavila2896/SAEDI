@@ -9,6 +9,17 @@ namespace CapaDatos
 {
     public class clsDOrientador
     {
+
+        static clsOrientador transformar(ORIENTADOR newOrientador)
+        {
+            clsOrientador orientador = new clsOrientador();
+            orientador.IDOrientador1 = newOrientador.IDORIENTADOR;
+            orientador.NombreOrientador = newOrientador.NOMBREORIENTADOR;
+            orientador.apellidoOrientador = newOrientador.APELLIDOORIENTADOR;
+            orientador.generoOrientador = newOrientador.GENEROORIENTADOR.ToString();
+            orientador.estadoOrientador = newOrientador.ESTADOORIENTADOR;
+            return orientador;
+        }
         public object D_consultarOrientadores()
         {
             using (MERSembrarDataContext db = new MERSembrarDataContext())
@@ -116,6 +127,22 @@ namespace CapaDatos
                                {
                                    IDORIENTADOR = or.IDORIENTADOR,
                                    NOMBREORIENTADOR = or.NOMBREORIENTADOR +" "+ or.APELLIDOORIENTADOR
+                               };
+
+
+                return procesos.Distinct().ToList().OrderBy(a => a.NOMBREORIENTADOR).ToList();
+            }
+        }
+
+        public object D_consultarOrientadoresNombresCompletos()
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                var procesos = from or in db.ORIENTADOR
+                               select new
+                               {
+                                   IDORIENTADOR = or.IDORIENTADOR,
+                                   NOMBREORIENTADOR = or.NOMBREORIENTADOR + " " + or.APELLIDOORIENTADOR
                                };
 
 

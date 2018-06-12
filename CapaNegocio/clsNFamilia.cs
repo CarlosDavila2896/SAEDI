@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNFamilia
     {
         private int iDFAMILIA;
@@ -103,6 +104,11 @@ namespace CapaNegocio
             {
                 dIRECCIONFAMILIA = value;
             }
+        }
+
+        public clsNFamilia()
+        {
+
         }
     }
 }

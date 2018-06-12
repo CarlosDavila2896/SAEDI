@@ -15,6 +15,7 @@ namespace CapaDatos
        static clsAdulto transformar(ADULTO newAdulto)
         {
             clsAdulto adulto = new clsAdulto();
+            adulto.IdAdulto = newAdulto.IDADULTO;
             adulto.IdPersona = newAdulto.IDPERSONA;
             adulto.DondeEstudiaAdulto = newAdulto.DONDEESTUDIAADULTO;
             adulto.EstudiaAdulto = newAdulto.ESTUDIAADULTO;

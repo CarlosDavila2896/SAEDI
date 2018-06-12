@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsMenorEdad
     {
         private int idPersona;
@@ -20,6 +21,13 @@ namespace CapaNegocio
         {
             get { return idMenorEdad; }
             set { idMenorEdad = value; }
+        }
+        private int idRepresentante;
+
+        public int IdRepresentante
+        {
+            get { return idRepresentante; }
+            set { idRepresentante = value; }
         }
         private int idOrientador;
 
@@ -42,20 +50,7 @@ namespace CapaNegocio
             get { return anioIngreso; }
             set { anioIngreso = value; }
         }
-        private double peso;
-
-        public double Peso
-        {
-            get { return peso; }
-            set { peso = value; }
-        }
-        private double talla;
-
-        public double Talla
-        {
-            get { return talla; }
-            set { talla = value; }
-        }
+        
         private string discapacidad;
 
         public string Discapacidad
@@ -90,6 +85,11 @@ namespace CapaNegocio
         {
             get { return sacramento; }
             set { sacramento = value; }
+        }
+
+        public clsMenorEdad()
+        {
+
         }
     }
 }

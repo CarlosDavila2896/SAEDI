@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Sembrar2" Class="MERSembrarDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Sembrar2;Integrated Security=True;Application Name=EntityFramework" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="Sembrar2ConnectionString1" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SembrarDesarrollo" Class="MERSembrarDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="SembrarDesarrolloConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.PERSONASORIENTADOR" Member="PERSONASORIENTADOR">
     <Type Name="PERSONASORIENTADOR">
       <Column Name="IDLINEAACCION" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -294,27 +294,6 @@
       <Association Name="PERSONA_MATRICULA" Member="PERSONA" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="PERSONA" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.MENOREDAD" Member="MENOREDAD">
-    <Type Name="MENOREDAD">
-      <Column Name="IDPERSONA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IDMENOREDAD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CODIGOSADMENOREDAD" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
-      <Column Name="ANIOINGRESOMENOREDAD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PESOMENOREDAD" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="TALLAMENOREDAD" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="DISCAPACIDADESMENOREDAD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="VACUNASMENOREDAD" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="ALIMENTACIONMENOREDAD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NOMBREENCARGADOMENOREDAD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SACRAMENTOMENOREDAD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="IDREPRESENTANTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="MENOREDAD_CERTIFICADOMEDICO" Member="CERTIFICADOMEDICO" ThisKey="IDPERSONA,IDMENOREDAD" OtherKey="IDPERSONA,IDMENOREDAD" Type="CERTIFICADOMEDICO" />
-      <Association Name="MENOREDAD_JOVEN" Member="JOVEN" ThisKey="IDPERSONA,IDMENOREDAD" OtherKey="IDPERSONA,IDMENOREDAD" Type="JOVEN" />
-      <Association Name="MENOREDAD_NINIO" Member="NINIO" ThisKey="IDPERSONA,IDMENOREDAD" OtherKey="IDPERSONA,IDMENOREDAD" Type="NINIO" />
-      <Association Name="PERSONA_MENOREDAD" Member="PERSONA" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="PERSONA" IsForeignKey="true" />
-      <Association Name="REPRESENTANTE_MENOREDAD" Member="REPRESENTANTE" ThisKey="IDREPRESENTANTE" OtherKey="IDREPRESENTANTE" Type="REPRESENTANTE" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.NINIO" Member="NINIO">
     <Type Name="NINIO">
       <Column Name="IDPERSONA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -427,9 +406,9 @@
       <Association Name="PERSONA_ASISTENCIA" Member="ASISTENCIA" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="ASISTENCIA" />
       <Association Name="PERSONA_ASISTENCIAREUNION" Member="ASISTENCIAREUNION" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="ASISTENCIAREUNION" />
       <Association Name="PERSONA_MATRICULA" Member="MATRICULA" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="MATRICULA" />
-      <Association Name="PERSONA_MENOREDAD" Member="MENOREDAD" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="MENOREDAD" />
       <Association Name="PERSONA_PERIODO_PERSONA_FAMILIA" Member="PERIODO_PERSONA_FAMILIA" ThisKey="IDPERSONA" OtherKey="IDREPRESENTANTE" Type="PERIODO_PERSONA_FAMILIA" />
       <Association Name="PERSONA_REPRESENTANTE" Member="REPRESENTANTE" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="REPRESENTANTE" />
+      <Association Name="PERSONA_MENOREDAD" Member="MENOREDAD" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="MENOREDAD" />
       <Association Name="PERSONA_SOLUCIONCUESTIONARIO" Member="SOLUCIONCUESTIONARIO" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="SOLUCIONCUESTIONARIO" />
     </Type>
   </Table>
@@ -468,16 +447,6 @@
       <Column Name="IDPREGUNTA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="POSIBLERESPUESTA_PREGUNTASCONPOSIBLESRESPUESTAS" Member="POSIBLERESPUESTA" ThisKey="IDPOSIBLERESPUESTA" OtherKey="IDPOSIBLERESPUESTA" Type="POSIBLERESPUESTA" IsForeignKey="true" />
       <Association Name="PREGUNTA_PREGUNTASCONPOSIBLESRESPUESTAS" Member="PREGUNTA" ThisKey="IDPREGUNTA" OtherKey="IDPREGUNTA" Type="PREGUNTA" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PROCESO" Member="PROCESO">
-    <Type Name="PROCESO">
-      <Column Name="IDPROCESO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NOMBREPROCESO" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="ESTADOPROCESO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="PROCESO_CUESTIONARIO" Member="CUESTIONARIO" ThisKey="IDPROCESO" OtherKey="IDPROCESO" Type="CUESTIONARIO" />
-      <Association Name="PROCESO_ORIENTADORACARGODEPROCESOENPERIODO" Member="ORIENTADORACARGODEPROCESOENPERIODO" ThisKey="IDPROCESO" OtherKey="IDPROCESO" Type="ORIENTADORACARGODEPROCESOENPERIODO" />
-      <Association Name="PROCESO_PROCESO_ORIENTADOR" Member="PROCESO_ORIENTADOR" ThisKey="IDPROCESO" OtherKey="IDPROCESO" Type="PROCESO_ORIENTADOR" />
     </Type>
   </Table>
   <Table Name="dbo.PROCESO_ORIENTADOR" Member="PROCESO_ORIENTADOR">
@@ -577,16 +546,6 @@
       <Association Name="TIPOPREGUNTA_PREGUNTA" Member="PREGUNTA" ThisKey="IDTIPOPREGUNTA" OtherKey="IDTIPOPREGUNTA" Type="PREGUNTA" />
     </Type>
   </Table>
-  <Table Name="dbo.Usuario" Member="Usuario">
-    <Type Name="Usuario">
-      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserIdAsp" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="NombreUsuario" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="ApellidoUsuario" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="GeneroUsuario" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="EstadoUsuario" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.VISITADOMICILIAR" Member="VISITADOMICILIAR">
     <Type Name="VISITADOMICILIAR">
       <Column Name="IDVISITADOMICILIAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -596,6 +555,44 @@
       <Column Name="PERSONAREFERENCIA" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="FECHAVISITA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="FAMILIA_VISITADOMICILIAR" Member="FAMILIA" ThisKey="IDFAMILIA" OtherKey="IDFAMILIA" Type="FAMILIA" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="adminSAEDI.TIPOPROCESO" Member="TIPOPROCESO">
+    <Type Name="TIPOPROCESO">
+      <Column Name="IDTIPOPROCESO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRETIPOPROCESO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TIPOPROCESO_PROCESO" Member="PROCESO" ThisKey="IDTIPOPROCESO" OtherKey="IDTIPOPROCESO" Type="PROCESO" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PROCESO" Member="PROCESO">
+    <Type Name="PROCESO">
+      <Column Name="IDPROCESO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBREPROCESO" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="ESTADOPROCESO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IDTIPOPROCESO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PROCESO_CUESTIONARIO" Member="CUESTIONARIO" ThisKey="IDPROCESO" OtherKey="IDPROCESO" Type="CUESTIONARIO" />
+      <Association Name="PROCESO_ORIENTADORACARGODEPROCESOENPERIODO" Member="ORIENTADORACARGODEPROCESOENPERIODO" ThisKey="IDPROCESO" OtherKey="IDPROCESO" Type="ORIENTADORACARGODEPROCESOENPERIODO" />
+      <Association Name="PROCESO_PROCESO_ORIENTADOR" Member="PROCESO_ORIENTADOR" ThisKey="IDPROCESO" OtherKey="IDPROCESO" Type="PROCESO_ORIENTADOR" />
+      <Association Name="TIPOPROCESO_PROCESO" Member="TIPOPROCESO" ThisKey="IDTIPOPROCESO" OtherKey="IDTIPOPROCESO" Type="TIPOPROCESO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MENOREDAD" Member="MENOREDAD">
+    <Type Name="MENOREDAD">
+      <Column Name="IDPERSONA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IDMENOREDAD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CODIGOSADMENOREDAD" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="ANIOINGRESOMENOREDAD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DISCAPACIDADESMENOREDAD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="VACUNASMENOREDAD" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ALIMENTACIONMENOREDAD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBREENCARGADOMENOREDAD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SACRAMENTOMENOREDAD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="IDREPRESENTANTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MENOREDAD_CERTIFICADOMEDICO" Member="CERTIFICADOMEDICO" ThisKey="IDPERSONA,IDMENOREDAD" OtherKey="IDPERSONA,IDMENOREDAD" Type="CERTIFICADOMEDICO" />
+      <Association Name="MENOREDAD_JOVEN" Member="JOVEN" ThisKey="IDPERSONA,IDMENOREDAD" OtherKey="IDPERSONA,IDMENOREDAD" Type="JOVEN" />
+      <Association Name="MENOREDAD_NINIO" Member="NINIO" ThisKey="IDPERSONA,IDMENOREDAD" OtherKey="IDPERSONA,IDMENOREDAD" Type="NINIO" />
+      <Association Name="PERSONA_MENOREDAD" Member="PERSONA" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="PERSONA" IsForeignKey="true" />
+      <Association Name="REPRESENTANTE_MENOREDAD" Member="REPRESENTANTE" ThisKey="IDREPRESENTANTE" OtherKey="IDREPRESENTANTE" Type="REPRESENTANTE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.SOLUCIONCUESTIONARIO" Member="SOLUCIONCUESTIONARIO">
@@ -610,9 +607,25 @@
       <Column Name="FECHASOLUCIONCUESTIONARIO" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="TEXTOSOLUCIONCUESTIONARIO" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="FECHAMODIFICACIONCUESTIONARIO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IDUSUARIOINGRESA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDUSUARIOMODIFICA" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="CUESTIONARIO_SOLUCIONCUESTIONARIO" Member="CUESTIONARIO" ThisKey="IDPROCESO,IDOBJETIVO,IDINDICADOR,IDPREGUNTA" OtherKey="IDPROCESO,IDOBJETIVO,IDINDICADOR,IDPREGUNTA" Type="CUESTIONARIO" IsForeignKey="true" />
       <Association Name="PERIODO_SOLUCIONCUESTIONARIO" Member="PERIODO" ThisKey="IDPERIODO" OtherKey="IDPERIODO" Type="PERIODO" IsForeignKey="true" />
       <Association Name="PERSONA_SOLUCIONCUESTIONARIO" Member="PERSONA" ThisKey="IDPERSONA" OtherKey="IDPERSONA" Type="PERSONA" IsForeignKey="true" />
+      <Association Name="Usuario_SOLUCIONCUESTIONARIO" Member="Usuario" ThisKey="IDUSUARIOINGRESA" OtherKey="IdUsuario" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Usuario_SOLUCIONCUESTIONARIO1" Member="Usuario1" ThisKey="IDUSUARIOMODIFICA" OtherKey="IdUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserIdAsp" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUsuario" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ApellidoUsuario" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GeneroUsuario" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="EstadoUsuario" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_SOLUCIONCUESTIONARIO" Member="SOLUCIONCUESTIONARIO" ThisKey="IdUsuario" OtherKey="IDUSUARIOINGRESA" Type="SOLUCIONCUESTIONARIO" />
+      <Association Name="Usuario_SOLUCIONCUESTIONARIO1" Member="SOLUCIONCUESTIONARIO1" ThisKey="IdUsuario" OtherKey="IDUSUARIOMODIFICA" Type="SOLUCIONCUESTIONARIO" />
     </Type>
   </Table>
 </Database>

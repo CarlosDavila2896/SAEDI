@@ -30,5 +30,13 @@ namespace CapaNegocio
             get { return estadoProceso; }
             set { estadoProceso = value; }
         }
+
+        private int idTipoProceso;
+
+        public int IDTIPOPROCESO
+        {
+            get { return idTipoProceso; }
+            set { idTipoProceso = value; }
+        }
     }
 }

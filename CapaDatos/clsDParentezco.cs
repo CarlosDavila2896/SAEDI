@@ -8,6 +8,15 @@ namespace CapaDatos
 {
     public class clsDParentezco
     {
+
+        static clsParentesco transformar(PARENTEZCO newParentesco)
+        {
+            clsParentesco parentesco = new clsParentesco();
+            parentesco.Codigo = newParentesco.IDPARENTEZCO;
+            parentesco.NombreParentesco = newParentesco.NOMBREPARENTEZCO;
+            return parentesco;
+        }
+
         MERSembrarDataContext bd = new MERSembrarDataContext();
         public List<PARENTEZCO> consultarParentezcos()
         {

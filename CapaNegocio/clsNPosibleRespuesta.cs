@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNPosibleRespuesta
     {
         private int IdPosibleRespuesta;
@@ -37,6 +38,10 @@ namespace CapaNegocio
         {
             get { return estadoPosibleRespuesta; }
             set { estadoPosibleRespuesta = value; }
+        }
+        public clsNPosibleRespuesta()
+        {
+
         }
     }
 }

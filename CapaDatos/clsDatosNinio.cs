@@ -8,10 +8,54 @@ using System.Data.SqlClient;
 using System.Transactions;
 namespace CapaDatos
 {
+    [Serializable]
     public class clsDatosNinio
     {
         MERSembrarDataContext bd = new MERSembrarDataContext();
-
+        static clsMenorEdad transformarMenor(MENOREDAD newMenor)
+        {
+            clsMenorEdad menor = new clsMenorEdad();
+            menor.Alimentacion = newMenor.ALIMENTACIONMENOREDAD;
+            menor.AnioIngreso = newMenor.ANIOINGRESOMENOREDAD;
+            menor.Discapacidad = newMenor.DISCAPACIDADESMENOREDAD;
+            menor.IdMenorEdad = newMenor.IDMENOREDAD;
+            menor.IdPersona = newMenor.IDPERSONA;
+            menor.NombreEncargado = newMenor.NOMBREENCARGADOMENOREDAD;
+            menor.Sacramento = newMenor.SACRAMENTOMENOREDAD;
+            menor.Sad = newMenor.CODIGOSADMENOREDAD;
+            menor.Vacunas = newMenor.VACUNASMENOREDAD;
+            menor.IdRepresentante = int.Parse(newMenor.IDREPRESENTANTE.ToString());
+            return menor;
+        }
+        static clsPersona transformarPersona(PERSONA newPersona)
+        {
+            clsPersona persona = new clsPersona();
+            persona.Codigo = newPersona.IDPERSONA;
+            persona.IdAlimentacion = int.Parse(newPersona.IDALIMENTACION2.ToString());
+            persona.PrimerNombre = newPersona.PRIMERNOMBREPERSONA;
+            persona.SegundoNombre = newPersona.SEGUNDONOMBREPERSONA;
+            persona.PrimerApellido = newPersona.PRIMERAPELLIDOPERSONA;
+            persona.SegundoApellido = newPersona.SEGUNDOAPELLIDOPERSONA;
+            persona.Genero = newPersona.GENEROPERSONA;
+            persona.Nacimiento = DateTime.Parse(newPersona.FECHANACIMIENTOPERSONA.ToString());
+            persona.Cedula = newPersona.CEDULAPERSONA;
+            persona.LugarNacimiento = newPersona.LUGARNACIMIENTOPERSONA;
+            persona.ViveFamilia = newPersona.VIVECONFAMILIAPERSONA;
+            persona.Observacion = newPersona.OBSERVACIONPERSONA;
+            persona.Ingreso = DateTime.Parse(newPersona.FECHAINGRESOPROGRAMA.ToString());
+            persona.Cabeza = bool.Parse(newPersona.CABEZAFAMILIA.ToString());
+            return persona;
+        }
+        static clsNinio transformarNinio(NINIO newNinio)
+        {
+            clsNinio ninio = new clsNinio();
+            ninio.IdPersona = newNinio.IDPERSONA;
+            ninio.IdMenorEdad = int.Parse(newNinio.MENOREDAD.ToString());
+            ninio.IdNinio = newNinio.IDNINIO;
+            ninio.Trabajo = bool.Parse(newNinio.TRABAJONINIO.ToString());
+            ninio.Tiempo = int.Parse(newNinio.TIEMPOTRABAJONINIO.ToString());
+            return ninio;
+        }
 
         public bool ingresaNinio(clsPersona objPersona, clsNinio objNinio, clsMenorEdad objMenorEdad)
         {
@@ -61,8 +105,6 @@ namespace CapaDatos
                     //menor.IDORIENTADOR = objMenorEdad.IdOrientador;
                     menor.CODIGOSADMENOREDAD = objMenorEdad.Sad;
                     menor.ANIOINGRESOMENOREDAD = objMenorEdad.AnioIngreso;
-                    menor.PESOMENOREDAD = Convert.ToDecimal(objMenorEdad.Peso);
-                    menor.TALLAMENOREDAD = Convert.ToDecimal(objMenorEdad.Talla);
                     menor.DISCAPACIDADESMENOREDAD = objMenorEdad.Discapacidad;
                     menor.VACUNASMENOREDAD = objMenorEdad.Vacunas;
                     menor.ALIMENTACIONMENOREDAD = objMenorEdad.Alimentacion;
@@ -171,8 +213,6 @@ namespace CapaDatos
                 //objMenor.IdOrientador = Convert.ToInt32(p.menor.IDORIENTADOR);
                 objMenor.Sad = p.menor.CODIGOSADMENOREDAD;
                 objMenor.AnioIngreso = Convert.ToInt32(p.menor.ANIOINGRESOMENOREDAD);
-                objMenor.Peso = Convert.ToDouble(p.menor.PESOMENOREDAD);
-                objMenor.Talla = Convert.ToDouble(p.menor.TALLAMENOREDAD);
                 objMenor.Discapacidad = p.menor.DISCAPACIDADESMENOREDAD;
                 objMenor.Vacunas = Convert.ToBoolean(p.menor.VACUNASMENOREDAD);
                 objMenor.Alimentacion = Convert.ToInt32(p.menor.ALIMENTACIONMENOREDAD);
@@ -240,8 +280,6 @@ namespace CapaDatos
                    // menor.IDORIENTADOR = objMenorEdad.IdOrientador;
                     menor.CODIGOSADMENOREDAD = objMenorEdad.Sad;
                     menor.ANIOINGRESOMENOREDAD = objMenorEdad.AnioIngreso;
-                    menor.PESOMENOREDAD = Convert.ToDecimal(objMenorEdad.Peso);
-                    menor.TALLAMENOREDAD = Convert.ToDecimal(objMenorEdad.Talla);
                     menor.DISCAPACIDADESMENOREDAD = objMenorEdad.Discapacidad;
                     menor.VACUNASMENOREDAD = objMenorEdad.Vacunas;
                     menor.ALIMENTACIONMENOREDAD = objMenorEdad.Alimentacion;

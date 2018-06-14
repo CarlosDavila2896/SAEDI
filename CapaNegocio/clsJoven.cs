@@ -5,8 +5,23 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsJoven
     {
+        private int idMenor;
+        public int IdMenor
+        {
+            get { return idMenor; }
+            set { idMenor = value; }
+        }
+        private int idPersona;
+
+        public int IdPersona
+        {
+            get { return idPersona; }
+            set { idPersona = value; }
+        }
+
         private string nombreApellido;
 
         public string NombreApellido
@@ -16,9 +31,9 @@ namespace CapaNegocio
         }
 
 
-        private int cedula;
+        private String cedula;
 
-        public int Cedula
+        public String Cedula
         {
             get { return cedula; }
             set { cedula = value; }

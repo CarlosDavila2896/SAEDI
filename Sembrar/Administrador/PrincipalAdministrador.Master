@@ -130,6 +130,7 @@
                         <ul>
                             <li><a href="../Administrador/frmResponderCuestionario.aspx"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Responder</a></li>
                             <li><a href="../Administrador/frmModificarCuestionario.aspx"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modificar/Eliminar</a></li>
+                            <li><a href="../Administrador/frmVerCuestionario.aspx"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ver</a></li>
                         </ul>
                     </li>
                     <li><a>Reportes<i class="fa fa-angle-down" aria-hidden="true"></i></a>

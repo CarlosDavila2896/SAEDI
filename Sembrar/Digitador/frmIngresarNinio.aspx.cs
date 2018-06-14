@@ -96,15 +96,10 @@ namespace Sembrar.Digitador
 
         private void cargarMenorEdad()
         {
-            double peso, talla;
             int alimento;
             //objMenorEdad.IdOrientador = int.Parse(ddlOrientador.SelectedValue.ToString());
             objMenorEdad.Sad = txtSAD.Text;
             objMenorEdad.AnioIngreso = int.Parse(txtAnioIngreso.Text);
-            double.TryParse(txtPeso.Text, out peso);
-            double.TryParse(txtTalla.Text, out talla);
-            objMenorEdad.Peso = peso;
-            objMenorEdad.Talla = talla;
             objMenorEdad.Discapacidad = txtDiscapacidad.Text;
             objMenorEdad.Vacunas = chbVacunas.Checked;
             int.TryParse(txtAlimentacion.Text, out alimento);

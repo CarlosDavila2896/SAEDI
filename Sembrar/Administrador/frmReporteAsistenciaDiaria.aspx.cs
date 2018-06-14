@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CapaDatos;
+using CrystalDecisions.Shared;
+
 namespace Sembrar.Administrador
 {
     public partial class frmReporte6 : System.Web.UI.Page
@@ -37,19 +39,6 @@ namespace Sembrar.Administrador
                 }
                 
             }
-            else
-            {
-                ReportDocument crystalrpt = new ReportDocument();
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaDiaria.rpt"));
-                //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
-                crystalrpt.Refresh();
-                crystalrpt.SetParameterValue("@Orientador", ddlOrientador.SelectedValue);
-                crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);
-                crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
-                crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
-                CrystalReportViewer1.ReportSource = crystalrpt;
-                CrystalReportViewer1.DataBind();
-            }       
         }
         private void cargarProceso()
         {
@@ -60,16 +49,51 @@ namespace Sembrar.Administrador
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaDiaria.rpt"));
-            //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
-            crystalrpt.Refresh();
-            crystalrpt.SetParameterValue("@Orientador", ddlOrientador.SelectedValue);
-            crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);
-            crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
-            crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
-            CrystalReportViewer1.ReportSource = crystalrpt;
-            CrystalReportViewer1.DataBind();
+            try
+            {
+                ReportDocument crystalrpt = new ReportDocument();
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaDiaria.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@Orientador", ddlOrientador.SelectedValue);
+                crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);
+                crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
+                crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
+
+                crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteAsistenciaDiaria" + ddlMes.SelectedItem.Text);
+                crystalrpt.Refresh();
+            }
+            catch { }
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ReportDocument crystalrpt = new ReportDocument();
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaDiaria.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@Orientador", ddlOrientador.SelectedValue);
+                crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);
+                crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
+                crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
+
+                ExportOptions exportOption;
+                DiskFileDestinationOptions diskFileDestinationOptions = new DiskFileDestinationOptions();
+                exportOption = crystalrpt.ExportOptions;
+                {
+                    exportOption.ExportDestinationType = ExportDestinationType.DiskFile;
+                    exportOption.ExportFormatType = ExportFormatType.Excel;
+                    exportOption.ExportDestinationOptions = diskFileDestinationOptions;
+                    exportOption.ExportFormatOptions = new ExcelFormatOptions();
+                }
+
+                crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReporteAsistenciaDiaria" + ddlMes.SelectedItem.Text);
+                crystalrpt.Export();
+            }
+            catch { }
         }
     }
 }

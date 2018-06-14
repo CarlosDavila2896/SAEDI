@@ -73,6 +73,7 @@
                         <ul>
                             <li><a href="../Digitador/frmResponderCuestionario.aspx"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Responder</a></li>
                             <li><a href="../Digitador/frmModificarCuestionario.aspx"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modificar/Eliminar</a></li>
+                            <li><a href="../Digitador/frmVerCuestionario.aspx"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ver</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -8,6 +8,16 @@ namespace CapaDatos
 {
     public class clsDLineaAccion
     {
+        static clsNLineaAccion transformar(LINEADEACCION newLinea)
+        {
+            clsNLineaAccion linea = new clsNLineaAccion();
+            linea.IDLINEA = newLinea.IDLINEADEACCION;
+            linea.NOMBRELINEAACCION = newLinea.NOMBRELINEADEACCION;
+            linea.DESCRIPCIONLINEAACCION = newLinea.DESCRIPCIONLINEADEACCION;
+            linea.IDTIPOPERSONA = newLinea.IDTIPOPERSONA;
+            return linea;
+        }
+
         //Metodo de creacion de linea de accion
         public bool D_ingresarLineadeAccion(clsNLineaAccion nuevaLineaDeAccion)
         {

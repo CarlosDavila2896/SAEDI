@@ -6,15 +6,16 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsasignarfamilia
     {
         //------ddlFamilia----
-        private string parentezco;
+        private string parentesco;
 
-        public string Parentezco
+        public string Parentesco
         {
-            get { return parentezco; }
-            set { parentezco = value; }
+            get { return parentesco; }
+            set { parentesco = value; }
         }
 
         private int codigoParentezco;
@@ -100,6 +101,11 @@ namespace CapaNegocio
             {
                 codigoParentezco = value;
             }
+        }
+
+        public clsasignarfamilia()
+        {
+
         }
     }
     

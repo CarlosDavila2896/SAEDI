@@ -11,6 +11,17 @@ namespace CapaDatos
     public class clsDMatriculas
     {
         
+        static clsNMatricula transformar(MATRICULA newMatricula)
+        {
+            clsNMatricula matricula = new clsNMatricula();
+            matricula.IDMATRICULA = newMatricula.IDMATRICULA;
+            matricula.IDLINEADEACCION = newMatricula.IDLINEADEACCION;
+            matricula.IDORIENTADOR = newMatricula.IDORIENTADOR;
+            matricula.IDPROCESO = newMatricula.IDPROCESO;
+            matricula.IDPERIODO = newMatricula.IDPERIODO;
+            matricula.IDPERSONA = newMatricula.IDPERSONA;
+            return matricula;
+        }
 
         //Ingreso de matriculas
         public bool ingresarMatricula(clsNMatricula nuevaMatricula)

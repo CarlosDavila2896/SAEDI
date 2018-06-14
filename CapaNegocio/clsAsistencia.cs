@@ -5,9 +5,48 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsAsistencia
     {
         private int codigoJoven;
+
+
+        private int codigoAsistencia;
+        public int CodigoAsistencia
+        {
+            get { return codigoAsistencia; }
+            set { codigoAsistencia = value; }
+        }
+        private int idLineaDeAccion;
+        public int IdLineaDeAccion
+        {
+            get { return idLineaDeAccion; }
+            set { idLineaDeAccion = value; }
+        }
+        private int idPeriodo;
+        public int IdPeriodo
+        {
+            get { return idPeriodo; }
+            set { idPeriodo = value; }
+        }
+        private int idPersona;
+        public int IdPersona
+        {
+            get { return idPersona; }
+            set { idPersona = value; }
+        }
+        private int idProcesos;
+        public int IdProcesos
+        {
+            get { return idProcesos; }
+            set { idProcesos = value; }
+        }
+        private int tipoAsistencia;
+        public int TipoAsistencia
+        {
+            get { return tipoAsistencia; }
+            set { tipoAsistencia = value; }
+        }
 
         public int CodigoJoven
         {
@@ -57,6 +96,10 @@ namespace CapaNegocio
             set { habilitado = value; }
         }
 
+        public clsAsistencia()
+        {
+
+        }
         
     }
 }

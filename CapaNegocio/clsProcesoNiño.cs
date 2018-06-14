@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsProcesoNiño
     {
         private int IDProceso;
@@ -43,5 +44,6 @@ namespace CapaNegocio
             get { return idProcesoDuplicado; }
             set { idProcesoDuplicado = value; }
         }
+        public clsProcesoNiño() { }
     }
 }

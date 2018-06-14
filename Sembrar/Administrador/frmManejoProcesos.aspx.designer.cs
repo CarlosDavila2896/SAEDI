@@ -31,6 +31,24 @@ namespace Sembrar.Administrador {
         protected global::System.Web.UI.WebControls.TextBox txtNombreProceso;
         
         /// <summary>
+        /// Control ddlTipoProceso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoProceso;
+        
+        /// <summary>
+        /// Control odsTipoProceso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsTipoProceso;
+        
+        /// <summary>
         /// Control btnIngresar.
         /// </summary>
         /// <remarks>

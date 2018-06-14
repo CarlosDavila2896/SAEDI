@@ -13,6 +13,24 @@ namespace CapaDatos
     public class clsDatosAsignarFamilia
     {
         MERSembrarDataContext bd = new MERSembrarDataContext();
+
+        public clsasignarfamilia transformar(PERIODO_PERSONA_FAMILIA newAsignar)
+        {
+
+            clsasignarfamilia asignar = new clsasignarfamilia();
+            asignar.CodigoFamilia = newAsignar.IDFAMILIA;
+            asignar.CodigoParentezco = newAsignar.PARENTEZCO.IDPARENTEZCO;
+            asignar.CodigoPersona = newAsignar.IDPERSONA;
+            asignar.NombreFamilia = newAsignar.FAMILIA.NOMBREFAMILIA;
+            asignar.Parentesco = newAsignar.PARENTEZCO.NOMBREPARENTEZCO;
+            asignar.PrimerNombre = newAsignar.PERSONA.PRIMERNOMBREPERSONA;
+            asignar.SegundoNombre = newAsignar.PERSONA.SEGUNDONOMBREPERSONA;
+            asignar.PrimerApellido = newAsignar.PERSONA.PRIMERAPELLIDOPERSONA;
+            asignar.SegundoApellido = newAsignar.PERSONA.SEGUNDOAPELLIDOPERSONA;
+            return asignar;
+        }
+
+        
         public List<PERIODO_PERSONA_FAMILIA> ConsultaFamilias()
         {
             try
@@ -41,7 +59,7 @@ namespace CapaDatos
                     miembro.PrimerApellido = bd.PERSONA.Where(pa => pa.IDPERSONA == ppf.IDPERSONA).First().PRIMERAPELLIDOPERSONA;
                     miembro.SegundoApellido = bd.PERSONA.Where(pa => pa.IDPERSONA == ppf.IDPERSONA).First().SEGUNDOAPELLIDOPERSONA;
                     miembro.CodigoParentezco = ppf.PARENTEZCO.IDPARENTEZCO;
-                    miembro.Parentezco = ppf.PARENTEZCO.NOMBREPARENTEZCO;
+                    miembro.Parentesco = ppf.PARENTEZCO.NOMBREPARENTEZCO;
                     listaMiembros.Add(miembro);
                 }
                 return listaMiembros;
@@ -72,7 +90,7 @@ namespace CapaDatos
                 objetoPersona.SegundoNombre = lectorPersona.GetString(2);
                 objetoPersona.PrimerApellido = lectorPersona.GetString(3);
                 objetoPersona.SegundoApellido = lectorPersona.GetString(4);
-                objetoPersona.Parentezco = lectorPersona.GetString(5);
+                objetoPersona.Parentesco = lectorPersona.GetString(5);
                 listaPersona.Add(objetoPersona);
                
             }
@@ -160,7 +178,7 @@ namespace CapaDatos
                 retorno.NombreFamilia = fam.NOMBREFAMILIA; ;
                 retorno.CodigoParentezco = nuevaRelacion.CodigoParentezco;
                 PARENTEZCO par = bd.PARENTEZCO.Where(pa => pa.IDPARENTEZCO == nuevaRelacion.CodigoParentezco).First();
-                retorno.Parentezco = par.NOMBREPARENTEZCO;
+                retorno.Parentesco = par.NOMBREPARENTEZCO;
                 return retorno;
 
             }

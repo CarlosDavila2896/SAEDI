@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using CapaNegocio;
 using CapaDatos;
 using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace Sembrar.Administrador
 {
@@ -38,13 +39,7 @@ namespace Sembrar.Administrador
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReuniones.rpt"));
-            crystalrpt.Refresh();
-            crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
-            crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
-            CrystalReportViewer1.ReportSource = crystalrpt;
-            CrystalReportViewer1.DataBind();
+          
         }
         private void cargarProceso()
         {
@@ -60,13 +55,47 @@ namespace Sembrar.Administrador
 
         protected void ddlProceso_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
             ReportDocument crystalrpt = new ReportDocument();
             crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReuniones.rpt"));
+            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
             crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
-            CrystalReportViewer1.ReportSource = crystalrpt;
-            CrystalReportViewer1.DataBind();
+            crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteAsistenciaAnualReuniones" + DropDownList1.SelectedValue);
+            crystalrpt.Refresh();
+            //CrystalReportViewer1.ReportSource = crystalrpt;
+            //CrystalReportViewer1.DataBind();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ReportDocument crystalrpt = new ReportDocument();
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReuniones.rpt"));
+            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+            crystalrpt.Refresh();
+            crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
+            crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
+            //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteAsistenciaDiaria"+ ddlMes.SelectedItem.Text);
+
+            //CrystalReportViewer1.ReportSource = crystalrpt;
+            //CrystalReportViewer1.DataBind();
+            ExportOptions exportOption;
+            DiskFileDestinationOptions diskFileDestinationOptions = new DiskFileDestinationOptions();
+            exportOption = crystalrpt.ExportOptions;
+            {
+                exportOption.ExportDestinationType = ExportDestinationType.DiskFile;
+                exportOption.ExportFormatType = ExportFormatType.Excel;
+                exportOption.ExportDestinationOptions = diskFileDestinationOptions;
+                exportOption.ExportFormatOptions = new ExcelFormatOptions();
+            }
+            crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReporteAsistenciaAnualReuniones" + DropDownList1.SelectedValue);
+
+            crystalrpt.Export();
         }
     }
 }

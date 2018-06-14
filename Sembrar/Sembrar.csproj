@@ -53,6 +53,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -77,6 +78,7 @@
     <Content Include="Administrador\frmActualizarAsistencia.aspx" />
     <Content Include="Administrador\frmActualizarAsistenciaDiaria.aspx" />
     <Content Include="Administrador\frmActualizarParentesco.aspx" />
+    <Content Include="Administrador\frmActualizarPeriodo.aspx" />
     <Content Include="Administrador\frmActualizarReunion.aspx" />
     <Content Include="Administrador\frmAsiginarFamilia.aspx" />
     <Content Include="Administrador\bin\CapaDatos.dll" />
@@ -673,6 +675,7 @@
     <Content Include="Administrador\crystalreportviewers13\prompting\js\promptengine_strings_zh_TW.js" />
     <Content Include="Administrador\crystalreportviewers13\urlreporting\activexviewer.js" />
     <Content Include="Administrador\crystalreportviewers13\urlreporting\appletviewer.js" />
+    <Content Include="Administrador\frmVerCuestionario.aspx" />
     <Content Include="Administrador\frmReporteAsistenciaAnualReuniones.aspx" />
     <Content Include="Administrador\frmReporteAsistenciaPorPersona.aspx" />
     <Content Include="Administrador\frmEliminarPersona.aspx" />
@@ -2454,6 +2457,7 @@
     <Content Include="Digitador\frmIngresarNinio.aspx" />
     <Content Include="Digitador\frmManejoMatriculas.aspx" />
     <Content Include="Digitador\frmMiPerfil.aspx" />
+    <Content Include="Digitador\frmVerCuestionario.aspx" />
     <Content Include="Digitador\frmModificarCuestionario.aspx" />
     <Content Include="Digitador\frmResponderCuestionario.aspx" />
     <Content Include="Digitador\frmVerPersonas.aspx" />
@@ -2489,6 +2493,7 @@
     <Content Include="Orientador\frmIngresarNinio.aspx" />
     <Content Include="Orientador\frmIngresarReunion.aspx" />
     <Content Include="Orientador\frmManejoMatriculas.aspx" />
+    <Content Include="Orientador\frmVerCuestionario.aspx" />
     <Content Include="Orientador\frmModificarCuestionario.aspx" />
     <Content Include="Orientador\frmReporteAsistenciaAnual.aspx" />
     <Content Include="Orientador\frmReporteAsistenciaAnualReunion.aspx" />
@@ -3183,6 +3188,13 @@
     <Compile Include="Administrador\frmActualizarParentesco.aspx.designer.cs">
       <DependentUpon>frmActualizarParentesco.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\frmActualizarPeriodo.aspx.cs">
+      <DependentUpon>frmActualizarPeriodo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\frmActualizarPeriodo.aspx.designer.cs">
+      <DependentUpon>frmActualizarPeriodo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\frmActualizarReunion.aspx.cs">
       <DependentUpon>frmActualizarReunion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3270,6 +3282,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport2.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Administrador\frmVerCuestionario.aspx.cs">
+      <DependentUpon>frmVerCuestionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\frmVerCuestionario.aspx.designer.cs">
+      <DependentUpon>frmVerCuestionario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\frmReporteAsistenciaAnualReuniones.aspx.cs">
       <DependentUpon>frmReporteAsistenciaAnualReuniones.aspx</DependentUpon>
@@ -3797,6 +3816,13 @@
     <Compile Include="Digitador\frmMiPerfil.aspx.designer.cs">
       <DependentUpon>frmMiPerfil.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Digitador\frmVerCuestionario.aspx.cs">
+      <DependentUpon>frmVerCuestionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Digitador\frmVerCuestionario.aspx.designer.cs">
+      <DependentUpon>frmVerCuestionario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Digitador\frmModificarCuestionario.aspx.cs">
       <DependentUpon>frmModificarCuestionario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3936,6 +3962,13 @@
     </Compile>
     <Compile Include="Orientador\frmManejoMatriculas.aspx.designer.cs">
       <DependentUpon>frmManejoMatriculas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Orientador\frmVerCuestionario.aspx.cs">
+      <DependentUpon>frmVerCuestionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Orientador\frmVerCuestionario.aspx.designer.cs">
+      <DependentUpon>frmVerCuestionario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Orientador\frmModificarCuestionario.aspx.cs">
       <DependentUpon>frmModificarCuestionario.aspx</DependentUpon>

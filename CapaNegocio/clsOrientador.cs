@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsOrientador
     {
         private int IDOrientador;
@@ -27,5 +28,9 @@ namespace CapaNegocio
         public bool estadoOrientador { get; set; }
         public string username { get; set; }
         public string pass { get; set; }
+
+        public clsOrientador()
+        {
+        }
     }
 }

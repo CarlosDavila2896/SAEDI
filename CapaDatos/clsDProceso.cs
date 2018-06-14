@@ -8,7 +8,14 @@ namespace CapaDatos
 {
     public class clsDProceso
     {
-
+        static clsProcesoNiño transformar(PROCESO newProceso)
+        {
+            clsProcesoNiño proceso = new clsProcesoNiño();
+            proceso.IDProceso1 = newProceso.IDPROCESO;
+            proceso.NombreProceso = newProceso.NOMBREPROCESO;
+            proceso.Estado = int.Parse(newProceso.ESTADOPROCESO.ToString());
+            return proceso;
+        }
         //Metodo de creacion de nuevo proceso
         public bool D_ingresarProceso(clsNProceso nuevoProceso)
         {
@@ -93,6 +100,7 @@ namespace CapaDatos
                     PROCESO proceso = db.PROCESO.Single(u => u.IDPROCESO == editarProceso.IDPROCESO);
                     proceso.NOMBREPROCESO = editarProceso.NOMBREPROCESO;
                     proceso.ESTADOPROCESO = editarProceso.ESTADOPROCESO;
+                    proceso.IDTIPOPROCESO = editarProceso.IDTIPOPROCESO;
                     db.SubmitChanges();
                 }
 
@@ -112,6 +120,18 @@ namespace CapaDatos
                 return db.PROCESO.Where(x => x.ESTADOPROCESO).OrderBy(x => x.NOMBREPROCESO).ToList();
             }
         }
+
+        //Metodo de consulta de procesos activos en orden alfabetico
+        public List<PROCESO> D_consultarProcesosActivosOrdenadosPorTipo(int idtipo)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                return db.PROCESO.Where(x => x.ESTADOPROCESO && x.IDTIPOPROCESO==idtipo).OrderBy(x => x.NOMBREPROCESO).ToList();
+            }
+        }
+
+
+
         public object D_consultarProceso()
         {
             try

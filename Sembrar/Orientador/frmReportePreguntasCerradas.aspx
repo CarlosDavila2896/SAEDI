@@ -17,29 +17,52 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>Proceso:&nbsp;&nbsp;
-                <asp:DropDownList ID="DropDownList1" runat="server">
-                </asp:DropDownList>
-&nbsp;&nbsp;
-                <asp:Button ID="btnBuscar" runat="server" OnClick="Button1_Click" Text="Buscar" />
-            </td>
+        </tr>
+        <tr>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>
+            <!--td>
                 <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+            </td-->
+            <td>
+                <table style="width:100%;">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><span style="color: rgb(0, 0, 0); font-family: Arial; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: bold; letter-spacing: normal; orphans: 2; text-align: -webkit-center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Reporte de preguntas cerradas por objetivo</span></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Proceso:&nbsp;&nbsp;
+                &nbsp;&nbsp;
+                </td>
+                        <td>
+                <asp:DropDownList ID="DropDownList1" runat="server" Width="200px">
+                </asp:DropDownList>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                <asp:Button ID="btnBuscar1" runat="server" OnClick="Button1_Click" Text="Exportar PDF" />
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                <asp:Button ID="btnBuscar0" runat="server" OnClick="btnBuscar0_Click" Text="Exportar Excel" />
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
             </td>
-            <td>&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>&nbsp;&nbsp; </td>
             <td>&nbsp;</td>
         </tr>
         <tr>

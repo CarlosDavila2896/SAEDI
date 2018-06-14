@@ -58,45 +58,6 @@
             <td class="auto-style3"></td>
         </tr>
         <tr>
-            <td class="auto-style12" style="text-align: left">&nbsp;</td>
-            <td class="auto-style13" style="text-align: left">
-                   <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"
-                    ControlToValidate="txtPeso" ErrorMessage="Este campo acepta datos numéricos de maximo 2 decimales, usar comas" 
-                    ValidationExpression="[0-9]+(\,[0-9][0-9]?)?" ForeColor="Red"></asp:RegularExpressionValidator>
-                   <br />
-                   Ingresar peso en kilogramos</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style3"><p>Peso:</p></td>
-            <td class="auto-style18">
-                <asp:TextBox ID="txtPeso" runat="server" Columns="50" MaxLength="5" Width="290px" CssClass="MiCheck" Enabled="False"></asp:TextBox>
-            </td>
-            <td class="auto-style3"></td>
-        </tr>
-        <tr>
-            <td class="auto-style11" style="text-align: left">&nbsp;</td>
-            <td class="auto-style19" style="text-align: left">
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"
-                    ControlToValidate="txtTalla" ErrorMessage="Este campo acepta datos numéricos de maximo 2 decimales, usar comas" 
-                    ValidationExpression="[0-9]+(\,[0-9][0-9]?)?" ForeColor="Red"></asp:RegularExpressionValidator>
-                <br />
-                Ingresar talla en centimetros</td>
-            <td class="auto-style11"></td>
-        </tr>
-        <tr>
-            <td class="auto-style8"><p>Talla:</p></td>
-            <td class="auto-style15">
-                <asp:TextBox ID="txtTalla" runat="server" Columns="50" MaxLength="5" Width="290px" CssClass="MiCheck" Enabled="False"></asp:TextBox>
-            </td>
-            <td class="auto-style8"></td>
-        </tr>
-        <tr>
-            <td class="auto-style5">&nbsp;</td>
-            <td class="auto-style18"></td>
-            <td class="auto-style5"></td>
-        </tr>
-        <tr>
             <td class="auto-style12" style="text-align: left"><p>Ocupación:</p></td>
             <td class="auto-style19" style="text-align: left">
                 <asp:DropDownList ID="ddlAlimentacion2" runat="server" Width="290px" CssClass="MiCheck">

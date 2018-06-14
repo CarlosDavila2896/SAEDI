@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsSolucion
     {
 
@@ -15,6 +16,23 @@ namespace CapaNegocio
             get { return idRespuesta; }
             set { idRespuesta = value; }
         }
+
+        private int idSolucion;
+
+        public int IdSolucion
+        {
+            get { return idSolucion; }
+            set { idSolucion = value; }
+        }
+        private int idProceso;
+
+        public int IdProceso
+        {
+            get { return idProceso; }
+            set { idProceso = value; }
+        }
+
+
 
         private string respuestaTexto;
 
@@ -53,6 +71,22 @@ namespace CapaNegocio
             get { return idIndicador; }
             set { idIndicador = value; }
         }
+        private int idObjetivo;
+
+        public int IdObjetivo
+        {
+            get { return idObjetivo; }
+            set { idObjetivo = value; }
+        }
+
+        private int idPeriodo;
+
+        public int IdPeriodo
+        {
+            get { return idPeriodo; }
+            set { idPeriodo = value; }
+        }
+
         private int idRepresentante;
 
         public int IdRepresentante
@@ -79,6 +113,11 @@ namespace CapaNegocio
             {
                 idPersona = value;
             }
+        }
+
+        public clsSolucion()
+        {
+
         }
 
         private int idPersona;

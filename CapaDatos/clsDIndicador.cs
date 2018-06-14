@@ -11,6 +11,15 @@ namespace CapaDatos
 {
    public class clsDIndicador
     {
+
+        static clsNIndicador tramsformar(INDICADOR newIndicador)
+        {
+            clsNIndicador indicador = new clsNIndicador();
+            indicador.IDINDICADOR = newIndicador.IDINDICADOR;
+            indicador.NOMBREINDICADOR = newIndicador.NOMBREINDICADOR;
+            indicador.ESTADOINDICADOR = newIndicador.ESTADO;
+            return indicador;
+        }
         //Metodo de creacion de nuevo indicador
         public bool D_ingresarIndicador(clsNIndicador nuevoIndicador)
         {

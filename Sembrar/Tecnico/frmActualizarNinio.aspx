@@ -68,7 +68,7 @@
             <td class="auto-style12" style="text-align: left">Peso:</td>
             <td class="auto-style14" style="text-align: left">
                 Ingresar peso en kilogramos<br />
-                <asp:TextBox ID="txtPeso" runat="server" Columns="50" MaxLength="5" Width="290px"></asp:TextBox>
+                <asp:TextBox ID="txtPeso" runat="server" Columns="50" MaxLength="5" Width="290px" Enabled="False"></asp:TextBox>
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -85,7 +85,7 @@
             <td class="auto-style12" style="text-align: left">Talla:</td>
             <td class="auto-style14" style="text-align: left">
                 Ingresar talla en centimetros<br />
-                <asp:TextBox ID="txtTalla" runat="server" Columns="50" MaxLength="5" Width="290px"></asp:TextBox>
+                <asp:TextBox ID="txtTalla" runat="server" Columns="50" MaxLength="5" Width="290px" Enabled="False"></asp:TextBox>
             </td>
             <td>&nbsp;</td>
         </tr>

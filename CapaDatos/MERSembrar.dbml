@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SembrarDesarrollo" Class="MERSembrarDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="SembrarDesarrolloConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=208.91.198.174;Initial Catalog=Sembrar2;User ID=adminSAEDI" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="SembrarDesarrolloConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.PERSONASORIENTADOR" Member="PERSONASORIENTADOR">
     <Type Name="PERSONASORIENTADOR">
       <Column Name="IDLINEAACCION" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />

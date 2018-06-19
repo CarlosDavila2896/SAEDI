@@ -45,6 +45,7 @@
                                 <ul>
                                     <li><a href="../Administrador/frmCrearPeriodos.aspx"><i class="fa fa-plus" aria-hidden="true"></i>Crear</a></li>
                                     <li><a href="../Administrador/frmCerrarPeriodo.aspx"><i class="fa fa-minus" aria-hidden="true"></i>Cerrar</a></li>
+                                    <li><a href="../Administrador/frmActualizarPeriodo.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>
                                 </ul>
                             </li>
                             <li><a href="../Administrador/frmManejoTipoPersona.aspx">Manejo de Tipos de Persona<i class="fa fa-pencil" aria-hidden="true"></i></a>

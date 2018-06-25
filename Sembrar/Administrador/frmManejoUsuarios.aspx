@@ -47,15 +47,13 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:DropDownList ID="ddlUsuario" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlUsuario_SelectedIndexChanged" Width="100%">
-                </asp:DropDownList>
-            </td>
+                &nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:ListBox ID="lstUsuario" runat="server" Width="100%"></asp:ListBox>
+                <asp:ListBox ID="lstUsuario" runat="server" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="lstUsuario_SelectedIndexChanged"></asp:ListBox>
             </td>
             <td>&nbsp;</td>
         </tr>

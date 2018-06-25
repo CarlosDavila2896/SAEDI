@@ -95,7 +95,7 @@
         <tr>
             <td class="auto-style9"></td>
             <td>
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buscar" />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buscar" style="height: 29px" />
             </td>
             <td class="auto-style1"></td>
         </tr>

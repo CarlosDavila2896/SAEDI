@@ -125,7 +125,7 @@ namespace Sembrar.Tecnico
             pnlCodigos.Visible = true;
             int bandera = 3;
             odsIndividuos.SelectMethod = "consultarInfoIndividuosJovenes";
-            lblCantidad.Text = objDPersona.consultarInfoIndividuosAdultosCantidad().ToString();
+            lblCantidad.Text = objDPersona.consultarInfoIndividuosJovenesCantidad().ToString();
             gvIndividuos.AllowPaging = true;            
             gvIndividuos.DataBind();
             Session["bandera"] = bandera;
@@ -290,10 +290,7 @@ namespace Sembrar.Tecnico
             Type cstype = obj.GetType();
             ClientScriptManager cs = pg.ClientScript;
             cs.RegisterClientScriptBlock(cstype, s, s.ToString());
-        }
-
-
-        
+        }   
 
 
     }

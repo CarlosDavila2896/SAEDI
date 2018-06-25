@@ -14,29 +14,36 @@ namespace Sembrar.Tecnico
         clsDatosReunion objReunion = new clsDatosReunion();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            
             try
             {
-               
+                
             }
             catch
             {
 
             }
-
+            
             if (!IsPostBack)
             {
                 cargarReunion();
                 cargarFecha();
-
             }
         }
 
         private void cargarReunion() {
-            ddlReunion.DataSource = objReunion.consultaReunionesActualizar();
-            ddlReunion.DataValueField = "ID";
-            ddlReunion.DataTextField = "TEMA";
-            ddlReunion.DataBind();
+            try
+            {
+                ddlReunion.DataSource = objReunion.consultaReunionesActualizar();
+                ddlReunion.DataValueField = "ID";
+                ddlReunion.DataTextField = "TEMA";
+                ddlReunion.DataBind();
+            }
+            catch
+            {
+
+            }
+            
            
         }
 
@@ -51,8 +58,6 @@ namespace Sembrar.Tecnico
             {
 
             }
-            
-            
         }
 
         protected void ddlReunion_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,21 +86,21 @@ namespace Sembrar.Tecnico
 
                     if (resultado)
                     {
-                        string script = "alert(\"Datos actualizados con éxito\");";
+                        string script = "alert(\"Datos actualizados con éxito!\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
 
                     }
                     else
                     {
-                        string script = "alert(\"Porfavor verifica, algo ha salido mal\");";
+                        string script = "alert(\"Porfavor verifica, algo ha salido mal!\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
                     }
                 }
                 catch (Exception)
                 {
-                    string script = "alert(\"Porfavor verifica, algo ha salido mal\");";
+                    string script = "alert(\"Porfavor verifica, algo ha salido mal!\");";
                     ScriptManager.RegisterStartupScript(this, GetType(),
                                           "ServerControlScript", script, true);
                 }

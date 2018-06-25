@@ -54,6 +54,13 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
+            <td>
+                <asp:ListBox ID="lstUsuario" runat="server" Width="100%"></asp:ListBox>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>

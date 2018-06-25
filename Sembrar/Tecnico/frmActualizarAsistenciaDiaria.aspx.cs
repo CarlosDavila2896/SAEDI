@@ -76,7 +76,7 @@ namespace Sembrar.Tecnico
             cargarPeriodo(int.Parse(ddlOrientador.SelectedValue), int.Parse(ddlProceso.SelectedValue), int.Parse(ddlLineaAccion.SelectedValue));
             grvJovenes.DataSource = null;
             grvJovenes.DataBind();
-
+                
         }
 
         protected void ddlLineaAccion_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,7 +178,7 @@ namespace Sembrar.Tecnico
                 foreach (GridViewRow gvr in grvJovenes.Rows)
                 {
                     DropDownList ddlAsisencia = (DropDownList)(gvr.FindControl("ddlAsistencia"));
-                    ddlAsisencia.SelectedIndex = ddlAsisencia.Items.IndexOf(ddlAsisencia.Items.FindByText(objDatosAsistencia.consultaAsistenciaDiaria(int.Parse(ddlLineaAccion.SelectedValue), int.Parse(ddlOrientador.SelectedValue), int.Parse(ddlProceso.SelectedValue), int.Parse(ddlPeriodo.SelectedValue),int.Parse(gvr.Cells[4].Text), DateTime.Parse(ddlFecha.SelectedValue.ToString()))));
+                    ddlAsisencia.SelectedIndex = ddlAsisencia.Items.IndexOf(ddlAsisencia.Items.FindByText(objDatosAsistencia.consultaAsistenciaDiaria(int.Parse(ddlLineaAccion.SelectedValue), int.Parse(ddlOrientador.SelectedValue), int.Parse(ddlProceso.SelectedValue), int.Parse(ddlPeriodo.SelectedValue),int.Parse(gvr.Cells[4].Text),DateTime.Parse(ddlFecha.SelectedValue.ToString()))));
                 }
             }
             catch { }
@@ -200,6 +200,7 @@ namespace Sembrar.Tecnico
         {
             cargarGridView();
         }
+
 
     }
 }

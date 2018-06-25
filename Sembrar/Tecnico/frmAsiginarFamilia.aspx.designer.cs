@@ -7,144 +7,171 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Sembrar.Administrador {
+namespace Sembrar.Tecnico {
     
     
-    public partial class frmManejoUsuarios {
+    public partial class AsignarFamiliaIndividuos {
         
         /// <summary>
-        /// Control ddlTipoUsuario.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoUsuario;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control ddlUsuario.
+        /// Control ddlFamilia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlUsuario;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFamilia;
         
         /// <summary>
-        /// Control lstUsuario.
+        /// Control txtNombreFamlia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstUsuario;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreFamlia;
         
         /// <summary>
-        /// Control txtIdUsuario.
+        /// Control Label2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdUsuario;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control txtUserName.
+        /// Control ddlIndividuos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlIndividuos;
         
         /// <summary>
-        /// Control rqfUserName.
+        /// Control txtBusqueda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfUserName;
+        protected global::System.Web.UI.WebControls.TextBox txtBusqueda;
         
         /// <summary>
-        /// Control txtNombreUsuario.
+        /// Control Label5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control rqfNombre.
+        /// Control ddlParentezco.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfNombre;
+        protected global::System.Web.UI.WebControls.DropDownList ddlParentezco;
         
         /// <summary>
-        /// Control txtApellidoUsuario.
+        /// Control odsParentezco.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidoUsuario;
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsParentezco;
         
         /// <summary>
-        /// Control rqfApellido.
+        /// Control btnAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfApellido;
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
         
         /// <summary>
-        /// Control ddlGeneroUsuario.
+        /// Control Label3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGeneroUsuario;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control ddlEstado.
+        /// Control gvFamilia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
+        protected global::System.Web.UI.WebControls.GridView gvFamilia;
         
         /// <summary>
-        /// Control txtEmail.
+        /// Control Label4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// Control rqfemail.
+        /// Control ddlRepresentante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfemail;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRepresentante;
         
         /// <summary>
-        /// Control btnActualizarUsuario.
+        /// Control txtObservacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActualizarUsuario;
+        protected global::System.Web.UI.WebControls.TextBox txtObservacion;
+        
+        /// <summary>
+        /// Control lblMiembros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMiembros;
+        
+        /// <summary>
+        /// Control txtDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDireccion;
+        
+        /// <summary>
+        /// Control btnIngresar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnIngresar;
     }
 }

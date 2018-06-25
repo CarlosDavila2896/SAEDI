@@ -10,141 +10,159 @@
 namespace Sembrar.Administrador {
     
     
-    public partial class frmManejoUsuarios {
+    public partial class frmModificarCuestionario {
         
         /// <summary>
-        /// Control ddlTipoUsuario.
+        /// Control scrCuestionario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoUsuario;
+        protected global::System.Web.UI.ScriptManager scrCuestionario;
         
         /// <summary>
-        /// Control ddlUsuario.
+        /// Control ddlLineaAccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlUsuario;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLineaAccion;
         
         /// <summary>
-        /// Control lstUsuario.
+        /// Control odsLineaAccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstUsuario;
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsLineaAccion;
         
         /// <summary>
-        /// Control txtIdUsuario.
+        /// Control updParametros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdUsuario;
+        protected global::System.Web.UI.UpdatePanel updParametros;
         
         /// <summary>
-        /// Control txtUserName.
+        /// Control ddlProceso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProceso;
         
         /// <summary>
-        /// Control rqfUserName.
+        /// Control odsProceso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfUserName;
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsProceso;
         
         /// <summary>
-        /// Control txtNombreUsuario.
+        /// Control ddlOrientador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
+        protected global::System.Web.UI.WebControls.DropDownList ddlOrientador;
         
         /// <summary>
-        /// Control rqfNombre.
+        /// Control odsOrientador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfNombre;
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsOrientador;
         
         /// <summary>
-        /// Control txtApellidoUsuario.
+        /// Control ddlPeriodo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidoUsuario;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPeriodo;
         
         /// <summary>
-        /// Control rqfApellido.
+        /// Control odsPeriodo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfApellido;
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsPeriodo;
         
         /// <summary>
-        /// Control ddlGeneroUsuario.
+        /// Control lstIndividuos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGeneroUsuario;
+        protected global::System.Web.UI.WebControls.ListBox lstIndividuos;
         
         /// <summary>
-        /// Control ddlEstado.
+        /// Control odsIndividuos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsIndividuos;
         
         /// <summary>
-        /// Control txtEmail.
+        /// Control btnGenerar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.Button btnGenerar;
         
         /// <summary>
-        /// Control rqfemail.
+        /// Control pnlCuestionario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfemail;
+        protected global::System.Web.UI.WebControls.Panel pnlCuestionario;
         
         /// <summary>
-        /// Control btnActualizarUsuario.
+        /// Control btnIngresar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActualizarUsuario;
+        protected global::System.Web.UI.WebControls.Button btnIngresar;
+        
+        /// <summary>
+        /// Control btnEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
+        
+        /// <summary>
+        /// Control lblModificacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModificacion;
     }
 }

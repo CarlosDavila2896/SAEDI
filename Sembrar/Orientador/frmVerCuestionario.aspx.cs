@@ -107,6 +107,7 @@ namespace Sembrar.Orientador
                         celdatabla = new TableCell();
                         celdatabla.Width = Unit.Percentage(100);
                         celdatabla.Text = pre.NOMBREPREGUNTA;
+                        celdatabla.Font.Bold = true;
                         celdatabla.ID = "id" + pre.IDPREGUNTA.ToString() + "-" + cont;
                         celdatabla.ClientIDMode = ClientIDMode.Static;
                         celdatabla.HorizontalAlign = HorizontalAlign.Left;

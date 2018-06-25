@@ -83,10 +83,9 @@ namespace Sembrar.Administrador
                         Response.Write("<script>window.alert('No se registro el usuario, vuelva a intentarlo');</script>");
                         //System.Web.Security.Membership.DeleteUser(CreateUserWizard.UserName);
                     }
-                    limpiar();
 
                 }
-                else if (ddlROL.SelectedValue == "administrador" || ddlROL.SelectedValue == "tecnico" || ddlROL.SelectedValue == "coordinador")
+                else if (ddlROL.SelectedValue == "administrador" || ddlROL.SelectedValue == "tecnico" || ddlROL.SelectedValue == "coordinador" || ddlROL.SelectedValue == "digitador")
                 {
                     Ocultar();
                     objNUsuario.nombre = txtUserNombre.Text;
@@ -147,11 +146,8 @@ namespace Sembrar.Administrador
         protected void CreateUserWizard_CreatingUser(object sender, LoginCancelEventArgs e)
         {
             if (txtUserApellido.Text == "" || txtUserNombre.Text == "" || ddlROL.SelectedIndex == 0
-                 || CreateUserWizard.UserName == "" || CreateUserWizard.Email == "" || CreateUserWizard.Password == ""
-                 || CreateUserWizard.Question == "" | CreateUserWizard.Answer == "")
-            {
+                 || CreateUserWizard.UserName == "" || CreateUserWizard.Email == "" || CreateUserWizard.Password == "")
                 Response.Write("<script>window.alert('Campos Incompletos');</script>");
-            }
         }
 
         protected void CreateUserWizard_CreateUserError(object sender, CreateUserErrorEventArgs e)

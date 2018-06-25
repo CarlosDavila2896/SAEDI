@@ -7,8 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Sembrar.Administrador
-{
+namespace Sembrar.Administrador {
     
     
     public partial class frmCerrarPeriodo {
@@ -39,6 +38,33 @@ namespace Sembrar.Administrador
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource odsPeriodo;
+        
+        /// <summary>
+        /// Control lblNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombre;
+        
+        /// <summary>
+        /// Control lblFechaInicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaInicio;
+        
+        /// <summary>
+        /// Control lblFechaFin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaFin;
         
         /// <summary>
         /// Control btnAceptar.

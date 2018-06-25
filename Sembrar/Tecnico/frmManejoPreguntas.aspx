@@ -7,6 +7,12 @@
         .auto-style2 {
             text-align: right;
         }
+        .auto-style4 {
+            text-align: right;
+        }
+        .auto-style5 {
+            text-align: left;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -30,6 +36,18 @@
                         </td>
             <td __designer:mapid="1ae">&nbsp;</td>
         </tr>
+            <td __designer:mapid="1ac" class="auto-style4">Ingrese un texto:</td>
+            <td __designer:mapid="1ad" class="auto-style5" colspan="2">
+                <asp:TextBox ID="txtBuscar" runat="server" Width="243px"></asp:TextBox>
+                <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
+            </td>
+        </tr>
+        <tr __designer:mapid="1ab">
+            <td __designer:mapid="1ac">&nbsp;</td>
+            <td __designer:mapid="1ad" style="text-align: right">&nbsp;</td>
+            <td __designer:mapid="1ae">&nbsp;</td>
+        </tr>
+        <tr __designer:mapid="1ab">
         <tr __designer:mapid="1ab">
             <td __designer:mapid="1ac">&nbsp;</td>
             <td __designer:mapid="1ad" style="text-align: right">&nbsp;</td>
@@ -87,7 +105,11 @@
         </tr>
         <tr __designer:mapid="1ab">
             <td __designer:mapid="1ac" colspan="3">
-                <asp:ObjectDataSource ID="odsPreguntas" runat="server" DataObjectTypeName="CapaDatos.PREGUNTA" DeleteMethod="D_eliminarPregunta" SelectMethod="D_consultarPreguntas" TypeName="CapaDatos.clsDPregunta" UpdateMethod="D_editarPreguntas"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="odsPreguntas" runat="server" DataObjectTypeName="CapaDatos.PREGUNTA" DeleteMethod="D_eliminarPregunta" SelectMethod="D_consultarPreguntas" TypeName="CapaDatos.clsDPregunta" UpdateMethod="D_editarPreguntas">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="txtBuscar" Name="filtro" PropertyName="Text" Type="String" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
             </td>
         </tr>
     </table>

@@ -8,6 +8,17 @@ namespace CapaDatos
 {
     public class clsDPeriodo
     {
+        static clsNPeriodo transformar(PERIODO newPeriodo)
+        {
+            clsNPeriodo periodo = new clsNPeriodo();
+            periodo.IDPeriodo = newPeriodo.IDPERIODO;
+            periodo.IDTIPOPERIODO = int.Parse(newPeriodo.IDTIPOPERIODO.ToString());
+            periodo.FECHAINICIOPERIODO = newPeriodo.FECHAINICIOPERIODO;
+            periodo.FECHAFINPERIODO = DateTime.Parse(newPeriodo.FECHAFINPERIODO.ToString());
+            periodo.ACTIVO = newPeriodo.ESTADOPERIODO;
+            return periodo;
+        }
+
         MERSembrarDataContext bd = new MERSembrarDataContext();
         public bool ingresarPeriodo(clsNPeriodo objPeriodo)
         {

@@ -5,26 +5,34 @@
     <Setting Name="SembrarConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=.;Initial Catalog=Sembrar2;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;MultipleActiveResultSets=True;Application Name=EntityFramework&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=.;Initial Catalog=Sembrar2;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework</Value>
+      <Value Profile="(Default)">Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;MultipleActiveResultSets=True;Application Name=EntityFramework</Value>
     </Setting>
     <Setting Name="Sembrar2ConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=.;Initial Catalog=Sembrar2;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;MultipleActiveResultSets=True;Application Name=EntityFramework&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=.;Initial Catalog=Sembrar2;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework</Value>
+      <Value Profile="(Default)">Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;MultipleActiveResultSets=True;Application Name=EntityFramework</Value>
     </Setting>
     <Setting Name="Sembrar2ConnectionString1" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=.;Initial Catalog=Sembrar2;Integrated Security=True;Application Name=EntityFramework&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;Name=EntityFramework&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=.;Initial Catalog=Sembrar2;Integrated Security=True;Application Name=EntityFramework</Value>
+      <Value Profile="(Default)">Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;Name=EntityFramework</Value>
+    </Setting>
+    <Setting Name="SembrarDesarrolloConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI;Password=SAEDI.2018*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI;Password=SAEDI.2018*</Value>
     </Setting>
   </Settings>
 </SettingsFile>

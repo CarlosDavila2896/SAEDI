@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CapaDatos;
+using CrystalDecisions.Shared;
+
 namespace Sembrar.Orientador
 {
     public partial class frmReporteAsistenciaAnualReunion : System.Web.UI.Page
@@ -34,14 +36,7 @@ namespace Sembrar.Orientador
                     DropDownList1.Items.Add(li);
                 }
             }
-            ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReunionesOrientador.rpt"));
-            crystalrpt.Refresh();
-            crystalrpt.SetParameterValue("@IdOrientador", idOrientador);
-            crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
-            crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
-            CrystalReportViewer1.ReportSource = crystalrpt;
-            CrystalReportViewer1.DataBind();
+            
         }
         private void cargarProceso()
         {
@@ -51,30 +46,55 @@ namespace Sembrar.Orientador
             ddlProceso.DataTextField = "Nombre";
             ddlProceso.DataBind();
         }
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            int idOrientador = (int)Session["id"];
-            ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReunionesOrientador.rpt"));
-            crystalrpt.Refresh();
-            crystalrpt.SetParameterValue("@IdOrientador", idOrientador);
-            crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
-            crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
-            CrystalReportViewer1.ReportSource = crystalrpt;
-            CrystalReportViewer1.DataBind();
+            try
+            {
+                int idOrientador = (int)Session["id"];
+                ReportDocument crystalrpt = new ReportDocument();
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReunionesOrientador.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@IdOrientador", idOrientador);
+                crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
+                crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
+                crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteAsistenciaAnualReuniones" + DropDownList1.SelectedValue);
+                crystalrpt.Refresh();
+            }
+            catch { }
+            
         }
 
-        protected void ddlProceso_SelectedIndexChanged(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)
         {
-            int idOrientador = (int)Session["id"];
-            ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReunionesOrientador.rpt"));
-            crystalrpt.Refresh();
-            crystalrpt.SetParameterValue("@IdOrientador", idOrientador);
-            crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
-            crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
-            CrystalReportViewer1.ReportSource = crystalrpt;
-            CrystalReportViewer1.DataBind();
+            try
+            {
+                int idOrientador = (int)Session["id"];
+                ReportDocument crystalrpt = new ReportDocument();
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReunionesOrientador.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@IdOrientador", idOrientador);
+                crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
+                crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
+                ExportOptions exportOption;
+                DiskFileDestinationOptions diskFileDestinationOptions = new DiskFileDestinationOptions();
+                exportOption = crystalrpt.ExportOptions;
+                {
+                    exportOption.ExportDestinationType = ExportDestinationType.DiskFile;
+                    exportOption.ExportFormatType = ExportFormatType.Excel;
+                    exportOption.ExportDestinationOptions = diskFileDestinationOptions;
+                    exportOption.ExportFormatOptions = new ExcelFormatOptions();
+                }
+                crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReporteAsistenciaAnualReuniones" + DropDownList1.SelectedValue);
+
+                crystalrpt.Export();
+            }
+            catch { }
+
+            
         }
     }
 }

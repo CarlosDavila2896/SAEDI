@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsReunion
     {
 
@@ -14,6 +15,29 @@ namespace CapaNegocio
         {
             get { return id; }
             set { id = value; }
+        }
+        private int idLinea;
+
+        public int IdLinea
+        {
+            get { return idLinea; }
+            set { idLinea = value; }
+        }
+
+        private int proceso;
+
+        public int Proceso
+        {
+            get { return proceso; }
+            set { proceso = value; }
+        }
+
+        private int tipoAsistentes;
+
+        public int TipoAsistentes
+        {
+            get { return tipoAsistentes; }
+            set { tipoAsistentes = value; }
         }
 
         private int idorientador;
@@ -87,6 +111,18 @@ namespace CapaNegocio
         {
             get { return descripcion; }
             set { descripcion = value; }
+        }
+
+        private bool estado;
+
+        public bool Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+        public clsReunion()
+        {
+
         }
        
     }

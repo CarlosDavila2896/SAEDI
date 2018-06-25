@@ -13,6 +13,15 @@
             font-size: small;
             text-align: center;
         }
+        .auto-style6 {
+            margin-bottom: 13;
+        }
+        .auto-style7 {
+            margin-bottom: 3;
+        }
+        .auto-style8 {
+            text-align: center;
+        }
     </style>
  
 </asp:Content>
@@ -29,11 +38,20 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>De:&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:DropDownList ID="ddlAnio1" runat="server">
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style1"></td>
+            <td class="auto-style1">
+                <table style="width:100%;">
+                    <tr>
+                        <td>De: </td>
+                        <td>&nbsp;</td>
+                        <td>
+                <asp:DropDownList ID="ddlAnio1" runat="server" Width="200px">
                 </asp:DropDownList>
-&nbsp;&nbsp;
-                <asp:DropDownList ID="ddlMes1" runat="server">
+                <asp:DropDownList ID="ddlMes1" runat="server" CssClass="auto-style7" Height="21px" Width="200px">
                     <asp:ListItem Value="1">Enero</asp:ListItem>
                     <asp:ListItem Value="2">Febrero</asp:ListItem>
                     <asp:ListItem Value="3">Marzo</asp:ListItem>
@@ -47,15 +65,15 @@
                     <asp:ListItem Value="11">Noviembre</asp:ListItem>
                     <asp:ListItem Value="12">Diciembre</asp:ListItem>
                 </asp:DropDownList>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1"></td>
-            <td class="auto-style1">A:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:DropDownList ID="ddlAnio2" runat="server">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>A:</td>
+                        <td>&nbsp;</td>
+                        <td>
+                <asp:DropDownList ID="ddlAnio2" runat="server" Width="200px">
                 </asp:DropDownList>
-                &nbsp;<asp:DropDownList ID="ddlMes2" runat="server">
+                            <asp:DropDownList ID="ddlMes2" runat="server" CssClass="auto-style6" Width="200px">
                     <asp:ListItem Value="1">Enero</asp:ListItem>
                     <asp:ListItem Value="2">Febrero</asp:ListItem>
                     <asp:ListItem Value="3">Marzo</asp:ListItem>
@@ -69,16 +87,38 @@
                     <asp:ListItem Value="11">Noviembre</asp:ListItem>
                     <asp:ListItem Value="12">Diciembre</asp:ListItem>
                 </asp:DropDownList>
-            </td>
-            <td class="auto-style1"></td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>Proceso:&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlProceso" runat="server" Width="108px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Proceso: </td>
+                        <td>&nbsp;</td>
+                        <td> <asp:DropDownList ID="ddlProceso" runat="server" Width="200px">
             </asp:DropDownList>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buscar" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class="auto-style8">
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Expotar PDF" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class="auto-style8">
+                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Exportar Excel" />
+                        </td>
+                    </tr>
+                </table>
             </td>
+            <td class="auto-style1"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -89,9 +129,9 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>
+            <!--td>
                 <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" />
-            </td>
+            </td-->
             <td>&nbsp;</td>
         </tr>
         <tr>

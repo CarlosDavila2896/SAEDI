@@ -7,6 +7,19 @@ namespace CapaDatos
 {
     public class clsDFamilia
     {
+        static clsNFamilia transformar(FAMILIA newFamilia)
+        {
+            clsNFamilia familia = new clsNFamilia();
+            familia.IDFAMILIA = newFamilia.IDFAMILIA;
+            familia.IDTIPOFAMILIA = int.Parse(newFamilia.IDTIPOFAMILIA.ToString());
+            familia.NOMBREFAMILIA = newFamilia.NOMBREFAMILIA;
+            familia.MIEMBROSFAMILIA = int.Parse(newFamilia.MIEMBROSFAMILIA.ToString());
+            familia.OBSERVACIONFAMILIA = newFamilia.OBSERVACIONFAMILIA;
+            familia.ANIOINGRESOFAMILIA = DateTime.Parse(newFamilia.ANIOINGRESOFAMILIA.ToString());
+            familia.DIRECCIONFAMILIA = newFamilia.DIRECCIONFAMILIA;
+            return familia;
+        }
+
         MERSembrarDataContext bd = new MERSembrarDataContext();
         public List<FAMILIA> consultaFamilia()
         {

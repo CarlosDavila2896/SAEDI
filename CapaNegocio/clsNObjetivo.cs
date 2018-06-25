@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNObjetivo
     {
         private int idObjetivo;
@@ -30,5 +31,7 @@ namespace CapaNegocio
             get { return estadoObjetivo; }
             set { estadoObjetivo = value; }
         }
+
+        public clsNObjetivo() { }
     }
 }

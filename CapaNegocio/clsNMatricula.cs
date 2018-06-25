@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNMatricula
     {
         private int iDMATRICULA;
@@ -85,6 +86,8 @@ namespace CapaNegocio
                 iDPERIODOPROGRAMA = value;
             }
         }
+
+        public clsNMatricula() { }
 
         
     }

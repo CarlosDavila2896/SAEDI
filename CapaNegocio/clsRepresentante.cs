@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsRepresentante
     {
         private int iDORIENTADOR;
@@ -118,5 +119,6 @@ namespace CapaNegocio
                 cODIGOSAD3 = value;
             }
         }
+        public clsRepresentante() { }
     }
 }

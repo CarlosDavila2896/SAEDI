@@ -45,8 +45,8 @@ namespace Sembrar.Administrador
                     crystalrpt.SetParameterValue("@Mes2", ddlMes2.SelectedValue);
                     crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
                     //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
-                    CrystalReportViewer1.ReportSource = crystalrpt;
-                    CrystalReportViewer1.DataBind();
+                    //CrystalReportViewer1.ReportSource = crystalrpt;
+                    //CrystalReportViewer1.DataBind();
                 }      
             }
         }
@@ -67,6 +67,7 @@ namespace Sembrar.Administrador
             {
                 ReportDocument crystalrpt = new ReportDocument();
                 crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaRango.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@Anio", ddlAnio1.SelectedValue);
                 crystalrpt.SetParameterValue("@Mes", ddlMes1.SelectedValue);
@@ -74,8 +75,46 @@ namespace Sembrar.Administrador
                 crystalrpt.SetParameterValue("@Mes2", ddlMes2.SelectedValue);
                 crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
                 //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
-                CrystalReportViewer1.ReportSource = crystalrpt;
-                CrystalReportViewer1.DataBind();
+                crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "AsistenciaRango");
+                crystalrpt.Refresh();
+                //CrystalReportViewer1.ReportSource = crystalrpt;
+                //CrystalReportViewer1.DataBind();
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            if ((int.Parse(ddlAnio1.SelectedValue) > int.Parse(ddlAnio2.SelectedValue)) || ((int.Parse(ddlAnio1.SelectedValue) == int.Parse(ddlAnio2.SelectedValue)) && int.Parse(ddlMes1.SelectedValue) > int.Parse(ddlMes2.SelectedValue)))
+            {
+                Response.Write(@"<script>alert('RANGO INCORRECTO');setTimeout(function(){window.location = '" + Request.RawUrl + @"';}, 10);</script>");
+            }
+            else
+            {
+                ReportDocument crystalrpt = new ReportDocument();
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaRango.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@Anio", ddlAnio1.SelectedValue);
+                crystalrpt.SetParameterValue("@Mes", ddlMes1.SelectedValue);
+                crystalrpt.SetParameterValue("@Anio2", ddlAnio2.SelectedValue);
+                crystalrpt.SetParameterValue("@Mes2", ddlMes2.SelectedValue);
+                crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
+                //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteAsistenciaDiaria"+ ddlMes.SelectedItem.Text);
+
+                //CrystalReportViewer1.ReportSource = crystalrpt;
+                //CrystalReportViewer1.DataBind();
+                ExportOptions exportOption;
+                DiskFileDestinationOptions diskFileDestinationOptions = new DiskFileDestinationOptions();
+                exportOption = crystalrpt.ExportOptions;
+                {
+                    exportOption.ExportDestinationType = ExportDestinationType.DiskFile;
+                    exportOption.ExportFormatType = ExportFormatType.Excel;
+                    exportOption.ExportDestinationOptions = diskFileDestinationOptions;
+                    exportOption.ExportFormatOptions = new ExcelFormatOptions();
+                }
+                crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "AsistenciaRango");
+
+                crystalrpt.Export();
             }
         }
     }

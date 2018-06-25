@@ -9,6 +9,19 @@ namespace CapaDatos
 {
     public class clsDRepresentante
     {
+        static clsRepresentante transformar(REPRESENTANTE newRepresetante)
+        {
+            clsRepresentante representante = new clsRepresentante();
+            representante.ANIOLECTIVO = newRepresetante.ANIOLECTIVOREPRESENTANTE;
+            representante.CODIGOSAD1 = newRepresetante.CODIGOSAD1;
+            representante.CODIGOSAD2 = newRepresetante.CODIGOSAD2;
+            representante.CODIGOSAD3 = newRepresetante.CODIGOSAD3;
+            representante.IDORIENTADOR = int.Parse(newRepresetante.IDORIENTADOR.ToString());
+            representante.IDPERSONA = int.Parse(newRepresetante.IDPERSONA.ToString());
+            representante.REFERENCIAREPRESENTANTE = newRepresetante.REFERENCIAREPRESENTANTE;
+            representante.RELACIONREPRESENTANTE = newRepresetante.RELACIONINIOREPRESENTANTE;
+            return representante;
+        }
         MERSembrarDataContext bd = new MERSembrarDataContext();
 
         public List<REPRESENTANTE> consultarRepresentante(clsPersona persona)

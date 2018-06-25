@@ -26,6 +26,7 @@ namespace Sembrar.Administrador
             {
                 nuevoProceso.NOMBREPROCESO = txtNombreProceso.Text;
                 nuevoProceso.ESTADO = true;
+                nuevoProceso.IDTIPOPROCESO = int.Parse(ddlTipoProceso.SelectedValue);
 
                 if (objDProceso.D_ingresarProceso(nuevoProceso))
                 {

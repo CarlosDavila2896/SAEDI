@@ -8,10 +8,33 @@ namespace CapaNegocio
     [Serializable]
     public class clsNAsistenciaReunion
     {
-        public int idPersona;
-        public int idReunion;
-        public int idAsistencia;
-        public int idTipoAsistencia;
+        private int idPersona;
+        public int IdPersona
+        {
+            get { return idPersona; }
+            set { idPersona = value; }
+        }
+
+        private int idReunion;
+        public int IdReunion
+        {
+            get { return idReunion; }
+            set { idReunion = value; }
+        }
+
+        private int idAsistencia;
+        public int IdAsistencia
+        {
+            get { return idAsistencia; }
+            set { idAsistencia = value; }
+        }
+
+        private int idTipoAsistencia;
+        public int IdTipoAsistencia
+        {
+            get { return idTipoAsistencia; }
+            set { idTipoAsistencia = value; }
+        }
 
         public clsNAsistenciaReunion()
         {

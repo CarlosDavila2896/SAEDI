@@ -27,7 +27,11 @@
                     <tr>
                         <td class="auto-style2" colspan="2">
                             <asp:ListBox ID="lstProcesos" runat="server" Width="100%" OnSelectedIndexChanged="lstProcesos_SelectedIndexChanged" DataSourceID="odsProcesos" DataTextField="NOMBREPROCESO" DataValueField="IDPROCESO" AutoPostBack="True" Rows="8"></asp:ListBox>
-                            <asp:ObjectDataSource ID="odsProcesos" runat="server" SelectMethod="D_consultarProcesosActivosOrdenados" TypeName="CapaDatos.clsDProceso"></asp:ObjectDataSource>
+                            <asp:ObjectDataSource ID="odsProcesos" runat="server" SelectMethod="D_consultarProcesosActivosOrdenadosPorTipo" TypeName="CapaDatos.clsDProceso" OldValuesParameterFormatString="original_{0}">
+                                <SelectParameters>
+                                    <asp:Parameter DefaultValue="1" Name="idtipo" Type="Int32" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
                         </td>
                     </tr>
                     <tr>

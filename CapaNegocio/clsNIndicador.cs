@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNIndicador
     {
         private int idIndicador;
@@ -30,5 +31,7 @@ namespace CapaNegocio
             get { return estadoIndicador; }
             set { estadoIndicador = value; }
         }
+
+        public clsNIndicador() { }
     }
 }

@@ -15,24 +15,26 @@ namespace CapaDatos
         static clsAsistencia transformarAsistencia(ASISTENCIA newAsistencia)
         {
             clsAsistencia asistencia = new clsAsistencia();
-            asistencia.codigoAsistencia = newAsistencia.IDASISTENCIA;
-            asistencia.idLineaDeAccion = newAsistencia.IDLINEADEACCION;
+            asistencia.CodigoAsistencia = newAsistencia.IDASISTENCIA;
+            asistencia.IdLineaDeAccion = newAsistencia.IDLINEADEACCION;
             asistencia.CodigoOrientador = newAsistencia.IDORIENTADOR;
-            asistencia.idPeriodo = newAsistencia.IDPERIODO;
-            asistencia.idPersona = newAsistencia.IDPERSONA;
-            asistencia.idProcesos = newAsistencia.IDPROCESO;
-            asistencia.tipoAsistencia = newAsistencia.IDTIPOASISTENCIA;
+            asistencia.IdPeriodo = newAsistencia.IDPERIODO;
+            asistencia.IdPersona = newAsistencia.IDPERSONA;
+            asistencia.IdProcesos = newAsistencia.IDPROCESO;
+            asistencia.TipoAsistencia = newAsistencia.IDTIPOASISTENCIA;
+            asistencia.FechaAsistencia = newAsistencia.FECHAASISTENCIA;
             return asistencia;
+            
         }
 
 
         static clsNAsistenciaReunion transformarAsistenciaReunion(ASISTENCIAREUNION newAsistencia)
         {
             clsNAsistenciaReunion asistencia = new clsNAsistenciaReunion();
-            asistencia.idAsistencia = newAsistencia.IDASISTENCIAREUNION;
-            asistencia.idPersona = newAsistencia.IDPERSONA;
-            asistencia.idReunion = newAsistencia.IDPERSONA;
-            asistencia.idTipoAsistencia = newAsistencia.IDTIPOASISTENCIA;
+            asistencia.IdAsistencia = newAsistencia.IDASISTENCIAREUNION;
+            asistencia.IdPersona = newAsistencia.IDPERSONA;
+            asistencia.IdReunion = newAsistencia.IDPERSONA;
+            asistencia.IdTipoAsistencia = newAsistencia.IDTIPOASISTENCIA;
             return asistencia;
         }
 

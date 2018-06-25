@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+	<dd:Name xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Report1</dd:Name>
+	<Body>
+		<Height>27.9cm</Height>
+		<ReportItems>
+			<FixedPage Name="FixedPage1">
+				<Pages>
+					<Page>
+						<ReportItems>
+							<CustomReportItem Name="Calendar1">
+								<Type>Calendar</Type>
+								<Top>0.4cm</Top>
+								<Left>1cm</Left>
+								<Width>14cm</Width>
+								<Height>10cm</Height>
+								<ZIndex>1</ZIndex>
+								<Style />
+								<CustomData>
+									<DataRowGroupings>
+										<DataGroupings>
+											<DataGrouping />
+										</DataGroupings>
+									</DataRowGroupings>
+								</CustomData>
+							</CustomReportItem>
+						</ReportItems>
+						<Style />
+					</Page>
+				</Pages>
+			</FixedPage>
+		</ReportItems>
+		<Style />
+	</Body>
+	<BottomMargin>2.5cm</BottomMargin>
+	<LeftMargin>2.5cm</LeftMargin>
+	<PageHeight>27.9cm</PageHeight>
+	<PageWidth>21.6cm</PageWidth>
+	<RightMargin>2.5cm</RightMargin>
+	<TopMargin>2.5cm</TopMargin>
+	<Width>21.6cm</Width>
+</Report>

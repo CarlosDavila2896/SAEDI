@@ -26,6 +26,11 @@ namespace Sembrar.Administrador
             if (!IsPostBack)
             {
                 ViewState["cargarCuestionario"] = false;
+                System.Web.Security.MembershipUser logUser = System.Web.Security.Membership.GetUser(User.Identity.Name);
+                CapaNegocio.clsNUsuario usuario = new CapaNegocio.clsNUsuario();
+                CapaDatos.clsUsuario objDatosPerfil = new CapaDatos.clsUsuario();
+                usuario = objDatosPerfil.obtenerDatosUsuario(logUser.UserName.ToString());
+                ViewState["usuarioModifica"] = usuario.idUser;
 
             }
             if ((bool)ViewState["cargarCuestionario"])
@@ -191,9 +196,8 @@ namespace Sembrar.Administrador
 
         private void solucionar2()
         {
-            using (TransactionScope trans = new TransactionScope())
+            using (TransactionScope trans = new TransactionScope(TransactionScopeOption.Required, TimeSpan.FromSeconds(999)))
             {
-
 
                 Cuestionario = (Table)pnlCuestionario.Controls[0];
 
@@ -324,6 +328,7 @@ namespace Sembrar.Administrador
                 idPersona = int.Parse(lstIndividuos.SelectedValue);
 
 
+
                 respuestas = objDSolucionCuestionario.D_obtenerlistaRespuestas(idPersona, idProceso, idPeriodo);
 
                 Session["respuestas"] = respuestas;
@@ -385,12 +390,22 @@ namespace Sembrar.Administrador
                     }
 
                 }
+                clsUsuario consultaUsuario = new clsUsuario();
 
                 //Ultima modificacion
-                if (respuestas.First().FECHAMODIFICACIONCUESTIONARIO != null)
-                {
-                    lblModificacion.Text = "Última moficación de este cuestionario: " + respuestas.First().FECHAMODIFICACIONCUESTIONARIO.Date;
+                if (respuestas.First().FECHASOLUCIONCUESTIONARIO != null)
+                {                    
+                    clsNUsuario usuarioIngresa = consultaUsuario.obtenerDatosUsuarioID(respuestas.First().USUARIOINGRESA);
+
+                    
+                    lblModificacion.Text = "Fecha de ingreso de este cuestionario: " + respuestas.First().FECHASOLUCIONCUESTIONARIO.Date + " realizada por el usuario " + usuarioIngresa.nombre + " " + usuarioIngresa.appellido;
                     lblModificacion.Visible = true;
+                }
+                if(respuestas.First().FECHAMODIFICACIONCUESTIONARIO != null)
+                {
+                    clsNUsuario usuarioModifica = consultaUsuario.obtenerDatosUsuarioID(respuestas.First().USUARIOMODIFICA);
+
+                    lblModificacion.Text += "\n Última moficación de este cuestionario: " + respuestas.First().FECHAMODIFICACIONCUESTIONARIO.Date + " realizada por el usuario " + usuarioModifica.nombre + " " + usuarioModifica.appellido;
                 }
 
 
@@ -436,6 +451,7 @@ namespace Sembrar.Administrador
         {
             nuevasolucion = modificacion;
             nuevasolucion.FECHAMODIFICACIONCUESTIONARIO = DateTime.Now;
+            nuevasolucion.USUARIOMODIFICA = (int)ViewState["usuarioModifica"];
             objDSolucionCuestionario.D_modificarRespuestaCuestionario(nuevasolucion);
         }
         private void guardarSolucion(int idPregunta, string respuesta)
@@ -447,7 +463,9 @@ namespace Sembrar.Administrador
             nuevasolucion.IDPERSONA = idPersona;
             nuevasolucion.IDPERIODO = idPeriodo;
             nuevasolucion.FECHASOLUCIONCUESTIONARIO = respuestas.Select(s=>s.FECHASOLUCIONCUESTIONARIO).ToList().First();
+            nuevasolucion.USUARIOINGRESA = respuestas.Select(s => s.USUARIOINGRESA).ToList().First();
             nuevasolucion.FECHAMODIFICACIONCUESTIONARIO = DateTime.Now;
+            nuevasolucion.USUARIOMODIFICA = (int)ViewState["usuarioModifica"];
             nuevasolucion.TEXTOSOLUCIONCUESTIONARIO = respuesta;
             objDSolucionCuestionario.D_guardarRespuestaCuestionario(nuevasolucion);
         }

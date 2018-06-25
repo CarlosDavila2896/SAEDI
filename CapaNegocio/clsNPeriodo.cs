@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNPeriodo
     {
         private int iDPeriodo;
@@ -90,6 +91,11 @@ namespace CapaNegocio
             {
                 aCTIVO = value;
             }
+        }
+
+        public clsNPeriodo()
+        {
+
         }
     }
 }

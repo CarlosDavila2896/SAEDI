@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class clsNPeriodoPrograma
     {
         private int iDPERIODOPROGRAMA;
@@ -63,5 +64,6 @@ namespace CapaNegocio
                 iDORIENTADOR = value;
             }
         }
+        public clsNPeriodoPrograma() { }
     }
 }

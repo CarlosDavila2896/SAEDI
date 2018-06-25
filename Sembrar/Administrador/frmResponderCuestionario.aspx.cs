@@ -26,6 +26,11 @@ namespace Sembrar.Administrador
             if (!IsPostBack)
             {
                 ViewState["cargarCuestionario"] = false;
+                System.Web.Security.MembershipUser logUser = System.Web.Security.Membership.GetUser(User.Identity.Name);
+                CapaNegocio.clsNUsuario usuario = new CapaNegocio.clsNUsuario();
+                CapaDatos.clsUsuario objDatosPerfil = new CapaDatos.clsUsuario();
+                usuario = objDatosPerfil.obtenerDatosUsuario(logUser.UserName.ToString());
+                ViewState["usuarioIngresa"] = usuario.idUser;
 
             }
             if ((bool)ViewState["cargarCuestionario"])
@@ -313,6 +318,7 @@ namespace Sembrar.Administrador
             nuevasolucion.IDPERIODO = idPeriodo;
             nuevasolucion.FECHASOLUCIONCUESTIONARIO = DateTime.Now;
             nuevasolucion.TEXTOSOLUCIONCUESTIONARIO = respuesta;
+            nuevasolucion.USUARIOINGRESA = (int) ViewState["usuarioIngresa"];
             objDSolucionCuestionario.D_guardarRespuestaCuestionario(nuevasolucion);
         }
 

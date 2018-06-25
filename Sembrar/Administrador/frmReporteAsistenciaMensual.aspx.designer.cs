@@ -13,6 +13,15 @@ namespace Sembrar.Administrador {
     public partial class Reporte7 {
         
         /// <summary>
+        /// Control CrystalReportViewer1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer1;
+        
+        /// <summary>
         /// Control DropDownList1.
         /// </summary>
         /// <remarks>
@@ -49,12 +58,12 @@ namespace Sembrar.Administrador {
         protected global::System.Web.UI.WebControls.Button btnBuscar;
         
         /// <summary>
-        /// Control CrystalReportViewer1.
+        /// Control btnBuscar0.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer1;
+        protected global::System.Web.UI.WebControls.Button btnBuscar0;
     }
 }

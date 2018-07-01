@@ -14,6 +14,8 @@ namespace Sembrar.Administrador
     {
         clsDCuestionario objDcuestionario = new clsDCuestionario();
         clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
+        List<clsNSolucionCuestionario> listaRespuestasAGuardar;
+        List<clsNSolucionCuestionario> listaRespuestasAModificar;
         clsDSolucionCuestionario objDSolucionCuestionario = new clsDSolucionCuestionario();
         List<clsNSolucionCuestionario> respuestas = new List<clsNSolucionCuestionario>();
         int idProceso, idObjetivo, idIndicador, idPeriodo, idPersona;
@@ -196,6 +198,8 @@ namespace Sembrar.Administrador
 
         private void solucionar2()
         {
+            listaRespuestasAGuardar = new List<clsNSolucionCuestionario>();
+            listaRespuestasAModificar = new List<clsNSolucionCuestionario>();
             using (TransactionScope trans = new TransactionScope(TransactionScopeOption.Required, TimeSpan.FromSeconds(999)))
             {
 
@@ -263,6 +267,8 @@ namespace Sembrar.Administrador
                     }
 
                 }
+                objDSolucionCuestionario.D_guardarRespuestaCuestionario(listaRespuestasAGuardar);
+                objDSolucionCuestionario.D_modificarRespuestaCuestionario(listaRespuestasAModificar);
                 trans.Complete();
             }
 
@@ -452,7 +458,7 @@ namespace Sembrar.Administrador
             nuevasolucion = modificacion;
             nuevasolucion.FECHAMODIFICACIONCUESTIONARIO = DateTime.Now;
             nuevasolucion.USUARIOMODIFICA = (int)ViewState["usuarioModifica"];
-            objDSolucionCuestionario.D_modificarRespuestaCuestionario(nuevasolucion);
+            listaRespuestasAModificar.Add(nuevasolucion);
         }
         private void guardarSolucion(int idPregunta, string respuesta)
         {
@@ -467,7 +473,7 @@ namespace Sembrar.Administrador
             nuevasolucion.FECHAMODIFICACIONCUESTIONARIO = DateTime.Now;
             nuevasolucion.USUARIOMODIFICA = (int)ViewState["usuarioModifica"];
             nuevasolucion.TEXTOSOLUCIONCUESTIONARIO = respuesta;
-            objDSolucionCuestionario.D_guardarRespuestaCuestionario(nuevasolucion);
+            listaRespuestasAGuardar.Add(nuevasolucion);            
         }
 
         private bool validarRadioButtons()

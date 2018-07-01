@@ -14,6 +14,7 @@ namespace Sembrar.Digitador
     {
         clsDCuestionario objDcuestionario = new clsDCuestionario();
         clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
+        List<clsNSolucionCuestionario> listaRespuestasAGuardar;
         clsDSolucionCuestionario objDSolucionCuestionario = new clsDSolucionCuestionario();
         int idProceso, idObjetivo, idIndicador, idPeriodo, idPersona;
         DateTime fechaSolucion;
@@ -196,6 +197,7 @@ namespace Sembrar.Digitador
 
         private void solucionar2()
         {
+            listaRespuestasAGuardar = new List<clsNSolucionCuestionario>();
             using (TransactionScope trans = new TransactionScope())
             {
                 Cuestionario = (Table)pnlCuestionario.Controls[0];
@@ -248,6 +250,7 @@ namespace Sembrar.Digitador
                     }
 
                 }
+                objDSolucionCuestionario.D_guardarRespuestaCuestionario(listaRespuestasAGuardar);
                 trans.Complete();
             }
 
@@ -319,7 +322,7 @@ namespace Sembrar.Digitador
             nuevasolucion.FECHASOLUCIONCUESTIONARIO = DateTime.Now;
             nuevasolucion.TEXTOSOLUCIONCUESTIONARIO = respuesta;
             nuevasolucion.USUARIOINGRESA = (int)ViewState["usuarioIngresa"];
-            objDSolucionCuestionario.D_guardarRespuestaCuestionario(nuevasolucion);
+            listaRespuestasAGuardar.Add(nuevasolucion);
         }
 
         private bool validarRadioButtons()

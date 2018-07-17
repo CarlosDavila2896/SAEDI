@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tecnico/PrincipalAdministrador.Master" AutoEventWireup="true" CodeBehind="frmActualizarAdulto.aspx.cs" Inherits="Sembrar.Tecnico.Actualizar_Adulto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tecnico/PrincipalTecnico.Master" AutoEventWireup="true" CodeBehind="frmActualizarAdulto.aspx.cs" Inherits="Sembrar.Tecnico.Actualizar_Adulto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style4 {

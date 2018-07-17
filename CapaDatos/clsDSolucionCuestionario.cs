@@ -48,8 +48,9 @@ namespace CapaDatos
                         }                        
 
                         db.SOLUCIONCUESTIONARIO.InsertOnSubmit(solucioncuestionario);
-                        db.SubmitChanges();
-                    }                    
+                    }
+
+                    db.SubmitChanges();
 
                     return true;
                 }
@@ -74,10 +75,10 @@ namespace CapaDatos
                         if (nuevaSolucion.USUARIOMODIFICA != 0)
                         {
                             solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
-                        }
-                        db.SubmitChanges();
+                        }                        
                     }
-                    
+                    db.SubmitChanges();
+
 
                     return true;
                 }

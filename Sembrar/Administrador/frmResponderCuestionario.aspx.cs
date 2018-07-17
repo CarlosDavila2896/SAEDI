@@ -12,8 +12,7 @@ namespace Sembrar.Administrador
 {
     public partial class frmResponderCuestionario : System.Web.UI.Page
     {
-        clsDCuestionario objDcuestionario = new clsDCuestionario();
-        clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
+        clsDCuestionario objDcuestionario = new clsDCuestionario();        
         List<clsNSolucionCuestionario> listaRespuestasAGuardar;
         clsDSolucionCuestionario objDSolucionCuestionario = new clsDSolucionCuestionario();
         int idProceso, idObjetivo, idIndicador, idPeriodo, idPersona;
@@ -314,6 +313,7 @@ namespace Sembrar.Administrador
 
         private void guardarSolucion(int idPregunta, string respuesta)
         {
+            clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
             nuevasolucion.IDPROCESO = idProceso;
             nuevasolucion.IDOBJETIVO = idObjetivo;
             nuevasolucion.IDINDICADOR = idIndicador;

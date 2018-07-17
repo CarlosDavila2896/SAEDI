@@ -34,10 +34,10 @@ namespace Sembrar.Administrador
             txtUserNombre.Text = "";
             ddlGeneroUsuario.SelectedIndex = 0;
             //ddlROL.SelectedIndex = 0;
-            CreateUserWizard.UserName = "";
-            CreateUserWizard.Email = "";
-            CreateUserWizard.Question = "";
-            CreateUserWizard.Answer = "";
+            CreateUserWizard1.UserName = "";
+            CreateUserWizard1.Email= "";
+            CreateUserWizard1.Question = "";
+            CreateUserWizard1.Answer = "";
 
 
         }
@@ -53,13 +53,44 @@ namespace Sembrar.Administrador
             lblGenero.Visible = false;
             lblNombre.Visible = false;
             lblRol.Visible = false;
+            lblTitulo.Visible = false;
+        }
+        
+        
+
+        protected void ddlROL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mostrar();
         }
 
-        protected void CreateUserWizard_CreatedUser(object sender, EventArgs e)
+        protected void mostrar()
+        {
+            txtUserApellido.Visible = true;
+            txtUserNombre.Visible = true;
+            ddlGeneroUsuario.Visible = true;
+            lblApellido.Visible = true;
+            lblGenero.Visible = true;
+            lblNombre.Visible = true;
+            lblRol.Visible = true;
+            lblTitulo.Visible = true;
+            CreateUserWizard1.Visible = true;
+        }
+
+        protected void CreateUserWizard1_CreatingUser(object sender, LoginCancelEventArgs e)
+        {
+           if(txtUserApellido.Text == "" || txtUserNombre.Text == "" || ddlROL.SelectedIndex == 0
+                || CreateUserWizard1.UserName == "" || CreateUserWizard1.Email == "" || CreateUserWizard1.Password==""
+                || CreateUserWizard1.Question =="" | CreateUserWizard1.Answer == "")
+            {
+                Response.Write("<script>window.alert('Campos Incompletos');</script>");
+            }
+        }
+
+        protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
         {
             try
             {
-                txtUserM.Text = CreateUserWizard.UserName;
+                txtUserM.Text = CreateUserWizard1.UserName;
                 if (ddlROL.SelectedValue == "orientador")
                 {
                     Ocultar();
@@ -67,46 +98,41 @@ namespace Sembrar.Administrador
                     objNOrientrador.apellidoOrientador = txtUserApellido.Text;
                     if (ddlGeneroUsuario.SelectedValue == "1")
                         objNOrientrador.generoOrientador = "F";
-                    else if (ddlGeneroUsuario.SelectedValue == "2")
+                    if (ddlGeneroUsuario.SelectedValue == "2")
                         objNOrientrador.generoOrientador = "M";
                     objNOrientrador.estadoOrientador = true;
                     if (objetoDOrientrador.ingresarOrientador(objNOrientrador, txtUserM.Text))
                     {
-                        System.Web.Security.Roles.AddUserToRole(CreateUserWizard.UserName, ddlROL.SelectedValue);
-                        System.Web.Security.MembershipUser MU = System.Web.Security.Membership.GetUser(CreateUserWizard.UserName);
-                        MU.IsApproved = true;
-                        System.Web.Security.Membership.UpdateUser(MU);
-                        Response.Write("<script>window.alert('Usuario registrado con exito');</script>");
+                        System.Web.Security.Roles.AddUserToRole(CreateUserWizard1.UserName, ddlROL.SelectedValue);
+                        Response.Write("<script>window.alert('Resultado Ingreso: CORRECTO');</script>");
                     }
                     else
                     {
-                        Response.Write("<script>window.alert('No se registro el usuario, vuelva a intentarlo');</script>");
-                        //System.Web.Security.Membership.DeleteUser(CreateUserWizard.UserName);
+                        Response.Write("<script>window.alert('Resultado Ingreso: INCORRECTO');</script>");
+                        System.Web.Security.Membership.DeleteUser(CreateUserWizard1.UserName);
                     }
+                    limpiar();
 
                 }
-                else if (ddlROL.SelectedValue == "administrador" || ddlROL.SelectedValue == "tecnico" || ddlROL.SelectedValue == "coordinador" || ddlROL.SelectedValue == "digitador")
+                if (ddlROL.SelectedValue == "administrador" || ddlROL.SelectedValue == "tecnico" || ddlROL.SelectedValue == "coordinador" || ddlROL.SelectedValue == "digitador")
                 {
                     Ocultar();
                     objNUsuario.nombre = txtUserNombre.Text;
                     objNUsuario.appellido = txtUserApellido.Text;
                     if (ddlGeneroUsuario.SelectedValue == "1")
                         objNUsuario.genero = "F";
-                    else if (ddlGeneroUsuario.SelectedValue == "2")
+                    if (ddlGeneroUsuario.SelectedValue == "2")
                         objNUsuario.genero = "M";
                     objNUsuario.estado = true;
                     if (objDUsuario.ingresarUsuario(objNUsuario, txtUserM.Text))
                     {
-                        System.Web.Security.Roles.AddUserToRole(CreateUserWizard.UserName, ddlROL.SelectedValue);
-                        System.Web.Security.MembershipUser MU = System.Web.Security.Membership.GetUser(CreateUserWizard.UserName);
-                        MU.IsApproved = true;
-                        System.Web.Security.Membership.UpdateUser(MU);
-                        Response.Write("<script>window.alert('Usuario registrado con exito');</script>");
+                        System.Web.Security.Roles.AddUserToRole(CreateUserWizard1.UserName, ddlROL.SelectedValue);
+                        Response.Write("<script>window.alert('Resultado Ingreso: CORRECTO');</script>");
                     }
                     else
                     {
-                        Response.Write("<script>window.alert('No se registro el usuario, vuelva a intentarlo');</script>");
-                        //System.Web.Security.Membership.DeleteUser(CreateUserWizard.UserName);
+                        Response.Write("<script>window.alert('Resultado Ingreso: INCORRECTO');</script>");
+                        System.Web.Security.Membership.DeleteUser(CreateUserWizard1.UserName);
                     }
                     limpiar();
                 }
@@ -120,46 +146,14 @@ namespace Sembrar.Administrador
             {
                 Response.Write("<script>window.alert('Resultado Ingreso: INCORRECTO');</script>");
                 /* metodo para eliminar el usuario*/
-                //System.Web.Security.Membership.DeleteUser(CreateUserWizard.UserName);
+                System.Web.Security.Membership.DeleteUser(CreateUserWizard1.UserName);
             }
 
         }
 
-
-        protected void ddlROL_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ContinueButton_Click(object sender, EventArgs e)
         {
-            CreateUserWizard.Visible = true;
-            mostrar();
-        }
-
-        protected void mostrar()
-        {
-            txtUserApellido.Visible = true;
-            txtUserNombre.Visible = true;
-            ddlGeneroUsuario.Visible = true;
-            lblApellido.Visible = true;
-            lblGenero.Visible = true;
-            lblNombre.Visible = true;
-            lblRol.Visible = true;
-        }
-
-        protected void CreateUserWizard_CreatingUser(object sender, LoginCancelEventArgs e)
-        {
-            if (txtUserApellido.Text == "" || txtUserNombre.Text == "" || ddlROL.SelectedIndex == 0
-                 || CreateUserWizard.UserName == "" || CreateUserWizard.Email == "" || CreateUserWizard.Password == "")
-                Response.Write("<script>window.alert('Campos Incompletos');</script>");
-        }
-
-        protected void CreateUserWizard_CreateUserError(object sender, CreateUserErrorEventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-                Response.Write("<script>window.alert('Campos Incompletos');</script>");
-            }
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

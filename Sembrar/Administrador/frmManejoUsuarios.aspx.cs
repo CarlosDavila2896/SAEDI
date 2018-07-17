@@ -94,6 +94,11 @@ namespace Sembrar.Administrador
                     usuario = objDUsuario.consultaUsuario("Coordinador");
                     lstUsuario.Enabled = true;
                 }
+                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 4)
+                {
+                    usuario = objDUsuario.consultaUsuario("Digitador");
+                    lstUsuario.Enabled = true;
+                }
 
                 lstUsuario.DataSource = usuario;
                 lstUsuario.DataTextField = "nombre";
@@ -124,7 +129,7 @@ namespace Sembrar.Administrador
         {
             try
             {
-                if (int.Parse(ddlTipoUsuario.SelectedValue) < 4 && int.Parse(ddlTipoUsuario.SelectedValue) > 0)
+                if (int.Parse(ddlTipoUsuario.SelectedValue) < 5 && int.Parse(ddlTipoUsuario.SelectedValue) > 0)
                 {
                     objNUsuario = objDUsuario.obtenerDatosUsuarioID(int.Parse(lstUsuario.SelectedValue.ToString()));
                     txtNombreUsuario.Text = objNUsuario.nombre;
@@ -138,7 +143,7 @@ namespace Sembrar.Administrador
                         ddlGeneroUsuario.SelectedValue = "0";
                     ddlEstado.SelectedValue = objNUsuario.estado.ToString();
                 }
-                if (int.Parse(ddlTipoUsuario.SelectedValue) == 4)
+                if (int.Parse(ddlTipoUsuario.SelectedValue) == 5)
                 {
                     objNOrientador = objDOrientador.D_consultarOrientadores(int.Parse(lstUsuario.SelectedValue.ToString()));
                     txtNombreUsuario.Text = objNOrientador.NombreOrientador;
@@ -161,7 +166,7 @@ namespace Sembrar.Administrador
 
         protected void cargarMemberhsip()
         {
-            if (int.Parse(ddlTipoUsuario.SelectedValue) < 4 && int.Parse(ddlTipoUsuario.SelectedValue) > 0)
+            if (int.Parse(ddlTipoUsuario.SelectedValue) < 5 && int.Parse(ddlTipoUsuario.SelectedValue) > 0)
             {
                 int id;
                 int.TryParse(lstUsuario.SelectedValue.ToString(), out id);
@@ -169,7 +174,7 @@ namespace Sembrar.Administrador
                 txtEmail.Text = objeNMembership.email;
                 txtUserName.Text = objeNMembership.username;
             }
-            if (int.Parse(ddlTipoUsuario.SelectedValue) == 4)
+            if (int.Parse(ddlTipoUsuario.SelectedValue) == 5)
             {
                 int id;
                 int.TryParse(lstUsuario.SelectedValue.ToString(), out id);
@@ -186,7 +191,7 @@ namespace Sembrar.Administrador
             {
                 Response.Write("<script>window.alert('Resultado Actualización: INCORRECTO');</script>");
             }
-            else if (int.Parse(ddlTipoUsuario.SelectedValue) < 4 && int.Parse(ddlTipoUsuario.SelectedValue) > 0)
+            else if (int.Parse(ddlTipoUsuario.SelectedValue) < 5 && int.Parse(ddlTipoUsuario.SelectedValue) > 0)
             {
                 clsNMembership userM = new clsNMembership();
                 userM.email = txtEmail.Text;
@@ -215,7 +220,7 @@ namespace Sembrar.Administrador
                     Response.Write("<script>window.alert('Resultado Actualización: INCORRECTO, Vuelva a intentarlo');</script>");
                 }
             }
-            else if (int.Parse(ddlTipoUsuario.SelectedValue) == 4)
+            else if (int.Parse(ddlTipoUsuario.SelectedValue) == 5)
             {
                 clsNMembership userMe = new clsNMembership();
                 userMe.email = txtEmail.Text;

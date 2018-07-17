@@ -60,12 +60,6 @@ namespace Sembrar.Orientador
             txtTelefono.Enabled = false;
             txtTelefono0.Enabled = false;
             txtTelefono1.Enabled = false;
-            txtDiscapacidad.Enabled = false;
-            chbVacunas.Enabled = false;
-            chbViveFamilia.Enabled = false;
-            chbCabezaFamilia.Enabled = false;
-            txtAlimentacion.Enabled = false;
-            txtSacramento.Enabled = false;
             txtObservacion.Enabled = false;
             btnModificar.Enabled = false;
         }
@@ -86,12 +80,6 @@ namespace Sembrar.Orientador
             txtTelefono.Enabled = true;
             txtTelefono0.Enabled = true;
             txtTelefono1.Enabled = true;
-            txtDiscapacidad.Enabled = true;
-            chbVacunas.Enabled = true;
-            chbViveFamilia.Enabled = true;
-            chbCabezaFamilia.Enabled = true;
-            txtAlimentacion.Enabled = true;
-            txtSacramento.Enabled = true;
             txtObservacion.Enabled = true;
             btnModificar.Enabled = true;
         }
@@ -115,8 +103,6 @@ namespace Sembrar.Orientador
             txtFechaNacimiento.Text = objPersona.Nacimiento.ToString("yyyy-MM-dd");
             txtCedula.Text = objPersona.Cedula;
             txtLugarNacimiento.Text = objPersona.LugarNacimiento;
-            chbCabezaFamilia.Checked = objPersona.Cabeza;
-            chbViveFamilia.Checked = objPersona.ViveFamilia;
 
             try
             {
@@ -133,10 +119,6 @@ namespace Sembrar.Orientador
             //ddlOrientador.SelectedValue = objMenor.IdOrientador.ToString();
             txtSAD.Text = objMenor.Sad;
             txtAnioIngreso.Text = objMenor.AnioIngreso.ToString();
-            txtDiscapacidad.Text = objMenor.Discapacidad;
-            chbVacunas.Checked = objMenor.Vacunas;
-            txtAlimentacion.Text = objMenor.Alimentacion.ToString();
-            txtSacramento.Text = objMenor.Sacramento;
 
             ddlIndividuo.Enabled = false;
 
@@ -205,21 +187,15 @@ namespace Sembrar.Orientador
             objPersona.Numeros = cargarNumeros();
             objPersona.LugarNacimiento = txtLugarNacimiento.Text;
             objPersona.Telefono = txtTelefono.Text;
-            objPersona.ViveFamilia = chbViveFamilia.Checked;
             objPersona.Observacion = txtObservacion.Text;
             objPersona.Ingreso = DateTime.Now;
-            objPersona.Cabeza = chbCabezaFamilia.Checked;
         }
         private void cargarMenorEdad()
         {
             //objMenor.IdOrientador = int.Parse(ddlOrientador.SelectedValue.ToString());
             objMenor.Sad = txtSAD.Text;
             objMenor.AnioIngreso = int.Parse(txtAnioIngreso.Text);
-            objMenor.Discapacidad = txtDiscapacidad.Text;
-            objMenor.Vacunas = chbVacunas.Checked;
-            objMenor.Alimentacion = int.Parse(txtAlimentacion.Text);
             objMenor.NombreEncargado = 0;
-            objMenor.Sacramento = txtSacramento.Text;
         }
         protected void ctvFecha_ServerValidate(object source, ServerValidateEventArgs args)
         {

@@ -50,28 +50,7 @@ namespace CapaNegocio
             get { return anioIngreso; }
             set { anioIngreso = value; }
         }
-        
-        private string discapacidad;
 
-        public string Discapacidad
-        {
-            get { return discapacidad; }
-            set { discapacidad = value; }
-        }
-        private bool vacunas;
-
-        public bool Vacunas
-        {
-            get { return vacunas; }
-            set { vacunas = value; }
-        }
-        private int alimentacion;
-
-        public int Alimentacion
-        {
-            get { return alimentacion; }
-            set { alimentacion = value; }
-        }
         private int nombreEncargado;
 
         public int NombreEncargado
@@ -79,14 +58,7 @@ namespace CapaNegocio
             get { return nombreEncargado; }
             set { nombreEncargado = value; }
         }
-        private string sacramento;
-
-        public string Sacramento
-        {
-            get { return sacramento; }
-            set { sacramento = value; }
-        }
-
+        
         public clsMenorEdad()
         {
 

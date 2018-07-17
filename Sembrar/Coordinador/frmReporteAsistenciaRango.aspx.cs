@@ -37,7 +37,7 @@ namespace Sembrar.Coordinador
                 else
                 {
                     ReportDocument crystalrpt = new ReportDocument();
-                    crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaRango.rpt"));
+                    crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/AsistenciaRango.rpt"));
                     crystalrpt.Refresh();
                     crystalrpt.SetParameterValue("@Anio", ddlAnio1.SelectedValue);
                     crystalrpt.SetParameterValue("@Mes", ddlMes1.SelectedValue);
@@ -66,7 +66,7 @@ namespace Sembrar.Coordinador
             else
             {
                 ReportDocument crystalrpt = new ReportDocument();
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaRango.rpt"));
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/AsistenciaRango.rpt"));
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@Anio", ddlAnio1.SelectedValue);
                 crystalrpt.SetParameterValue("@Mes", ddlMes1.SelectedValue);

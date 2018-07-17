@@ -36,7 +36,7 @@ namespace Sembrar.Coordinador
             {
                 ReportDocument crystalrpt = new ReportDocument();
                 path = Server.MapPath("");
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportePreguntasCerradas.rpt"));
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReportePreguntasCerradas.rpt"));
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
                 //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
@@ -49,7 +49,7 @@ namespace Sembrar.Coordinador
         {
             ReportDocument crystalrpt = new ReportDocument();
             path = Server.MapPath("");
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportePreguntasCerradas.rpt"));
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReportePreguntasCerradas.rpt"));
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
             //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");

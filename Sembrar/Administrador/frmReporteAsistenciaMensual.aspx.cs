@@ -37,8 +37,8 @@ namespace Sembrar.Administrador
         protected void Button1_Click(object sender, EventArgs e)
         {
             ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaMensual.rpt"));
-            //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/AsistenciaMensual.rpt"));
+            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
             //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
@@ -53,8 +53,8 @@ namespace Sembrar.Administrador
         protected void btnBuscar0_Click(object sender, EventArgs e)
         {
             ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaMensual.rpt"));
-            //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/AsistenciaMensual.rpt"));
+            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
             crystalrpt.SetParameterValue("@Mes", DropDownList2.SelectedValue);

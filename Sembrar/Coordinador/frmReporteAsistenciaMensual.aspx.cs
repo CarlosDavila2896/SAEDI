@@ -37,7 +37,7 @@ namespace Sembrar.Coordinador
             else
             {
                 ReportDocument crystalrpt = new ReportDocument();
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaMensual.rpt"));
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/AsistenciaMensual.rpt"));
                 //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);
@@ -57,7 +57,7 @@ namespace Sembrar.Coordinador
         protected void Button1_Click(object sender, EventArgs e)
         {
             ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaMensual.rpt"));
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/AsistenciaMensual.rpt"));
             //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);

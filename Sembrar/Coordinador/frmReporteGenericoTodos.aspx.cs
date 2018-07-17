@@ -46,7 +46,7 @@ namespace Sembrar.Coordinador
                 {
                     ReportDocument crystalrpt = new ReportDocument();
                     path = Server.MapPath("");
-                    crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteGenerico.rpt"));
+                    crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteGenerico.rpt"));
                     crystalrpt.Refresh();
                     crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
                     crystalrpt.SetParameterValue("@IdPersona", DropDownList2.SelectedValue);
@@ -57,7 +57,7 @@ namespace Sembrar.Coordinador
                 {
                     ReportDocument crystalrpt = new ReportDocument();
                     path = Server.MapPath("");
-                    crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteGenericoTodos.rpt"));
+                    crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteGenericoTodos.rpt"));
                     crystalrpt.Refresh();
                     crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
                     CrystalReportViewer1.ReportSource = crystalrpt;
@@ -73,7 +73,7 @@ namespace Sembrar.Coordinador
             {
                 ReportDocument crystalrpt = new ReportDocument();
                 path = Server.MapPath("");
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteGenerico.rpt"));
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteGenerico.rpt"));
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
                 crystalrpt.SetParameterValue("@IdPersona", DropDownList2.SelectedValue);
@@ -84,7 +84,7 @@ namespace Sembrar.Coordinador
             {
                 ReportDocument crystalrpt = new ReportDocument();
                 path = Server.MapPath("");
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteGenericoTodos.rpt"));
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteGenericoTodos.rpt"));
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
                 CrystalReportViewer1.ReportSource = crystalrpt;

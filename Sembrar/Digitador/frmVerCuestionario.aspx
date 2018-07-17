@@ -7,7 +7,7 @@
         <td class="auto-style14" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: large;" __designer:mapid="18f">
             <asp:ScriptManager ID="scrCuestionario" runat="server">
             </asp:ScriptManager>
-            Resolución de Fichas/Cuestionarios</td>
+            Ver Cuestionarios</td>
         <td __designer:mapid="190">&nbsp;</td>
     </tr>
 </table>

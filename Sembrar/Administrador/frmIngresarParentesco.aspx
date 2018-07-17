@@ -7,9 +7,6 @@
             <td class="auto-style8" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: large;" colspan="3">Ingresar&nbsp; Parentesco</td>
         </tr>
         <tr>
-            <td class="auto-style7" colspan="3" style="vertical-align: top">&nbsp;</td>
-        </tr>
-        <tr>
             <td class="auto-style7">&nbsp;</td>
             <td class="auto-style8">&nbsp;</td>
             <td>&nbsp;</td>
@@ -30,13 +27,8 @@
         </tr>
         <tr>
             <td class="auto-style7">&nbsp;</td>
-            <td class="auto-style8">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style7">&nbsp;</td>
             <td class="auto-style8">
-                <asp:ListBox ID="ListBox1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="NOMBREPARENTEZCO" DataValueField="NOMBREPARENTEZCO" Height="129px"></asp:ListBox>
+                <asp:ListBox ID="ListBox1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="NOMBREPARENTEZCO" DataValueField="NOMBREPARENTEZCO" Height="129px" Rows="10" Width="50%"></asp:ListBox>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SembrarConnectionString %>" SelectCommand="SELECT [NOMBREPARENTEZCO] FROM [PARENTEZCO]"></asp:SqlDataSource>
             </td>
             <td>&nbsp;</td>

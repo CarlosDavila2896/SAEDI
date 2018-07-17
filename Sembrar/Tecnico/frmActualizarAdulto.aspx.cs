@@ -50,9 +50,6 @@ namespace Sembrar.Tecnico
             txtTelefono.Enabled = false;
             txtTelefono0.Enabled = false;
             txtTelefono1.Enabled = false;
-            chbCabezaFamilia.Enabled = false;
-            chbViveFamilia.Enabled = false;
-            chbEstudia.Enabled = false;
             ddlNivel.Enabled = false;
             txtDondeEstudia.Enabled = false;
             txtObservacion.Enabled = false;
@@ -81,8 +78,6 @@ namespace Sembrar.Tecnico
                 txtFechaNacimiento.Text = objPersona.Nacimiento.ToString("yyyy-MM-dd");
                 txtCedula.Text = objPersona.Cedula;
                 txtLugarNacimiento.Text = objPersona.LugarNacimiento;
-                chbCabezaFamilia.Checked = objPersona.Cabeza;
-                chbViveFamilia.Checked = objPersona.ViveFamilia;
 
                 try
                 {
@@ -97,8 +92,7 @@ namespace Sembrar.Tecnico
                 ddlNivel.SelectedIndex = ddlNivel.Items.IndexOf(ddlNivel.Items.FindByText(objAdulto.NivelEducacion));
 
                 txtObservacion.Text = objPersona.Observacion;
-
-                chbEstudia.Checked = objAdulto.EstudiaAdulto;
+                
                 txtDondeEstudia.Text = objAdulto.DondeEstudiaAdulto;
 
 
@@ -131,9 +125,6 @@ namespace Sembrar.Tecnico
             txtTelefono.Enabled = true;
             txtTelefono0.Enabled = true;
             txtTelefono1.Enabled = true;
-            chbCabezaFamilia.Enabled = true;
-            chbViveFamilia.Enabled = true;
-            chbEstudia.Enabled = true;
             ddlNivel.Enabled = true;
             txtDondeEstudia.Enabled = true;
             txtObservacion.Enabled = true;
@@ -196,22 +187,12 @@ namespace Sembrar.Tecnico
             objPersona.Numeros = cargarNumeros();
             objPersona.LugarNacimiento = txtLugarNacimiento.Text;
             objPersona.Telefono = txtTelefono.Text;
-            objPersona.ViveFamilia = chbViveFamilia.Checked;
             objPersona.Observacion = txtObservacion.Text;
             objPersona.Ingreso = DateTime.Now;
-            objPersona.Cabeza = chbCabezaFamilia.Checked;
         }
         private void cargarAdulto()
         {
-            objAdulto.EstudiaAdulto = chbEstudia.Checked;
-            if (chbEstudia.Checked)
-            {
-                objAdulto.DondeEstudiaAdulto = txtDondeEstudia.Text;
-            }
-            else
-            {
-                objAdulto.DondeEstudiaAdulto = "";
-            }
+            objAdulto.DondeEstudiaAdulto = txtDondeEstudia.Text;
             objAdulto.NivelEducacion = ddlNivel.SelectedItem.ToString();
         }
 

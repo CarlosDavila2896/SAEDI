@@ -181,31 +181,6 @@
             <td class="auto-style8">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style6" style="text-align: left"><p>Preguntas Generales</p></td>
-            <td class="auto-style6" style="text-align: left">
-                <asp:CheckBox ID="chbCabezaFamilia" runat="server" Text="¿Es cabeza de familia?" CssClass="MiCheck" />
-            </td>
-            <td class="auto-style6">
-                <br />
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style9" style="text-align: left">&nbsp;</td>
-            <td class="auto-style9" style="text-align: left">
-                <asp:CheckBox ID="chbViveFamilia" runat="server" Text="¿Vive con familia?" CssClass="MiCheck" />
-            </td>
-            <td class="auto-style9">
-                <br />
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style4"></td>
-            <td class="auto-style4">
-                <asp:CheckBox ID="chbEstudia" runat="server" Text="¿Estudia el adulto?" Width="290px" CssClass="MiCheck"/>
-            </td>
-            <td class="auto-style4"></td>
-        </tr>
-        <tr>
             <td class="auto-style5">Nivel Educación:</td>
             <td class="auto-style5">
                 <asp:DropDownList ID="ddlNivel" runat="server">

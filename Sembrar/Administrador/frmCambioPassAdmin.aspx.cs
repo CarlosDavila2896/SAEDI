@@ -33,21 +33,25 @@ namespace Sembrar.Administrador
                 var usuario = objDUsuario.consultaOrientador();
                 ddlUsuario.Enabled = true;
 
-                if (int.Parse(ddlTipoUsuario.SelectedValue) == 0)
+                if (int.Parse(ddlTipoUsuario.SelectedValue) == 1)
                 {
                     usuario = objDUsuario.consultaUsuario("Administrador");
                 }
 
-                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 1)
+                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 2)
                 {
                     usuario = objDUsuario.consultaUsuario("Tecnico");
                 }
 
-                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 2)
+                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 3)
                 {
                     usuario = objDUsuario.consultaUsuario("Coordinador");
                 }
-                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 4)
+                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 3)
+                {
+                    usuario = objDUsuario.consultaUsuario("Digitador");
+                }
+                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 0)
                 {
                     ddlUsuario.Items.Clear();
                     ddlUsuario.Items.Insert(0, "<No Hay Usuarios>");

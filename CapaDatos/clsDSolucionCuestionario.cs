@@ -114,9 +114,9 @@ namespace CapaDatos
                                                IDPREGUNTA = s.IDPREGUNTA,
                                                FECHASOLUCIONCUESTIONARIO = s.FECHASOLUCIONCUESTIONARIO,
                                                TEXTOSOLUCIONCUESTIONARIO = s.TEXTOSOLUCIONCUESTIONARIO,
-                                               FECHAMODIFICACIONCUESTIONARIO = s.FECHAMODIFICACIONCUESTIONARIO.Value,
+                                               FECHAMODIFICACIONCUESTIONARIO = s.FECHAMODIFICACIONCUESTIONARIO.GetValueOrDefault(),
                                                USUARIOINGRESA = s.IDUSUARIOINGRESA.Value,
-                                               USUARIOMODIFICA = s.IDUSUARIOMODIFICA.Value
+                                               USUARIOMODIFICA = s.IDUSUARIOMODIFICA.GetValueOrDefault()
                                            }).ToList();
 
                     return listaRespuestas;

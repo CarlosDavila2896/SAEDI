@@ -41,7 +41,7 @@ namespace Sembrar.Administrador
         {
             objParentesco.Codigo = int.Parse(ddlParentesco.SelectedValue.ToString());
             objParentesco.NombreParentesco = txtNombreParentesco.Text;
-            
+
             try
             {
                 if (objDatosParentesco.actualizarParentesco(objParentesco))
@@ -63,6 +63,10 @@ namespace Sembrar.Administrador
                 string script = "alert(\"Porfavor verifica, algo ha salido mal!\");";
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                       "ServerControlScript", script, true);
+            }
+            finally
+            {
+                txtNombreParentesco.Text = "";
             }
         }
     }

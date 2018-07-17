@@ -125,7 +125,7 @@ namespace CapaDatos
         {
             using (MERSembrarDataContext db = new MERSembrarDataContext())
             {
-                return db.PREGUNTA.Where(u => u.ESTADOPREGUNTA == true && u.TIPOPREGUNTA.NOMBRETIPOPREGUNTA == "Cerrada").OrderBy(x => x.NOMBREPREGUNTA).ToList();
+                return db.PREGUNTA.Where(u => u.ESTADOPREGUNTA == true && (u.TIPOPREGUNTA.NOMBRETIPOPREGUNTA == "Cerrada" || u.TIPOPREGUNTA.NOMBRETIPOPREGUNTA == "Selección Multiple")).OrderBy(x => x.NOMBREPREGUNTA).ToList();
             }
         }
 

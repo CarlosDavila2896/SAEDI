@@ -56,8 +56,8 @@ namespace Sembrar.Orientador
             {
                 int idOrientador = (int)Session["id"];
                 ReportDocument crystalrpt = new ReportDocument();
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaMensualOrientador.rpt"));
-                //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/AsistenciaMensualOrientador.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                 //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@IdOrientador", idOrientador);
@@ -79,8 +79,8 @@ namespace Sembrar.Orientador
             {
                 int idOrientador = (int)Session["id"];
                 ReportDocument crystalrpt = new ReportDocument();
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/AsistenciaMensualOrientador.rpt"));
-                //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/AsistenciaMensualOrientador.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@IdOrientador", idOrientador);
                 crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);

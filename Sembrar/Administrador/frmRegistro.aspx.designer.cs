@@ -8,12 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace Sembrar.Administrador {
-
-
-
-    public partial class frmRegistro
-    {
-
+    
+    
+    public partial class frmRegistro {
+        
         /// <summary>
         /// Control lblRol.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRol;
-
+        
         /// <summary>
         /// Control ddlROL.
         /// </summary>
@@ -31,7 +29,16 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlROL;
-
+        
+        /// <summary>
+        /// Control lblTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTitulo;
+        
         /// <summary>
         /// Control lblNombre.
         /// </summary>
@@ -40,7 +47,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNombre;
-
+        
         /// <summary>
         /// Control txtUserNombre.
         /// </summary>
@@ -49,7 +56,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUserNombre;
-
+        
         /// <summary>
         /// Control PasswordRequired0.
         /// </summary>
@@ -58,7 +65,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired0;
-
+        
         /// <summary>
         /// Control lblApellido.
         /// </summary>
@@ -67,7 +74,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblApellido;
-
+        
         /// <summary>
         /// Control txtUserApellido.
         /// </summary>
@@ -76,7 +83,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUserApellido;
-
+        
         /// <summary>
         /// Control PasswordRequired1.
         /// </summary>
@@ -85,7 +92,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired1;
-
+        
         /// <summary>
         /// Control lblGenero.
         /// </summary>
@@ -94,7 +101,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGenero;
-
+        
         /// <summary>
         /// Control ddlGeneroUsuario.
         /// </summary>
@@ -103,7 +110,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlGeneroUsuario;
-
+        
         /// <summary>
         /// Control txtUserM.
         /// </summary>
@@ -112,14 +119,14 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUserM;
-
+        
         /// <summary>
-        /// Control CreateUserWizard.
+        /// Control CreateUserWizard1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizard CreateUserWizard;
+        protected global::System.Web.UI.WebControls.CreateUserWizard CreateUserWizard1;
     }
 }

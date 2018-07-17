@@ -89,11 +89,12 @@
         <td class="auto-style20">&nbsp;</td>
         <td class="auto-style23">
                 <asp:DropDownList ID="ddlTipoUsuario" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoUsuario_SelectedIndexChanged" Width="100%">
-                    <asp:ListItem Value="4">Seleccionar Rol</asp:ListItem>
-                    <asp:ListItem Value="0">Administrador</asp:ListItem>
-                    <asp:ListItem Value="1">Técnico</asp:ListItem>
-                    <asp:ListItem Value="2">Coordinador</asp:ListItem>
-                    <asp:ListItem Value="3">Orientador</asp:ListItem>
+                    <asp:ListItem Value="0">Seleccionar Rol</asp:ListItem>
+                    <asp:ListItem Value="1">Administrador</asp:ListItem>
+                    <asp:ListItem Value="2">Técnico</asp:ListItem>
+                    <asp:ListItem Value="3">Coordinador</asp:ListItem>
+                    <asp:ListItem Value="4">Digitador</asp:ListItem>
+                    <asp:ListItem Value="5">Orientador</asp:ListItem>
                 </asp:DropDownList>
             </td>
         <td class="auto-style14">&nbsp;</td>

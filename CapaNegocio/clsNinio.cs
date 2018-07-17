@@ -29,19 +29,5 @@ namespace CapaNegocio
             get { return idNinio; }
             set { idNinio = value; }
         }
-        private bool trabajo;
-
-        public bool Trabajo
-        {
-            get { return trabajo; }
-            set { trabajo = value; }
-        }
-        private int tiempo;
-
-        public int Tiempo
-        {
-            get { return tiempo; }
-            set { tiempo = value; }
-        }
     }
 }

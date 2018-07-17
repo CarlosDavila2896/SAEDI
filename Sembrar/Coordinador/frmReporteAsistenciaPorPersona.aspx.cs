@@ -19,9 +19,10 @@ namespace Sembrar.Coordinador
         {
             try
             {
+                cargarProceso();
+                cargarPersonas();
                 if (!IsPostBack)
                 {
-                    cargarProceso();
                     for (int i = 2016; i <= int.Parse(DateTime.Now.ToString("yyyy")); i++)
                     {
                         ListItem li = new ListItem();
@@ -29,31 +30,29 @@ namespace Sembrar.Coordinador
                         li.Value = i.ToString();
                         ddlAnio.Items.Add(li);
                     }
-                    cargarPersonas();
                 }
                 else
                 {
 
                     ReportDocument crystalrpt = new ReportDocument();
-                    crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunionPorPersona.rpt"));
+                    crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaReunionPorPersona.rpt"));
                     crystalrpt.Refresh();
                     crystalrpt.SetParameterValue("@Persona", ddlPersona.SelectedValue);
                     crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
                     crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);
                     crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
                     //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
-                    CrystalReportViewer1.ReportSource = crystalrpt;
-                    CrystalReportViewer1.DataBind();
+                    //CrystalReportViewer1.ReportSource = crystalrpt;
+                    //CrystalReportViewer1.DataBind();
                 }
             }
             catch { }
+           
         }
-        public void cargarPersonas()
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddlPersona.DataSource = objAsistencia.D_consultarPersonas();
-            ddlPersona.DataTextField = "Nombre";
-            ddlPersona.DataValueField = "IdPersona";
-            ddlPersona.DataBind();
+
         }
         private void cargarProceso()
         {
@@ -62,21 +61,58 @@ namespace Sembrar.Coordinador
             ddlProceso.DataTextField = "Nombre";
             ddlProceso.DataBind();
         }
+        public void cargarPersonas() {
+            ddlPersona.DataSource = objAsistencia.D_consultarPersonas();
+            ddlPersona.DataTextField = "Nombre";
+            ddlPersona.DataValueField = "IdPersona";
+            ddlPersona.DataBind();
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
-            try
-            {
+            try {
                 ReportDocument crystalrpt = new ReportDocument();
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunionPorPersona.rpt"));
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaReunionPorPersona.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@Persona", ddlPersona.SelectedValue);
                 crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
                 crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);
                 crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
-                CrystalReportViewer1.ReportSource = crystalrpt;
-                CrystalReportViewer1.DataBind();
+                crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteAsistencia" + ddlPersona.SelectedItem.Text);
+                crystalrpt.Refresh();
+                //CrystalReportViewer1.ReportSource = crystalrpt;
+                //CrystalReportViewer1.DataBind();
+            } catch { }
+            
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ReportDocument crystalrpt = new ReportDocument();
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaReunionPorPersona.rpt"));
+            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+            crystalrpt.Refresh();
+            crystalrpt.SetParameterValue("@Persona", ddlPersona.SelectedValue);
+            crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
+            crystalrpt.SetParameterValue("@Anio", ddlAnio.SelectedValue);
+            crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
+            //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReporteAsistenciaDiaria"+ ddlMes.SelectedItem.Text);
+
+            //CrystalReportViewer1.ReportSource = crystalrpt;
+            //CrystalReportViewer1.DataBind();
+            ExportOptions exportOption;
+            DiskFileDestinationOptions diskFileDestinationOptions = new DiskFileDestinationOptions();
+            exportOption = crystalrpt.ExportOptions;
+            {
+                exportOption.ExportDestinationType = ExportDestinationType.DiskFile;
+                exportOption.ExportFormatType = ExportFormatType.Excel;
+                exportOption.ExportDestinationOptions = diskFileDestinationOptions;
+                exportOption.ExportFormatOptions = new ExcelFormatOptions();
             }
-            catch { }
+            crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReporteAsistencia"+ ddlPersona.SelectedItem.Text);
+
+            crystalrpt.Export();
         }
     }
 }

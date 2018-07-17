@@ -61,7 +61,7 @@
         <td class="auto-style3"></td>
     </tr>
     <tr>
-        <td class="auto-style12" style="text-align: left">Ocupacion:</td>
+        <td class="auto-style12" style="text-align: left">Ocupacion:/td>
         <td class="auto-style14" style="text-align: left">
             <asp:DropDownList ID="ddlAlimentacion2" runat="server" Width="290px">
             </asp:DropDownList>
@@ -201,71 +201,6 @@
                 <asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*El teléfono es un campo númerico de máximo 10 dígitos" ForeColor="#CC3300" SetFocusOnError="True" ValidationExpression="\d{9,10}"></asp:RegularExpressionValidator>
             <br />
         </td>
-    </tr>
-    <tr>
-        <td class="auto-style8"></td>
-        <td class="auto-style8"></td>
-        <td class="auto-style8">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style12" style="text-align: left">Discapacidades:</td>
-        <td class="auto-style14" style="text-align: left">
-            <asp:TextBox ID="txtDiscapacidad" runat="server" Columns="50" Height="75px" MaxLength="200" Rows="4" TextMode="MultiLine" Width="290px"></asp:TextBox>
-        </td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style7"></td>
-        <td class="auto-style7"></td>
-        <td class="auto-style7"></td>
-    </tr>
-    <tr>
-        <td class="auto-style9" style="text-align: left">Preguntas Generales</td>
-        <td class="auto-style9" style="text-align: left">
-            <asp:CheckBox ID="chbVacunas" runat="server" Text="¿Tiene todas sus vacunas?" Width="290px" />
-        </td>
-        <td class="auto-style9">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style3">&nbsp;</td>
-        <td class="auto-style3">
-            <asp:CheckBox ID="chbViveFamilia" runat="server" Height="21px" Text="¿Vive con familia?" Width="290px" />
-        </td>
-        <td class="auto-style3"></td>
-    </tr>
-    <tr>
-        <td class="auto-style9" style="text-align: left">&nbsp;</td>
-        <td class="auto-style9" style="text-align: left">
-            <asp:CheckBox ID="chbCabezaFamilia" runat="server" Text="¿Es cabeza de familia?" Width="290px" />
-        </td>
-        <td class="auto-style9">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style3">&nbsp;</td>
-        <td class="auto-style3"><asp:RegularExpressionValidator ID="RegularExpressionValidator12" runat="server"
-                         ControlToValidate="txtAlimentacion" ErrorMessage="Este campo acepta números positivos" 
-                     ValidationExpression="^[0-9]+$">
-             </asp:RegularExpressionValidator></td>
-        <td class="auto-style3"></td>
-    </tr>
-    <tr>
-        <td class="auto-style12" style="text-align: left">¿Cuantas veces a la semana come carne?:</td>
-        <td class="auto-style14" style="text-align: left">
-            <asp:TextBox ID="txtAlimentacion" runat="server" Columns="50" MaxLength="5" TextMode="Number" Width="290px"></asp:TextBox>
-        </td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style8"></td>
-        <td class="auto-style8"></td>
-        <td class="auto-style8"></td>
-    </tr>
-    <tr>
-        <td class="auto-style10" style="text-align: left">Sacramento del niño:</td>
-        <td class="auto-style10" style="text-align: left">
-            <asp:TextBox ID="txtSacramento" runat="server" Columns="50" Height="75px" MaxLength="200" Rows="4" TextMode="MultiLine" Width="290px"></asp:TextBox>
-        </td>
-        <td class="auto-style10"></td>
     </tr>
     <tr>
         <td class="auto-style8"></td>

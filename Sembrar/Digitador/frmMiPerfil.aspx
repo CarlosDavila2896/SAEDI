@@ -143,7 +143,7 @@
             <td class="auto-style3">
                 &nbsp;</td>
             <td class="auto-style2">
-                <asp:HyperLink ID="hlPass" runat="server" NavigateUrl="~/Administrador/frmCambioPass.aspx">¿Desea cambiar la contraseña?</asp:HyperLink>
+                <asp:HyperLink ID="hlPass" runat="server" NavigateUrl="~/Digitador/frmCambioPass.aspx">¿Desea cambiar la contraseña?</asp:HyperLink>
             </td>
             <td class="auto-style1">
                 &nbsp;</td>

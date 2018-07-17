@@ -31,7 +31,7 @@
                             <li><a href="../Coordinador/frmReporteGenericoTodos.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Respuestas Cuestionarios</a></li>
                             <li><a href="../Coordinador/frmReportePreguntasCerradas.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Reporte Preguntas Cerradas</a></li>
                             <li><a href="../Coordinador/frmReporteAsistenciaAnual.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Reporte Asistencia Anual</a></li>
-                            <li><a href="../Coordinador/frmReporteAsistenciaAnualReunion.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Reporte Asistencia Anual Reuniones</a></li>                            
+                            <li><a href="../Coordinador/frmReporteAsistenciaAnualReuniones.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Reporte Asistencia Anual Reuniones</a></li>                            
                             <li><a href="../Coordinador/frmReporteAsistenciaMensual.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Mensual</a></li>
                             <li><a href="../Coordinador/frmReporteAsistenciaRango.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Por Rango</a></li>
                             <li><a href="../Coordinador/frmReporteAsistenciaPorPersona.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Reporte Asistencia Mensual</a></li>                            

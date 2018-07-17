@@ -7,18 +7,10 @@
             <td class="auto-style16" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: large;" colspan="3">Actualizar Parentesco</td>
         </tr>
         <tr>
-            <td class="auto-style7" colspan="3" style="vertical-align: top">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style14" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: large;" colspan="2">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
             <td class="auto-style15">Seleccionar Parentesco:</td>
             <td class="auto-style9" style="text-align: left">
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SembrarConnectionString %>" SelectCommand="SELECT * FROM [PARENTEZCO] ORDER BY [NOMBREPARENTEZCO]"></asp:SqlDataSource>
-                <asp:DropDownList ID="ddlParentesco" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="NOMBREPARENTEZCO" DataValueField="IDPARENTEZCO" OnSelectedIndexChanged="ddlParentesco_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlParentesco" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="NOMBREPARENTEZCO" DataValueField="IDPARENTEZCO" OnSelectedIndexChanged="ddlParentesco_SelectedIndexChanged" Height="100%" Width="90%">
                 </asp:DropDownList>
             </td>
             <td class="auto-style9" style="text-align: center">&nbsp;</td>

@@ -7,7 +7,7 @@
         <td class="auto-style14" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: large;" __designer:mapid="18f">
             <asp:ScriptManager ID="scrCuestionario" runat="server">
             </asp:ScriptManager>
-            Resolución de Fichas/Cuestionarios</td>
+            Responder Cuestionario</td>
         <td __designer:mapid="190">&nbsp;</td>
     </tr>
 </table>
@@ -65,7 +65,7 @@
                                     <tr>
                                         <td class="auto-style2">Individuo</td>
                                         <td class="auto-style4" colspan="2">
-                                            <asp:ListBox ID="lstIndividuos" runat="server" Width="100%" DataSourceID="odsIndividuos" DataTextField="NOMBRES" DataValueField="ID" Rows="10"></asp:ListBox>
+                                            <asp:ListBox ID="lstIndividuos" runat="server" Width="100%" DataSourceID="odsIndividuos" DataTextField="NOMBRE" DataValueField="IDPERSONA" Rows="15"></asp:ListBox>
                                             <asp:ObjectDataSource ID="odsIndividuos" runat="server" SelectMethod="D_consultaIndividuosPorLineaDeAccionOrientador" TypeName="CapaDatos.clsDatosPersona" OldValuesParameterFormatString="original_{0}">
                                             </asp:ObjectDataSource>
                                         </td>

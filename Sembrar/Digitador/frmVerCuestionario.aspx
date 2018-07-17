@@ -1,15 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Digitador/PrincipalDigitador.Master" AutoEventWireup="true" CodeBehind="frmVerCuestionario.aspx.cs" Inherits="Sembrar.Digitador.frmVerCuestionario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style4 {
-            width: 18px;
-            height: 50px;
-        }
-        .auto-style5 {
-            width: 22px;
-            height: 50px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%;" __designer:mapid="18d">
@@ -17,7 +7,7 @@
         <td class="auto-style14" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: large;" __designer:mapid="18f">
             <asp:ScriptManager ID="scrCuestionario" runat="server">
             </asp:ScriptManager>
-            Resolución de Fichas/Cuestionarios</td>
+            Ver Cuestionarios</td>
         <td __designer:mapid="190">&nbsp;</td>
     </tr>
 </table>
@@ -75,7 +65,7 @@
                                     <tr>
                                         <td class="auto-style5">Individuo</td>
                                         <td class="auto-style4" colspan="2">
-                                            <asp:ListBox ID="lstIndividuos" runat="server" Width="100%" DataSourceID="odsIndividuos" DataTextField="NOMBRES" DataValueField="ID" Rows="10"></asp:ListBox>
+                                            <asp:ListBox ID="lstIndividuos" runat="server" Width="100%" DataSourceID="odsIndividuos" DataTextField="NOMBRE" DataValueField="IDPERSONA" Rows="10"></asp:ListBox>
                                             <asp:ObjectDataSource ID="odsIndividuos" runat="server" SelectMethod="D_consultaIndividuosPorLineaDeAccionOrientador" TypeName="CapaDatos.clsDatosPersona" OldValuesParameterFormatString="original_{0}">
                                             </asp:ObjectDataSource>
                                         </td>

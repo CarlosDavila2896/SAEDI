@@ -8,12 +8,13 @@ using CapaDatos;
 using CapaNegocio;
 using System.Transactions;
 
-namespace Sembrar.Administrador
+namespace Sembrar.Tecnico
 {
     public partial class frmModificarCuestionario : System.Web.UI.Page
     {
         clsDCuestionario objDcuestionario = new clsDCuestionario();
-        clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
+        List<clsNSolucionCuestionario> listaRespuestasAGuardar;
+        List<clsNSolucionCuestionario> listaRespuestasAModificar;
         clsDSolucionCuestionario objDSolucionCuestionario = new clsDSolucionCuestionario();
         List<clsNSolucionCuestionario> respuestas = new List<clsNSolucionCuestionario>();
         int idProceso, idObjetivo, idIndicador, idPeriodo, idPersona;
@@ -26,6 +27,11 @@ namespace Sembrar.Administrador
             if (!IsPostBack)
             {
                 ViewState["cargarCuestionario"] = false;
+                System.Web.Security.MembershipUser logUser = System.Web.Security.Membership.GetUser(User.Identity.Name);
+                CapaNegocio.clsNUsuario usuario = new CapaNegocio.clsNUsuario();
+                CapaDatos.clsUsuario objDatosPerfil = new CapaDatos.clsUsuario();
+                usuario = objDatosPerfil.obtenerDatosUsuario(logUser.UserName.ToString());
+                ViewState["usuarioModifica"] = usuario.idUser;
 
             }
             if ((bool)ViewState["cargarCuestionario"])
@@ -259,6 +265,8 @@ namespace Sembrar.Administrador
                     }
 
                 }
+                objDSolucionCuestionario.D_guardarRespuestaCuestionario(listaRespuestasAGuardar);
+                objDSolucionCuestionario.D_modificarRespuestaCuestionario(listaRespuestasAModificar);
                 trans.Complete();
             }
 
@@ -434,22 +442,27 @@ namespace Sembrar.Administrador
 
         private void modificarSolucion(clsNSolucionCuestionario modificacion)
         {
+            clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
             nuevasolucion = modificacion;
             nuevasolucion.FECHAMODIFICACIONCUESTIONARIO = DateTime.Now;
-            objDSolucionCuestionario.D_modificarRespuestaCuestionario(nuevasolucion);
+            nuevasolucion.USUARIOMODIFICA = (int)ViewState["usuarioModifica"];
+            listaRespuestasAModificar.Add(nuevasolucion);
         }
         private void guardarSolucion(int idPregunta, string respuesta)
         {
+            clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
             nuevasolucion.IDPROCESO = idProceso;
             nuevasolucion.IDOBJETIVO = idObjetivo;
             nuevasolucion.IDINDICADOR = idIndicador;
             nuevasolucion.IDPREGUNTA = idPregunta;
             nuevasolucion.IDPERSONA = idPersona;
             nuevasolucion.IDPERIODO = idPeriodo;
-            nuevasolucion.FECHASOLUCIONCUESTIONARIO = respuestas.Select(s=>s.FECHASOLUCIONCUESTIONARIO).ToList().First();
+            nuevasolucion.FECHASOLUCIONCUESTIONARIO = respuestas.Select(s => s.FECHASOLUCIONCUESTIONARIO).ToList().First();
+            nuevasolucion.USUARIOINGRESA = respuestas.Select(s => s.USUARIOINGRESA).ToList().First();
             nuevasolucion.FECHAMODIFICACIONCUESTIONARIO = DateTime.Now;
+            nuevasolucion.USUARIOMODIFICA = (int)ViewState["usuarioModifica"];
             nuevasolucion.TEXTOSOLUCIONCUESTIONARIO = respuesta;
-            objDSolucionCuestionario.D_guardarRespuestaCuestionario(nuevasolucion);
+            listaRespuestasAGuardar.Add(nuevasolucion);
         }
 
         private bool validarRadioButtons()

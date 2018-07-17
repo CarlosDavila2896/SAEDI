@@ -1869,6 +1869,7 @@
     <Content Include="Coordinador\frmCambioPass.aspx" />
     <Content Include="Coordinador\frmMiPerfil.aspx" />
     <Content Include="Coordinador\frmReporteAsistenciaAnualReunion.aspx" />
+    <Content Include="Coordinador\frmReporteAsistenciaAnualReuniones.aspx" />
     <Content Include="Coordinador\frmReporteAsistenciaPorPersona.aspx" />
     <Content Include="Coordinador\frmVerPersonas.aspx" />
     <Content Include="Coordinador\Inicio.aspx" />
@@ -3119,6 +3120,15 @@
     <Content Include="Tecnico\frmManejoTipoPersona.aspx" />
     <Content Include="Tecnico\frmManejoUsuarios.aspx" />
     <Content Include="Tecnico\frmMiPerfil.aspx" />
+    <Content Include="Tecnico\frmModificarCuestionario.aspx" />
+    <Content Include="Tecnico\frmReporteAsistenciaAnual.aspx" />
+    <Content Include="Tecnico\frmReporteAsistenciaAnualReuniones.aspx" />
+    <Content Include="Tecnico\frmReporteAsistenciaDiaria.aspx" />
+    <Content Include="Tecnico\frmReporteAsistenciaMensual.aspx" />
+    <Content Include="Tecnico\frmReporteAsistenciaPorPersona.aspx" />
+    <Content Include="Tecnico\frmReporteAsistenciaRango.aspx" />
+    <Content Include="Tecnico\frmReporteGenericoTodos.aspx" />
+    <Content Include="Tecnico\frmReportePreguntasCerradas.aspx" />
     <Content Include="Tecnico\frmVerCuestionario.aspx" />
     <Content Include="Tecnico\frmVerPersonas.aspx" />
     <Content Include="Tecnico\Inicio.aspx" />
@@ -3650,6 +3660,13 @@
     </Compile>
     <Compile Include="Coordinador\frmReporteAsistenciaAnualReunion.aspx.designer.cs">
       <DependentUpon>frmReporteAsistenciaAnualReunion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Coordinador\frmReporteAsistenciaAnualReuniones.aspx.cs">
+      <DependentUpon>frmReporteAsistenciaAnualReuniones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coordinador\frmReporteAsistenciaAnualReuniones.aspx.designer.cs">
+      <DependentUpon>frmReporteAsistenciaAnualReuniones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Coordinador\frmReporteAsistenciaPorPersona.aspx.cs">
       <DependentUpon>frmReporteAsistenciaPorPersona.aspx</DependentUpon>
@@ -4350,6 +4367,69 @@
     </Compile>
     <Compile Include="Tecnico\frmMiPerfil.aspx.designer.cs">
       <DependentUpon>frmMiPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico\frmModificarCuestionario.aspx.cs">
+      <DependentUpon>frmModificarCuestionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmModificarCuestionario.aspx.designer.cs">
+      <DependentUpon>frmModificarCuestionario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaAnual.aspx.cs">
+      <DependentUpon>frmReporteAsistenciaAnual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaAnual.aspx.designer.cs">
+      <DependentUpon>frmReporteAsistenciaAnual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaAnualReuniones.aspx.cs">
+      <DependentUpon>frmReporteAsistenciaAnualReuniones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaAnualReuniones.aspx.designer.cs">
+      <DependentUpon>frmReporteAsistenciaAnualReuniones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaDiaria.aspx.cs">
+      <DependentUpon>frmReporteAsistenciaDiaria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaDiaria.aspx.designer.cs">
+      <DependentUpon>frmReporteAsistenciaDiaria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaMensual.aspx.cs">
+      <DependentUpon>frmReporteAsistenciaMensual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaMensual.aspx.designer.cs">
+      <DependentUpon>frmReporteAsistenciaMensual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaPorPersona.aspx.cs">
+      <DependentUpon>frmReporteAsistenciaPorPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaPorPersona.aspx.designer.cs">
+      <DependentUpon>frmReporteAsistenciaPorPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaRango.aspx.cs">
+      <DependentUpon>frmReporteAsistenciaRango.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteAsistenciaRango.aspx.designer.cs">
+      <DependentUpon>frmReporteAsistenciaRango.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteGenericoTodos.aspx.cs">
+      <DependentUpon>frmReporteGenericoTodos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmReporteGenericoTodos.aspx.designer.cs">
+      <DependentUpon>frmReporteGenericoTodos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico\frmReportePreguntasCerradas.aspx.cs">
+      <DependentUpon>frmReportePreguntasCerradas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmReportePreguntasCerradas.aspx.designer.cs">
+      <DependentUpon>frmReportePreguntasCerradas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tecnico\frmVerCuestionario.aspx.cs">
       <DependentUpon>frmVerCuestionario.aspx</DependentUpon>

@@ -29,19 +29,15 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:DropDownList ID="ddlTipoUsuario" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoUsuario_SelectedIndexChanged" Width="100%" Height="38px">
+                <asp:DropDownList ID="ddlTipoUsuario" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoUsuario_SelectedIndexChanged" Width="97%" Height="38px">
                     <asp:ListItem Value="0">Seleccionar Rol</asp:ListItem>
                     <asp:ListItem Value="1">Administrador</asp:ListItem>
                     <asp:ListItem Value="2">Técnico</asp:ListItem>
                     <asp:ListItem Value="3">Coordinador</asp:ListItem>
-                    <asp:ListItem Value="4">Orientador</asp:ListItem>
+                    <asp:ListItem Value="4">Digitador</asp:ListItem>
+                    <asp:ListItem Value="5">Orientador</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -53,7 +49,7 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:ListBox ID="lstUsuario" runat="server" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="lstUsuario_SelectedIndexChanged"></asp:ListBox>
+                <asp:ListBox ID="lstUsuario" runat="server" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="lstUsuario_SelectedIndexChanged" Rows="8"></asp:ListBox>
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -94,7 +90,7 @@
             </td>
         </tr>
         <tr __designer:mapid="5c">
-            <td __designer:mapid="5e" class="auto-style1">Género</td>
+            <td __designer:mapid="5e" class="auto-style1">Sexo:</td>
             <td __designer:mapid="5f">
                 <asp:DropDownList ID="ddlGeneroUsuario" runat="server" Height="19px" Width="56%">
                     <asp:ListItem Value="0">Seleccionar</asp:ListItem>
@@ -132,11 +128,6 @@
     </table>
             </td>
             <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td __designer:mapid="80">&nbsp;</td>
-            <td __designer:mapid="88">&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>

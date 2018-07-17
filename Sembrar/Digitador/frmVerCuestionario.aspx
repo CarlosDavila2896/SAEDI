@@ -1,15 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Digitador/PrincipalDigitador.Master" AutoEventWireup="true" CodeBehind="frmVerCuestionario.aspx.cs" Inherits="Sembrar.Digitador.frmVerCuestionario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style4 {
-            width: 18px;
-            height: 50px;
-        }
-        .auto-style5 {
-            width: 22px;
-            height: 50px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%;" __designer:mapid="18d">

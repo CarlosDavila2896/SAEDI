@@ -67,24 +67,6 @@ namespace Sembrar.Tecnico {
         protected global::System.Web.UI.WebControls.ObjectDataSource odsProceso;
         
         /// <summary>
-        /// Control ddlOrientador.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlOrientador;
-        
-        /// <summary>
-        /// Control odsOrientador.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsOrientador;
-        
-        /// <summary>
         /// Control ddlPeriodo.
         /// </summary>
         /// <remarks>

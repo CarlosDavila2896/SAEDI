@@ -75,7 +75,7 @@
                                     <tr>
                                         <td class="auto-style5">Individuo</td>
                                         <td class="auto-style4" colspan="2">
-                                            <asp:ListBox ID="lstIndividuos" runat="server" Width="100%" DataSourceID="odsIndividuos" DataTextField="NOMBRES" DataValueField="ID" Rows="10"></asp:ListBox>
+                                            <asp:ListBox ID="lstIndividuos" runat="server" Width="100%" DataSourceID="odsIndividuos" DataTextField="NOMBRE" DataValueField="IDPERSONA" Rows="15"></asp:ListBox>
                                             <asp:ObjectDataSource ID="odsIndividuos" runat="server" SelectMethod="D_consultaIndividuosPorLineaDeAccionOrientador" TypeName="CapaDatos.clsDatosPersona" OldValuesParameterFormatString="original_{0}">
                                             </asp:ObjectDataSource>
                                         </td>

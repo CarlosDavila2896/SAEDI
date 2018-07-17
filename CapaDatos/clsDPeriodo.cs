@@ -26,16 +26,21 @@ namespace CapaDatos
             {
                 try
                 {
-                    PERIODO p = new PERIODO();
-                    p.NOMBREPERIODO = objPeriodo.NOMBREPERIODO.ToUpper();
-                    p.IDTIPOPERIODO = 1;
-                    p.FECHAINICIOPERIODO = DateTime.Now.Date;
-                    p.FECHAFINPERIODO = null;
-                    p.ESTADOPERIODO = true;
-                    bd.PERIODO.InsertOnSubmit(p);
-                    bd.SubmitChanges();
-                    trans.Complete();
-                    return true;
+                    if (objPeriodo.NOMBREPERIODO != "")
+                    {
+                        PERIODO p = new PERIODO();
+                        p.NOMBREPERIODO = objPeriodo.NOMBREPERIODO.ToUpper();
+                        p.IDTIPOPERIODO = 1;
+                        p.FECHAINICIOPERIODO = DateTime.Now.Date;
+                        p.FECHAFINPERIODO = null;
+                        p.ESTADOPERIODO = true;
+                        bd.PERIODO.InsertOnSubmit(p);
+                        bd.SubmitChanges();
+                        trans.Complete();
+                        return true;
+                    }
+                    else
+                        return false;
                 }
                 catch(Exception ex)
                 {
@@ -70,16 +75,22 @@ namespace CapaDatos
             {
                 try
                 {
-                    PERIODO p = new PERIODO();
-                    p.NOMBREPERIODO = objPeriodo.NOMBREPERIODO.ToUpper();
-                    p.IDTIPOPERIODO = 1;
-                    p.FECHAINICIOPERIODO = objPeriodo.FECHAINICIOPERIODO;
-                    p.FECHAFINPERIODO = objPeriodo.FECHAFINPERIODO;
-                    p.ESTADOPERIODO = objPeriodo.ACTIVO; 
-                    bd.PERIODO.InsertOnSubmit(p);
-                    bd.SubmitChanges();
-                    trans.Complete();
-                    return true;
+                    if (objPeriodo.FECHAINICIOPERIODO < objPeriodo.FECHAFINPERIODO)
+                    {
+                        PERIODO p = new PERIODO();
+                        p.NOMBREPERIODO = objPeriodo.NOMBREPERIODO.ToUpper();
+                        p.IDTIPOPERIODO = 1;
+                        p.FECHAINICIOPERIODO = objPeriodo.FECHAINICIOPERIODO;
+                        p.FECHAFINPERIODO = objPeriodo.FECHAFINPERIODO;
+                        p.ESTADOPERIODO = objPeriodo.ACTIVO;
+                        bd.PERIODO.InsertOnSubmit(p);
+                        bd.SubmitChanges();
+                        trans.Complete();
+                        return true;
+                    }
+                    else
+                        return false;
+
                 }
                 catch (Exception ex)
                 {
@@ -132,6 +143,24 @@ namespace CapaDatos
             }
         }
 
+        public object consultarAnioLectivoEspecifico(int id)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+                var periodos = (from per in db.PERIODO
+                                where per.IDPERIODO == id
+                                select new
+                                {
+                                    NOMBRE = per.NOMBREPERIODO,
+                                    FECHAINICIO = per.FECHAINICIOPERIODO.ToShortDateString(),
+                                    FECHAFIN = per.FECHAFINPERIODO.GetValueOrDefault().ToShortDateString(),
+                                    ESTADO = per.ESTADOPERIODO
+                                }).ToList();
+
+                return periodos;
+            }
+        }
+
         public object consultaPeriodosActualizar()
         {
             using (MERSembrarDataContext db = new MERSembrarDataContext())
@@ -178,15 +207,23 @@ namespace CapaDatos
         {
             using (MERSembrarDataContext db = new MERSembrarDataContext())
             {
-                var reu = (from r in db.PERIODO
+                try
+                {
+                    var reu = (from r in db.PERIODO
 
-                           where r.IDPERIODO == id
-                           select new
-                           {
-                               FECHA = r.FECHAFINPERIODO
+                               where r.IDPERIODO == id
+                               select new
+                               {
+                                   FECHA = r.FECHAFINPERIODO
 
-                           }).FirstOrDefault().FECHA;
-                return reu.Value;
+                               }).FirstOrDefault().FECHA;
+                    return reu.Value;
+                }
+                catch
+                {
+                    DateTime r = new DateTime();
+                    return r;
+                }
             }
         }
 
@@ -212,12 +249,22 @@ namespace CapaDatos
             {
                 try
                 {
-                    PERIODO reu = bd.PERIODO.First(r => r.IDPERIODO == id);
-                    reu.FECHAFINPERIODO = fechainicio;
-                    reu.FECHAINICIOPERIODO = fechafin;
-                    reu.NOMBREPERIODO = nombre;
-                    bd.SubmitChanges();
-                    return true;
+                    if (fechainicio < fechafin)
+                    {
+                        if (nombre != "")
+                        {
+                            PERIODO reu = bd.PERIODO.First(r => r.IDPERIODO == id);
+                            reu.FECHAFINPERIODO = fechainicio;
+                            reu.FECHAINICIOPERIODO = fechafin;
+                            reu.NOMBREPERIODO = nombre;
+                            bd.SubmitChanges();
+                            return true;
+                        }
+                        else
+                            return false;
+                    }
+                    else
+                        return false;
                 }
                 catch
                 {

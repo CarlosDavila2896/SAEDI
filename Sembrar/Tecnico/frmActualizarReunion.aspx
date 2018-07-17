@@ -21,9 +21,6 @@
         .auto-style6 {
             height: 18px;
         }
-        .auto-style7 {
-            margin-top: 16;
-        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -43,16 +40,16 @@
             <td class="auto-style6"></td>
         </tr>
         <tr>
-            <td class="auto-style4">Tema:</td>
+            <td class="auto-style4">Tema</td>
             <td class="auto-style5">
-                <asp:TextBox ID="txtTema" runat="server" Width="217px"></asp:TextBox>
+                <asp:TextBox ID="txtTema" runat="server" Width="222px"></asp:TextBox>
             </td>
             <td class="auto-style6"></td>
         </tr>
         <tr>
-            <td class="auto-style2">Fecha:</td>
+            <td class="auto-style2">Fecha</td>
             <td class="auto-style3">
-                <asp:TextBox ID="txtFecha" runat="server" Height="22px" TextMode="Date" Width="220px" CssClass="auto-style7"></asp:TextBox>
+                <asp:TextBox ID="txtFecha" runat="server" Height="22px" TextMode="Date" Width="220px"></asp:TextBox>
                 </td>
             <td>&nbsp;</td>
         </tr>
@@ -61,12 +58,6 @@
             <td class="auto-style3">
                 <asp:TextBox ID="txtHora" runat="server" TextMode="Time" Width="220px"></asp:TextBox>
                 </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">
-                &nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>

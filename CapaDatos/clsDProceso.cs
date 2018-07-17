@@ -26,6 +26,7 @@ namespace CapaDatos
                     PROCESO proceso = new PROCESO();
                     proceso.NOMBREPROCESO = nuevoProceso.NOMBREPROCESO;
                     proceso.ESTADOPROCESO = nuevoProceso.ESTADO;
+                    proceso.IDTIPOPROCESO = nuevoProceso.IDTIPOPROCESO;
 
                     db.PROCESO.InsertOnSubmit(proceso);
                     db.SubmitChanges();

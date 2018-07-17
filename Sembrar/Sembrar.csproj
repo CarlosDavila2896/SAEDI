@@ -3103,7 +3103,9 @@
     <Content Include="Tecnico\frmActualizarJoven.aspx" />
     <Content Include="Tecnico\frmActualizarNinio.aspx" />
     <Content Include="Tecnico\frmActualizarParentesco.aspx" />
+    <Content Include="Tecnico\frmActualizarPeriodo.aspx" />
     <Content Include="Tecnico\frmActualizarReunion.aspx" />
+    <Content Include="Tecnico\frmAsiginarFamilia.aspx" />
     <Content Include="Tecnico\frmEliminarPersona.aspx" />
     <Content Include="Tecnico\frmEliminarParentesco.aspx" />
     <Content Include="Tecnico\frmCambioPass.aspx" />
@@ -3117,6 +3119,7 @@
     <Content Include="Tecnico\frmManejoTipoPersona.aspx" />
     <Content Include="Tecnico\frmManejoUsuarios.aspx" />
     <Content Include="Tecnico\frmMiPerfil.aspx" />
+    <Content Include="Tecnico\frmVerCuestionario.aspx" />
     <Content Include="Tecnico\frmVerPersonas.aspx" />
     <Content Include="Tecnico\Inicio.aspx" />
     <Content Include="Estilos\estilosLogin.css" />
@@ -4236,12 +4239,26 @@
     <Compile Include="Tecnico\frmActualizarParentesco.aspx.designer.cs">
       <DependentUpon>frmActualizarParentesco.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tecnico\frmActualizarPeriodo.aspx.cs">
+      <DependentUpon>frmActualizarPeriodo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmActualizarPeriodo.aspx.designer.cs">
+      <DependentUpon>frmActualizarPeriodo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tecnico\frmActualizarReunion.aspx.cs">
       <DependentUpon>frmActualizarReunion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Tecnico\frmActualizarReunion.aspx.designer.cs">
       <DependentUpon>frmActualizarReunion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico\frmAsiginarFamilia.aspx.cs">
+      <DependentUpon>frmAsiginarFamilia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmAsiginarFamilia.aspx.designer.cs">
+      <DependentUpon>frmAsiginarFamilia.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tecnico\frmEliminarPersona.aspx.cs">
       <DependentUpon>frmEliminarPersona.aspx</DependentUpon>
@@ -4334,6 +4351,13 @@
     <Compile Include="Tecnico\frmMiPerfil.aspx.designer.cs">
       <DependentUpon>frmMiPerfil.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tecnico\frmVerCuestionario.aspx.cs">
+      <DependentUpon>frmVerCuestionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnico\frmVerCuestionario.aspx.designer.cs">
+      <DependentUpon>frmVerCuestionario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tecnico\frmVerPersonas.aspx.cs">
       <DependentUpon>frmVerPersonas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4423,7 +4447,6 @@
     <Content Include="Administrador\bin\Sembrar.dll.config" />
     <Content Include="Reportes\bin\CapaDatos.dll.config" />
     <Content Include="Reportes\bin\Sembrar.dll.config" />
-    <Content Include="Reportes\Web.config" />
     <Content Include="desktop.ini" />
     <Content Include="Digitador\PrincipalDigitador.Master" />
     <Content Include="Digitador\Web.config" />
@@ -4740,6 +4763,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -4755,7 +4781,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:20328/</IISUrl>
+          <IISUrl>http://localhost:9640/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

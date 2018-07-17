@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Digitador/PrincipalDigitador.Master" AutoEventWireup="true" CodeBehind="frmVerCuestionario.aspx.cs" Inherits="Sembrar.Digitador.frmVerCuestionario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style type="text/css">
+    <style type="text/css">
         .auto-style4 {
             width: 18px;
             height: 50px;
@@ -32,7 +32,7 @@
         <td __designer:mapid="1ac" class="auto-style6">
             <table id="crearObjetivo" class="auto-style4">
                 <tr>
-                    <td class="auto-style3" colspan="2">Seleccionar el proceso y el individuo para resolver el cuestionario</td>
+                    <td class="auto-style3">Seleccionar el proceso y el individuo para resolver el cuestionario</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
@@ -82,7 +82,6 @@
                                     </tr>
                                 </table>
                             </ContentTemplate>
-                            <Triggers>
                         </asp:UpdatePanel>
                     </td>
                 </tr>

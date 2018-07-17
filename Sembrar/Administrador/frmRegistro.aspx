@@ -163,6 +163,7 @@
                     <asp:ListItem Value="coordinador">Coordinador</asp:ListItem>
                     <asp:ListItem Value="orientador">Orientador</asp:ListItem>
                     <asp:ListItem Value="tecnico">Técnico</asp:ListItem>
+                    <asp:ListItem Value="digitador">Digitador</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
@@ -218,62 +219,55 @@
                             <ContentTemplate>
                                 <table>
                                     <tr>
-                                        <td align="center" class="auto-style18">&nbsp;</td>
-                                        <td align="center" class="auto-style27" colspan="3">&nbsp;</td>
-                                    </tr>
-                                    <tr>
                                         <td class="auto-style33">Nombre de Usuario:</td>
                                         <td class="auto-style34">
-                                            <asp:TextBox ID="UserName" runat="server" Width="228px"></asp:TextBox>
+                                            <asp:TextBox ID="UserName" runat="server" Width="190px"></asp:TextBox>
+                                        </td>
+                                        <td class="auto-style34">
                                             <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="Nombre de usuario requerido" ToolTip="Nombre de usuario requerido" ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td class="auto-style35">Email: </td>
                                         <td class="auto-style36">
-                                            <asp:TextBox ID="Email" runat="server" TextMode="Email" Width="266px"></asp:TextBox>
+                                            <asp:TextBox ID="Email" runat="server" TextMode="Email" Width="190px"></asp:TextBox>
+                                        </td>
+                                        <td class="auto-style36">
                                             <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="E-mail requerido" ToolTip="E-mail requerido" ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style20">Contraseña:</td>
                                         <td class="auto-style31">
-                                            <asp:TextBox ID="Password" runat="server" TextMode="Password" Width="210px"></asp:TextBox>
+                                            <asp:TextBox ID="Password" runat="server" TextMode="Password" Width="190px"></asp:TextBox>
+                                        </td>
+                                        <td class="auto-style31">
                                             <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Contraseña requerida" ToolTip="Contraseña requerida" ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td class="auto-style29">Repetir Contraseña:</td>
                                         <td class="auto-style17">
-                                            <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="auto-style28" TextMode="Password" Width="210px"></asp:TextBox>
+                                            <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="auto-style28" TextMode="Password" Width="190px" Height="20px"></asp:TextBox>
+                                        </td>
+                                        <td class="auto-style17">
                                             <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" ErrorMessage="Confirmación de contraseña requerida" ToolTip="Confirmación de contraseña requerida" ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style24">&nbsp;</td>
-                                        <td class="auto-style25" colspan="3">&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="auto-style20">Pregunta de Seguridad:</td>
-                                        <td class="auto-style17" colspan="3">
-                                            <asp:TextBox ID="Question" runat="server" Width="294px"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question" ErrorMessage="Pregunta de seguridad requerida" ToolTip="Pregunta de seguridad requerida" ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="auto-style20">Respuesta</td>
-                                        <td class="auto-style17" colspan="3">
-                                            <asp:TextBox ID="Answer" runat="server" Width="293px"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" ErrorMessage="Respuesta de seguridad requerida" ToolTip="Respuesta de seguridad requerida" ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
-                                        </td>
+                                        <td class="auto-style25" colspan="4">&nbsp;</td>
+                                        <td class="auto-style25">&nbsp;</td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style48"></td>
-                                        <td align="center" colspan="3" class="auto-style49">
+                                        <td align="center" colspan="4" class="auto-style49">
                                             <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword" Display="Dynamic" ErrorMessage="Las contraseñas no coinciden" ValidationGroup="CreateUserWizard1"></asp:CompareValidator>
                                         </td>
+                                        <td align="center" class="auto-style49">&nbsp;</td>
                                     </tr>
                                     <tr>
                                         <td align="center" style="color: Red;" class="auto-style18">&nbsp;</td>
-                                        <td align="center" colspan="3" style="color: Red;">
+                                        <td align="center" colspan="4" style="color: Red;">
                                             <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False" Text="Error al crear Usuario"></asp:Literal>
                                         </td>
+                                        <td align="center" style="color: Red;">&nbsp;</td>
                                     </tr>
                                 </table>
                             </ContentTemplate>

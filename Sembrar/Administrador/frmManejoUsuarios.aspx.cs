@@ -50,8 +50,8 @@ namespace Sembrar.Administrador
             btnActualizarUsuario.Enabled = false;
             if (!IsPostBack)
             {
-                ddlUsuario.Enabled = false;
-                ddlUsuario.Visible = false;
+                lstUsuario.Enabled = false;
+                lstUsuario.Visible = false;
             }
         }
 
@@ -62,16 +62,16 @@ namespace Sembrar.Administrador
                 deshabilitarM();
                 deshabilitarU();
                 btnActualizarUsuario.Enabled = false;
-                ddlUsuario.Items.Clear();
+                lstUsuario.Items.Clear();
                 var usuario = objDUsuario.consultaOrientador();
-                ddlUsuario.Enabled = true;
+                lstUsuario.Enabled = true;
 
                 if (int.Parse(ddlTipoUsuario.SelectedValue) == 0)
                 {
-                    ddlUsuario.Items.Clear();
-                    ddlUsuario.Items.Insert(0, "<No Hay Usuarios>");
+                    lstUsuario.Items.Clear();
+                    lstUsuario.Items.Insert(0, "<No Hay Usuarios>");
                     btnActualizarUsuario.Enabled = false;
-                    ddlUsuario.Enabled = false;
+                    lstUsuario.Enabled = false;
                     deshabilitarM();
                     deshabilitarU();
                 }
@@ -80,27 +80,26 @@ namespace Sembrar.Administrador
                 if (int.Parse(ddlTipoUsuario.SelectedValue) == 1)
                 {
                     usuario = objDUsuario.consultaUsuario("Administrador");
-                    ddlUsuario.Enabled = true; 
+                    lstUsuario.Enabled = true;
                 }
 
                 else if (int.Parse(ddlTipoUsuario.SelectedValue) == 2)
                 {
                     usuario = objDUsuario.consultaUsuario("Tecnico");
-                    ddlUsuario.Enabled = true;
+                    lstUsuario.Enabled = true;
                 }
 
                 else if (int.Parse(ddlTipoUsuario.SelectedValue) == 3)
                 {
                     usuario = objDUsuario.consultaUsuario("Coordinador");
-                    ddlUsuario.Enabled = true;
+                    lstUsuario.Enabled = true;
                 }
 
-
-                ddlUsuario.DataSource = usuario;
-                ddlUsuario.DataTextField = "nombre";
-                ddlUsuario.DataValueField = "id";
-                ddlUsuario.DataBind();
-                ddlUsuario.Visible = true;
+                lstUsuario.DataSource = usuario;
+                lstUsuario.DataTextField = "nombre";
+                lstUsuario.DataValueField = "id";
+                lstUsuario.DataBind();
+                lstUsuario.Visible = true;
 
 
                 cargarUsuario();
@@ -111,31 +110,23 @@ namespace Sembrar.Administrador
             }
             catch (Exception ex)
             {
-                ddlUsuario.Items.Clear();
-                ddlUsuario.Items.Insert(0, "<No Hay Usuarios>");
+                lstUsuario.Items.Clear();
+                lstUsuario.Items.Insert(0, "<No Hay Usuarios>");
                 btnActualizarUsuario.Enabled = false;
-                ddlUsuario.Enabled = false;
+                lstUsuario.Enabled = false;
                 deshabilitarM();
                 deshabilitarU();
             }
 
         }
 
-        protected void ddlUsuario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cargarUsuario();
-            cargarMemberhsip();
-            habilitarM();
-            habilitarU();
-            btnActualizarUsuario.Enabled = true;
-        }
         protected void cargarUsuario()
         {
             try
             {
                 if (int.Parse(ddlTipoUsuario.SelectedValue) < 4 && int.Parse(ddlTipoUsuario.SelectedValue) > 0)
                 {
-                    objNUsuario = objDUsuario.obtenerDatosUsuarioID(int.Parse(ddlUsuario.SelectedValue.ToString()));
+                    objNUsuario = objDUsuario.obtenerDatosUsuarioID(int.Parse(lstUsuario.SelectedValue.ToString()));
                     txtNombreUsuario.Text = objNUsuario.nombre;
                     txtApellidoUsuario.Text = objNUsuario.appellido;
                     txtIdUsuario.Text = objNUsuario.idUser.ToString();
@@ -149,7 +140,7 @@ namespace Sembrar.Administrador
                 }
                 if (int.Parse(ddlTipoUsuario.SelectedValue) == 4)
                 {
-                    objNOrientador = objDOrientador.D_consultarOrientadores(int.Parse(ddlUsuario.SelectedValue.ToString()));
+                    objNOrientador = objDOrientador.D_consultarOrientadores(int.Parse(lstUsuario.SelectedValue.ToString()));
                     txtNombreUsuario.Text = objNOrientador.NombreOrientador;
                     txtApellidoUsuario.Text = objNOrientador.apellidoOrientador;
                     txtIdUsuario.Text = objNOrientador.IDOrientador1.ToString();
@@ -172,13 +163,17 @@ namespace Sembrar.Administrador
         {
             if (int.Parse(ddlTipoUsuario.SelectedValue) < 4 && int.Parse(ddlTipoUsuario.SelectedValue) > 0)
             {
-                objeNMembership = objDUsuario.cargarUsuarioMembership(int.Parse(ddlUsuario.SelectedValue.ToString()));
+                int id;
+                int.TryParse(lstUsuario.SelectedValue.ToString(), out id);
+                objeNMembership = objDUsuario.cargarUsuarioMembership(id);
                 txtEmail.Text = objeNMembership.email;
                 txtUserName.Text = objeNMembership.username;
             }
             if (int.Parse(ddlTipoUsuario.SelectedValue) == 4)
             {
-                objeNMembership = objDOrientador.cargarOrientadorMembership(int.Parse(ddlUsuario.SelectedValue.ToString()));
+                int id;
+                int.TryParse(lstUsuario.SelectedValue.ToString(), out id);
+                objeNMembership = objDOrientador.cargarOrientadorMembership(id);
                 txtUserName.Text = objeNMembership.username;
                 txtEmail.Text = objeNMembership.email;
             }
@@ -266,6 +261,17 @@ namespace Sembrar.Administrador
             ddlEstado.SelectedValue = "true";
             txtUserName.Text = "";
             txtEmail.Text = "";
+            lstUsuario.Items.Clear();
+            lstUsuario.Enabled = false;
+        }
+
+        protected void lstUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarUsuario();
+            cargarMemberhsip();
+            habilitarM();
+            habilitarU();
+            btnActualizarUsuario.Enabled = true;
         }
     }
 }

@@ -107,6 +107,7 @@ namespace Sembrar.Digitador
                         celdatabla = new TableCell();
                         celdatabla.Width = Unit.Percentage(100);
                         celdatabla.Text = pre.NOMBREPREGUNTA;
+                        celdatabla.Font.Bold = true;
                         celdatabla.ID = "id" + pre.IDPREGUNTA.ToString() + "-" + cont;
                         celdatabla.ClientIDMode = ClientIDMode.Static;
                         celdatabla.HorizontalAlign = HorizontalAlign.Left;
@@ -124,7 +125,7 @@ namespace Sembrar.Digitador
                         {
                             //Lista de radio buttons
                             lblRespuesta = new Label();
-                            lblRespuesta.ID = "rblPregunta" + pre.IDPREGUNTA + "-" + cont;
+                            lblRespuesta.ID = "rblPregunta" + pre.IDPREGUNTA + "-" + cont;                            
                             celdatabla.Controls.Add(lblRespuesta);
 
                         }
@@ -132,7 +133,7 @@ namespace Sembrar.Digitador
                         else if (pre.IDTIPOPREGUNTA == 2)
                         {
                             lblRespuesta = new Label();
-                            lblRespuesta.ID = "txtPregunta" + pre.IDPREGUNTA + "-" + cont;
+                            lblRespuesta.ID = "txtPregunta" + pre.IDPREGUNTA + "-" + cont;                            
                             celdatabla.Controls.Add(lblRespuesta);
                             celdatabla.HorizontalAlign = HorizontalAlign.Left;
                         }
@@ -165,7 +166,7 @@ namespace Sembrar.Digitador
             this.pnlCuestionario.Controls.Add(tablaCuestionario);
         }
 
-
+        
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -248,7 +249,7 @@ namespace Sembrar.Digitador
                                     {
                                         tempLabel.Text = "";
                                     }
-
+                                    
                                 }
                                 else if (controlTabla is Label && controlTabla.ID.StartsWith("rblPregunta"))
                                 {
@@ -263,7 +264,7 @@ namespace Sembrar.Digitador
                                     string id = tempLabel.ID.Remove(0, 11);
                                     int idPregunta = int.Parse(id.Substring(0, id.LastIndexOf("-")));
                                     string textoLabel = "";
-                                    foreach (clsNSolucionCuestionario s in respuestas.Where(r => r.IDOBJETIVO == idObjetivo && r.IDINDICADOR == idIndicador && r.IDPREGUNTA == idPregunta).ToList())
+                                    foreach(clsNSolucionCuestionario s in respuestas.Where(r => r.IDOBJETIVO == idObjetivo && r.IDINDICADOR == idIndicador && r.IDPREGUNTA == idPregunta).ToList())
                                     {
                                         textoLabel += s.TEXTOSOLUCIONCUESTIONARIO + "-";
                                     }
@@ -275,8 +276,8 @@ namespace Sembrar.Digitador
                                     {
 
                                     }
-                                    tempLabel.Text = textoLabel;
-
+                                    tempLabel.Text = textoLabel;                  
+                                    
                                 }
                             }
                         }
@@ -290,12 +291,9 @@ namespace Sembrar.Digitador
                 Response.Write("<script>window.alert('Compruebe la información ingresada');</script>");
             }
         }
-
+        
 
     }
-
-
-
 
 
 }

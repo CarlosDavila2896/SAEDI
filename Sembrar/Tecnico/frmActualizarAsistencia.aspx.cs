@@ -62,8 +62,6 @@ namespace Sembrar.Tecnico
                                           "ServerControlScript", script, true);
 
                 }
-
-
             }
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
             cargarFecha();
@@ -74,6 +72,8 @@ namespace Sembrar.Tecnico
 
         protected void ddlOrientador2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            grvAsistencia2.DataSource = null;
+            grvAsistencia2.DataBind();
         }
 
         protected void ddlFecha_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,6 +81,8 @@ namespace Sembrar.Tecnico
             try
             {
                 cargarTema(DateTime.Parse(ddlFecha.Text));
+                grvAsistencia2.DataSource = null;
+                grvAsistencia2.DataBind();
             }
             catch
             {
@@ -89,6 +91,7 @@ namespace Sembrar.Tecnico
         }
         private void cargarTema(DateTime fecha)
         {
+            ddlTema.Items.Clear();
             ddlTema.DataSource = objReunion.consultaReunionesPorFecha(fecha);
             ddlTema.DataValueField = "IDREUNION";
             ddlTema.DataTextField = "TEMAREUNION";
@@ -110,10 +113,14 @@ namespace Sembrar.Tecnico
                     ddlAsisencia.SelectedIndex = ddlAsisencia.Items.IndexOf(ddlAsisencia.Items.FindByText(objDatosAsistencia.consultaAsistencia(int.Parse(gvr.Cells[4].Text), int.Parse(ddlTema.SelectedValue))));
                 }
             }
-            catch { }
+            catch
+            {
+
+            }
         }
         private void cargarFecha()
         {
+            ddlFecha.Items.Clear();
             ddlFecha.DataSource = objReunion.consultaReunionesFechas();
             ddlFecha.DataTextField = "FECHA";
             ddlFecha.DataBind();
@@ -133,6 +140,7 @@ namespace Sembrar.Tecnico
         {
             cargarGridView();
         }
+
     
     }
 }

@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace Sembrar.Administrador {
-
-    public partial class frmManejoUsuarios
-    {
-
+    
+    
+    public partial class frmManejoUsuarios {
+        
         /// <summary>
         /// Control ddlTipoUsuario.
         /// </summary>
@@ -20,16 +20,16 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoUsuario;
-
+        
         /// <summary>
-        /// Control ddlUsuario.
+        /// Control lstUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlUsuario;
-
+        protected global::System.Web.UI.WebControls.ListBox lstUsuario;
+        
         /// <summary>
         /// Control txtIdUsuario.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIdUsuario;
-
+        
         /// <summary>
         /// Control txtUserName.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUserName;
-
+        
         /// <summary>
         /// Control rqfUserName.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfUserName;
-
+        
         /// <summary>
         /// Control txtNombreUsuario.
         /// </summary>
@@ -65,7 +65,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
-
+        
         /// <summary>
         /// Control rqfNombre.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfNombre;
-
+        
         /// <summary>
         /// Control txtApellidoUsuario.
         /// </summary>
@@ -83,7 +83,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApellidoUsuario;
-
+        
         /// <summary>
         /// Control rqfApellido.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfApellido;
-
+        
         /// <summary>
         /// Control ddlGeneroUsuario.
         /// </summary>
@@ -101,7 +101,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlGeneroUsuario;
-
+        
         /// <summary>
         /// Control ddlEstado.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
-
+        
         /// <summary>
         /// Control txtEmail.
         /// </summary>
@@ -119,7 +119,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-
+        
         /// <summary>
         /// Control rqfemail.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Sembrar.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfemail;
-
+        
         /// <summary>
         /// Control btnActualizarUsuario.
         /// </summary>

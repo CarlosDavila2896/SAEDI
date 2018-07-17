@@ -24,25 +24,28 @@ namespace CapaDatos
             solucion.TEXTOSOLUCIONCUESTIONARIO = newSolucion.TEXTOSOLUCIONCUESTIONARIO;
             return solucion;
         }
-        public bool D_guardarRespuestaCuestionario(clsNSolucionCuestionario nuevaSolucion)
+        public bool D_guardarRespuestaCuestionario(List<clsNSolucionCuestionario> listaSoluciones)
         {
             try
             {
                 using (MERSembrarDataContext db = new MERSembrarDataContext())
                 {
-                    SOLUCIONCUESTIONARIO solucioncuestionario = new SOLUCIONCUESTIONARIO();
-                    solucioncuestionario.IDPROCESO = nuevaSolucion.IDPROCESO;
-                    solucioncuestionario.IDOBJETIVO = nuevaSolucion.IDOBJETIVO;
-                    solucioncuestionario.IDINDICADOR = nuevaSolucion.IDINDICADOR;
-                    solucioncuestionario.IDPREGUNTA = nuevaSolucion.IDPREGUNTA;
-                    solucioncuestionario.IDPERSONA = nuevaSolucion.IDPERSONA;
-                    solucioncuestionario.IDPERIODO = nuevaSolucion.IDPERIODO;
-                    solucioncuestionario.FECHASOLUCIONCUESTIONARIO = nuevaSolucion.FECHASOLUCIONCUESTIONARIO.Date;
-                    solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
-                    solucioncuestionario.IDUSUARIOINGRESA = nuevaSolucion.USUARIOINGRESA;
-                    solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
+                    foreach (clsNSolucionCuestionario nuevaSolucion in listaSoluciones)
+                    {
+                        SOLUCIONCUESTIONARIO solucioncuestionario = new SOLUCIONCUESTIONARIO();
+                        solucioncuestionario.IDPROCESO = nuevaSolucion.IDPROCESO;
+                        solucioncuestionario.IDOBJETIVO = nuevaSolucion.IDOBJETIVO;
+                        solucioncuestionario.IDINDICADOR = nuevaSolucion.IDINDICADOR;
+                        solucioncuestionario.IDPREGUNTA = nuevaSolucion.IDPREGUNTA;
+                        solucioncuestionario.IDPERSONA = nuevaSolucion.IDPERSONA;
+                        solucioncuestionario.IDPERIODO = nuevaSolucion.IDPERIODO;
+                        solucioncuestionario.FECHASOLUCIONCUESTIONARIO = nuevaSolucion.FECHASOLUCIONCUESTIONARIO.Date;
+                        solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
+                        solucioncuestionario.IDUSUARIOINGRESA = nuevaSolucion.USUARIOINGRESA;
+                        solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
 
-                    db.SOLUCIONCUESTIONARIO.InsertOnSubmit(solucioncuestionario);
+                        db.SOLUCIONCUESTIONARIO.InsertOnSubmit(solucioncuestionario);
+                    }
                     db.SubmitChanges();
 
                     return true;
@@ -54,17 +57,19 @@ namespace CapaDatos
             }
         }
 
-        public bool D_modificarRespuestaCuestionario(clsNSolucionCuestionario nuevaSolucion)
+        public bool D_modificarRespuestaCuestionario(List<clsNSolucionCuestionario> listaSoluciones)
         {
             try
             {
                 using (MERSembrarDataContext db = new MERSembrarDataContext())
                 {
-                    SOLUCIONCUESTIONARIO solucioncuestionario = db.SOLUCIONCUESTIONARIO.Where(s => s.IDSOLUCIONCUESTIONARIO == nuevaSolucion.IDSOLUCION).First();
-                    solucioncuestionario.FECHAMODIFICACIONCUESTIONARIO = nuevaSolucion.FECHAMODIFICACIONCUESTIONARIO;
-                    solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
-                    solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
-                    
+                    foreach (clsNSolucionCuestionario nuevaSolucion in listaSoluciones)
+                    {
+                        SOLUCIONCUESTIONARIO solucioncuestionario = db.SOLUCIONCUESTIONARIO.Where(s => s.IDSOLUCIONCUESTIONARIO == nuevaSolucion.IDSOLUCION).First();
+                        solucioncuestionario.FECHAMODIFICACIONCUESTIONARIO = nuevaSolucion.FECHAMODIFICACIONCUESTIONARIO;
+                        solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
+                        solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
+                    }
                     db.SubmitChanges();
 
                     return true;

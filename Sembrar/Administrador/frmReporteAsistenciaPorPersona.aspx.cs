@@ -73,7 +73,7 @@ namespace Sembrar.Administrador
             try {
                 ReportDocument crystalrpt = new ReportDocument();
                 crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunionPorPersona.rpt"));
-                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@Persona", ddlPersona.SelectedValue);
                 crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
@@ -91,7 +91,7 @@ namespace Sembrar.Administrador
         {
             ReportDocument crystalrpt = new ReportDocument();
             crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunionPorPersona.rpt"));
-            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+            //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Persona", ddlPersona.SelectedValue);
             crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);

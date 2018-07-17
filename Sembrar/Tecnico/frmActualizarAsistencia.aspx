@@ -25,8 +25,8 @@
                 <br />
             </td>
             <td class="auto-style1">
-                <asp:DropDownList ID="ddlTema" runat="server" AppendDataBoundItems="True" DataTextField="NOMBREORIENTADOR" DataValueField="IDORIENTADOR" Height="16px" OnSelectedIndexChanged="ddlOrientador2_SelectedIndexChanged" Width="166px">
-                    <asp:ListItem Selected="True" Value="0">--Select Orientador--</asp:ListItem>
+                <asp:DropDownList ID="ddlTema" runat="server" AppendDataBoundItems="True" DataTextField="NOMBREORIENTADOR" DataValueField="IDORIENTADOR" Height="16px" OnSelectedIndexChanged="ddlOrientador2_SelectedIndexChanged" Width="166px" AutoPostBack="True">
+                    <asp:ListItem Selected="True" Value="0">--Select Tema--</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td class="auto-style1"></td>

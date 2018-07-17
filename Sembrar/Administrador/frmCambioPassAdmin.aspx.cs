@@ -47,7 +47,7 @@ namespace Sembrar.Administrador
                 {
                     usuario = objDUsuario.consultaUsuario("Coordinador");
                 }
-                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 3)
+                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 4)
                 {
                     usuario = objDUsuario.consultaUsuario("Digitador");
                 }

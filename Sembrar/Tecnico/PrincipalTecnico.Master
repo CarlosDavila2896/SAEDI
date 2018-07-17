@@ -95,7 +95,18 @@
                             </li>
                         </ul>
                     </li>
-                    
+                    <li><a>Reportes<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="../Tecnico/frmReporteGenericoTodos.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Parametrizable</a></li>
+                            <li><a href="../Tecnico/frmReportePreguntasCerradas.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Preguntas Cerradas</a></li>
+                            <li><a href="../Tecnico/frmReporteAsistenciaAnual.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Anual</a></li>
+                            <li><a href="../Tecnico/frmReporteAsistenciaAnualReuniones.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Anual Reuniones</a></li>
+                            <li><a href="../Tecnico/frmReporteAsistenciaMensual.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Mensual</a></li>
+                            <li><a href="../Tecnico/frmReporteAsistenciaRango.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Por Rango</a></li>
+                            <li><a href="../Tecnico/frmReporteAsistenciaPorPersona.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Reporte Asistencia Mensual por persona</a></li>                            
+                            <li><a href="../Tecnico/frmReporteAsistenciaDiaria.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Diaria</a></li>
+                        </ul>
+                    </li>
                     <li><a>Manejo de Usuarios<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                         <ul>
                             <li><a href="../Tecnico/frmManejoUsuarios.aspx"><i class="fa fa-pencil" aria-hidden="true"></i>Actualizar</a></li>

@@ -32,29 +32,55 @@ namespace Sembrar.Coordinador
 
                 }
             }
-            else
-            {
-                ReportDocument crystalrpt = new ReportDocument();
-                path = Server.MapPath("");
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReportePreguntasCerradas.rpt"));
-                crystalrpt.Refresh();
-                crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
-                //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
-                CrystalReportViewer1.ReportSource = crystalrpt;
-                CrystalReportViewer1.DataBind();
-            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            ReportDocument crystalrpt = new ReportDocument();
-            path = Server.MapPath("");
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReportePreguntasCerradas.rpt"));
-            crystalrpt.Refresh();
-            crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
-            //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
-            CrystalReportViewer1.ReportSource = crystalrpt;
-            CrystalReportViewer1.DataBind();
+            try
+            {
+                ReportDocument crystalrpt = new ReportDocument();
+                path = Server.MapPath("");
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReportePreguntasCerradas.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
+                crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReportePreguntasCerradas");
+                crystalrpt.Refresh();
+                //CrystalReportViewer1.ReportSource = crystalrpt;
+                //CrystalReportViewer1.DataBind();
+            }
+            catch { }
+           
+        }
+
+        protected void btnBuscar0_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ReportDocument crystalrpt = new ReportDocument();
+                path = Server.MapPath("");
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReportePreguntasCerradas.rpt"));
+                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Refresh();
+                crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
+                ExportOptions exportOption;
+                DiskFileDestinationOptions diskFileDestinationOptions = new DiskFileDestinationOptions();
+                exportOption = crystalrpt.ExportOptions;
+                {
+                    exportOption.ExportDestinationType = ExportDestinationType.DiskFile;
+                    exportOption.ExportFormatType = ExportFormatType.Excel;
+                    exportOption.ExportDestinationOptions = diskFileDestinationOptions;
+                    exportOption.ExportFormatOptions = new ExcelFormatOptions();
+                }
+                crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReportePreguntasCerradas");
+
+                crystalrpt.Export();
+            }
+            catch
+            {
+
+            }
+            
         }
     }
 }

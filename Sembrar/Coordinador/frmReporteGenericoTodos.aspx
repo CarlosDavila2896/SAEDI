@@ -1,6 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Coordinador/PrincipalCoordiandor.Master" AutoEventWireup="true" CodeBehind="frmReporteGenericoTodos.aspx.cs" Inherits="Sembrar.Coordinador.ReporteGenericoTodos1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/PrincipalAdministrador.Master" AutoEventWireup="true" CodeBehind="frmReporteGenericoTodos.aspx.cs" Inherits="Sembrar.Administrador.ReporteGenericoTodos1" %>
 <%@ Register assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" namespace="CrystalDecisions.Web" tagprefix="CR" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style4 {
+            height: 52px;
+        }
+        .auto-style5 {
+            height: 18px;
+        }
+        .auto-style7 {
+            height: 16px;
+        }
+        .auto-style8 {
+            height: 31px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width: 100%;">
@@ -10,24 +24,9 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td>Proceso:&nbsp;&nbsp;
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                </asp:DropDownList>
-&nbsp;&nbsp;
-                </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>Persona:&nbsp;&nbsp;
-                <asp:DropDownList ID="DropDownList2" runat="server">
-                    <asp:ListItem Value="-1">Todos</asp:ListItem>
-                </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnBuscar" runat="server" OnClick="Button1_Click" Text="Buscar" />
-            </td>
-            <td>&nbsp;</td>
+            <td class="auto-style7"></td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style7"></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -37,9 +36,48 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+                <table style="width:100%;">
+                    <tr>
+                        <td class="auto-style5">Proceso:</td>
+                        <td class="auto-style5">
+                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="200px">
+                </asp:DropDownList>
+                        </td>
+                        <td class="auto-style5"></td>
+                    </tr>
+                    <tr>
+                        <td>Persona:</td>
+                        <td>
+                <asp:DropDownList ID="DropDownList2" runat="server" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" Width="200px">
+                    <asp:ListItem Value="-1">Todos</asp:ListItem>
+                </asp:DropDownList>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style8"></td>
+                        <td class="auto-style8">
+                <asp:Button ID="btnBuscar" runat="server" OnClick="Button1_Click" Text="Exportar PDF" />
+                        </td>
+                        <td class="auto-style8"></td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style5"></td>
+                        <td class="auto-style5">
+                <asp:Button ID="btnBuscar0" runat="server" OnClick="btnBuscar0_Click1" Text="Exportar Excel" />
+                        </td>
+                        <td class="auto-style5"></td>
+                    </tr>
+                </table>
             </td>
             <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style4"></td>
+            <!--td class="auto-style4">
+                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" EnableParameterPrompt="False" />
+            </td-->
+            <td class="auto-style4"></td>
         </tr>
         <tr>
             <td>&nbsp;</td>

@@ -42,11 +42,15 @@ namespace CapaDatos
                         solucioncuestionario.FECHASOLUCIONCUESTIONARIO = nuevaSolucion.FECHASOLUCIONCUESTIONARIO.Date;
                         solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
                         solucioncuestionario.IDUSUARIOINGRESA = nuevaSolucion.USUARIOINGRESA;
-                        solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
+                        if (nuevaSolucion.USUARIOMODIFICA != 0)
+                        {
+                            solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
+                        }                        
 
                         db.SOLUCIONCUESTIONARIO.InsertOnSubmit(solucioncuestionario);
-                        db.SubmitChanges();
-                    }                    
+                    }
+
+                    db.SubmitChanges();
 
                     return true;
                 }
@@ -68,10 +72,13 @@ namespace CapaDatos
                         SOLUCIONCUESTIONARIO solucioncuestionario = db.SOLUCIONCUESTIONARIO.Where(s => s.IDSOLUCIONCUESTIONARIO == nuevaSolucion.IDSOLUCION).First();
                         solucioncuestionario.FECHAMODIFICACIONCUESTIONARIO = nuevaSolucion.FECHAMODIFICACIONCUESTIONARIO;
                         solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
-                        solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
-                        db.SubmitChanges();
+                        if (nuevaSolucion.USUARIOMODIFICA != 0)
+                        {
+                            solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
+                        }                        
                     }
-                    
+                    db.SubmitChanges();
+
 
                     return true;
                 }
@@ -107,9 +114,9 @@ namespace CapaDatos
                                                IDPREGUNTA = s.IDPREGUNTA,
                                                FECHASOLUCIONCUESTIONARIO = s.FECHASOLUCIONCUESTIONARIO,
                                                TEXTOSOLUCIONCUESTIONARIO = s.TEXTOSOLUCIONCUESTIONARIO,
-                                               FECHAMODIFICACIONCUESTIONARIO = s.FECHAMODIFICACIONCUESTIONARIO.Value,
+                                               FECHAMODIFICACIONCUESTIONARIO = s.FECHAMODIFICACIONCUESTIONARIO.GetValueOrDefault(),
                                                USUARIOINGRESA = s.IDUSUARIOINGRESA.Value,
-                                               USUARIOMODIFICA = s.IDUSUARIOMODIFICA.Value
+                                               USUARIOMODIFICA = s.IDUSUARIOMODIFICA.GetValueOrDefault()
                                            }).ToList();
 
                     return listaRespuestas;

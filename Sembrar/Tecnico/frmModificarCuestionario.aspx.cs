@@ -13,7 +13,6 @@ namespace Sembrar.Tecnico
     public partial class frmModificarCuestionario : System.Web.UI.Page
     {
         clsDCuestionario objDcuestionario = new clsDCuestionario();
-        clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
         List<clsNSolucionCuestionario> listaRespuestasAGuardar;
         List<clsNSolucionCuestionario> listaRespuestasAModificar;
         clsDSolucionCuestionario objDSolucionCuestionario = new clsDSolucionCuestionario();
@@ -443,6 +442,7 @@ namespace Sembrar.Tecnico
 
         private void modificarSolucion(clsNSolucionCuestionario modificacion)
         {
+            clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
             nuevasolucion = modificacion;
             nuevasolucion.FECHAMODIFICACIONCUESTIONARIO = DateTime.Now;
             nuevasolucion.USUARIOMODIFICA = (int)ViewState["usuarioModifica"];
@@ -450,6 +450,7 @@ namespace Sembrar.Tecnico
         }
         private void guardarSolucion(int idPregunta, string respuesta)
         {
+            clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
             nuevasolucion.IDPROCESO = idProceso;
             nuevasolucion.IDOBJETIVO = idObjetivo;
             nuevasolucion.IDINDICADOR = idIndicador;

@@ -13,7 +13,6 @@ namespace Sembrar.Orientador
     public partial class CuestionarioFichas : System.Web.UI.Page
     {
         clsDCuestionario objDcuestionario = new clsDCuestionario();
-        clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
         List<clsNSolucionCuestionario> listaRespuestasAGuardar;
         clsDSolucionCuestionario objDSolucionCuestionario = new clsDSolucionCuestionario();
         int idProceso, idObjetivo, idIndicador, idPeriodo, idPersona;
@@ -314,6 +313,7 @@ namespace Sembrar.Orientador
 
         private void guardarSolucion(int idPregunta, string respuesta)
         {
+            clsNSolucionCuestionario nuevasolucion = new clsNSolucionCuestionario();
             nuevasolucion.IDPROCESO = idProceso;
             nuevasolucion.IDOBJETIVO = idObjetivo;
             nuevasolucion.IDINDICADOR = idIndicador;

@@ -45,8 +45,8 @@ namespace CapaDatos
                         solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
 
                         db.SOLUCIONCUESTIONARIO.InsertOnSubmit(solucioncuestionario);
-                    }
-                    db.SubmitChanges();
+                        db.SubmitChanges();
+                    }                    
 
                     return true;
                 }
@@ -69,8 +69,9 @@ namespace CapaDatos
                         solucioncuestionario.FECHAMODIFICACIONCUESTIONARIO = nuevaSolucion.FECHAMODIFICACIONCUESTIONARIO;
                         solucioncuestionario.TEXTOSOLUCIONCUESTIONARIO = nuevaSolucion.TEXTOSOLUCIONCUESTIONARIO;
                         solucioncuestionario.IDUSUARIOMODIFICA = nuevaSolucion.USUARIOMODIFICA;
+                        db.SubmitChanges();
                     }
-                    db.SubmitChanges();
+                    
 
                     return true;
                 }

@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Sembrar.Tecnico {
+namespace Sembrar.Administrador {
     
     
     public partial class Actualizar_Niño {

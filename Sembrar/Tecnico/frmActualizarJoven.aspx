@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tecnico/PrincipalTecnico.Master" AutoEventWireup="true" CodeBehind="frmActualizarJoven.aspx.cs" Inherits="Sembrar.Tecnico.Actualizar_Joven" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/PrincipalAdministrador.Master" AutoEventWireup="true" CodeBehind="frmActualizarJoven.aspx.cs" Inherits="Sembrar.Administrador.Actualizar_Joven" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -61,7 +61,7 @@
         <td class="auto-style3"></td>
     </tr>
     <tr>
-        <td class="auto-style12" style="text-align: left">Ocupacion:</td>
+        <td class="auto-style12" style="text-align: left">Ocupacion:/td>
         <td class="auto-style14" style="text-align: left">
             <asp:DropDownList ID="ddlAlimentacion2" runat="server" Width="290px">
             </asp:DropDownList>
@@ -204,8 +204,8 @@
     </tr>
     <tr>
         <td class="auto-style8"></td>
-        <td class="auto-style8"></td>
         <td class="auto-style8">&nbsp;</td>
+        <td class="auto-style8"></td>
     </tr>
     <tr>
         <td class="auto-style12" style="text-align: left">Observaciones:</td>

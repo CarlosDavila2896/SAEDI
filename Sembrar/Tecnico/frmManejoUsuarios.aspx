@@ -1,28 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tecnico/PrincipalTecnico.Master" AutoEventWireup="true" CodeBehind="frmManejoUsuarios.aspx.cs" Inherits="Sembrar.Tecnico.frmManejoUsuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   <style type="text/css">
-        .auto-style1 {
-            text-align: right;
-        }
-        .auto-style2 {
-            text-align: right;
-            height: 27px;
-        }
-        .auto-style3 {
-            height: 27px;
-        }
-        .auto-style4 {
-            height: 18px;
-        }
-        
-        .auto-style70 {
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            font-size: large;
-            color: #333333;
-            text-align: left;
-        }
-    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%;">
@@ -45,25 +23,33 @@
         <tr>
             <td class="auto-style2"></td>
             <td class="auto-style2">
-                <asp:DropDownList ID="ddlTipoUsuario" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoUsuario_SelectedIndexChanged" Width="100%" Height="38px">
-                    <asp:ListItem Value="0">Seleccionar Rol</asp:ListItem>
-                    <asp:ListItem Value="1">Técnico</asp:ListItem>
-                    <asp:ListItem Value="2">Coordinador</asp:ListItem>
-                    <asp:ListItem Value="3">Orientador</asp:ListItem>
-                </asp:DropDownList>
-            </td>
+                &nbsp;</td>
             <td class="auto-style2">&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:DropDownList ID="ddlTipoUsuario" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoUsuario_SelectedIndexChanged" Width="97%" Height="38px">
+                    <asp:ListItem Value="0">Seleccionar Rol</asp:ListItem>
+                    <asp:ListItem Value="1">Administrador</asp:ListItem>
+                    <asp:ListItem Value="2">Técnico</asp:ListItem>
+                    <asp:ListItem Value="3">Coordinador</asp:ListItem>
+                    <asp:ListItem Value="4">Digitador</asp:ListItem>
+                    <asp:ListItem Value="5">Orientador</asp:ListItem>
+                </asp:DropDownList>
+            </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:DropDownList ID="ddlUsuario" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlUsuario_SelectedIndexChanged" Width="100%">
-                </asp:DropDownList>
+                &nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <asp:ListBox ID="lstUsuario" runat="server" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="lstUsuario_SelectedIndexChanged" Rows="8"></asp:ListBox>
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -83,8 +69,8 @@
             </td>
         </tr>
         <tr>
-            <td __designer:mapid="8e" class="auto-style1">Nombre de Usuario:</td>
-            <td __designer:mapid="8f" class="auto-style9">
+            <td __designer:mapid="8e" class="auto-style2">Nombre de Usuario:</td>
+            <td __designer:mapid="8f" class="auto-style3">
                 <asp:TextBox ID="txtUserName" runat="server" MaxLength="256" Width="152px" Enabled="False"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rqfUserName" runat="server" ControlToValidate="txtUserName" ErrorMessage="*" ForeColor="Red" ValidationGroup="Actualizar"></asp:RequiredFieldValidator>
             </td>
@@ -104,7 +90,7 @@
             </td>
         </tr>
         <tr __designer:mapid="5c">
-            <td __designer:mapid="5e" class="auto-style1">Género</td>
+            <td __designer:mapid="5e" class="auto-style1">Sexo:</td>
             <td __designer:mapid="5f">
                 <asp:DropDownList ID="ddlGeneroUsuario" runat="server" Height="19px" Width="56%">
                     <asp:ListItem Value="0">Seleccionar</asp:ListItem>
@@ -142,11 +128,6 @@
     </table>
             </td>
             <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td __designer:mapid="80">&nbsp;</td>
-            <td __designer:mapid="88">&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>

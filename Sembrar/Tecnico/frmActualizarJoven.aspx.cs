@@ -185,11 +185,9 @@ namespace Sembrar.Tecnico
         }
         private void cargarMenorEdad()
         {
-            double peso, talla;
             //objMenor.IdOrientador = int.Parse(ddlOrientador.SelectedValue.ToString());
             objMenor.Sad = txtSAD.Text;
             objMenor.AnioIngreso = int.Parse(txtAnioIngreso.Text);
-
             objMenor.NombreEncargado = 0;
         }
         protected void ctvFecha_ServerValidate(object source, ServerValidateEventArgs args)

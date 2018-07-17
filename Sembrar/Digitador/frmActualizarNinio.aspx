@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Digitador/PrincipalDigitador.Master" AutoEventWireup="true" CodeBehind="frmActualizarNinio.aspx.cs" Inherits="Sembrar.Digitador.Actualizar_Niño" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style4 {
+            height: 81px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%;">
@@ -197,83 +202,6 @@
                 <asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*El teléfono es un campo númerico con formato de 9 a 10 dígitos" ForeColor="#CC3300" SetFocusOnError="True" ValidationExpression="\d{9,10}"></asp:RegularExpressionValidator>
                 <br />
             </td>
-        </tr>
-        <tr>
-            <td class="auto-style8"></td>
-            <td class="auto-style8">&nbsp;</td>
-            <td class="auto-style8"></td>
-        </tr>
-        <tr>
-            <td class="auto-style12" style="text-align: left">Discapacidades:</td>
-            <td class="auto-style14" style="text-align: left">
-                <asp:TextBox ID="txtDiscapacidad" runat="server" Columns="50" Height="75px" MaxLength="200" Rows="4" TextMode="MultiLine" Width="290px"></asp:TextBox>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style7"></td>
-            <td class="auto-style7"></td>
-            <td class="auto-style7"></td>
-        </tr>
-        <tr>
-            <td class="auto-style9" style="text-align: left">Preguntas Generales</td>
-            <td class="auto-style9" style="text-align: left">
-                <asp:CheckBox ID="chbTrabaja" runat="server" Text="¿Trabaja el niño?" />
-            </td>
-            <td class="auto-style9">
-                <br />
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style12" style="text-align: left">¿Cuanto tiempo trabaja?</td>
-            <td class="auto-style14" style="text-align: left">
-                <asp:TextBox ID="txtTiempoTrabajo" runat="server" TextMode="Number" Width="290px"></asp:TextBox>
-            </td>
-            <td>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator12" runat="server"
-                         ControlToValidate="txtTiempoTrabajo" ErrorMessage="Este campo acepta números positivos" 
-                     ValidationExpression="^[0-9]+$" ForeColor="Red"></asp:RegularExpressionValidator><br />
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style8"></td>
-            <td class="auto-style8"></td>
-            <td class="auto-style8"></td>
-        </tr>
-        <tr>
-            <td class="auto-style9" style="text-align: left">&nbsp;</td>
-            <td class="auto-style9" style="text-align: left">
-                <asp:CheckBox ID="chbVacunas" runat="server" Text="¿Tiene todas sus vacunas?" />
-            </td>
-            <td class="auto-style9">
-                <br />
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style3">&nbsp;</td>
-            <td class="auto-style3"> <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server"
-                         ControlToValidate="txtAlimentacion" ErrorMessage="Este campo acepta números positivos" 
-                     ValidationExpression="^[0-9]+$" ForeColor="Red"></asp:RegularExpressionValidator></td>
-            <td class="auto-style3"></td>
-        </tr>
-        <tr>
-            <td class="auto-style12" style="text-align: left">¿Cuantas veces a la semana come carne?:</td>
-            <td class="auto-style14" style="text-align: left">
-                <asp:TextBox ID="txtAlimentacion" runat="server" Columns="50" MaxLength="5" TextMode="Number" Width="290px"></asp:TextBox>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style8"></td>
-            <td class="auto-style8"></td>
-            <td class="auto-style8"></td>
-        </tr>
-        <tr>
-            <td class="auto-style10" style="text-align: left">Sacramento del niño:</td>
-            <td class="auto-style10" style="text-align: left">
-                <asp:TextBox ID="txtSacramento" runat="server" Columns="50" Height="75px" MaxLength="200" Rows="4" TextMode="MultiLine" Width="290px"></asp:TextBox>
-            </td>
-            <td class="auto-style10"></td>
         </tr>
         <tr>
             <td class="auto-style8"></td>

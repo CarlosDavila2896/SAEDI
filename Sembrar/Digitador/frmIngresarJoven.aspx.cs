@@ -68,15 +68,10 @@ namespace Sembrar.Digitador
         private void cargarMenorEdad()
         {
             int alimento;
-            int.TryParse(txtAlimentacion.Text, out alimento);
             //objMenorEdad.IdOrientador = int.Parse(ddlOrientador.SelectedValue.ToString());
             objMenorEdad.Sad = txtSAD.Text;
             objMenorEdad.AnioIngreso = int.Parse(txtAnioIngreso.Text);
-            objMenorEdad.Discapacidad = txtDiscapacidad.Text;
-            objMenorEdad.Vacunas = chbVacunas.Checked;
-            objMenorEdad.Alimentacion = alimento;
             objMenorEdad.NombreEncargado = 0;
-            objMenorEdad.Sacramento = txtSacramento.Text;
         }
         private void cargarPersona(DateTime nacimiento)
         {
@@ -89,10 +84,8 @@ namespace Sembrar.Digitador
             objPersona.Nacimiento = nacimiento;
             objPersona.Cedula = txtCedula.Text;
             objPersona.LugarNacimiento = txtLugarNacimiento.Text;
-            objPersona.ViveFamilia = chbViveFamilia.Checked;
             objPersona.Observacion = txtObservacion.Text;
             objPersona.Ingreso = DateTime.Now;
-            objPersona.Cabeza = chbCabezaFamilia.Checked;
             objPersona.Telefono = txtTelefono.Text;
             objPersona.Numeros = cargarNumeros();
         }

@@ -62,11 +62,6 @@ namespace Sembrar.Orientador
             txtTelefono.Enabled = false;
             txtTelefono0.Enabled = false;
             txtTelefono1.Enabled = false;
-            chbTrabaja.Enabled = false;
-            txtTiempoTrabajo.Enabled = false;
-            chbVacunas.Enabled = false;
-            txtAlimentacion.Enabled = false;
-            txtSacramento.Enabled = false;
             txtObservacion.Enabled = false;
             btnModificar.Enabled = false;
         }
@@ -88,11 +83,6 @@ namespace Sembrar.Orientador
             txtTelefono.Enabled = true;
             txtTelefono0.Enabled = true;
             txtTelefono1.Enabled = true;
-            chbTrabaja.Enabled = true;
-            txtTiempoTrabajo.Enabled = true;
-            chbVacunas.Enabled = true;
-            txtAlimentacion.Enabled = true;
-            txtSacramento.Enabled = true;
             txtObservacion.Enabled = true;
             btnModificar.Enabled = true;
         }
@@ -133,13 +123,7 @@ namespace Sembrar.Orientador
             //ddlOrientador.SelectedValue = objMenor.IdOrientador.ToString();
             txtSAD.Text = objMenor.Sad;
             txtAnioIngreso.Text = objMenor.AnioIngreso.ToString();
-            txtDiscapacidad.Text = objMenor.Discapacidad;
-            chbVacunas.Checked = objMenor.Vacunas;
-            txtAlimentacion.Text = objMenor.Alimentacion.ToString();
-            txtSacramento.Text = objMenor.Sacramento;
-
-            chbTrabaja.Checked = objNinio.Trabajo;
-            txtTiempoTrabajo.Text = objNinio.Tiempo.ToString();
+            
             ddlIndividuo.Enabled = false;
 
             rfvPrimerNombre.Enabled = true;
@@ -212,17 +196,11 @@ namespace Sembrar.Orientador
             //objMenor.IdOrientador = int.Parse(ddlOrientador.SelectedValue.ToString());
             objMenor.Sad = txtSAD.Text;
             objMenor.AnioIngreso = int.Parse(txtAnioIngreso.Text);
-            objMenor.Discapacidad = txtDiscapacidad.Text;
-            objMenor.Vacunas = chbVacunas.Checked;
-            objMenor.Alimentacion = int.Parse(txtAlimentacion.Text);
             objMenor.NombreEncargado = 0;
-            objMenor.Sacramento = txtSacramento.Text;
         }
 
         private void cargarNinio()
         {
-            objNinio.Trabajo = chbTrabaja.Checked;
-            objNinio.Tiempo = int.Parse(txtTiempoTrabajo.Text);
 
         }
 

@@ -21,15 +21,11 @@ namespace CapaDatos
         static clsMenorEdad transformarMenor(MENOREDAD newMenor)
         {
             clsMenorEdad menor = new clsMenorEdad();
-            menor.Alimentacion = newMenor.ALIMENTACIONMENOREDAD;
             menor.AnioIngreso = newMenor.ANIOINGRESOMENOREDAD;
-            menor.Discapacidad = newMenor.DISCAPACIDADESMENOREDAD;
             menor.IdMenorEdad = newMenor.IDMENOREDAD;
             menor.IdPersona = newMenor.IDPERSONA;
             menor.NombreEncargado = newMenor.NOMBREENCARGADOMENOREDAD;
-            menor.Sacramento = newMenor.SACRAMENTOMENOREDAD;
             menor.Sad = newMenor.CODIGOSADMENOREDAD;
-            menor.Vacunas = newMenor.VACUNASMENOREDAD;
             menor.IdRepresentante = int.Parse(newMenor.IDREPRESENTANTE.ToString());
             return menor;
         }
@@ -97,11 +93,7 @@ namespace CapaDatos
                     //menor.IDORIENTADOR = objMenorEdad.IdOrientador;
                     menor.CODIGOSADMENOREDAD = objMenorEdad.Sad;
                     menor.ANIOINGRESOMENOREDAD = objMenorEdad.AnioIngreso;
-                    menor.DISCAPACIDADESMENOREDAD = objMenorEdad.Discapacidad;
-                    menor.VACUNASMENOREDAD = objMenorEdad.Vacunas;
-                    menor.ALIMENTACIONMENOREDAD = objMenorEdad.Alimentacion;
                     menor.NOMBREENCARGADOMENOREDAD = objMenorEdad.NombreEncargado;
-                    menor.SACRAMENTOMENOREDAD = objMenorEdad.Sacramento;
                     bd.MENOREDAD.InsertOnSubmit(menor);
                     bd.SubmitChanges();
                     int idMenor = menor.IDMENOREDAD;
@@ -185,11 +177,7 @@ namespace CapaDatos
                 //objMenor.IdOrientador = Convert.ToInt32(p.menor.IDORIENTADOR);
                 objMenor.Sad = p.menor.CODIGOSADMENOREDAD;
                 objMenor.AnioIngreso = Convert.ToInt32(p.menor.ANIOINGRESOMENOREDAD);
-                objMenor.Discapacidad = p.menor.DISCAPACIDADESMENOREDAD;
-                objMenor.Vacunas = Convert.ToBoolean(p.menor.VACUNASMENOREDAD);
-                objMenor.Alimentacion = Convert.ToInt32(p.menor.ALIMENTACIONMENOREDAD);
                 objMenor.NombreEncargado = Convert.ToInt32(p.menor.NOMBREENCARGADOMENOREDAD);
-                objMenor.Sacramento = p.menor.SACRAMENTOMENOREDAD;
             }
             catch (Exception ex)
             {
@@ -268,11 +256,7 @@ namespace CapaDatos
                     //menor.IDORIENTADOR = objMenorEdad.IdOrientador;
                     menor.CODIGOSADMENOREDAD = objMenorEdad.Sad;
                     menor.ANIOINGRESOMENOREDAD = objMenorEdad.AnioIngreso;
-                    menor.DISCAPACIDADESMENOREDAD = objMenorEdad.Discapacidad;
-                    menor.VACUNASMENOREDAD = objMenorEdad.Vacunas;
-                    menor.ALIMENTACIONMENOREDAD = objMenorEdad.Alimentacion;
                     menor.NOMBREENCARGADOMENOREDAD = objMenorEdad.NombreEncargado;
-                    menor.SACRAMENTOMENOREDAD = objMenorEdad.Sacramento;
 
                     JOVEN joven = bd.JOVEN.Single(u => u.IDPERSONA == codigo);
                     bd.SubmitChanges();

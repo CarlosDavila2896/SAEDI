@@ -15,15 +15,11 @@ namespace CapaDatos
         static clsMenorEdad transformarMenor(MENOREDAD newMenor)
         {
             clsMenorEdad menor = new clsMenorEdad();
-            menor.Alimentacion = newMenor.ALIMENTACIONMENOREDAD;
             menor.AnioIngreso = newMenor.ANIOINGRESOMENOREDAD;
-            menor.Discapacidad = newMenor.DISCAPACIDADESMENOREDAD;
             menor.IdMenorEdad = newMenor.IDMENOREDAD;
             menor.IdPersona = newMenor.IDPERSONA;
             menor.NombreEncargado = newMenor.NOMBREENCARGADOMENOREDAD;
-            menor.Sacramento = newMenor.SACRAMENTOMENOREDAD;
             menor.Sad = newMenor.CODIGOSADMENOREDAD;
-            menor.Vacunas = newMenor.VACUNASMENOREDAD;
             menor.IdRepresentante = int.Parse(newMenor.IDREPRESENTANTE.ToString());
             return menor;
         }
@@ -52,8 +48,6 @@ namespace CapaDatos
             ninio.IdPersona = newNinio.IDPERSONA;
             ninio.IdMenorEdad = int.Parse(newNinio.MENOREDAD.ToString());
             ninio.IdNinio = newNinio.IDNINIO;
-            ninio.Trabajo = bool.Parse(newNinio.TRABAJONINIO.ToString());
-            ninio.Tiempo = int.Parse(newNinio.TIEMPOTRABAJONINIO.ToString());
             return ninio;
         }
 
@@ -105,19 +99,13 @@ namespace CapaDatos
                     //menor.IDORIENTADOR = objMenorEdad.IdOrientador;
                     menor.CODIGOSADMENOREDAD = objMenorEdad.Sad;
                     menor.ANIOINGRESOMENOREDAD = objMenorEdad.AnioIngreso;
-                    menor.DISCAPACIDADESMENOREDAD = objMenorEdad.Discapacidad;
-                    menor.VACUNASMENOREDAD = objMenorEdad.Vacunas;
-                    menor.ALIMENTACIONMENOREDAD = objMenorEdad.Alimentacion;
                     menor.NOMBREENCARGADOMENOREDAD = objMenorEdad.NombreEncargado;
-                    menor.SACRAMENTOMENOREDAD = objMenorEdad.Sacramento;
                     bd.MENOREDAD.InsertOnSubmit(menor);
                     bd.SubmitChanges();
                     int idMenor = menor.IDMENOREDAD;
                     //datos ninio
                     ninio.IDPERSONA = idPersona;
                     ninio.IDMENOREDAD = idMenor;
-                    ninio.TRABAJONINIO = objNinio.Trabajo;
-                    ninio.TIEMPOTRABAJONINIO = objNinio.Tiempo;
                     bd.NINIO.InsertOnSubmit(ninio);
                     //insertar en base
                     bd.SubmitChanges();
@@ -213,17 +201,11 @@ namespace CapaDatos
                 //objMenor.IdOrientador = Convert.ToInt32(p.menor.IDORIENTADOR);
                 objMenor.Sad = p.menor.CODIGOSADMENOREDAD;
                 objMenor.AnioIngreso = Convert.ToInt32(p.menor.ANIOINGRESOMENOREDAD);
-                objMenor.Discapacidad = p.menor.DISCAPACIDADESMENOREDAD;
-                objMenor.Vacunas = Convert.ToBoolean(p.menor.VACUNASMENOREDAD);
-                objMenor.Alimentacion = Convert.ToInt32(p.menor.ALIMENTACIONMENOREDAD);
                 objMenor.NombreEncargado = Convert.ToInt32(p.menor.NOMBREENCARGADOMENOREDAD);
-                objMenor.Sacramento = p.menor.SACRAMENTOMENOREDAD;
 
                 objNinio.IdPersona = Convert.ToInt32(p.ninio.IDPERSONA);
                 objNinio.IdMenorEdad = Convert.ToInt32(p.ninio.IDMENOREDAD);
                 objNinio.IdNinio = Convert.ToInt32(p.ninio.IDNINIO);
-                objNinio.Trabajo = Convert.ToBoolean(p.ninio.TRABAJONINIO);
-                objNinio.Tiempo = Convert.ToInt32(p.ninio.TIEMPOTRABAJONINIO);
             }
             catch (Exception ex)
             {
@@ -280,15 +262,9 @@ namespace CapaDatos
                    // menor.IDORIENTADOR = objMenorEdad.IdOrientador;
                     menor.CODIGOSADMENOREDAD = objMenorEdad.Sad;
                     menor.ANIOINGRESOMENOREDAD = objMenorEdad.AnioIngreso;
-                    menor.DISCAPACIDADESMENOREDAD = objMenorEdad.Discapacidad;
-                    menor.VACUNASMENOREDAD = objMenorEdad.Vacunas;
-                    menor.ALIMENTACIONMENOREDAD = objMenorEdad.Alimentacion;
                     menor.NOMBREENCARGADOMENOREDAD = objMenorEdad.NombreEncargado;
-                    menor.SACRAMENTOMENOREDAD = objMenorEdad.Sacramento;
 
                     NINIO ninio = bd.NINIO.Single(u => u.IDPERSONA == codigo);
-                    ninio.TRABAJONINIO = objNinio.Trabajo;
-                    ninio.TIEMPOTRABAJONINIO = objNinio.Tiempo;
 
                     bd.SubmitChanges();
                     trans.Complete();

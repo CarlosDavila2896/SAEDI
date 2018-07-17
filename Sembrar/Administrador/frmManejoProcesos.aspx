@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/PrincipalAdministrador.Master" AutoEventWireup="true" CodeBehind="frmManejoProcesos.aspx.cs" Inherits="Sembrar.Administrador.frmManejoProcesos" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/PrincipalAdministrador.Master" AutoEventWireup="true" CodeBehind="frmManejoProcesos.aspx.cs" Inherits="Sembrar.Administrador.frmManejoProcesos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <!--Método para mostrar -->

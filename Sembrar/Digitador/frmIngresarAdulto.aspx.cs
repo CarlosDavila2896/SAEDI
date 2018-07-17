@@ -18,16 +18,6 @@ namespace Sembrar.Digitador
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (chbEstudia.Checked == true)
-            {
-                txtDondeEstudia.Visible = true;
-                lblEstudia.Visible = true;
-            }
-            else
-            {
-                txtDondeEstudia.Visible = false;
-                lblEstudia.Visible = false;
-            }
             if(!IsPostBack)
             {
                 cargarDDLs();
@@ -94,24 +84,14 @@ namespace Sembrar.Digitador
             objPersona.Telefono = txtTelefono.Text;
             objPersona.Cedula = txtCedula.Text;
             objPersona.LugarNacimiento = txtLugarNacimiento.Text;
-            objPersona.ViveFamilia = chbViveFamilia.Checked;
             objPersona.Observacion = txtObservacion.Text;
             objPersona.Ingreso = DateTime.Now;
-            objPersona.Cabeza = chbCabezaFamilia.Checked;
             objPersona.Numeros = cargarNumeros();
         }
         
         private void cargarAdulto()
         {
-            objAdulto.EstudiaAdulto = chbEstudia.Checked;
-            if (chbEstudia.Checked)
-            {
-                objAdulto.DondeEstudiaAdulto = txtDondeEstudia.Text;
-            }
-            else
-            {
-                objAdulto.DondeEstudiaAdulto = "";
-            }
+            objAdulto.DondeEstudiaAdulto = txtDondeEstudia.Text;
             objAdulto.NivelEducacion = ddlNivel.SelectedItem.Text;
         }
 

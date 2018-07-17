@@ -27,7 +27,7 @@ namespace Sembrar.Coordinador
             else {
                 ReportDocument crystalrpt = new ReportDocument();
                 path = Server.MapPath("");
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunion.rpt"));
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaReunion.rpt"));
                 //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
                 crystalrpt.Refresh();
                 CrystalReportViewer1.ReportSource = crystalrpt;
@@ -53,7 +53,7 @@ namespace Sembrar.Coordinador
         {
             ReportDocument crystalrpt = new ReportDocument();
             path = Server.MapPath("");
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunion.rpt"));
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaReunion.rpt"));
             //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@IdReunion", ddlTema.SelectedValue);

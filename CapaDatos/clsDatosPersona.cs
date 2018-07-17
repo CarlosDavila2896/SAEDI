@@ -948,12 +948,12 @@ namespace CapaDatos
                 var individuos = from p in bd.PERSONA
                                  select new
                                  {
-                                     ID = p.IDPERSONA,
-                                     NOMBRES = p.PRIMERNOMBREPERSONA + " " + p.SEGUNDONOMBREPERSONA + " " + p.PRIMERAPELLIDOPERSONA + " " + p.SEGUNDOAPELLIDOPERSONA
+                                     IDPERSONA = p.IDPERSONA,
+                                     NOMBRE = p.PRIMERNOMBREPERSONA + " " + p.SEGUNDONOMBREPERSONA + " " + p.PRIMERAPELLIDOPERSONA + " " + p.SEGUNDOAPELLIDOPERSONA
                                  };
 
 
-                return individuos.ToList().OrderBy(i=>i.NOMBRES);
+                return individuos.ToList().OrderBy(i=>i.NOMBRE);
 
             }
         }

@@ -28,18 +28,6 @@ namespace Sembrar.Orientador
             CapaDatos.clsDOrientador objDatosPerfil = new CapaDatos.clsDOrientador();
             usuario = objDatosPerfil.D_consultarOrientador(logUser.UserName.ToString());
             Session["id"] = usuario.IDOrientador1;
-            if (chbTrabaja.Checked == true)
-            {
-                txtTiempoTrabajo.Visible = true;
-                RegularExpressionValidator12.Visible = true;
-                lblTrabaja.Visible = true;
-            }
-            else
-            {
-                txtTiempoTrabajo.Visible = false;
-                RegularExpressionValidator12.Visible = false;
-                lblTrabaja.Visible = false;
-            }
 
             if (bandera == 1)
             {
@@ -108,20 +96,11 @@ namespace Sembrar.Orientador
             //objMenorEdad.IdOrientador = int.Parse(ddlOrientador.SelectedValue.ToString());
             objMenorEdad.Sad = txtSAD.Text;
             objMenorEdad.AnioIngreso = int.Parse(txtAnioIngreso.Text);
-            objMenorEdad.Discapacidad = txtDiscapacidad.Text;
-            objMenorEdad.Vacunas = chbVacunas.Checked;
-            int.TryParse(txtAlimentacion.Text, out alimento);
-            objMenorEdad.Alimentacion = alimento;
             objMenorEdad.NombreEncargado = 0;
-            objMenorEdad.Sacramento = txtSacramento.Text;
             
         }
         private void cargarNinio()
         {
-            objNinio.Trabajo = chbTrabaja.Checked;
-            int tiempo;
-            int.TryParse(txtTiempoTrabajo.Text, out tiempo);
-            objNinio.Tiempo = tiempo;
 
         }
 

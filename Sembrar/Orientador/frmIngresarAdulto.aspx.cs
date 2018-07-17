@@ -23,19 +23,7 @@ namespace Sembrar.Orientador
             CapaDatos.clsDOrientador objDatosPerfil = new CapaDatos.clsDOrientador();
             usuario = objDatosPerfil.D_consultarOrientador(logUser.UserName.ToString());
             Session["id"] = usuario.IDOrientador1;
-
-            if (chbEstudia.Checked == true)
-            {
-                txtDondeEstudia.Visible = true;
-                RegularExpressionValidator100.Visible = true;
-                lblEstudia.Visible = true;
-            }
-            else
-            {
-                txtDondeEstudia.Visible = false;
-                RegularExpressionValidator100.Visible = false;
-                lblEstudia.Visible = false;
-            }
+            
             if(!IsPostBack)
             {
                 
@@ -104,24 +92,14 @@ namespace Sembrar.Orientador
             objPersona.Telefono = txtTelefono.Text;
             objPersona.Cedula = txtCedula.Text;
             objPersona.LugarNacimiento = txtLugarNacimiento.Text;
-            objPersona.ViveFamilia = chbViveFamilia.Checked;
             objPersona.Observacion = txtObservacion.Text;
             objPersona.Ingreso = DateTime.Now;
-            objPersona.Cabeza = chbCabezaFamilia.Checked;
             objPersona.Numeros = cargarNumeros();
         }
         
         private void cargarAdulto()
         {
-            objAdulto.EstudiaAdulto = chbEstudia.Checked;
-            if (chbEstudia.Checked)
-            {
-                objAdulto.DondeEstudiaAdulto = txtDondeEstudia.Text;
-            }
-            else
-            {
-                objAdulto.DondeEstudiaAdulto = "";
-            }
+            objAdulto.DondeEstudiaAdulto = txtDondeEstudia.Text;
             objAdulto.NivelEducacion = ddlNivel.SelectedItem.Text;
         }
 

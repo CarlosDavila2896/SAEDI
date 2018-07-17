@@ -1,21 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tecnico/PrincipalTecnico.Master" AutoEventWireup="true" CodeBehind="frmVerPersonas.aspx.cs" Inherits="Sembrar.Tecnico.Ver_Induviduo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
-    <style type="text/css">
-        .auto-style1 {
-            text-align: center;
-        }
-        .auto-style4 {
-            height: 105px;
-        }
-        .auto-style5 {
-            height: 18px;
-        }
-        .auto-style6 {
-            font-size: medium;
-        }
-    </style>
-    
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%;">

@@ -99,5 +99,10 @@ namespace Sembrar.Administrador
             ClientScriptManager cs = pg.ClientScript;
             cs.RegisterClientScriptBlock(cstype, s, s.ToString());
         }
+
+        protected void gvProcesos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

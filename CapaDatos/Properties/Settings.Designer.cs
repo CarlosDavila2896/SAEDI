@@ -26,7 +26,7 @@ namespace CapaDatos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;MultipleActiveResultSets=True;Application Name=EntityFramew" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=SembrarDesarrollo;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramew" +
             "ork")]
         public string SembrarConnectionString {
             get {
@@ -37,7 +37,7 @@ namespace CapaDatos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;MultipleActiveResultSets=True;Application Name=EntityFramew" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=SembrarDesarrollo;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramew" +
             "ork")]
         public string Sembrar2ConnectionString {
             get {
@@ -48,7 +48,7 @@ namespace CapaDatos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*;Name=EntityFramework")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=SembrarDesarrollo;Integrated Security=True;Name=EntityFramework")]
         public string Sembrar2ConnectionString1 {
             get {
                 return ((string)(this["Sembrar2ConnectionString1"]));
@@ -58,7 +58,7 @@ namespace CapaDatos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=208.91.198.174;Initial Catalog=SembrarDesarrollo;User ID=adminSAEDI; Password=SAEDI.2018*")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=SembrarDesarrollo;Integrated Security=True")]
         public string SembrarDesarrolloConnectionString {
             get {
                 return ((string)(this["SembrarDesarrolloConnectionString"]));

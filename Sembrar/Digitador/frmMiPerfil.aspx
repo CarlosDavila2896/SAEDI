@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Digitador/PrincipalDigitador.Master" AutoEventWireup="true" CodeBehind="frmMiPerfil.aspx.cs" Inherits="Sembrar.Digitador.frmMiPerfil" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   <style type="text/css">
+    <style type="text/css">
         .auto-style1 {
             height: 18px;
         }

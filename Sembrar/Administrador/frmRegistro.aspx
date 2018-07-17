@@ -49,6 +49,10 @@
         .auto-style49 {
             background-color: #FEFFFF;
         }
+        .auto-style50 {
+            background-color: #FFFFFF;
+            width: 207px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -66,7 +70,7 @@
                     <asp:ListItem Value="coordinador">Coordinador</asp:ListItem>
                     <asp:ListItem Value="tecnico">Técnico</asp:ListItem>
 <asp:ListItem Value="digitador">Digitador</asp:ListItem>
-                    <asp:ListItem Value="orientador">TécnicoOrientador</asp:ListItem>
+                    <asp:ListItem Value="orientador">Orientador</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
@@ -139,7 +143,7 @@
                                         <td align="right" class="auto-style48">
                                             <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Nombre de usuario:</asp:Label>
                                         </td>
-                                        <td class="auto-style48">
+                                        <td class="auto-style50">
                                             <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="El nombre de usuario es obligatorio." ToolTip="El nombre de usuario es obligatorio." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                         </td>
@@ -153,7 +157,7 @@
                                     </tr>
                                     <tr>
                                         <td align="right" class="auto-style48">&nbsp;</td>
-                                        <td class="auto-style48">&nbsp;</td>
+                                        <td class="auto-style50">&nbsp;</td>
                                         <td></td>
                                         <td>&nbsp;</td>
                                     </tr>
@@ -161,7 +165,7 @@
                                         <td align="right" class="auto-style48">
                                             <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Contraseña:</asp:Label>
                                         </td>
-                                        <td class="auto-style48">
+                                        <td class="auto-style50">
                                             <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="La contraseña es obligatoria." ToolTip="La contraseña es obligatoria." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                         </td>
@@ -184,14 +188,14 @@
                                         <td align="right" class="auto-style48">
                                             <asp:Label ID="QuestionLabel" runat="server" AssociatedControlID="Question" Visible="False">Pregunta de seguridad:</asp:Label>
                                         </td>
-                                        <td class="auto-style48">
-                                            <asp:TextBox ID="Question" runat="server" Visible="False"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question" ErrorMessage="La pregunta de seguridad es obligatoria." ToolTip="La pregunta de seguridad es obligatoria." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                        <td class="auto-style50">
+                                            <asp:TextBox ID="Question" runat="server" Visible="False"> </asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question" ErrorMessage="La pregunta de seguridad es obligatoria." ToolTip="La pregunta de seguridad es obligatoria." ValidationGroup="CreateUserWizard1" Visible="False">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td class="auto-style48">
                                             <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
                                             <asp:Label ID="AnswerLabel" runat="server" AssociatedControlID="Answer" Visible="False">Respuesta de seguridad:</asp:Label>
-                                            <asp:TextBox ID="Answer" runat="server" Visible="False"></asp:TextBox>
+                                            <asp:TextBox ID="Answer" runat="server" Visible="False"> </asp:TextBox>
                                             <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" ErrorMessage="La respuesta de seguridad es obligatoria." ToolTip="La respuesta de seguridad es obligatoria." ValidationGroup="CreateUserWizard1" Visible="False">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td class="auto-style48">&nbsp;</td>

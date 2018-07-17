@@ -114,7 +114,7 @@ namespace Sembrar.Administrador
                     limpiar();
 
                 }
-                if (ddlROL.SelectedValue == "administrador" || ddlROL.SelectedValue == "tecnico" || ddlROL.SelectedValue == "coordinador" || ddlROL.SelectedValue == "digitador")
+                else if (ddlROL.SelectedValue == "administrador" || ddlROL.SelectedValue == "tecnico" || ddlROL.SelectedValue == "coordinador" || ddlROL.SelectedValue == "digitador")
                 {
                     Ocultar();
                     objNUsuario.nombre = txtUserNombre.Text;

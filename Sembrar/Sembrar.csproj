@@ -4447,7 +4447,6 @@
     <Content Include="Administrador\bin\Sembrar.dll.config" />
     <Content Include="Reportes\bin\CapaDatos.dll.config" />
     <Content Include="Reportes\bin\Sembrar.dll.config" />
-    <Content Include="Reportes\Web.config" />
     <Content Include="desktop.ini" />
     <Content Include="Digitador\PrincipalDigitador.Master" />
     <Content Include="Digitador\Web.config" />
@@ -4763,6 +4762,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

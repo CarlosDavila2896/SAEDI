@@ -127,9 +127,9 @@
         </tr>
         <tr>
             <td class="auto-style5" colspan="3">
-                <asp:GridView ID="gvReuniones" runat="server" DataSourceID="odsReuniones" Width="100%">
+                <asp:GridView ID="gvReuniones" runat="server" DataSourceID="odsReuniones" Width="100%" style="height: 119px">
                 </asp:GridView>
-                <asp:ObjectDataSource ID="odsReuniones" runat="server" SelectMethod="consultaDatosReuniones" TypeName="CapaDatos.clsDatosReunion">
+                <asp:ObjectDataSource ID="odsReuniones" runat="server" SelectMethod="consultaDatosReuniones" TypeName="CapaDatos.clsDatosReunion" EnableViewState="False">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="ddlLineaAccion" Name="idLinea" PropertyName="SelectedValue" Type="Int32" />
                         <asp:ControlParameter ControlID="ddlProceso" Name="idProceso" PropertyName="SelectedValue" Type="Int32" />

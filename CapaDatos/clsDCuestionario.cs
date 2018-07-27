@@ -66,7 +66,7 @@ namespace CapaDatos
                 }                
                 else
                 {
-                    return new List<CUESTIONARIO>();
+                    return db.CUESTIONARIO.Where(x => x.IDPROCESO == idProceso && x.IDOBJETIVO == idObjetivo && x.IDINDICADOR == idIndicador).OrderBy(a => a.IDOBJETIVO).ThenBy(a => a.IDINDICADOR).ToList();
                 }
             }
         }

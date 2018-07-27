@@ -162,7 +162,7 @@
                                                         <SortedDescendingHeaderStyle BackColor="#242121" />
                                                     </asp:GridView>
                                                 </div>
-                                                <asp:ObjectDataSource ID="odsCuestionario" runat="server" DataObjectTypeName="CapaDatos.CUESTIONARIO" DeleteMethod="D_eliminarCuestionario" SelectMethod="D_consultarCuestionarioFiltrado" TypeName="CapaDatos.clsDCuestionario" UpdateMethod="D_editarCuestionario" OldValuesParameterFormatString="original_{0}">
+                                                <asp:ObjectDataSource ID="odsCuestionario" runat="server" DataObjectTypeName="CapaDatos.CUESTIONARIO" DeleteMethod="D_eliminarCuestionario" SelectMethod="D_consultarCuestionarioFiltrado" TypeName="CapaDatos.clsDCuestionario" UpdateMethod="D_editarCuestionario" OldValuesParameterFormatString="original_{0}" EnableViewState="False">
                                                     <SelectParameters>
                                                         <asp:ControlParameter ControlID="lstProcesos" DefaultValue="" Name="idProceso" PropertyName="SelectedValue" Type="Int32" />
                                                         <asp:ControlParameter ControlID="lstObjetivos" DefaultValue="" Name="idObjetivo" PropertyName="SelectedValue" Type="Int32" />

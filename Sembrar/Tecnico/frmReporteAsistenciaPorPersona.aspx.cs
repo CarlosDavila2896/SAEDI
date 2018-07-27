@@ -19,10 +19,11 @@ namespace Sembrar.Tecnico
         {
             try
             {
-                cargarProceso();
-                cargarPersonas();
+                
                 if (!IsPostBack)
                 {
+                    cargarProceso();
+                    cargarPersonas();
                     for (int i = 2016; i <= int.Parse(DateTime.Now.ToString("yyyy")); i++)
                     {
                         ListItem li = new ListItem();

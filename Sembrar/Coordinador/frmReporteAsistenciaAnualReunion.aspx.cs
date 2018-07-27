@@ -27,7 +27,7 @@ namespace Sembrar.Coordinador
                 }
             }
             ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaAnualReuniones.rpt"));
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReuniones.rpt"));
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
             crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
@@ -38,7 +38,7 @@ namespace Sembrar.Coordinador
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaAnualReuniones.rpt"));
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReuniones.rpt"));
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
             crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
@@ -55,7 +55,7 @@ namespace Sembrar.Coordinador
         protected void ddlProceso_SelectedIndexChanged(object sender, EventArgs e)
         {
             ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaAnualReuniones.rpt"));
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReuniones.rpt"));
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
             crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);

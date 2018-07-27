@@ -40,8 +40,8 @@ namespace Sembrar.Administrador
             {
                 ReportDocument crystalrpt = new ReportDocument();
                 path = Server.MapPath("");
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReportePreguntasCerradas.rpt"));
-                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportePreguntasCerradas.rpt"));
+                //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
                 crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReportePreguntasCerradas");
@@ -59,8 +59,8 @@ namespace Sembrar.Administrador
             {
                 ReportDocument crystalrpt = new ReportDocument();
                 path = Server.MapPath("");
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReportePreguntasCerradas.rpt"));
-                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportePreguntasCerradas.rpt"));
+                //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@IdProceso", DropDownList1.SelectedValue);
                 ExportOptions exportOption;

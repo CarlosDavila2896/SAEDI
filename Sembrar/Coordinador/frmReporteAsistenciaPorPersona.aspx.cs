@@ -35,7 +35,7 @@ namespace Sembrar.Coordinador
                 {
 
                     ReportDocument crystalrpt = new ReportDocument();
-                    crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaReunionPorPersona.rpt"));
+                    crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunionPorPersona.rpt"));
                     crystalrpt.Refresh();
                     crystalrpt.SetParameterValue("@Persona", ddlPersona.SelectedValue);
                     crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
@@ -72,8 +72,8 @@ namespace Sembrar.Coordinador
         {
             try {
                 ReportDocument crystalrpt = new ReportDocument();
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaReunionPorPersona.rpt"));
-                crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunionPorPersona.rpt"));
+                //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
                 crystalrpt.Refresh();
                 crystalrpt.SetParameterValue("@Persona", ddlPersona.SelectedValue);
                 crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);
@@ -90,8 +90,8 @@ namespace Sembrar.Coordinador
         protected void Button2_Click(object sender, EventArgs e)
         {
             ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaReunionPorPersona.rpt"));
-            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunionPorPersona.rpt"));
+            //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Persona", ddlPersona.SelectedValue);
             crystalrpt.SetParameterValue("@Mes", ddlMes.SelectedValue);

@@ -27,7 +27,7 @@ namespace Sembrar.Administrador
             else {
                 ReportDocument crystalrpt = new ReportDocument();
                 path = Server.MapPath("");
-                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaReunion.rpt"));
+                crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaReunion.rpt"));
                 //crystalrpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "");
                 crystalrpt.Refresh();
                 CrystalReportViewer1.ReportSource = crystalrpt;

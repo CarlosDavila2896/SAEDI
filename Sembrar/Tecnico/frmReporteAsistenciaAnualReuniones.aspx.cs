@@ -29,7 +29,7 @@ namespace Sembrar.Tecnico
                 }
             }
             ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaAnualReuniones.rpt"));
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReuniones.rpt"));
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
             crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
@@ -61,8 +61,8 @@ namespace Sembrar.Tecnico
         protected void Button1_Click(object sender, EventArgs e)
         {
             ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaAnualReuniones.rpt"));
-            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReuniones.rpt"));
+            //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
             crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);
@@ -75,8 +75,8 @@ namespace Sembrar.Tecnico
         protected void Button2_Click(object sender, EventArgs e)
         {
             ReportDocument crystalrpt = new ReportDocument();
-            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReportesServidor/ReporteAsistenciaAnualReuniones.rpt"));
-            crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
+            crystalrpt.Load(Server.MapPath(@"~/Reportes/ReporteAsistenciaAnualReuniones.rpt"));
+            //crystalrpt.SetDatabaseLogon("adminSAEDI", "SAEDI.2018*");
             crystalrpt.Refresh();
             crystalrpt.SetParameterValue("@Anio", DropDownList1.SelectedValue);
             crystalrpt.SetParameterValue("@IdProceso", ddlProceso.SelectedValue);

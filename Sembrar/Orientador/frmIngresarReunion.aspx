@@ -78,7 +78,7 @@
         <tr>
             <td>Tipo de asistentes:</td>
             <td class="auto-style4">
-                <asp:DropDownList ID="ddlTipoAsistentes" runat="server" DataTextField="NOMBREORIENTADOR" DataValueField="IDORIENTADOR" OnSelectedIndexChanged="ddlOrientador_SelectedIndexChanged" AutoPostBack="True" Width="220px">
+                <asp:DropDownList ID="ddlTipoAsistentes" runat="server" DataTextField="NOMBREORIENTADOR" DataValueField="IDORIENTADOR" Width="220px">
                 </asp:DropDownList>
             </td>
             <td class="auto-style7">

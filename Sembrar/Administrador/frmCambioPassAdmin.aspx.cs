@@ -58,10 +58,18 @@ namespace Sembrar.Administrador
                     btnGenerarContraseña.Enabled = false;
                     ddlUsuario.Enabled = false;
                 }
-                else
+                else if (int.Parse(ddlTipoUsuario.SelectedValue) == 5)
                 {
                     usuario = objDUsuario.consultaOrientador();
                 }
+                else
+                {
+                    ddlUsuario.Items.Clear();
+                    ddlUsuario.Items.Insert(0, "<No Hay Usuarios>");
+                    btnGenerarContraseña.Enabled = false;
+                    ddlUsuario.Enabled = false;
+                }
+
                 ddlUsuario.DataSource = usuario;
                 ddlUsuario.DataTextField = "nombre";
                 ddlUsuario.DataValueField = "id";
@@ -89,7 +97,7 @@ namespace Sembrar.Administrador
                 objNUsuario = objDUsuario.obtenerDatosUsuarioCompleto(logUser.UserName.ToString());
                 int idUserLog = objNUsuario.idUser;
                 string nPass = objDUsuario.RandomString(12);
-                if (int.Parse(ddlTipoUsuario.SelectedValue) == 3)
+                if (int.Parse(ddlTipoUsuario.SelectedValue) == 5)
                 {
                     nPass = objDUsuario.RandomString(12);
                     txtContrasenia.Text = nPass;
@@ -147,9 +155,16 @@ namespace Sembrar.Administrador
 
         }
 
+        protected void limpiar()
+        {
+            ddlTipoUsuario.SelectedIndex = 0;
+            ddlUsuario.Enabled = false;
+        }
+
         protected void btnOtroUsuario_Click(object sender, EventArgs e)
         {
             desbloquear();
+            limpiar();
             txtContrasenia.Text = "";
         }
     }

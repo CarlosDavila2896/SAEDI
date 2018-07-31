@@ -44,7 +44,7 @@ namespace Sembrar.Orientador
         {
             try{
                 int idOrientador = (int)Session["id"];
-                ddlProceso.DataSource = objProceso.D_consultarProcesoPorOrientador(idOrientador);
+                ddlProceso.DataSource = objProceso.D_consultarProcesoPorOrientadorAsistencia(idOrientador);
                 ddlProceso.DataValueField = "IdProceso";
                 ddlProceso.DataTextField = "Nombre";
                 ddlProceso.DataBind();

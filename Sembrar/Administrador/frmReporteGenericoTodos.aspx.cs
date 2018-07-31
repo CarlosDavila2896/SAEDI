@@ -24,7 +24,7 @@ namespace Sembrar.Administrador
             {
                 try
                 {
-                    DropDownList1.DataSource = objProceso.D_consultarProceso();
+                    DropDownList1.DataSource = objProceso.D_consultarProcesoCuestionario();
                     DropDownList1.DataTextField = "Nombre";
                     DropDownList1.DataValueField = "IdProceso";
                     DropDownList1.DataBind();

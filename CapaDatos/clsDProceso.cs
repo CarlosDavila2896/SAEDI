@@ -40,7 +40,7 @@ namespace CapaDatos
             }
         }
 
-        public object D_consultarProcesoPorOrientador(int idOrientador)
+        public object D_consultarProcesoPorOrientadorAsistencia(int idOrientador)
         {
             try
             {
@@ -48,7 +48,28 @@ namespace CapaDatos
                 {
                     return (from proceso in bd.PROCESO
                             join r in bd.ORIENTADORACARGODEPROCESOENPERIODO on proceso.IDPROCESO equals r.IDPROCESO
-                            where r.IDORIENTADOR == idOrientador
+                            where r.IDORIENTADOR == idOrientador && proceso.IDTIPOPROCESO == 2
+                            select new
+                            {
+                                Nombre = proceso.NOMBREPROCESO,
+                                IdProceso = proceso.IDPROCESO
+                            }).ToList().OrderBy(a => a.Nombre).Distinct().ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                return new object();
+            }
+        }
+        public object D_consultarProcesoPorOrientadorCuestionario(int idOrientador)
+        {
+            try
+            {
+                using (MERSembrarDataContext bd = new MERSembrarDataContext())
+                {
+                    return (from proceso in bd.PROCESO
+                            join r in bd.ORIENTADORACARGODEPROCESOENPERIODO on proceso.IDPROCESO equals r.IDPROCESO
+                            where r.IDORIENTADOR == idOrientador && proceso.IDTIPOPROCESO == 1
                             select new
                             {
                                 Nombre = proceso.NOMBREPROCESO,
@@ -140,6 +161,46 @@ namespace CapaDatos
                 using (MERSembrarDataContext bd = new MERSembrarDataContext())
                 {
                     return (from proceso in bd.PROCESO
+                            select new
+                            {
+                                Nombre = proceso.NOMBREPROCESO,
+                                IdProceso = proceso.IDPROCESO
+                            }).ToList().OrderBy(a => a.Nombre).Distinct().ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                return new object();
+            }
+        }
+        public object D_consultarProcesoAsistencia()
+        {
+            try
+            {
+                using (MERSembrarDataContext bd = new MERSembrarDataContext())
+                {
+                    return (from proceso in bd.PROCESO
+                            where proceso.IDTIPOPROCESO == 2
+                            select new
+                            {
+                                Nombre = proceso.NOMBREPROCESO,
+                                IdProceso = proceso.IDPROCESO
+                            }).ToList().OrderBy(a => a.Nombre).Distinct().ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                return new object();
+            }
+        }
+        public object D_consultarProcesoCuestionario()
+        {
+            try
+            {
+                using (MERSembrarDataContext bd = new MERSembrarDataContext())
+                {
+                    return (from proceso in bd.PROCESO
+                            where proceso.IDTIPOPROCESO == 1
                             select new
                             {
                                 Nombre = proceso.NOMBREPROCESO,

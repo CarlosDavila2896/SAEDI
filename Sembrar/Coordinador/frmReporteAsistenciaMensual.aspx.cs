@@ -29,7 +29,7 @@ namespace Sembrar.Coordinador
         }
         private void cargarProceso()
         {
-            ddlProceso.DataSource = objProceso.D_consultarProceso();
+            ddlProceso.DataSource = objProceso.D_consultarProcesoAsistencia();
             ddlProceso.DataValueField = "IdProceso";
             ddlProceso.DataTextField = "Nombre";
             ddlProceso.DataBind();

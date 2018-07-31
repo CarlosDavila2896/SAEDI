@@ -30,7 +30,7 @@ namespace Sembrar.Orientador
 
                 try
                 {
-                    DropDownList1.DataSource = objProceso.D_consultarProcesoPorOrientador(idOrientador);
+                    DropDownList1.DataSource = objProceso.D_consultarProcesoPorOrientadorCuestionario(idOrientador);
                     DropDownList1.DataTextField = "Nombre";
                     DropDownList1.DataValueField = "IdProceso";
                     DropDownList1.DataBind();

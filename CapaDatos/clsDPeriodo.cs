@@ -254,8 +254,8 @@ namespace CapaDatos
                         if (nombre != "")
                         {
                             PERIODO reu = bd.PERIODO.First(r => r.IDPERIODO == id);
-                            reu.FECHAFINPERIODO = fechainicio;
-                            reu.FECHAINICIOPERIODO = fechafin;
+                            reu.FECHAFINPERIODO = fechafin;
+                            reu.FECHAINICIOPERIODO = fechainicio;
                             reu.NOMBREPERIODO = nombre;
                             bd.SubmitChanges();
                             return true;

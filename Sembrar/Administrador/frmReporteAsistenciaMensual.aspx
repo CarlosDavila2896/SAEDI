@@ -20,10 +20,6 @@
         .auto-style9 {
             text-align: center;
         }
-        C:\Users\Administrator\Documents\SAEDI\Sembrar\Administrador\frmReporteAsistenciaMensual.aspx .auto-style10 {
-            text-align: center;
-            height: 31px;
-        }
         .auto-style12 {
             height: 31px;
             width: 111px;

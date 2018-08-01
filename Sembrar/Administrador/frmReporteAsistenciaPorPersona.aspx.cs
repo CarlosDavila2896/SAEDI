@@ -14,6 +14,7 @@ namespace Sembrar.Administrador
     public partial class frmReporteAsistenciaPorPersona : System.Web.UI.Page
     {
         clsDProceso objProceso = new clsDProceso();
+        clsDatosPersona objPersona = new clsDatosPersona();
         clsDatosAsistencia objAsistencia = new clsDatosAsistencia();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -63,7 +64,7 @@ namespace Sembrar.Administrador
             ddlProceso.DataBind();
         }
         public void cargarPersonas() {
-            ddlPersona.DataSource = objAsistencia.D_consultarPersonas();
+            ddlPersona.DataSource = objPersona.D_consultarPersonaAsistenciaPorProceso(int.Parse(ddlProceso.SelectedValue.ToString()));
             ddlPersona.DataTextField = "Nombre";
             ddlPersona.DataValueField = "IdPersona";
             ddlPersona.DataBind();
@@ -114,6 +115,18 @@ namespace Sembrar.Administrador
             crystalrpt.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReporteAsistencia"+ ddlPersona.SelectedItem.Text);
 
             crystalrpt.Export();
+        }
+
+        protected void ddlProceso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                cargarPersonas();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

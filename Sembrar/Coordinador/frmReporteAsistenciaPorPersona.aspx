@@ -58,7 +58,7 @@
             <table style="width:100%;">
                 <tr>
                     <td>Proceso:</td>
-                    <td> <asp:DropDownList ID="ddlProceso" runat="server" Width="200px">
+                    <td> <asp:DropDownList ID="ddlProceso" runat="server" Width="200px" AutoPostBack="True" OnSelectedIndexChanged="ddlProceso_SelectedIndexChanged">
             </asp:DropDownList>
                     </td>
                     <td>&nbsp;</td>

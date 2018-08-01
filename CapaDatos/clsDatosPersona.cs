@@ -104,7 +104,7 @@ namespace CapaDatos
             }
         }
 
-        public object D_consultarPersonaPorProceso()
+        public object D_consultarPersonaPorProceso(int idProceso)
         {
             try
             {
@@ -112,6 +112,28 @@ namespace CapaDatos
                 {
                     return (from solucion in bd.SOLUCIONCUESTIONARIO
                             join persona in bd.PERSONA on solucion.IDPERSONA equals persona.IDPERSONA
+                            where solucion.IDPROCESO == idProceso
+                            select new
+                            {
+                                Nombre = persona.PRIMERNOMBREPERSONA + ' ' + persona.SEGUNDONOMBREPERSONA + ' ' + persona.PRIMERAPELLIDOPERSONA + ' ' + persona.SEGUNDOAPELLIDOPERSONA,
+                                IdPersona = persona.IDPERSONA
+                            }).Distinct().ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                return new object();
+            }
+        }
+        public object D_consultarPersonaAsistenciaPorProceso(int idProceso)
+        {
+            try
+            {
+                using (MERSembrarDataContext bd = new MERSembrarDataContext())
+                {
+                    return (from matricula in bd.MATRICULA
+                            join persona in bd.PERSONA on matricula.IDPERSONA equals persona.IDPERSONA
+                            where matricula.IDPROCESO == idProceso
                             select new
                             {
                                 Nombre = persona.PRIMERNOMBREPERSONA + ' ' + persona.SEGUNDONOMBREPERSONA + ' ' + persona.PRIMERAPELLIDOPERSONA + ' ' + persona.SEGUNDOAPELLIDOPERSONA,

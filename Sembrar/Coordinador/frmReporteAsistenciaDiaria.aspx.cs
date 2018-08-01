@@ -18,7 +18,6 @@ namespace Sembrar.Coordinador
         {
             if (!Page.IsPostBack)
             {
-                cargarProceso();
                 for (int i = 2016; i <= int.Parse(DateTime.Now.ToString("yyyy")); i++)
                 {
                     ListItem li = new ListItem();
@@ -32,6 +31,8 @@ namespace Sembrar.Coordinador
                     ddlOrientador.DataTextField = "NOMBREORIENTADOR";
                     ddlOrientador.DataValueField = "IDORIENTADOR";
                     ddlOrientador.DataBind();
+                    cargarProceso();
+
                 }
                 catch
                 {
@@ -42,7 +43,7 @@ namespace Sembrar.Coordinador
         }
         private void cargarProceso()
         {
-            ddlProceso.DataSource = objProceso.D_consultarProcesoAsistencia();
+            ddlProceso.DataSource = objProceso.D_consultarProcesoAsistenciaPorOrientador(int.Parse(ddlOrientador.SelectedValue.ToString()));
             ddlProceso.DataValueField = "IdProceso";
             ddlProceso.DataTextField = "Nombre";
             ddlProceso.DataBind();
@@ -94,6 +95,18 @@ namespace Sembrar.Coordinador
                 crystalrpt.Export();
             }
             catch { }
+        }
+
+        protected void ddlOrientador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                cargarProceso();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

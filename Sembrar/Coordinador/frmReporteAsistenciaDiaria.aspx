@@ -43,7 +43,7 @@
                 <table style="width:100%;">
                     <tr>
                         <td class="auto-style7">Orientador:&nbsp;&nbsp; &nbsp;</td>
-                        <td class="auto-style7"><asp:DropDownList ID="ddlOrientador" runat="server" Width="200px">
+                        <td class="auto-style7"><asp:DropDownList ID="ddlOrientador" runat="server" Width="200px" AutoPostBack="True" OnSelectedIndexChanged="ddlOrientador_SelectedIndexChanged">
                 </asp:DropDownList>
                         </td>
                         <td class="auto-style7"></td>

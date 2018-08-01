@@ -193,6 +193,27 @@ namespace CapaDatos
                 return new object();
             }
         }
+        public object D_consultarProcesoAsistenciaPorOrientador(int idOrientador)
+        {
+            try
+            {
+                using (MERSembrarDataContext bd = new MERSembrarDataContext())
+                {
+                    return (from proceso in bd.PROCESO
+                            join r in bd.ORIENTADORACARGODEPROCESOENPERIODO on proceso.IDPROCESO equals r.IDPROCESO
+                            where proceso.IDTIPOPROCESO == 2 && proceso.ESTADOPROCESO == true && r.IDORIENTADOR == idOrientador
+                            select new
+                            {
+                                Nombre = proceso.NOMBREPROCESO,
+                                IdProceso = proceso.IDPROCESO
+                            }).ToList().OrderBy(a => a.Nombre).Distinct().ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                return new object();
+            }
+        }
         public object D_consultarProcesoCuestionario()
         {
             try

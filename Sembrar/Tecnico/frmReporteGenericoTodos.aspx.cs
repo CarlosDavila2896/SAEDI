@@ -28,7 +28,7 @@ namespace Sembrar.Tecnico
                     DropDownList1.DataTextField = "Nombre";
                     DropDownList1.DataValueField = "IdProceso";
                     DropDownList1.DataBind();
-                    DropDownList2.DataSource = objPersona.D_consultarPersonaPorProceso();
+                    DropDownList2.DataSource = objPersona.D_consultarPersonaPorProceso(int.Parse(DropDownList1.SelectedValue.ToString()));
                     DropDownList2.DataTextField = "Nombre";
                     DropDownList2.DataValueField = "IdPersona";
                     DropDownList2.DataBind();
@@ -107,7 +107,7 @@ namespace Sembrar.Tecnico
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList2.DataSource = objPersona.D_consultarPersonaPorProceso();
+            DropDownList2.DataSource = objPersona.D_consultarPersonaPorProceso(int.Parse(DropDownList1.SelectedValue.ToString()));
             DropDownList2.DataTextField = "Nombre";
             DropDownList2.DataValueField = "IdPersona";
             DropDownList2.DataBind();

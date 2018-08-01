@@ -191,8 +191,18 @@ namespace Sembrar.Administrador
         {
             try
             {
-                grvJovenes.DataSource = objFamilia.consultaPersonasAsistentesDiarios(int.Parse(ddlLineaAccion.SelectedValue.ToString()), int.Parse(ddlProceso.SelectedValue), int.Parse(ddlOrientador.SelectedValue), int.Parse(ddlPeriodo.SelectedValue));
-                grvJovenes.DataBind();
+                if (objDatosAsistencia.consultarIngresoDiario(int.Parse(ddlLineaAccion.SelectedValue), int.Parse(ddlOrientador.SelectedValue), int.Parse(ddlProceso.SelectedValue), int.Parse(ddlPeriodo.SelectedValue), DateTime.Parse(ddlFecha.SelectedValue.ToString())))
+                {
+                    grvJovenes.DataSource = objFamilia.consultaPersonasAsistentesDiarios(int.Parse(ddlLineaAccion.SelectedValue.ToString()), int.Parse(ddlProceso.SelectedValue), int.Parse(ddlOrientador.SelectedValue), int.Parse(ddlPeriodo.SelectedValue));
+                    grvJovenes.DataBind();
+                }
+                else
+                {
+                    string script = "alert(\"Ya se ha ingresado la asistencia hoy, por favor actualice\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                                          "ServerControlScript", script, true);
+                }
+                
             }
             catch
             {

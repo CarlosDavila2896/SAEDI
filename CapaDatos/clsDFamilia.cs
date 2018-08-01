@@ -196,6 +196,7 @@ namespace CapaDatos
                     familiaConsultada.NOMBREFAMILIA = familia.NOMBREFAMILIA;
                     familiaConsultada.OBSERVACIONFAMILIA = familia.OBSERVACIONFAMILIA;
                     familiaConsultada.MIEMBROSFAMILIA = familia.MIEMBROSFAMILIA.Value;
+                    familiaConsultada.DIRECCIONFAMILIA = familia.DIRECCIONFAMILIA;
                 }
                 return familiaConsultada;
             }

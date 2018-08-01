@@ -258,7 +258,7 @@ namespace Sembrar.Orientador
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            lstIndividuos.DataBind();
         }
 
         protected void ddlLineaAccion_SelectedIndexChanged(object sender, EventArgs e)

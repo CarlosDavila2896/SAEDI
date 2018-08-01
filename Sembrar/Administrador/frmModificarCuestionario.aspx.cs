@@ -275,7 +275,7 @@ namespace Sembrar.Administrador
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            lstIndividuos.DataBind();
         }
 
         protected void ddlLineaAccion_SelectedIndexChanged(object sender, EventArgs e)
@@ -284,6 +284,7 @@ namespace Sembrar.Administrador
 
         protected void ddlProceso_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lstIndividuos.DataBind();
         }
 
         protected void ddlOrientador_SelectedIndexChanged(object sender, EventArgs e)

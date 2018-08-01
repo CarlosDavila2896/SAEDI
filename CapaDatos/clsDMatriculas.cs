@@ -36,7 +36,7 @@ namespace CapaDatos
                     matricula.IDPROCESO = nuevaMatricula.IDPROCESO;
                     matricula.IDPERIODO = nuevaMatricula.IDPERIODO;
                     matricula.IDPERSONA = nuevaMatricula.IDPERSONA;
-                    if(db.MATRICULA.Any(m=>m.IDPERSONA.Equals(matricula.PERSONA) && m.IDPERIODO.Equals(matricula.IDPERIODO) && m.IDPROCESO.Equals(matricula.IDPROCESO)))
+                    if(db.MATRICULA.Any(m=>m.IDPERSONA.Equals(matricula.IDPERSONA) && m.IDPERIODO.Equals(matricula.IDPERIODO) && m.IDPROCESO.Equals(matricula.IDPROCESO)))
                     {
                         return false;
                     }

@@ -24,7 +24,10 @@ namespace Sembrar.Administrador
             nuevaMatricula.IDORIENTADOR = int.Parse(ddlOrientador.SelectedValue);
             nuevaMatricula.IDPERIODO = int.Parse(ddlPeriodo.SelectedValue);
             nuevaMatricula.IDPERSONA = int.Parse(lstIndividuos.SelectedValue);
-            objDMatriculas.ingresarMatricula(nuevaMatricula);
+            if (!objDMatriculas.ingresarMatricula(nuevaMatricula))
+            {
+                Response.Write("<script>window.alert('El menor de edad ya se encuentra matriculado en ese proceso en este periodo.');</script>");
+            }
             gvMatriculas.DataBind();
         }
 

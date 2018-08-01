@@ -258,7 +258,7 @@ namespace Sembrar.Administrador
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            lstIndividuos.DataBind();
         }
 
         protected void ddlLineaAccion_SelectedIndexChanged(object sender, EventArgs e)
@@ -271,6 +271,12 @@ namespace Sembrar.Administrador
 
         protected void ddlOrientador_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lstIndividuos.DataBind();
+        }
+
+        protected void lstIndividuos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         protected void btnGenerar_Click(object sender, EventArgs e)

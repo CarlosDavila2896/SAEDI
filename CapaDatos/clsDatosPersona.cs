@@ -963,6 +963,42 @@ namespace CapaDatos
             }
         }
 
+        public object D_consultaIndividuosPorLineaDeAccionOrientador(int idOrientador, int idPeriodo)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+
+                var individuos = from p in bd.MATRICULA
+                                 where p.IDORIENTADOR == idOrientador && p.IDPERIODO == idPeriodo
+                                 select new
+                                 {
+                                     IDPERSONA = p.IDPERSONA,
+                                     NOMBRE = p.PERSONA.PRIMERNOMBREPERSONA + " " + p.PERSONA.SEGUNDONOMBREPERSONA + " " + p.PERSONA.PRIMERAPELLIDOPERSONA + " " + p.PERSONA.SEGUNDOAPELLIDOPERSONA
+                                 };
+                return individuos.ToList().Distinct().OrderBy(i => i.NOMBRE);
+
+
+            }
+        }
+
+        public object D_consultaIndividuosPorLineaDeAccionOrientadorYaRealizadoCuestionario(int idProceso, int idPeriodo)
+        {
+            using (MERSembrarDataContext db = new MERSembrarDataContext())
+            {
+
+                var individuos = from p in bd.SOLUCIONCUESTIONARIO
+                                 where p.IDPROCESO == idProceso && p.IDPERIODO == idPeriodo
+                                 select new
+                                 {
+                                     IDPERSONA = p.IDPERSONA,
+                                     NOMBRE = p.PERSONA.PRIMERNOMBREPERSONA + " " + p.PERSONA.SEGUNDONOMBREPERSONA + " " + p.PERSONA.PRIMERAPELLIDOPERSONA + " " + p.PERSONA.SEGUNDOAPELLIDOPERSONA
+                                 };
+                return individuos.ToList().Distinct().OrderBy(i => i.NOMBRE);
+
+
+            }
+        }
+
         public object D_consultaIndividuosPorLineaDeAccionOrientador()
         {
             using (MERSembrarDataContext db = new MERSembrarDataContext())
@@ -975,7 +1011,7 @@ namespace CapaDatos
                                  };
 
 
-                return individuos.ToList().OrderBy(i=>i.NOMBRE);
+                return individuos.ToList().Distinct().OrderBy(i=>i.NOMBRE);
 
             }
         }

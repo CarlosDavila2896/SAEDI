@@ -107,6 +107,7 @@ namespace Sembrar.Tecnico
                         celdatabla = new TableCell();
                         celdatabla.Width = Unit.Percentage(100);
                         celdatabla.Text = pre.NOMBREPREGUNTA;
+                        celdatabla.Font.Bold = true;
                         celdatabla.ID = "id" + pre.IDPREGUNTA.ToString() + "-" + cont;
                         celdatabla.ClientIDMode = ClientIDMode.Static;
                         celdatabla.HorizontalAlign = HorizontalAlign.Left;
@@ -169,7 +170,7 @@ namespace Sembrar.Tecnico
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            lstIndividuos.DataBind();
         }
 
         protected void ddlLineaAccion_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,6 +179,7 @@ namespace Sembrar.Tecnico
 
         protected void ddlProceso_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lstIndividuos.DataBind();
         }
 
         protected void ddlOrientador_SelectedIndexChanged(object sender, EventArgs e)

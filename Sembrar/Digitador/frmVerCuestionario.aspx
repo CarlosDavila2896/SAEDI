@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Digitador/PrincipalDigitador.Master" AutoEventWireup="true" CodeBehind="frmVerCuestionario.aspx.cs" Inherits="Sembrar.Digitador.frmVerCuestionario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Digitador/PrincipalDigitador.Master" AutoEventWireup="true" CodeBehind="frmVerCuestionario.aspx.cs" Inherits="Sembrar.Administrador.frmVerCuestionario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -65,7 +65,7 @@
                                         <tr>
                                             <td class="auto-style5">Individuo</td>
                                             <td class="auto-style4" colspan="2">
-                                                <asp:ListBox ID="lstIndividuos" runat="server" Width="100%" DataSourceID="odsIndividuos" DataTextField="NOMBRE" DataValueField="IDPERSONA" Rows="10"></asp:ListBox>
+                                                <asp:ListBox ID="lstIndividuos" runat="server" Width="100%" DataSourceID="odsIndividuos" DataTextField="NOMBRE" DataValueField="IDPERSONA" Rows="15"></asp:ListBox>
                                                 <asp:ObjectDataSource ID="odsIndividuos" runat="server" SelectMethod="D_consultaIndividuosPorLineaDeAccionOrientadorYaRealizadoCuestionario" TypeName="CapaDatos.clsDatosPersona" OldValuesParameterFormatString="original_{0}">
                                                     <SelectParameters>
                                                         <asp:ControlParameter ControlID="ddlProceso" Name="idProceso" PropertyName="SelectedValue" Type="Int32" />

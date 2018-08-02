@@ -197,9 +197,10 @@ namespace Sembrar.Tecnico
 
         private void solucionar2()
         {
-            using (TransactionScope trans = new TransactionScope())
+            listaRespuestasAGuardar = new List<clsNSolucionCuestionario>();
+            listaRespuestasAModificar = new List<clsNSolucionCuestionario>();
+            using (TransactionScope trans = new TransactionScope(TransactionScopeOption.Required, TimeSpan.FromSeconds(999)))
             {
-
 
                 Cuestionario = (Table)pnlCuestionario.Controls[0];
 
@@ -274,7 +275,7 @@ namespace Sembrar.Tecnico
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            lstIndividuos.DataBind();
         }
 
         protected void ddlLineaAccion_SelectedIndexChanged(object sender, EventArgs e)
@@ -283,6 +284,7 @@ namespace Sembrar.Tecnico
 
         protected void ddlProceso_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lstIndividuos.DataBind();
         }
 
         protected void ddlOrientador_SelectedIndexChanged(object sender, EventArgs e)
@@ -330,6 +332,7 @@ namespace Sembrar.Tecnico
                     return;
                 }
                 idPersona = int.Parse(lstIndividuos.SelectedValue);
+
 
 
                 respuestas = objDSolucionCuestionario.D_obtenerlistaRespuestas(idPersona, idProceso, idPeriodo);
@@ -393,12 +396,22 @@ namespace Sembrar.Tecnico
                     }
 
                 }
+                clsUsuario consultaUsuario = new clsUsuario();
 
                 //Ultima modificacion
-                if (respuestas.First().FECHAMODIFICACIONCUESTIONARIO != null)
-                {
-                    lblModificacion.Text = "Última moficación de este cuestionario: " + respuestas.First().FECHAMODIFICACIONCUESTIONARIO.Date;
+                if (respuestas.First().FECHASOLUCIONCUESTIONARIO != null)
+                {                    
+                    clsNUsuario usuarioIngresa = consultaUsuario.obtenerDatosUsuarioID(respuestas.First().USUARIOINGRESA);
+
+                    
+                    lblModificacion.Text = "Fecha de ingreso de este cuestionario: " + respuestas.First().FECHASOLUCIONCUESTIONARIO.Date + " realizada por el usuario " + usuarioIngresa.nombre + " " + usuarioIngresa.appellido;
                     lblModificacion.Visible = true;
+                }
+                if(respuestas.First().FECHAMODIFICACIONCUESTIONARIO != null)
+                {
+                    clsNUsuario usuarioModifica = consultaUsuario.obtenerDatosUsuarioID(respuestas.First().USUARIOMODIFICA);
+
+                    lblModificacion.Text += "\n Última moficación de este cuestionario: " + respuestas.First().FECHAMODIFICACIONCUESTIONARIO.Date + " realizada por el usuario " + usuarioModifica.nombre + " " + usuarioModifica.appellido;
                 }
 
 
@@ -457,12 +470,12 @@ namespace Sembrar.Tecnico
             nuevasolucion.IDPREGUNTA = idPregunta;
             nuevasolucion.IDPERSONA = idPersona;
             nuevasolucion.IDPERIODO = idPeriodo;
-            nuevasolucion.FECHASOLUCIONCUESTIONARIO = respuestas.Select(s => s.FECHASOLUCIONCUESTIONARIO).ToList().First();
+            nuevasolucion.FECHASOLUCIONCUESTIONARIO = respuestas.Select(s=>s.FECHASOLUCIONCUESTIONARIO).ToList().First();
             nuevasolucion.USUARIOINGRESA = respuestas.Select(s => s.USUARIOINGRESA).ToList().First();
             nuevasolucion.FECHAMODIFICACIONCUESTIONARIO = DateTime.Now;
             nuevasolucion.USUARIOMODIFICA = (int)ViewState["usuarioModifica"];
             nuevasolucion.TEXTOSOLUCIONCUESTIONARIO = respuesta;
-            listaRespuestasAGuardar.Add(nuevasolucion);
+            listaRespuestasAGuardar.Add(nuevasolucion);            
         }
 
         private bool validarRadioButtons()

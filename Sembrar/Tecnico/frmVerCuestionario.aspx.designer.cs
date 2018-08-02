@@ -22,24 +22,6 @@ namespace Sembrar.Tecnico {
         protected global::System.Web.UI.ScriptManager scrCuestionario;
         
         /// <summary>
-        /// Control ddlLineaAccion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLineaAccion;
-        
-        /// <summary>
-        /// Control odsLineaAccion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsLineaAccion;
-        
-        /// <summary>
         /// Control updParametros.
         /// </summary>
         /// <remarks>
@@ -65,6 +47,24 @@ namespace Sembrar.Tecnico {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource odsProceso;
+        
+        /// <summary>
+        /// Control ddlOrientador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlOrientador;
+        
+        /// <summary>
+        /// Control odsOrientador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsOrientador;
         
         /// <summary>
         /// Control ddlPeriodo.

@@ -199,9 +199,8 @@ namespace Sembrar.Digitador
         {
             listaRespuestasAGuardar = new List<clsNSolucionCuestionario>();
             listaRespuestasAModificar = new List<clsNSolucionCuestionario>();
-            using (TransactionScope trans = new TransactionScope())
+            using (TransactionScope trans = new TransactionScope(TransactionScopeOption.Required, TimeSpan.FromSeconds(999)))
             {
-
 
                 Cuestionario = (Table)pnlCuestionario.Controls[0];
 
@@ -290,7 +289,6 @@ namespace Sembrar.Digitador
 
         protected void ddlOrientador_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
         }
 
         protected void btnGenerar_Click(object sender, EventArgs e)
@@ -319,7 +317,7 @@ namespace Sembrar.Digitador
             {
                 Response.Write("<script>window.alert('Ha ocurrido un error al eliminar las respuestas');</script>");
             }
-            
+
         }
 
         private void cargarRespuestas()
@@ -334,6 +332,7 @@ namespace Sembrar.Digitador
                     return;
                 }
                 idPersona = int.Parse(lstIndividuos.SelectedValue);
+
 
 
                 respuestas = objDSolucionCuestionario.D_obtenerlistaRespuestas(idPersona, idProceso, idPeriodo);
@@ -385,11 +384,11 @@ namespace Sembrar.Digitador
                                     CheckBoxList tempCheckBoxList = (CheckBoxList)controlTabla;
                                     string id = tempCheckBoxList.ID.Remove(0, 11);
                                     int idPregunta = int.Parse(id.Substring(0, id.LastIndexOf("-")));
-                                    foreach (clsNSolucionCuestionario t in respuestas.Where(r => r.IDOBJETIVO == idObjetivo && r.IDINDICADOR == idIndicador && r.IDPREGUNTA == idPregunta))
+                                    foreach(clsNSolucionCuestionario t in respuestas.Where(r => r.IDOBJETIVO == idObjetivo && r.IDINDICADOR == idIndicador && r.IDPREGUNTA == idPregunta))
                                     {
                                         tempCheckBoxList.Items.FindByText(t.TEXTOSOLUCIONCUESTIONARIO).Selected = true;
                                     }
-
+                                    
                                 }
                             }
                         }
@@ -401,19 +400,20 @@ namespace Sembrar.Digitador
 
                 //Ultima modificacion
                 if (respuestas.First().FECHASOLUCIONCUESTIONARIO != null)
-                {
+                {                    
                     clsNUsuario usuarioIngresa = consultaUsuario.obtenerDatosUsuarioID(respuestas.First().USUARIOINGRESA);
 
-
+                    
                     lblModificacion.Text = "Fecha de ingreso de este cuestionario: " + respuestas.First().FECHASOLUCIONCUESTIONARIO.Date + " realizada por el usuario " + usuarioIngresa.nombre + " " + usuarioIngresa.appellido;
                     lblModificacion.Visible = true;
                 }
-                if (respuestas.First().FECHAMODIFICACIONCUESTIONARIO != null)
+                if(respuestas.First().FECHAMODIFICACIONCUESTIONARIO != null)
                 {
                     clsNUsuario usuarioModifica = consultaUsuario.obtenerDatosUsuarioID(respuestas.First().USUARIOMODIFICA);
 
                     lblModificacion.Text += "\n Última moficación de este cuestionario: " + respuestas.First().FECHAMODIFICACIONCUESTIONARIO.Date + " realizada por el usuario " + usuarioModifica.nombre + " " + usuarioModifica.appellido;
                 }
+
 
                 btnIngresar.Visible = true;
                 btnEliminar.Visible = true;
@@ -470,12 +470,12 @@ namespace Sembrar.Digitador
             nuevasolucion.IDPREGUNTA = idPregunta;
             nuevasolucion.IDPERSONA = idPersona;
             nuevasolucion.IDPERIODO = idPeriodo;
-            nuevasolucion.FECHASOLUCIONCUESTIONARIO = respuestas.Select(s => s.FECHASOLUCIONCUESTIONARIO).ToList().First();
+            nuevasolucion.FECHASOLUCIONCUESTIONARIO = respuestas.Select(s=>s.FECHASOLUCIONCUESTIONARIO).ToList().First();
             nuevasolucion.USUARIOINGRESA = respuestas.Select(s => s.USUARIOINGRESA).ToList().First();
             nuevasolucion.FECHAMODIFICACIONCUESTIONARIO = DateTime.Now;
             nuevasolucion.USUARIOMODIFICA = (int)ViewState["usuarioModifica"];
             nuevasolucion.TEXTOSOLUCIONCUESTIONARIO = respuesta;
-            listaRespuestasAGuardar.Add(nuevasolucion);
+            listaRespuestasAGuardar.Add(nuevasolucion);            
         }
 
         private bool validarRadioButtons()

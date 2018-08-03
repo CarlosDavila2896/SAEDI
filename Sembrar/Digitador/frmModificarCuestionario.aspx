@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Digitador/PrincipalDigitador.Master" AutoEventWireup="true" CodeBehind="frmModificarCuestionario.aspx.cs" Inherits="Sembrar.Administrador.frmModificarCuestionario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Digitador/PrincipalDigitador.Master" AutoEventWireup="true" CodeBehind="frmModificarCuestionario.aspx.cs" Inherits="Sembrar.Digitador.frmModificarCuestionario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

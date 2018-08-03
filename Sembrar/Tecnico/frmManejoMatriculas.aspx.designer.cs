@@ -22,6 +22,15 @@ namespace Sembrar.Tecnico {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// Control updParametros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updParametros;
+        
+        /// <summary>
         /// Control ddlLineaAccion.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace Sembrar.Tecnico {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource odsLineaAccion;
-        
-        /// <summary>
-        /// Control updParametros.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updParametros;
         
         /// <summary>
         /// Control ddlProceso.

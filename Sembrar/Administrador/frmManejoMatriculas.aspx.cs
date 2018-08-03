@@ -15,6 +15,8 @@ namespace Sembrar.Administrador
         clsDMatriculas objDMatriculas = new clsDMatriculas();
         protected void Page_Load(object sender, EventArgs e)
         {
+            ScriptManager scriptManager = ScriptManager.GetCurrent(this.Page);
+            scriptManager.RegisterPostBackControl(this.btnIngresar);
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
@@ -26,29 +28,24 @@ namespace Sembrar.Administrador
             nuevaMatricula.IDPERSONA = int.Parse(lstIndividuos.SelectedValue);
             if (!objDMatriculas.ingresarMatricula(nuevaMatricula))
             {
-                Response.Write("<script>window.alert('El menor de edad ya se encuentra matriculado en ese proceso en este periodo.');</script>");
+                Response.Write(@"<script>window.alert('El menor de edad ya se encuentra matriculado en ese proceso en este periodo.');</script>");
             }
-            gvMatriculas.DataBind();
         }
 
         protected void ddlLineaAccion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gvMatriculas.DataBind();
         }
 
         protected void ddlProceso_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gvMatriculas.DataBind();
         }
 
         protected void ddlOrientador_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gvMatriculas.DataBind();
         }
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gvMatriculas.DataBind();
         }
 
         protected void gvMatriculas_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -66,7 +63,6 @@ namespace Sembrar.Administrador
         protected void gvMatriculas_SelectedIndexChanged(object sender, EventArgs e)
         {
             objDMatriculas.eliminarMatricula(Convert.ToInt32(gvMatriculas.DataKeys[gvMatriculas.SelectedRow.RowIndex].Value));
-            gvMatriculas.DataBind();
         }
     }
 }

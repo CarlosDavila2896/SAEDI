@@ -19,22 +19,18 @@ namespace Sembrar.Tecnico
         
         protected void ddlLineaAccion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gvMatriculas.DataBind();
         }
 
         protected void ddlProceso_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gvMatriculas.DataBind();
         }
 
         protected void ddlOrientador_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gvMatriculas.DataBind();
         }
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gvMatriculas.DataBind();
         }
 
         protected void gvMatriculas_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -45,7 +41,6 @@ namespace Sembrar.Tecnico
         protected void gvMatriculas_SelectedIndexChanged(object sender, EventArgs e)
         {
             objDMatriculas.eliminarMatricula(Convert.ToInt32(gvMatriculas.DataKeys[gvMatriculas.SelectedRow.RowIndex].Value));
-            DataBind();
         }
     }
 }

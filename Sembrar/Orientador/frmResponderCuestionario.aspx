@@ -88,7 +88,7 @@
                                             <td class="auto-style6">Individuo</td>
                                             <td class="auto-style7" colspan="2">
                                                 <asp:ListBox ID="lstIndividuos" runat="server" Width="100%" DataSourceID="odsIndividuos" DataTextField="NOMBRE" DataValueField="IDPERSONA" Rows="100" Height="139px"></asp:ListBox>
-                                                <asp:ObjectDataSource ID="odsIndividuos" runat="server" SelectMethod="D_consultaIndividuosPorLineaDeAccionOrientador" TypeName="CapaDatos.clsDatosPersona" OldValuesParameterFormatString="original_{0}" OnSelecting="odsIndividuos_Selecting">
+                                                <asp:ObjectDataSource ID="odsIndividuos" runat="server" SelectMethod="D_consultaIndividuosPorLineaDeAccionOrientador" TypeName="CapaDatos.clsDatosPersona" OldValuesParameterFormatString="original_{0}">
                                                     <SelectParameters>
                                                         <asp:SessionParameter Name="idOrientador" SessionField="id" Type="Int32" />
                                                         <asp:ControlParameter ControlID="ddlPeriodo" Name="idPeriodo" PropertyName="SelectedValue" Type="Int32" />
@@ -99,7 +99,6 @@
                                     </table>
                                 </ContentTemplate>
                                 <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="ddlOrientador" EventName="SelectedIndexChanged" />
                                     <asp:AsyncPostBackTrigger ControlID="ddlPeriodo" EventName="SelectedIndexChanged" />
                                 </Triggers>
                             </asp:UpdatePanel>

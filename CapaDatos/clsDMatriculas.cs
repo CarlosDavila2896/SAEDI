@@ -10,7 +10,7 @@ namespace CapaDatos
 {
     public class clsDMatriculas
     {
-        
+
         static clsNMatricula transformar(MATRICULA newMatricula)
         {
             clsNMatricula matricula = new clsNMatricula();
@@ -36,7 +36,7 @@ namespace CapaDatos
                     matricula.IDPROCESO = nuevaMatricula.IDPROCESO;
                     matricula.IDPERIODO = nuevaMatricula.IDPERIODO;
                     matricula.IDPERSONA = nuevaMatricula.IDPERSONA;
-                    if(db.MATRICULA.Any(m=>m.IDPERSONA.Equals(matricula.IDPERSONA) && m.IDPERIODO.Equals(matricula.IDPERIODO) && m.IDPROCESO.Equals(matricula.IDPROCESO)))
+                    if (db.MATRICULA.Any(m => m.IDPERSONA.Equals(matricula.IDPERSONA) && m.IDPERIODO.Equals(matricula.IDPERIODO) && m.IDPROCESO.Equals(matricula.IDPROCESO)))
                     {
                         return false;
                     }
@@ -81,94 +81,22 @@ namespace CapaDatos
         {
             using (MERSembrarDataContext db = new MERSembrarDataContext())
             {
-                if (idLineaAccion == 0)
-                {
-                    var individuos = from m in db.MATRICULA                                     
-                                     select new
-                                     {
-                                         IDMATRICULA = m.IDMATRICULA,
-                                         LineaAccion = m.ORIENTADORACARGODEPROCESOENPERIODO.LINEADEACCION.NOMBRELINEADEACCION,
-                                         Proceso = m.ORIENTADORACARGODEPROCESOENPERIODO.PROCESO.NOMBREPROCESO,
-                                         Orientador = m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.NOMBREORIENTADOR + " " + m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.APELLIDOORIENTADOR,
-                                         Individuo = m.PERSONA.PRIMERNOMBREPERSONA + " " + m.PERSONA.SEGUNDONOMBREPERSONA + " " + m.PERSONA.PRIMERAPELLIDOPERSONA + " " + m.PERSONA.SEGUNDOAPELLIDOPERSONA,
-                                         Periodo = m.ORIENTADORACARGODEPROCESOENPERIODO.PERIODO.NOMBREPERIODO
-                                     };
+
+                var individuos = from m in db.MATRICULA
+                                 where m.IDLINEADEACCION == idLineaAccion && m.IDPROCESO == idProceso && m.IDORIENTADOR == idOrientador && idPeriodo == m.IDPERIODO
+                                 select new
+                                 {
+                                     IDMATRICULA = m.IDMATRICULA,
+                                     LineaAccion = m.ORIENTADORACARGODEPROCESOENPERIODO.LINEADEACCION.NOMBRELINEADEACCION,
+                                     Proceso = m.ORIENTADORACARGODEPROCESOENPERIODO.PROCESO.NOMBREPROCESO,
+                                     Orientador = m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.NOMBREORIENTADOR + " " + m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.APELLIDOORIENTADOR,
+                                     Individuo = m.PERSONA.PRIMERNOMBREPERSONA + " " + m.PERSONA.SEGUNDONOMBREPERSONA + " " + m.PERSONA.PRIMERAPELLIDOPERSONA + " " + m.PERSONA.SEGUNDOAPELLIDOPERSONA,
+                                     Periodo = m.ORIENTADORACARGODEPROCESOENPERIODO.PERIODO.NOMBREPERIODO
+                                 };
 
 
-                    return individuos.ToList();
-                }
-                else if (idLineaAccion > 0 && idProceso == 0)
-                {
-                    var individuos = from m in db.MATRICULA
-                                     where m.IDLINEADEACCION == idLineaAccion
-                                     select new
-                                     {
-                                         IDMATRICULA = m.IDMATRICULA,
-                                         LineaAccion = m.ORIENTADORACARGODEPROCESOENPERIODO.LINEADEACCION.NOMBRELINEADEACCION,
-                                         Proceso = m.ORIENTADORACARGODEPROCESOENPERIODO.PROCESO.NOMBREPROCESO,
-                                         Orientador = m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.NOMBREORIENTADOR + " " + m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.APELLIDOORIENTADOR,
-                                         Individuo = m.PERSONA.PRIMERNOMBREPERSONA + " " + m.PERSONA.SEGUNDONOMBREPERSONA + " " + m.PERSONA.PRIMERAPELLIDOPERSONA + " " + m.PERSONA.SEGUNDOAPELLIDOPERSONA,
-                                         Periodo = m.ORIENTADORACARGODEPROCESOENPERIODO.PERIODO.NOMBREPERIODO
-                                     };
+                return individuos.ToList();
 
-
-                    return individuos.ToList();
-                }
-                else if (idLineaAccion > 0 && idProceso > 0 && idOrientador == 0)
-                {
-                    var individuos = from m in db.MATRICULA
-                                     where m.IDLINEADEACCION == idLineaAccion && m.IDPROCESO == idProceso
-                                     select new
-                                     {
-                                         IDMATRICULA = m.IDMATRICULA,
-                                         LineaAccion = m.ORIENTADORACARGODEPROCESOENPERIODO.LINEADEACCION.NOMBRELINEADEACCION,
-                                         Proceso = m.ORIENTADORACARGODEPROCESOENPERIODO.PROCESO.NOMBREPROCESO,
-                                         Orientador = m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.NOMBREORIENTADOR + " " + m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.APELLIDOORIENTADOR,
-                                         Individuo = m.PERSONA.PRIMERNOMBREPERSONA + " " + m.PERSONA.SEGUNDONOMBREPERSONA + " " + m.PERSONA.PRIMERAPELLIDOPERSONA + " " + m.PERSONA.SEGUNDOAPELLIDOPERSONA,
-                                         Periodo = m.ORIENTADORACARGODEPROCESOENPERIODO.PERIODO.NOMBREPERIODO
-                                     };
-
-
-                    return individuos.ToList();
-                }
-                else if (idLineaAccion > 0 && idProceso > 0 && idOrientador > 0 && idPeriodo == 0)
-                {
-                    var individuos = from m in db.MATRICULA
-                                     where m.IDLINEADEACCION == idLineaAccion && m.IDPROCESO == idProceso && m.IDORIENTADOR == idOrientador
-                                     select new
-                                     {
-                                         IDMATRICULA = m.IDMATRICULA,
-                                         LineaAccion = m.ORIENTADORACARGODEPROCESOENPERIODO.LINEADEACCION.NOMBRELINEADEACCION,
-                                         Proceso = m.ORIENTADORACARGODEPROCESOENPERIODO.PROCESO.NOMBREPROCESO,
-                                         Orientador = m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.NOMBREORIENTADOR + " " + m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.APELLIDOORIENTADOR,
-                                         Individuo = m.PERSONA.PRIMERNOMBREPERSONA + " " + m.PERSONA.SEGUNDONOMBREPERSONA + " " + m.PERSONA.PRIMERAPELLIDOPERSONA + " " + m.PERSONA.SEGUNDOAPELLIDOPERSONA,
-                                         Periodo = m.ORIENTADORACARGODEPROCESOENPERIODO.PERIODO.NOMBREPERIODO
-                                     };
-
-
-                    return individuos.ToList();
-                }
-                else if (idLineaAccion > 0 && idProceso > 0 && idOrientador > 0 && idPeriodo > 0)
-                {
-                    var individuos = from m in db.MATRICULA
-                                     where m.IDLINEADEACCION == idLineaAccion && m.IDPROCESO == idProceso && m.IDORIENTADOR == idOrientador && idPeriodo == m.IDPERIODO
-                                     select new
-                                     {
-                                         IDMATRICULA = m.IDMATRICULA,
-                                         LineaAccion = m.ORIENTADORACARGODEPROCESOENPERIODO.LINEADEACCION.NOMBRELINEADEACCION,
-                                         Proceso = m.ORIENTADORACARGODEPROCESOENPERIODO.PROCESO.NOMBREPROCESO,
-                                         Orientador = m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.NOMBREORIENTADOR + " " + m.ORIENTADORACARGODEPROCESOENPERIODO.ORIENTADOR.APELLIDOORIENTADOR,
-                                         Individuo = m.PERSONA.PRIMERNOMBREPERSONA + " " + m.PERSONA.SEGUNDONOMBREPERSONA + " " + m.PERSONA.PRIMERAPELLIDOPERSONA + " " + m.PERSONA.SEGUNDOAPELLIDOPERSONA,
-                                         Periodo = m.ORIENTADORACARGODEPROCESOENPERIODO.PERIODO.NOMBREPERIODO
-                                     };
-
-
-                    return individuos.ToList();
-                }
-                else
-                {
-                    return new object();
-                }
             }
         }
 
@@ -188,7 +116,7 @@ namespace CapaDatos
             return new List<MATRICULA>();
         }
 
-        
+
 
         public void eliminarMatricula(int idMatricula)
         {
@@ -227,7 +155,7 @@ namespace CapaDatos
         //    {
         //        return new List<PROGRAMA>();
         //    }
-            
+
         //}
     }
 }

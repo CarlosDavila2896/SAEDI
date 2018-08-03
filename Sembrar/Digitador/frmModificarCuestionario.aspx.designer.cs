@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Sembrar.Administrador {
+namespace Sembrar.Digitador {
     
     
     public partial class frmModificarCuestionario {

@@ -57,21 +57,21 @@
         <td __designer:mapid="1ac">
             <table id="crearObjetivo" class="auto-style8">
                 <tr>
-                    <td class="auto-style2" colspan="2">Asignar un niño/joven a una linea de accion, proceso</td>
+                    <td class="auto-style2">Asignar un niño/joven a una linea de accion, proceso</td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Línea de acción:</td>
-                    <td>
-                        <asp:DropDownList ID="ddlLineaAccion" runat="server" AutoPostBack="True" DataSourceID="odsLineaAccion" DataTextField="NOMBRELINEAACCION" DataValueField="IDLINEAACCION" OnSelectedIndexChanged="ddlLineaAccion_SelectedIndexChanged" Width="65%">
-                        </asp:DropDownList>
-                        <asp:ObjectDataSource ID="odsLineaAccion" runat="server" SelectMethod="D_consutarLineasDeAccionAsociadas" TypeName="CapaDatos.clsDLineaAccion"></asp:ObjectDataSource>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style2" colspan="2">
+                    <td class="auto-style2">
                         <asp:UpdatePanel ID="updParametros" runat="server" UpdateMode="Conditional">
                             <ContentTemplate>
                                 <table class="auto-style9">
+                                    <tr>
+                                        <td class="auto-style1">Línea de acción:</td>
+                                        <td>
+                                            <asp:DropDownList ID="ddlLineaAccion" runat="server" AutoPostBack="True" DataSourceID="odsLineaAccion" DataTextField="NOMBRELINEAACCION" DataValueField="IDLINEAACCION" OnSelectedIndexChanged="ddlLineaAccion_SelectedIndexChanged" Width="65%">
+                                            </asp:DropDownList>
+                                            <asp:ObjectDataSource ID="odsLineaAccion" runat="server" SelectMethod="D_consutarLineasDeAccionAsociadas" TypeName="CapaDatos.clsDLineaAccion"></asp:ObjectDataSource>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td class="auto-style1">Proceso:</td>
                                         <td class="auto-style6">
@@ -182,7 +182,6 @@
                                 <asp:AsyncPostBackTrigger ControlID="ddlProceso" EventName="SelectedIndexChanged" />
                                 <asp:AsyncPostBackTrigger ControlID="ddlOrientador" EventName="SelectedIndexChanged" />
                                 <asp:AsyncPostBackTrigger ControlID="ddlPeriodo" EventName="SelectedIndexChanged" />
-                                <asp:AsyncPostBackTrigger ControlID="btnIngresar" EventName="Click" />
                                 <asp:AsyncPostBackTrigger ControlID="gvMatriculas" EventName="SelectedIndexChanged" />
                             </Triggers>
                         </asp:UpdatePanel>

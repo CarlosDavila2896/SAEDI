@@ -28,7 +28,7 @@ namespace Sembrar.Digitador
             nuevaMatricula.IDPERSONA = int.Parse(lstIndividuos.SelectedValue);
             if (!objDMatriculas.ingresarMatricula(nuevaMatricula))
             {
-                Response.Write("<script>window.alert('El menor de edad ya se encuentra matriculado en ese proceso en este periodo.');</script>");
+                Response.Write("<script>window.alert('La persona ya se encuentra matriculada en ese proceso en este periodo.');</script>");
             }
         }
 

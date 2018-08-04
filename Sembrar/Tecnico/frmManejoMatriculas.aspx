@@ -29,11 +29,12 @@
             width: 100%;
             height: 591px;
         }
-        .auto-style10 {
+        .auto-style11 {
             text-align: right;
-            height: 51px;
+            width: 11px;
+            height: 70px;
         }
-        </style>
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%;" __designer:mapid="18d">
@@ -56,17 +57,17 @@
         <td __designer:mapid="1ac">
             <table id="crearObjetivo" class="auto-style8">
                 <tr>
-                    <td class="auto-style2">Consultar un niño/joven a una linea de accion, proceso</td>
+                    <td class="auto-style2">Asignar un niño/joven a una linea de accion, proceso</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:UpdatePanel ID="updParametros" runat="server" UpdateMode="Conditional">
+                        <asp:UpdatePanel ID="updParametros" runat="server">
                             <ContentTemplate>
                                 <table class="auto-style9">
                                     <tr>
                                         <td class="auto-style1">Línea de acción:</td>
                                         <td>
-                                            <asp:DropDownList ID="ddlLineaAccion" runat="server" AutoPostBack="True" DataSourceID="odsLineaAccion" DataTextField="NOMBRELINEAACCION" DataValueField="IDLINEAACCION" OnSelectedIndexChanged="ddlLineaAccion_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlLineaAccion" runat="server" AutoPostBack="True" DataSourceID="odsLineaAccion" DataTextField="NOMBRELINEAACCION" DataValueField="IDLINEAACCION" OnSelectedIndexChanged="ddlLineaAccion_SelectedIndexChanged" Width="65%">
                                             </asp:DropDownList>
                                             <asp:ObjectDataSource ID="odsLineaAccion" runat="server" SelectMethod="D_consutarLineasDeAccionAsociadas" TypeName="CapaDatos.clsDLineaAccion"></asp:ObjectDataSource>
                                         </td>
@@ -74,7 +75,7 @@
                                     <tr>
                                         <td class="auto-style1">Proceso:</td>
                                         <td class="auto-style6">
-                                            <asp:DropDownList ID="ddlProceso" runat="server" AutoPostBack="True" CssClass="auto-style5" DataSourceID="odsProceso" DataTextField="NOMBREPROCESO" DataValueField="IDPROCESO" OnSelectedIndexChanged="ddlProceso_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlProceso" runat="server" AutoPostBack="True" CssClass="auto-style5" DataSourceID="odsProceso" DataTextField="NOMBREPROCESO" DataValueField="IDPROCESO" OnSelectedIndexChanged="ddlProceso_SelectedIndexChanged" Width="80%">
                                             </asp:DropDownList>
                                             <asp:ObjectDataSource ID="odsProceso" runat="server" SelectMethod="D_consutarProcesosActivosAsociados" TypeName="CapaDatos.clsDProceso">
                                                 <SelectParameters>
@@ -87,7 +88,7 @@
                                     <tr>
                                         <td class="auto-style1">Orientador</td>
                                         <td class="auto-style6">
-                                            <asp:DropDownList ID="ddlOrientador" runat="server" AutoPostBack="True" DataSourceID="odsOrientador" DataTextField="NOMBREORIENTADOR" DataValueField="IDORIENTADOR" OnSelectedIndexChanged="ddlOrientador_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlOrientador" runat="server" AutoPostBack="True" DataSourceID="odsOrientador" DataTextField="NOMBREORIENTADOR" DataValueField="IDORIENTADOR" OnSelectedIndexChanged="ddlOrientador_SelectedIndexChanged" Width="80%">
                                             </asp:DropDownList>
                                             <asp:ObjectDataSource ID="odsOrientador" runat="server" SelectMethod="D_consutarOrientadoresActivosAsociados" TypeName="CapaDatos.clsDatosOrientador">
                                                 <SelectParameters>
@@ -101,7 +102,7 @@
                                     <tr>
                                         <td class="auto-style1">Periodo:</td>
                                         <td class="auto-style6">
-                                            <asp:DropDownList ID="ddlPeriodo" runat="server" AutoPostBack="True" DataSourceID="odsPeriodo" DataTextField="NOMBREPERIODO" DataValueField="IDPERIODO" OnSelectedIndexChanged="ddlPeriodo_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlPeriodo" runat="server" AutoPostBack="True" DataSourceID="odsPeriodo" DataTextField="NOMBREPERIODO" DataValueField="IDPERIODO" OnSelectedIndexChanged="ddlPeriodo_SelectedIndexChanged" Width="80%">
                                             </asp:DropDownList>
                                             <asp:ObjectDataSource ID="odsPeriodo" runat="server" SelectMethod="D_consutarPeriodosActivosAsociados" TypeName="CapaDatos.clsDPeriodo">
                                                 <SelectParameters>
@@ -114,13 +115,34 @@
                                         <td>&nbsp;</td>
                                     </tr>
                                     <tr>
+                                        <td class="auto-style1">&nbsp;</td>
+                                        <td class="auto-style6">&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style1">Individuo</td>
+                                        <td class="auto-style4" colspan="2">
+                                            <asp:ListBox ID="lstIndividuos" runat="server" Width="80%" DataSourceID="odsIndividuos" DataTextField="NOMBRE" DataValueField="IDPERSONA" Rows="15"></asp:ListBox>
+                                            <asp:ObjectDataSource ID="odsIndividuos" runat="server" SelectMethod="D_consultaIndividuosPorLineaDeAccion" TypeName="CapaDatos.clsDatosPersona">
+                                                <SelectParameters>
+                                                    <asp:ControlParameter ControlID="ddlLineaAccion" Name="idLineaAccion" PropertyName="SelectedValue" Type="Int32" />
+                                                </SelectParameters>
+                                            </asp:ObjectDataSource>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Button ID="btnIngresar" runat="server" OnClick="btnIngresar_Click" Text="Ingresar" />
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td class="auto-style2" colspan="3">Niños/Jovenes matriculados en dicha linea de acción</td>
                                     </tr>
                                     <tr>
-                                        <td class="auto-style10" colspan="3">
+                                        <td class="auto-style11" colspan="3">
                                             <div class="auto-style2">
                                             </div>
-                                            <asp:ObjectDataSource ID="odsMatriculas" runat="server" SelectMethod="D_consultarMatriculasFiltradas" TypeName="CapaDatos.clsDMatriculas">
+                                            <asp:ObjectDataSource ID="odsMatriculas" runat="server" SelectMethod="D_consultarMatriculasFiltradas" TypeName="CapaDatos.clsDMatriculas" OldValuesParameterFormatString="original_{0}">
                                                 <SelectParameters>
                                                     <asp:ControlParameter ControlID="ddlLineaAccion" Name="idLineaAccion" PropertyName="SelectedValue" Type="Int32" />
                                                     <asp:ControlParameter ControlID="ddlProceso" Name="idProceso" PropertyName="SelectedValue" Type="Int32" />
@@ -132,7 +154,7 @@
                                     </tr>
                                     <tr>
                                         <td class="auto-style1" colspan="3">
-                                            <asp:GridView ID="gvMatriculas" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="odsMatriculas" ForeColor="Black" GridLines="Horizontal" OnRowDataBound="gvMatriculas_RowDataBound" Width="100%" OnSelectedIndexChanged="gvMatriculas_SelectedIndexChanged" DataKeyNames="IDMATRICULA">
+                                            <asp:GridView ID="gvMatriculas" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="odsMatriculas" ForeColor="Black" GridLines="Horizontal" OnRowDataBound="gvMatriculas_RowDataBound" Width="100%" DataKeyNames="IDMATRICULA" OnSelectedIndexChanged="gvMatriculas_SelectedIndexChanged" AllowPaging="True" PageSize="15">
                                                 <Columns>
                                                     <asp:CommandField ShowSelectButton="True" SelectText="Eliminar"/>
                                                 </Columns>

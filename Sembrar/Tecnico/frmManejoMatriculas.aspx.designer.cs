@@ -103,6 +103,33 @@ namespace Sembrar.Tecnico {
         protected global::System.Web.UI.WebControls.ObjectDataSource odsPeriodo;
         
         /// <summary>
+        /// Control lstIndividuos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstIndividuos;
+        
+        /// <summary>
+        /// Control odsIndividuos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsIndividuos;
+        
+        /// <summary>
+        /// Control btnIngresar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnIngresar;
+        
+        /// <summary>
         /// Control odsMatriculas.
         /// </summary>
         /// <remarks>

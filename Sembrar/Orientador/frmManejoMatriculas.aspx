@@ -1,51 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Orientador/PrincipalOrientador.Master" AutoEventWireup="true" CodeBehind="frmManejoMatriculas.aspx.cs" Inherits="Sembrar.Orientador.frmManejoMatriculas"  EnableSessionState="True" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-    .auto-style1 {
-        text-align: right;
-    }
-    .auto-style2 {
-        text-align: center;
-    }
-    .auto-style4 {
-        text-align: left;
-    }
-    .auto-style5 {
-        margin-left: 0;
-    }
-    .auto-style6 {
-        text-align: left;
-        width: 339px;
-    }
-        .auto-style7 {
-            height: 32px;
-            text-align: center;
-        }
-        .auto-style8 {
-            width: 100%;
-            height: 723px;
-        }
-        .auto-style9 {
-            width: 100%;
-            height: 591px;
-        }
-        .auto-style10 {
-            text-align: left;
-            width: 246px;
-        }
-        .auto-style11 {
-            text-align: right;
-            height: 18px;
-        }
-        .auto-style12 {
-            text-align: left;
-            width: 246px;
-            height: 18px;
-        }
-        .auto-style13 {
-            height: 18px;
-        }
-    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%;" __designer:mapid="18d">

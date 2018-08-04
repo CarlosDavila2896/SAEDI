@@ -136,14 +136,14 @@
                     </li>
                     <li><a>Reportes<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                         <ul>
-                            <li><a href="../Administrador/frmReporteGenericoTodos.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Parametrizable</a></li>
+                            <li><a href="../Administrador/frmReporteGenericoTodos.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Parametrizable Cuestionarios</a></li>
                             <li><a href="../Administrador/frmReportePreguntasCerradas.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Preguntas Cerradas</a></li>
-                            <li><a href="../Administrador/frmReporteAsistenciaAnual.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Anual</a></li>
-                            <li><a href="../Administrador/frmReporteAsistenciaAnualReuniones.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Anual Reuniones</a></li>
-                            <li><a href="../Administrador/frmReporteAsistenciaMensual.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Mensual</a></li>
-                            <li><a href="../Administrador/frmReporteAsistenciaRango.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Por Rango</a></li>
-                            <li><a href="../Administrador/frmReporteAsistenciaPorPersona.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Reporte Asistencia Mensual por persona</a></li>                            
+                            <li><a href="../Administrador/frmReporteAsistenciaRango.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Por Rango</a></li>                     
                             <li><a href="../Administrador/frmReporteAsistenciaDiaria.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Diaria</a></li>
+                            <li><a href="../Administrador/frmReporteAsistenciaMensual.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Mensual</a></li> 
+                            <li><a href="../Administrador/frmReporteAsistenciaAnual.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Anual</a></li>  
+                            <li><a href="../Administrador/frmReporteAsistenciaPorPersona.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Mensual por Persona Reuniones</a></li>  
+                            <li><a href="../Administrador/frmReporteAsistenciaAnualReuniones.aspx"><i class="fa fa-list-ul" aria-hidden="true"></i>Asistencia Anual Reuniones</a></li>  
                         </ul>
                     </li>
                     <li><a>Manejo de Usuarios<i class="fa fa-angle-down" aria-hidden="true"></i></a>
